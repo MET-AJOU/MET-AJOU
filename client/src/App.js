@@ -18,6 +18,7 @@ function App() {
   loader3D(loader,scene,'./models/counter.glb')
   loader3D(loader,scene,'./models/sofa.glb')
   loader3D(loader,scene,'./models/table.glb')
+  loader3D(loader,scene,'./models/char.glb')
 
 
 // 조명
@@ -97,8 +98,18 @@ function loader3D(loader,scene,url){
       url,
       function (glb) {
         const root = glb.scene;
-        root.scale.set(0.12,0.12,0.12)
+        // root.scale.set(0.12,0.12,0.12)
+        
+        root.scale.set(0.01,0.01,0.01)
         scene.add(root)
+
+        if(glb.animations !== []){
+          let mixer = new THREE.AnimationMixer(root)
+          console.log(glb.animations)
+          console.log(glb)
+          const action = mixer.clipAction(glb.animations[0])
+          action.play()
+        }
       },
       (xhr) => {
           console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
