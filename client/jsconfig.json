@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@Atoms/*": ["./Components/Atoms/*"],
+      "@Molecules/*": ["./Components/Molecules/*"],
+      "@Organisms/*": ["./Components/Organisms/*"],
+      "@Templates/*": ["./Components/Templates/*"],
+      "@Pages/*": ["./Components/Pages/*"],
+      "@Routes/*": ["./Routes/*"],
+      "@API/*": ["./Util/API/*"],
+      "@Constant/*": ["./Util/Constant/*"],
+      "@Hook/*": ["./Util/Hook/*"],
+      "@src/*": ["./*"],
+      "@Common/*": ["./Util/Common/*"]
+    }
+  },
+  "include": ["craco.config.js"]
+}
