@@ -3,32 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^6.4.3",
+    "@react-three/drei": "^8.8.4",
+    "@react-three/fiber": "^7.0.26",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.24.0",
+    "drei": "^2.2.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^2.1.2",
-    "axios": "^0.24.0",
-    "craco-alias": "^3.0.1",
     "react-loader-spinner": "^5.1.0",
     "react-router-dom": "^5.3.0",
+    "react-scripts": "^5.0.0",
+    "react-three-fiber": "^6.0.13",
     "styled-components": "^5.3.3",
-    "styled-reset": "^4.3.4"
+    "styled-reset": "^4.3.4",
+    "three": "^0.137.5",
+    "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -43,18 +40,9 @@
     ]
   },
   "devDependencies": {
-    "react-three-fiber": "^6.0.13",
-    "three": "^0.135.0",
     "@babel/plugin-transform-react-jsx": "^7.16.0",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.4.1",
-    "react-app-rewired": "^2.1.8"
+    "react-app-rewire-alias": "^1.1.7",
+    "react-app-rewired": "^2.1.11"
   }
 }
