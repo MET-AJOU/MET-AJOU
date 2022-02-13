@@ -1,43 +1,27 @@
-import React, { useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import React, { useRef, useState, Suspense } from "react";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import TestContainer from "./styles";
 import { OrbitControls } from "@react-three/drei";
 
-const Box = (props) => {
-  const mesh = useRef();
+import Character from "../Atoms/Character";
+import Building from "@Atoms/Building/.";
 
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
-
-  useFrame((state, delta) => (mesh.current.rotation.x += 0.01));
-
-  return (
-    <mesh
-      {...props}
-      ref={mesh}
-      //   scale={1}
-      scale={active ? 1.5 : 1}
-      onClick={(event) => setActive(!active)}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}
-    >
-      <boxGeometry args={[0.5, 0.5, 0.5]} />
-      {/* <meshStandardMaterial color={"orange"} /> */}
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
-    </mesh>
-  );
-};
 const TestPage = () => {
+  const [cameraPosition, setcameraPosition] = useState({ x: 0, y: 0, z: 0 });
+  const { x, y, z } = cameraPosition;
+
   return (
-    <TestContainer>
-      <Canvas>
-        <OrbitControls />
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <Box position={[2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
-      </Canvas>
-    </TestContainer>
+    <Suspense fallback={null}>
+      <TestContainer>
+        <Canvas>
+          <OrbitControls />
+          <ambientLight />
+          <pointLight position={[10, 10, 10]} />
+          <Building position={[0, 0, 0]} src="models/ajou_building_01.gltf" />
+          <Character />
+        </Canvas>
+      </TestContainer>
+    </Suspense>
   );
 };
 
