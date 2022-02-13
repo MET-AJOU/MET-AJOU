@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@Atoms": ["src/Components/Atoms"],
+      "@Molecules": ["src/Components/Molecules"],
+      "@Organisms": ["src/Components/Organisms"],
+      "@Templates": ["src/Components/Templates"],
+      "@Pages": ["src/Components/Pages"],
+      "@Routes": ["src/Routes"],
+      "@API": ["src/Util/API"],
+      "@Constant": ["src/Util/Constant"],
+      "@Hook": ["src/Util/Hook"],
+      "@Common": ["src/Util/Common"]
+    }
+  }
+}
