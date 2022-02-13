@@ -1,5 +1,5 @@
 import { useRef } from "react";
-
+import { withRouter } from "react-router-dom";
 import LoginButton from "@Atoms/Button/Login";
 import Input from "@Atoms/Input";
 
@@ -8,7 +8,7 @@ import { LoginInputType } from "@Atoms/Input/Type.js";
 
 import { InputContainer, Title } from "./styles";
 
-const LoginInput = () => {
+const LoginInput = ({ history }) => {
   const idRef = useRef();
   const pwRef = useRef();
 
@@ -23,6 +23,7 @@ const LoginInput = () => {
       current: { value: pwValue },
     } = pwRef;
 
+    history.push("/map1");
     console.log(idValue, pwValue);
   };
 
@@ -49,4 +50,4 @@ const LoginInput = () => {
   );
 };
 
-export default LoginInput;
+export default withRouter(LoginInput);

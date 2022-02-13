@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const MapPage = () => {
-  const [dis, setDis] = useState(2);
-
   const scene = new THREE.Scene();
 
   // 모델 불러오기
   const loader = new GLTFLoader();
   // 모델 함수
-  loader3D(loader, scene, "./models/chair.glb");
   loader3D(loader, scene, "./models/counter.glb");
+  loader3D(loader, scene, "./models/chair.glb");
   loader3D(loader, scene, "./models/sofa.glb");
   loader3D(loader, scene, "./models/table.glb");
   // loader3D(loader,scene,'./models/char.glb')
@@ -48,7 +45,7 @@ const MapPage = () => {
 
   let diss = 5;
   function animate() {
-    diss -= 0.01;
+    // diss -= 0.01;
     camera.position.set(0, 0.5, diss);
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
@@ -56,30 +53,8 @@ const MapPage = () => {
 
   animate();
 
-  // 내 의도는 키 이벤트 발생 => dis 수정 => camera위치 이동
-  // useLayoutEffect(() => {
-  //   camera.position.set(0,0.5,dis)
-  //   scene.add(camera)
-  //   renderer.render(scene, camera)
-  // },[dis])
-
-  useEffect(() => {
-    window.addEventListener("keydown", move);
-  }, [dis]);
-
-  useEffect(() => {
-    document.body.innerHTML = "";
-    document.body.appendChild(renderer.domElement);
-  }, []);
-
-  function move(e) {
-    if (e.key === "ArrowUp") {
-      setDis((prev) => prev + 0.1);
-    }
-    if (e.key === "ArrowDown") {
-      setDis((prev) => prev - 0.1);
-    }
-  }
+  document.body.innerHTML = "";
+  document.body.appendChild(renderer.domElement);
 
   return null;
 };
@@ -91,15 +66,16 @@ function loader3D(loader, scene, url) {
   // 동기적으로 할 수 있으면 requestAnimationFrame안해도 될거같은데
   loader.load(
     url,
-    function (glb) {
-      const root = glb.scene;
+    async function (glb) {
+      const root = await glb.scene;
       root.scale.set(0.12, 0.12, 0.12);
+      console.log(root);
+      console.log(root.scale);
+
       scene.add(root);
 
-      if (glb.animations !== []) {
+      if (glb.animations.length !== 0) {
         let mixer = new THREE.AnimationMixer(root);
-        console.log(glb.animations);
-        console.log(glb);
         const action = mixer.clipAction(glb.animations[0]);
         action.play();
       }
