@@ -1,7 +1,7 @@
 import Title from "./styles";
 
 const MainHeaderLeft = () => {
-  return <Title>MET:AJOU</Title>;
+    return <Title>MET:AJOU</Title>;
 };
 
 export default MainHeaderLeft;

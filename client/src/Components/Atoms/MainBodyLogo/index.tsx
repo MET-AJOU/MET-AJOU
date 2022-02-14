@@ -1,7 +1,7 @@
 import BodyLogoContainer from "./styles";
 
 const MainBodyLogo = () => {
-  return <BodyLogoContainer />;
+    return <BodyLogoContainer />;
 };
 
 export default MainBodyLogo;

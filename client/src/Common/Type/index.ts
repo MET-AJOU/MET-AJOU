@@ -30,3 +30,7 @@ export interface BasicInputProps extends BasicAtomProps {
     inputRef?: any;
     onChange?: () => void;
 }
+
+export interface HeaderProps {
+    handleStartClick: () => void;
+}

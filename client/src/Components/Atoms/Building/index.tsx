@@ -2,6 +2,7 @@ import { useGLTF } from "@react-three/drei";
 
 interface Props {
     src: string;
+    position?: number[];
 }
 const Building = ({ src }: Props) => {
     const { nodes, materials } = useGLTF(src);
