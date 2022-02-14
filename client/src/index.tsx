@@ -2,16 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-import GlobalStyle from "@Common/reset";
+import GlobalStyle from "@Style/reset";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <GlobalStyle />
-      <App />
-    </Router>
-  </React.StrictMode>,
-  document.getElementById("root")
+    <React.StrictMode>
+        <Router>
+            <GlobalStyle />
+            <App />
+        </Router>
+    </React.StrictMode>,
+    document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
