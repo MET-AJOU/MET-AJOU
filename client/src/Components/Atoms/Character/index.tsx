@@ -8,12 +8,11 @@ const Character = () => {
     const [active, setActive] = useState(false);
     const [myPosition, setMyPosition] = useState({ x: 0, y: 0, z: 0 });
     const { x, y, z } = myPosition;
-    console.log(x, y, z);
 
-    const moveLeft = () => setMyPosition(({ x, y, z }) => ({ x: x - 1, y, z }));
-    const moveRight = () => setMyPosition(({ x, y, z }) => ({ x: x + 1, y, z }));
-    const moveUp = () => setMyPosition(({ x, y, z }) => ({ x, y: y, z: z - 1 }));
-    const moveDown = () => setMyPosition(({ x, y, z }) => ({ x, y: y, z: z + 1 }));
+    const moveLeft = () => setMyPosition(({ x, y, z }) => ({ x: x - 0.01, y, z }));
+    const moveRight = () => setMyPosition(({ x, y, z }) => ({ x: x + 0.01, y, z }));
+    const moveUp = () => setMyPosition(({ x, y, z }) => ({ x, y: y, z: z - 0.01 }));
+    const moveDown = () => setMyPosition(({ x, y, z }) => ({ x, y: y, z: z + 0.01 }));
 
     function characterMove(event: KeyboardEvent) {
         const { key } = event;
