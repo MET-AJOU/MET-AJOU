@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import LoginButton from "@Atoms/Button/Login";
 import Input from "@Atoms/Input";
 
-import { LoginButtonType } from "@Atoms/Button/Type.js";
-import { LoginInputType } from "@Atoms/Input/Type.js";
+import { LoginButtonType } from "@Atoms/Button/Type";
+import { LoginInputType } from "@Atoms/Input/Type";
 
 import { InputContainer, Title } from "./styles";
 

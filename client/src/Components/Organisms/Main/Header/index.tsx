@@ -1,6 +1,6 @@
-import MainHeaderLeft from "@Molecules/Main/HeaderLeft/index.jsx";
-import MainHeaderRight from "@Molecules/Main/HeaderRight/index.jsx";
-import { HeaderContainer } from "./styles.jsx";
+import MainHeaderLeft from "@Molecules/Main/HeaderLeft/index";
+import MainHeaderRight from "@Molecules/Main/HeaderRight/index";
+import { HeaderContainer } from "./styles";
 import { HeaderProps } from "@Type/.";
 
 const MainHeader = ({ handleStartClick }: HeaderProps) => {

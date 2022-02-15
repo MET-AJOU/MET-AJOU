@@ -1,6 +1,5 @@
 export interface RouterProps {
     component: () => JSX.Element;
-    path: string;
 }
 
 interface BasicAtomProps {
