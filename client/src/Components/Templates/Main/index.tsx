@@ -5,20 +5,20 @@ import MainFooter from "@Organisms/Main/Footer";
 import MainModal from "@Organisms/Main/Modal";
 
 const MainTemplate = () => {
-    const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(false);
 
-    const handleStartClick = () => {
-        setModal((prev) => !prev);
-    };
+  const handleStartClick = () => {
+    setModal((prev) => !prev);
+  };
 
-    return (
-        <>
-            <MainHeader handleStartClick={handleStartClick} />
-            <MainBody />
-            <MainFooter />
-            {modal && <MainModal />}
-        </>
-    );
+  return (
+    <>
+      <MainHeader handleStartClick={handleStartClick} />
+      <MainBody />
+      <MainFooter />
+      {modal && <MainModal />}
+    </>
+  );
 };
 
 export default MainTemplate;

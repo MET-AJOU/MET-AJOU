@@ -1,10 +1,10 @@
 import ModalItemContainer from "./styles";
 
 interface Props {
-    handleMoveEvent: () => void;
-    title: string;
+  handleMoveEvent: () => void;
+  title: string;
 }
 const ModalItem = ({ handleMoveEvent, title }: Props) => {
-    return <ModalItemContainer onClick={handleMoveEvent}>{title}</ModalItemContainer>;
+  return <ModalItemContainer onClick={handleMoveEvent}>{title}</ModalItemContainer>;
 };
 export default ModalItem;

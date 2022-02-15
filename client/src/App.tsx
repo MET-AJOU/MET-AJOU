@@ -8,15 +8,15 @@ import TestPage from "@Pages/Test";
 import TestPage2 from "@Pages/Test2";
 
 const App = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<PublicRoute component={MainPage} />} />
-            <Route path="/login" element={<PublicRoute component={LoginPage} />} />
-            <Route path="/map" element={<PublicRoute component={MapPage} />} />
-            <Route path="/map1" element={<PrivateRoute component={TestPage} />} />
-            <Route path="/map2" element={<PrivateRoute component={TestPage2} />} />
-        </Routes>
-    );
+  return (
+    <Routes>
+      <Route path="/" element={<PublicRoute component={MainPage} />} />
+      <Route path="/login" element={<PublicRoute component={LoginPage} />} />
+      <Route path="/map" element={<PublicRoute component={MapPage} />} />
+      <Route path="/map1" element={<PrivateRoute component={TestPage} />} />
+      <Route path="/map2" element={<PrivateRoute component={TestPage2} />} />
+    </Routes>
+  );
 };
 
 export default App;

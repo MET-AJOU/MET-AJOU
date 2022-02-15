@@ -4,12 +4,12 @@ import { HeaderContainer } from "./styles";
 import { HeaderProps } from "@Type/.";
 
 const MainHeader = ({ handleStartClick }: HeaderProps) => {
-    return (
-        <HeaderContainer>
-            <MainHeaderLeft />
-            <MainHeaderRight handleStartClick={handleStartClick} />
-        </HeaderContainer>
-    );
+  return (
+    <HeaderContainer>
+      <MainHeaderLeft />
+      <MainHeaderRight handleStartClick={handleStartClick} />
+    </HeaderContainer>
+  );
 };
 
 export default MainHeader;
