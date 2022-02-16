@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const TestContainer = styled.div`
+const MetaContainer = styled.div`
   width: 100vw;
   height: 100vh;
 `;
 
-export default TestContainer;
+export default MetaContainer;
