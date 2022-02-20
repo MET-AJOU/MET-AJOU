@@ -1,9 +1,11 @@
-import { Route, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RouterProps } from "@Type/.";
 
 const PublicRoute = ({ component: Component }: RouterProps) => {
   const user = false;
-  return <>{user ? <Navigate to="/map" /> : <Component />}</>;
+  const navigator = useNavigate();
+  if (user) navigator("/map");
+  return <Component />;
 };
 
 export default PublicRoute;

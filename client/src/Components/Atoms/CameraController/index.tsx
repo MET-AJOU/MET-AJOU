@@ -11,6 +11,7 @@ const Character = () => {
   // position은 x는 좌 / 우 y는 위 / 아래 z는 깊이
   const { x, y, z } = myPosition;
   const { dx, dy } = director;
+  // dy는 라디안
 
   const {
     // y는 좌 / 우
@@ -20,15 +21,40 @@ const Character = () => {
   } = useThree();
 
   // 언덕오르면 myposition y값 계산 해줘야할듯
-  const moveLeft = () => {
-    console.log("rotation x : ", rotation.x);
-    console.log("rotation y : ", rotation.y);
-    console.log(myPosition);
-    setMyPosition((position) => ({ ...position, x: position.x - 0.05 }));
-  };
-  const moveRight = () => setMyPosition((position) => ({ ...position, x: position.x + 0.05 }));
-  const moveUp = () => setMyPosition((position) => ({ ...position, z: position.z - 0.05 }));
-  const moveDown = () => setMyPosition((position) => ({ ...position, z: position.z + 0.05 }));
+  // rotation y: 좌우 움직임 radian
+
+  const getDxDy = (radian: number) => [Math.cos(radian), Math.sin(radian)];
+  // const move = () => {
+  //   setMyPosition((position) => {
+  //     console.log(position);
+  //     const [_x, _z] = getDxDy(rotation.y);
+  //     return { ...position, x: position.x + _x, y: position.z + _z };
+  //   });
+  // };
+
+  const moveLeft = () =>
+    setMyPosition((position) => {
+      const [_x, _z] = getDxDy(rotation.y);
+      return { ...position, x: position.x - _x, z: position.z + _z };
+    });
+
+  // };
+  const moveRight = () =>
+    setMyPosition((position) => {
+      const [_x, _z] = getDxDy(rotation.y);
+      return { ...position, x: position.x + _x, z: position.z - _z };
+    });
+  const moveUp = () =>
+    setMyPosition((position) => {
+      const [_x, _z] = getDxDy(rotation.y);
+      return { ...position, x: position.x - _z, z: position.z - _x };
+    });
+
+  const moveDown = () =>
+    setMyPosition((position) => {
+      const [_x, _z] = getDxDy(rotation.y);
+      return { ...position, x: position.x + _z, z: position.z + _x };
+    });
 
   // 이건 myposition x,y,z에 따라 바뀌어야할듯
   const moveDirectorLeft = () =>

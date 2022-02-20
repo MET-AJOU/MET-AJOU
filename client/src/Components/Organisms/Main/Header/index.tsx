@@ -1,7 +1,7 @@
 import MainHeaderLeft from "@Molecules/Main/HeaderLeft/index";
 import MainHeaderRight from "@Molecules/Main/HeaderRight/index";
-import { HeaderContainer } from "./styles";
 import { HeaderProps } from "@Type/.";
+import { HeaderContainer } from "./styles";
 
 const MainHeader = ({ handleStartClick }: HeaderProps) => {
   return (
