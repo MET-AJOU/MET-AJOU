@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import Building from "@Atoms/Building/.";
 import CameraController from "@Atoms/CameraController";
+import * as THREE from "three";
 import MetaContainer from "./styles";
 
 // import Character from "@Atoms/Character";
@@ -17,6 +18,7 @@ const MapContainer = () => {
         <Building src="models/ajou_road_02.gltf" />
         <Building src="models/ajou_road_03.gltf" />
         <CameraController />
+        <primitive position={[0, 0, -3]} object={new THREE.AxesHelper(10)} />
         {/* <Character /> */}
       </Canvas>
     </MetaContainer>
