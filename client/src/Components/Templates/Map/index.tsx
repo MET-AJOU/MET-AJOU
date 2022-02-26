@@ -5,10 +5,11 @@ import Building from "@Atoms/Building/.";
 import CameraController from "@Atoms/CameraController";
 import * as THREE from "three";
 import { OrbitControls, TrackballControls } from "@react-three/drei";
-import Plane from "@Atoms/Plane";
 import BasicPlane from "@Atoms/BasicPlane";
+import Plane from "@Atoms/Plane";
 import Caracter from "@Atoms/Character";
 import Cube from "@Atoms/Building/test";
+import FakePlanes from "@Atoms/FakePlanes";
 import MetaContainer from "./styles";
 
 // import Character from "@Atoms/Character";
@@ -17,22 +18,21 @@ const MapContainer = () => {
   return (
     <MetaContainer>
       <Canvas>
+        <OrbitControls />
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} />
         <Physics>
-          {/* <TrackballControls /> */}
-          <OrbitControls />
-          <ambientLight />
-          <pointLight position={[10, 10, 10]} />
-          <BasicPlane position={[0, -1, 0]} />
-          <Building position={[0, 2, 0]} src="models/ajou_road_01.gltf" args={[1.786, 0, 4.11]} />
-          <Building position={[0, 2, 0]} src="models/ajou_road_02.gltf" args={[7.933, 0.108, 4.11]} />
-          <Building src="models/ajou_road_03.gltf" position={[0, 2, 0]} args={[1.786, 0.108, 4.11]} />
-          <Building src="models/ajou_building_01.gltf" position={[0, 2, 0]} args={[5.025, 0, 1.724]} />
-          <Building src="models/ajou_building_02.gltf" position={[0, 2, 0]} args={[5.025, 0, 1.724]} />
+          <BasicPlane position={[0, -2, 0]} />
+          <FakePlanes />
+          <Building color="blue" position={[0, 2, 0]} src="models/ajou_road_01.gltf" />
+          <Building position={[0, 2, 0]} src="models/ajou_road_02.gltf" color="white" />
+          <Building color="black" src="models/ajou_road_03.gltf" position={[0, 2, 0]} />
+          <Building color="red" src="models/ajou_building_01.gltf" position={[0, 2, 0]} args={[5.025, 2.173, 1.724]} />
+          <Building color="orange" src="models/ajou_building_02.gltf" position={[0, 2, 0]} args={[5.025, 2.173, 1.724]} />
           <Cube />
-          <Caracter position={[-3.5, 4, 0]} />
+          <Caracter position={[-2.5, 8, -6]} />
           <CameraController />
           <primitive position={[0, 0, -3]} object={new THREE.AxesHelper(10)} />
-          {/* <Character /> */}
         </Physics>
       </Canvas>
     </MetaContainer>
