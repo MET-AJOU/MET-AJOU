@@ -38,3 +38,18 @@ export interface APIProps {
   api: (data?: any) => any;
   data?: any;
 }
+
+export interface SlopeType {
+  x_top_left: number;
+  x_top_right: number;
+  x_bottom_left: number;
+  x_bottom_right: number;
+  y_top_left: number;
+  y_top_right: number;
+  y_bottom_left: number;
+  y_bottom_right: number;
+  z_top_left: number;
+  z_top_right: number;
+  z_bottom_left: number;
+  z_bottom_right: number;
+}
