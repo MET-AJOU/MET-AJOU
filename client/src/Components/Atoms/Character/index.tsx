@@ -2,7 +2,7 @@
 // import { useFrame } from "@react-three/fiber";
 
 import { useBox } from "@react-three/cannon";
-import { Box } from "@react-three/drei";
+// import { Box } from "@react-three/drei";
 
 // const Character = () => {
 //   const character = useRef<THREE.Mesh>(null);
@@ -50,13 +50,18 @@ const Caracter = (props: any) => {
   const [ref] = useBox(() => ({
     rotation: [-Math.PI / 2, 0, 0],
     mass: 100,
+    type: "Dynamic",
+    args: [0.1, 0.1, 0.1],
     ...props,
   }));
+  console.log(ref.current);
 
   return (
-    <Box ref={ref}>
-      <meshNormalMaterial />
-    </Box>
+    // eslint-disable-next-line react/destructuring-assignment
+    <mesh castShadow position={props.position} ref={ref}>
+      <boxBufferGeometry attach="geometry" args={[0.1, 0.1, 0.1]} />
+      <meshStandardMaterial color="white" />
+    </mesh>
   );
 };
 
