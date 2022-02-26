@@ -49,7 +49,7 @@ import { useBox } from "@react-three/cannon";
 const Caracter = (props: any) => {
   const [ref] = useBox(() => ({
     rotation: [-Math.PI / 2, 0, 0],
-    mass: 100,
+    mass: 10,
     type: "Dynamic",
     args: [0.1, 0.1, 0.1],
     ...props,
