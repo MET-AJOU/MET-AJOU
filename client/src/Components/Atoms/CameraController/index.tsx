@@ -6,7 +6,7 @@ import * as THREE from "three";
 
 const Character = () => {
   const mesh = useRef<THREE.Mesh>();
-  const [myPosition, setMyPosition] = useState({ x: 0, y: 0, z: 0 });
+  const [myPosition, setMyPosition] = useState({ x: 0, y: 10, z: 0 });
   const [director, setDirector] = useState({ dx: 0, dy: 0, dz: 0 });
   //   const [director, setDirector] = useState({ dx: 0, dy: 0, dz: 0 });
   //   const { dx, dy, dz } = director;
