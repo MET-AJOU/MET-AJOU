@@ -37,14 +37,7 @@ const Character = () => {
   // 언덕오르면 myposition y값 계산 해줘야할듯
   // rotation y: 좌우 움직임 radian
 
-  const getDxDy = (radian: number) => [Math.cos(radian) * 0.05, Math.sin(radian) * 0.05];
-  // const move = () => {
-  //   setMyPosition((position) => {
-  //     console.log(position);
-  //     const [_x, _z] = getDxDy(rotation.y);
-  //     return { ...position, x: position.x + _x, y: position.z + _z };
-  //   });
-  // };
+  const getDxDy = (dyRadian: number, dxRadian: number) => [Math.cos(dxRadian) * Math.cos(dyRadian), Math.cos(dxRadian) * Math.sin(dyRadian), Math.sin(dxRadian)];
 
   const moveLeft = () =>
     setMyPosition((position) => {
