@@ -51,6 +51,7 @@
         ]
     },
     "devDependencies": {
+        "@types/recoil": "^0.0.9",
         "@types/three": "^0.137.0",
         "@typescript-eslint/eslint-plugin": "^5.12.0",
         "@typescript-eslint/parser": "^5.12.0",

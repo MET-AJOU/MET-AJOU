@@ -53,3 +53,9 @@ export interface SlopeType {
   z_bottom_left: number;
   z_bottom_right: number;
 }
+
+export interface PositionType {
+  x: number;
+  y: number;
+  z: number;
+}
