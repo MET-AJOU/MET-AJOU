@@ -1,52 +1,13 @@
-// import { useEffect, useRef, useState } from "react";
-// import { useFrame } from "@react-three/fiber";
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useBox } from "@react-three/cannon";
-// import { Box } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
+import { positionAtom } from "@Recoils/.";
+import { PositionType } from "@Type/.";
+import { useEffect, useLayoutEffect } from "react";
+import { useRecoilState } from "recoil";
+import * as THREE from "three";
 
-// const Character = () => {
-//   const character = useRef<THREE.Mesh>(null);
-
-//   const [active, setActive] = useState(false);
-//   const [myPosition, setMyPosition] = useState({ x: 0, y: 0, z: 0 });
-//   const { x, y, z } = myPosition;
-
-//   const moveLeft = () => setMyPosition((position) => ({ ...position, x: position.x - 0.1 }));
-//   const moveRight = () => setMyPosition((position) => ({ ...position, x: position.x + 0.1 }));
-//   const moveUp = () => setMyPosition((position) => ({ ...position, z: position.z - 0.1 }));
-//   const moveDown = () => setMyPosition((position) => ({ ...position, z: position.z + 0.1 }));
-
-//   function characterMove(event: KeyboardEvent) {
-//     const { key } = event;
-//     if (key === "w" || key === "W") moveUp();
-//     if (key === "a" || key === "A") moveLeft();
-//     if (key === "d" || key === "D") moveRight();
-//     if (key === "s" || key === "S") moveDown();
-//   }
-
-//   useEffect(() => {
-//     if (!character.current) return;
-//     document.addEventListener("keydown", characterMove);
-//     // eslint-disable-next-line consistent-return
-//     return () => {
-//       document.removeEventListener("keydown", characterMove);
-//     };
-//   }, []);
-
-//   useFrame(() => {
-//     if (!character.current) return;
-//     character.current.rotation.x += 0.01;
-//   });
-
-//   return (
-//     <mesh position={[x, y, z]} ref={character} scale={active ? 1.5 : 1} onClick={() => setActive(!active)}>
-//       <boxGeometry args={[0.5, 0.5, 0.5]} />
-//       {/* <meshStandardMaterial color={"orange"} /> */}
-//       <meshStandardMaterial />
-//     </mesh>
-//   );
-// };
-const Caracter = (props: any) => {
+const Character = (props: any) => {
   const [ref] = useBox(() => ({
     rotation: [-Math.PI / 2, 0, 0],
     mass: 10,
@@ -54,15 +15,65 @@ const Caracter = (props: any) => {
     args: [0.1, 0.1, 0.1],
     ...props,
   }));
-  console.log(ref.current);
 
+  const [myPosition, setMyPosition] = useRecoilState<PositionType>(positionAtom);
+  const { x, y, z } = myPosition;
+  // y는 좌 / 우
+  // x는 상 / 하
+  // z는 필요 없는거 같아서 주석처리함
+  const { camera } = useThree();
+
+  const moveLeft = () =>
+    setMyPosition((position: PositionType) => {
+      console.log(position);
+      return { ...position, x: position.x - 0.1 };
+    });
+
+  // };
+  const moveRight = () =>
+    setMyPosition((position: PositionType) => {
+      return { ...position, x: position.x + 0.1 };
+    });
+  const moveUp = () =>
+    setMyPosition((position: PositionType) => {
+      return { ...position, y: position.y + 0.1 };
+    });
+
+  const moveDown = () =>
+    setMyPosition((position: PositionType) => {
+      return { ...position, y: position.y + 0.1 };
+    });
+
+  function characterMove(event: KeyboardEvent) {
+    const { keyCode: key } = event;
+    console.log(myPosition);
+    if (key === 87) moveUp();
+    if (key === 65) moveLeft();
+    if (key === 68) moveRight();
+    if (key === 83) moveDown();
+  }
+
+  useLayoutEffect(() => {
+    camera.position.set(0, 10, 10);
+    camera.lookAt(ref.current!.position);
+  }, [camera]);
+
+  useEffect(() => {
+    document.addEventListener("keydown", characterMove);
+    return () => {
+      document.removeEventListener("keydown", characterMove);
+    };
+  }, [myPosition]);
+
+  useFrame(() => {});
+
+  // eslint-disable-next-line react/destructuring-assignment
   return (
-    // eslint-disable-next-line react/destructuring-assignment
-    <mesh castShadow position={props.position} ref={ref}>
+    <mesh castShadow ref={ref}>
       <boxBufferGeometry attach="geometry" args={[0.1, 0.1, 0.1]} />
-      <meshStandardMaterial color="white" />
+      <meshStandardMaterial color="ref" />
     </mesh>
   );
 };
 
-export default Caracter;
+export default Character;

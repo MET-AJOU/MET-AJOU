@@ -13,7 +13,7 @@
             "@Type/*": ["./Common/Type/*"],
             "@API/*": ["./API/*"],
             "@Route/*": ["./Routes/*"],
-            "@Recoil/*": ["./Recoil/*"],
+            "@Recoils/*": ["./Recoils/*"],
             "@src/*": ["./*"]
         }
     }

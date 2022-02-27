@@ -3,10 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
+import { useBox } from "@react-three/cannon";
 
 const Character = () => {
-  const mesh = useRef<THREE.Mesh>();
-  const [myPosition, setMyPosition] = useState({ x: 0, y: 0, z: 0 });
+  const [ref, api] = useBox(() => ({
+    rotation: [-Math.PI / 2, 0, 0],
+    mass: 10,
+    type: "Dynamic",
+    args: [0.1, 0.1, 0.1],
+  }));
+  const [myPosition, setMyPosition] = useState({ x: 3, y: 3, z: 3 });
   const [director, setDirector] = useState({ dx: 0, dy: 0, dz: 0 });
   //   const [director, setDirector] = useState({ dx: 0, dy: 0, dz: 0 });
   //   const { dx, dy, dz } = director;
@@ -124,15 +130,16 @@ const Character = () => {
     // lerp 사용하면 자연스럽게 이동함
     state.camera.position.lerp(new THREE.Vector3(x, y, z), 0.1);
     // eslint-disable-next-line no-loss-of-precision
-    mesh.current!.position.lerp(new THREE.Vector3(-5.73214934663476, -1.0313617587600826, -1.519592256043141), 1);
+
+    // console.log(ref.current!.position);
     state.camera.rotation.x = dx;
     state.camera.rotation.y = dy;
     state.camera.rotation.z = dz;
   });
 
   return (
-    <mesh ref={mesh} scale={1}>
-      <boxGeometry args={[1, 1, 1]} />
+    <mesh ref={ref}>
+      <boxGeometry args={[0.1, 0.1, 0.1]} />
       <meshStandardMaterial color="orange" />
     </mesh>
   );
