@@ -12,26 +12,16 @@ const Character = () => {
     type: "Dynamic",
     args: [0.1, 0.1, 0.1],
   }));
-  const [myPosition, setMyPosition] = useState({ x: 3, y: 3, z: 3 });
+  const [myPosition, setMyPosition] = useState({ x: -4, y: 2, z: 5 });
   const [director, setDirector] = useState({ dx: 0, dy: 0, dz: 0 });
-  //   const [director, setDirector] = useState({ dx: 0, dy: 0, dz: 0 });
-  //   const { dx, dy, dz } = director;
 
   // position은 x는 좌 / 우 y는 위 / 아래 z는 깊이
   const { x, y, z } = myPosition;
   const { dx, dy, dz } = director;
-  console.log(x, y, z);
-  console.log(dx, dy);
   // dx,dy 는 라디안. dx는 z축 dy는 평면
   // dx : xy 평면 , dy : xz 평면 , dz: yz평면
 
-  const {
-    // y는 좌 / 우
-    // x는 상 / 하
-    // z는 필요 없는거 같아서 주석처리함
-    camera,
-  } = useThree();
-
+  const { camera } = useThree();
   const { rotation } = camera;
 
   // 언덕오르면 myposition y값 계산 해줘야할듯
@@ -138,7 +128,7 @@ const Character = () => {
   });
 
   return (
-    <mesh ref={ref}>
+    <mesh ref={ref} position={[x, y, z]}>
       <boxGeometry args={[0.1, 0.1, 0.1]} />
       <meshStandardMaterial color="orange" />
     </mesh>
