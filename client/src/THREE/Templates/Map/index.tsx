@@ -16,6 +16,8 @@ import Loads from "@THREE/Molecules/Loads";
 import Test from "@THREE/Organisms/Test";
 
 import Character from "@THREE/Atoms/Character";
+import TestCharacter from "@THREE/Atoms/Character/test";
+import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 
 import MetaContainer from "./styles";
 
@@ -34,10 +36,13 @@ const MapContainer = () => {
             <Loads />
             <Cube />
             <Test />
+            <TestCharacter />
+
             {/* <Character position={[-3, 8, 1]} /> */}
-            <CameraController />
+            {/* <CameraController /> */}
             <primitive position={[0, 0, -3]} object={new THREE.AxesHelper(10)} />
           </Physics>
+          <Keyboard />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>
