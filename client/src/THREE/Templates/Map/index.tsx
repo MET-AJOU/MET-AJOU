@@ -26,21 +26,22 @@ const MapContainer = () => {
     <MetaContainer>
       <Canvas>
         <RecoilRoot>
-          {/* <OrbitControls /> */}
+          <OrbitControls />
           <ambientLight />
+          <pointLight position={[-100, 100, 100]} />
           <pointLight position={[100, 100, 100]} />
           <Physics>
             <BasicPlane position={[0, -2, 0]} />
             <FakePlanes />
             <Buildings />
             <Loads />
-            <Cube />
             <Test />
             <TestCharacter />
 
+            {/* <Cube /> */}
             {/* <Character position={[-3, 8, 1]} /> */}
             {/* <CameraController /> */}
-            <primitive position={[0, 0, -3]} object={new THREE.AxesHelper(10)} />
+            {/* <primitive position={[0, 0, -3]} object={new THREE.AxesHelper(10)} /> */}
           </Physics>
           <Keyboard />
         </RecoilRoot>
