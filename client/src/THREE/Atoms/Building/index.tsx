@@ -9,7 +9,7 @@ interface Props {
   color: string;
   // position: number[];
 }
-const Building = ({ color = "white", src, args = [5, 2.3, 2], position = [0, 0, 0], rotation = [0, -0.09, 0] }: BoxProps & Props) => {
+const Building = ({ color = "white", src, args, position = [0, 0, 0], rotation = [0, -0.09, 0] }: BoxProps & Props) => {
   // const Building = ({ src, position }: Props) => {
   const { nodes } = useGLTF(src);
   console.log(args);
