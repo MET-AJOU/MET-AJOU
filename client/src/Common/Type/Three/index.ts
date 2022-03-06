@@ -4,4 +4,5 @@ export interface keyBoardStateType {
   left: boolean;
   right: boolean;
   boost: boolean;
+  space: boolean;
 }

@@ -6,4 +6,5 @@ export const DefaultKeyboardState: keyBoardStateType = {
   left: false,
   right: false,
   boost: false,
+  space: false,
 };
