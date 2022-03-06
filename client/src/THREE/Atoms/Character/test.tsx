@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useBox, useRaycastAll, useRaycastVehicle, useSphere } from "@react-three/cannon";
+import { PerspectiveCamera } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { keyBoardStateAtom, positionAtom } from "@Recoils/.";
 import { PositionType } from "@Type/.";
@@ -12,7 +13,7 @@ import { Vector3 } from "three";
 const TestCharacter = (props: any) => {
   // const [ref] = useRaycastVehicle();
 
-  const [ref, api] = useSphere(() => ({ mass: 10, position: [0, 1, 0], type: "Dynamic" }));
+  const [ref, api] = useSphere(() => ({ args: [0.1], mass: 100, position: [0, 1, 2], type: "Dynamic" }));
 
   const { forward, backward, left, right, boost } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
 
@@ -22,6 +23,7 @@ const TestCharacter = (props: any) => {
   const sideVector = new Vector3();
   const direction = new Vector3();
   const characterPosition = new Vector3();
+  const cameraPosition = new Vector3();
   let fowardSpeed = 0;
   let sideSpeed = 0;
 
@@ -39,14 +41,18 @@ const TestCharacter = (props: any) => {
     api.velocity.set(direction.x, 0, direction.z);
     ref.current!.getWorldPosition(characterPosition);
     camera.lookAt(characterPosition);
+    cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
+    camera.position.lerp(cameraPosition, delta);
   });
 
   // eslint-disable-next-line react/destructuring-assignment
   return (
-    <mesh castShadow ref={ref}>
-      <boxBufferGeometry attach="geometry" args={[0.1, 0.1, 0.1]} />
-      <meshStandardMaterial color="green" />
-    </mesh>
+    <PerspectiveCamera>
+      <mesh castShadow ref={ref}>
+        <boxBufferGeometry attach="geometry" args={[0.1, 0.1, 0.1]} />
+        <meshStandardMaterial color="green" />
+      </mesh>
+    </PerspectiveCamera>
   );
 };
 
