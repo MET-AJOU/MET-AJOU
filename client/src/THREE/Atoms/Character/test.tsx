@@ -23,6 +23,7 @@ const TestCharacter = (props: any) => {
   const sideVector = new Vector3();
   const direction = new Vector3();
   const characterPosition = new Vector3();
+  const cameraPosition = new Vector3();
   let fowardSpeed = 0;
   let sideSpeed = 0;
 
@@ -40,8 +41,8 @@ const TestCharacter = (props: any) => {
     api.velocity.set(direction.x, 0, direction.z);
     ref.current!.getWorldPosition(characterPosition);
     camera.lookAt(characterPosition);
-    // camera.position.lerp(characterPosition, delta);
-    console.log(characterPosition);
+    cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
+    camera.position.lerp(cameraPosition, delta);
   });
 
   // eslint-disable-next-line react/destructuring-assignment
