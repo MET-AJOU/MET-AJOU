@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useBox, useRaycastAll, useRaycastVehicle, useSphere } from "@react-three/cannon";
-import { PerspectiveCamera } from "@react-three/drei";
+import { PerspectiveCamera, useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { keyBoardStateAtom, positionAtom } from "@Recoils/.";
 import { PositionType } from "@Type/.";
@@ -10,13 +10,18 @@ import { useEffect, useLayoutEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { Vector3 } from "three";
 
-const TestCharacter = (props: any) => {
+const TestCharacter = ({ src }: { src: string }) => {
   // const [ref] = useRaycastVehicle();
+  // const Building = ({ src, position }: Props) => {
+  const { nodes, animations } = useGLTF(src);
+  const temp = useGLTF(src);
+  console.log(temp);
+  const keys = Object.keys(nodes);
 
   const [ref, api] = useSphere(() => ({ args: [0.1], mass: 100, position: [0, 1, 2], type: "Dynamic" }));
 
   const { forward, backward, left, right, boost, space } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
-
+  console.log(animations);
   const { camera } = useThree();
 
   const fowardVector = new Vector3();
@@ -51,10 +56,11 @@ const TestCharacter = (props: any) => {
   // eslint-disable-next-line react/destructuring-assignment
   return (
     <PerspectiveCamera>
-      <mesh castShadow ref={ref}>
-        <boxBufferGeometry attach="geometry" args={[0.1, 0.1, 0.1]} />
-        <meshStandardMaterial color="green" />
-      </mesh>
+      <group castShadow receiveShadow ref={ref}>
+        {keys.map((key) => (
+          <mesh key={key} scale={0.01} geometry={(nodes[key] as any).geometry} material={(nodes[key] as any).material} />
+        ))}
+      </group>
     </PerspectiveCamera>
   );
 };
