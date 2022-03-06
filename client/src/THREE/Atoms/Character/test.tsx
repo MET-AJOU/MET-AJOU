@@ -39,7 +39,7 @@ const TestCharacter = (props: any) => {
     fowardVector.set(0, 0, fowardSpeed);
     sideSpeed = left || right ? -0.1 * (right ? 1 : -1) : 0;
     sideVector.set(sideSpeed, 0, 0);
-    upwardSpeed = space ? 1 : 0;
+    upwardSpeed = space ? 5 : -0.5;
     direction.subVectors(fowardVector, sideVector).normalize().multiplyScalar(1);
     api.velocity.set(direction.x, upwardSpeed, direction.z);
     ref.current!.getWorldPosition(characterPosition);
