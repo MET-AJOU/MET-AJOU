@@ -12,7 +12,7 @@ interface Props {
 const Building = ({ color = "white", src, args, position = [0, 0, 0], rotation = [0, -0.09, 0] }: BoxProps & Props) => {
   // const Building = ({ src, position }: Props) => {
   const { nodes } = useGLTF(src);
-  console.log(args);
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [ref, api] = useBox(() => ({ mass: 100, type: "Static", args, position, rotation }), undefined, [args, position, rotation]);
 

@@ -36,7 +36,7 @@ const MapContainer = () => {
             <Buildings />
             <Loads />
             <Test />
-            <TestCharacter />
+            <TestCharacter src="/Character/egyptian_glb.glb" />
 
             {/* <Cube /> */}
             {/* <Character position={[-3, 8, 1]} /> */}
