@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-// import MapOptionTemplate from "@Templates/MapOption";
 import MapContainer from "@THREE/Templates/Map";
 
 const MapPage = () => {

@@ -36,12 +36,7 @@ const MapContainer = () => {
             <Buildings />
             <Loads />
             <Test />
-            <TestCharacter src="/Character/egyptian_glb.glb" />
-
-            {/* <Cube /> */}
-            {/* <Character position={[-3, 8, 1]} /> */}
-            {/* <CameraController /> */}
-            {/* <primitive position={[0, 0, -3]} object={new THREE.AxesHelper(10)} /> */}
+            <TestCharacter src="/Character/test_charcter.gltf" />
           </Physics>
           <Keyboard />
         </RecoilRoot>
