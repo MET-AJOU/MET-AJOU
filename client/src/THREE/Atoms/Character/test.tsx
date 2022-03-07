@@ -11,17 +11,13 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { Vector3 } from "three";
 
 const TestCharacter = ({ src }: { src: string }) => {
-  // const [ref] = useRaycastVehicle();
-  // const Building = ({ src, position }: Props) => {
   const { nodes, animations } = useGLTF(src);
   const temp = useGLTF(src);
-  console.log(temp);
   const keys = Object.keys(nodes);
 
   const [ref, api] = useSphere(() => ({ args: [0.1], mass: 100, position: [0, 1, 2], type: "Dynamic" }));
 
   const { forward, backward, left, right, boost, space } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
-  console.log(animations);
   const { camera } = useThree();
 
   const fowardVector = new Vector3();
