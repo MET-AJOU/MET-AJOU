@@ -15,6 +15,7 @@
             "@API/*": ["./API/*"],
             "@Route/*": ["./Routes/*"],
             "@Recoils/*": ["./Recoils/*"],
+            "@Hook/*":["./Hook/*"],
             "@src/*": ["./*"]
         }
     }
