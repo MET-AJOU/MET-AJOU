@@ -10,14 +10,23 @@ import { useEffect, useLayoutEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { Vector3 } from "three";
 
+const SPEED = 8;
+
 const TestCharacter = ({ src }: { src: string }) => {
   const { nodes, animations } = useGLTF(src);
+  console.log(animations);
   const temp = useGLTF(src);
   const keys = Object.keys(nodes);
-
-  const [ref, api] = useSphere(() => ({ args: [0.1], mass: 100, position: [0, 1, 2], type: "Dynamic" }));
+  const [ref, api] = useBox(() => ({ args: [1, 0, 0], mass: 100, position: [0, 1, 2], type: "Dynamic" }));
+  // const [ref, api] = useSphere(() => ({ args: [0.1], mass: 100, position: [0, 1, 2], type: "Dynamic" }));
 
   const { forward, backward, left, right, boost, space } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
+  console.log("forward", forward);
+  console.log("backward", backward);
+  console.log("left", left);
+  console.log("right", right);
+  console.log("boost", boost);
+  console.log("space", space);
   const { camera } = useThree();
 
   const fowardVector = new Vector3();
@@ -36,12 +45,14 @@ const TestCharacter = ({ src }: { src: string }) => {
   }, [camera]);
 
   useFrame((state, delta) => {
-    fowardSpeed = forward || backward ? -0.1 * (forward && !backward ? (boost ? 2.5 : 1) : boost ? -2.5 : -1) : 0;
+    fowardSpeed = forward || backward ? -SPEED * (forward && !backward ? (boost ? 2.5 : 1) : boost ? -2.5 : -1) : 0;
+    console.log(fowardSpeed);
     fowardVector.set(0, 0, fowardSpeed);
-    sideSpeed = left || right ? -0.1 * (right ? 1 : -1) : 0;
+    sideSpeed = left || right ? -SPEED * (right ? 1 : -1) : 0;
     sideVector.set(sideSpeed, 0, 0);
     upwardSpeed = space ? 5 : -0.5;
-    direction.subVectors(fowardVector, sideVector).normalize().multiplyScalar(1);
+    direction.subVectors(fowardVector, sideVector);
+    // direction.subVectors(fowardVector, sideVector).normalize().multiplyScalar(1);
     api.velocity.set(direction.x, upwardSpeed, direction.z);
     ref.current!.getWorldPosition(characterPosition);
     camera.lookAt(characterPosition);
@@ -54,7 +65,7 @@ const TestCharacter = ({ src }: { src: string }) => {
     <PerspectiveCamera>
       <group castShadow receiveShadow ref={ref}>
         {keys.map((key) => (
-          <mesh key={key} scale={0.01} geometry={(nodes[key] as any).geometry} material={(nodes[key] as any).material} />
+          <mesh key={key} scale={0.003} geometry={(nodes[key] as any).geometry} material={(nodes[key] as any).material} />
         ))}
       </group>
     </PerspectiveCamera>
