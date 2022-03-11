@@ -23,23 +23,36 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
   let sideSpeed = 0;
   let upwardSpeed = 0;
   let boostSpeed = 1;
+  let characterDir = 0;
 
   useEffect(() => {
     camera.position.set(0, 5, 5);
     camera.lookAt(ref.current!.position);
   }, [camera]);
 
-  useEffect(() => {
-    console.log(actions);
-    actions["mixamo.com"].play();
-    console.log(actions);
-    // actions["Take 001"].play();
-    // actions.name["mixamo.com"].play();
-  }, [actions]);
+  // useEffect(() => {
+  //   if (!forward && !backward && !left && !right) {
+  //     actions["mixamo.com"].stop();
+  //     return;
+  //   }
+  //   actions["mixamo.com"].play();
+  // }, [forward, backward, left, right]);
+  // useEffect(() => {
+  //   actions["mixamo.com"].play();
+  //   // actions["Take 001"].play();
+  //   // actions.name["mixamo.com"].play();
+  // }, [actions]);
 
   useFrame((state, delta) => {
     // console.log(api.rotation.set(0, 0, 0));
     // console.log(temp);
+    if (!forward && !backward && !left && !right) {
+      actions["mixamo.com"].stop();
+    } else {
+      actions["mixamo.com"].play();
+    }
+
+    characterDir = forward || left || right ? (forward ? Math.PI : backward ? Math.PI : left ? (3 * Math.PI) / 2 : Math.PI / 2) : 0;
     fowardSpeed = forward || backward ? (forward && !backward ? 1 : -1) : 0;
     fowardVector.set(0, 0, fowardSpeed);
     sideSpeed = left || right ? (right ? 1 : -1) : 0;
@@ -52,6 +65,7 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
       .normalize()
       .multiplyScalar(SPEED * boostSpeed);
     api.velocity.set(direction.x, upwardSpeed, direction.z);
+    api.rotation.set(0, characterDir, 0);
     ref.current!.getWorldPosition(characterPosition);
     camera.lookAt(characterPosition);
     cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);

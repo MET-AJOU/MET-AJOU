@@ -4,9 +4,6 @@ import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/cannon";
 import { RecoilRoot } from "recoil";
 
-// import CameraController from "@THREE/Atoms/CameraController";
-// import Cube from "@THREE/Atoms/Building/test";
-// import Character from "@THREE/Atoms/Character";
 import BasicPlane from "@THREE/Atoms/BasicPlane";
 import FakePlanes from "@THREE/Atoms/FakePlanes";
 
