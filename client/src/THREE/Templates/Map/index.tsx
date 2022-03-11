@@ -38,7 +38,7 @@ const MapContainer = () => {
             <Buildings />
             <Loads />
             <Test />
-            <TestCharacter src="Character/character_03.gltf" />
+            <TestCharacter src="Character/Jogging.fbx" />
           </Physics>
           <Keyboard />
         </RecoilRoot>

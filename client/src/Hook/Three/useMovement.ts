@@ -8,7 +8,7 @@ import { Vector3 } from "three";
 
 const SPEED = -2;
 
-const useCharacterMovement = ({ api, ref }: { api: any; ref: any }) => {
+const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actions: any }) => {
   const { forward, backward, left, right, boost, space } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
 
   const { camera } = useThree();
@@ -18,6 +18,7 @@ const useCharacterMovement = ({ api, ref }: { api: any; ref: any }) => {
   const direction = new Vector3();
   const characterPosition = new Vector3();
   const cameraPosition = new Vector3();
+  //   const temp = new Vector3();
   let fowardSpeed = 0;
   let sideSpeed = 0;
   let upwardSpeed = 0;
@@ -28,7 +29,17 @@ const useCharacterMovement = ({ api, ref }: { api: any; ref: any }) => {
     camera.lookAt(ref.current!.position);
   }, [camera]);
 
+  useEffect(() => {
+    console.log(actions);
+    actions["mixamo.com"].play();
+    console.log(actions);
+    // actions["Take 001"].play();
+    // actions.name["mixamo.com"].play();
+  }, [actions]);
+
   useFrame((state, delta) => {
+    // console.log(api.rotation.set(0, 0, 0));
+    // console.log(temp);
     fowardSpeed = forward || backward ? (forward && !backward ? 1 : -1) : 0;
     fowardVector.set(0, 0, fowardSpeed);
     sideSpeed = left || right ? (right ? 1 : -1) : 0;
