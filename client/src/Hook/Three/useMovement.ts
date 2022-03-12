@@ -2,13 +2,14 @@
 import { useThree, useFrame } from "@react-three/fiber";
 import { keyBoardStateAtom } from "@Recoils/.";
 import { keyBoardStateType } from "@Type/Three";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { Vector3 } from "three";
 
 const SPEED = -2;
 
 const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actions: any }) => {
+  // const { forward, backward, left, right, boost } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
   const { forward, backward, left, right, boost, space } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
 
   const { camera } = useThree();
@@ -18,17 +19,17 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
   const direction = new Vector3();
   const characterPosition = new Vector3();
   const cameraPosition = new Vector3();
-  //   const temp = new Vector3();
+  // const temp = new Vector3();
   let fowardSpeed = 0;
   let sideSpeed = 0;
   let upwardSpeed = 0;
   let boostSpeed = 1;
   let characterDir = 0;
 
-  useEffect(() => {
-    camera.position.set(0, 5, 5);
-    camera.lookAt(ref.current!.position);
-  }, [camera]);
+  // useEffect(() => {
+  //   camera.position.set(0, 5, 5);
+  //   camera.lookAt(ref.current!.position);
+  // }, [camera]);
 
   // useEffect(() => {
   //   if (!forward && !backward && !left && !right) {
@@ -42,6 +43,9 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
   //   // actions["Take 001"].play();
   //   // actions.name["mixamo.com"].play();
   // }, [actions]);
+  console.log(direction);
+  console.log(upwardSpeed);
+  console.log(api);
 
   useFrame((state, delta) => {
     // console.log(api.rotation.set(0, 0, 0));
@@ -59,7 +63,6 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
     sideVector.set(sideSpeed, 0, 0);
     upwardSpeed = space ? 3 : -1;
     boostSpeed = boost ? 2 : 1;
-    // direction.subVectors(fowardVector, sideVector);
     direction
       .subVectors(fowardVector, sideVector)
       .normalize()
