@@ -4,18 +4,26 @@
 import { PerspectiveCamera, useAnimations, useFBX, useGLTF } from "@react-three/drei";
 import useCharacterMovement from "@Hook/Three/useMovement";
 import { useBox, useCompoundBody, usePlane, useSphere } from "@react-three/cannon";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const TestCharacter = ({ src }: { src: string }) => {
   const groupRef = useRef(null);
   const temp = useFBX(src);
   const { animations } = temp;
-
+  let canJump = true;
   const { actions } = useAnimations(animations, groupRef);
 
-  const [ref, api] = useSphere(() => ({ mass: 100, args: [0.1], position: [1, 1, 1], type: "Dynamic" }));
+  const [ref, api] = useSphere(() => ({
+    mass: 100,
+    args: [0.1],
+    position: [1, 2, 1],
+    type: "Dynamic",
+    onCollide: () => {
+      canJump = true;
+    },
+  }));
 
-  useCharacterMovement({ ref, api, actions });
+  useCharacterMovement({ ref, api, actions, canJump });
 
   return (
     <PerspectiveCamera>
