@@ -10,7 +10,7 @@ import { Vector3 } from "three";
 
 const SPEED = -1;
 
-const useCharacterMovement = ({ api, ref, actions, canJump }: { api: any; ref: any; actions: any; canJump: any }) => {
+const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actions: any }) => {
   const { forward, backward, left, right, boost, space } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
 
   const { camera } = useThree();
@@ -27,7 +27,6 @@ const useCharacterMovement = ({ api, ref, actions, canJump }: { api: any; ref: a
   let boostSpeed = 1;
   let characterDir = 0;
   //   let upwardTime = 0;
-  console.log("re");
 
   useFrame((state, delta) => {
     if (!forward && !backward && !left && !right) {
@@ -47,13 +46,9 @@ const useCharacterMovement = ({ api, ref, actions, canJump }: { api: any; ref: a
     fowardVector.set(0, 0, fowardSpeed);
     sideSpeed = left || right ? (right ? 1 : -1) : 0;
     sideVector.set(sideSpeed, 0, 0);
-    // upwardSpeed = upwardSpeed === 3 ? (space ? 3 : -1) : -1;
+    upwardSpeed = space ? 3 : -1;
     // console.log(canJump);
-    console.log(api);
-    if (canJump && space) {
-      upwardSpeed = 10;
-      canJump = false;
-    }
+
     boostSpeed = boost ? 2 : 1;
     direction
       .subVectors(fowardVector, sideVector)

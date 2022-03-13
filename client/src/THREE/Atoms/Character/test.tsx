@@ -10,7 +10,6 @@ const TestCharacter = ({ src }: { src: string }) => {
   const groupRef = useRef(null);
   const temp = useFBX(src);
   const { animations } = temp;
-  let canJump = true;
   const { actions } = useAnimations(animations, groupRef);
 
   const [ref, api] = useSphere(() => ({
@@ -18,12 +17,9 @@ const TestCharacter = ({ src }: { src: string }) => {
     args: [0.1],
     position: [1, 2, 1],
     type: "Dynamic",
-    onCollide: () => {
-      canJump = true;
-    },
   }));
 
-  useCharacterMovement({ ref, api, actions, canJump });
+  useCharacterMovement({ ref, api, actions });
 
   return (
     <PerspectiveCamera>
