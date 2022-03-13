@@ -13,10 +13,7 @@ const TestCharacter = ({ src }: { src: string }) => {
 
   const { actions } = useAnimations(animations, groupRef);
 
-  // const [ref, api] = usePlane(() => ({ mass: 1, position: [10, 10, 10], rotation: [0, 0, 0], type: "Dynamic" }));
-  // const [ref, api] = useSphere(() => ({ mass: 1, position: [1, 1, 1], type: "Dynamic" }));
-
-  const [ref, api] = useBox(() => ({ args: [0.1, 0.1, 0.1], mass: 10, position: [0, 1, 2], type: "Dynamic" }));
+  const [ref, api] = useSphere(() => ({ mass: 100, args: [0.1], position: [1, 1, 1], type: "Dynamic" }));
 
   useCharacterMovement({ ref, api, actions });
 
