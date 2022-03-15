@@ -15,6 +15,10 @@ export const RoadsSrc = "models/Roads";
 
 export const GroundsSrc = "models/Grounds";
 
+export const BuildingGroundsSrc = "models/BuildingGrounds";
+
 export const RoadsAssetSize = 14;
 
 export const GroundAssetSize = 9;
+
+export const BuildingGroundAssetSize = 22;
