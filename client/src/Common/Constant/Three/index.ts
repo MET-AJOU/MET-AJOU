@@ -8,3 +8,13 @@ export const DefaultKeyboardState: keyBoardStateType = {
   boost: false,
   space: false,
 };
+
+export const BuildingsSrc = "models/Building";
+
+export const RoadsSrc = "models/Roads";
+
+export const GroundsSrc = "models/Grounds";
+
+export const RoadsAssetSize = 14;
+
+export const GroundAssetSize = 9;
