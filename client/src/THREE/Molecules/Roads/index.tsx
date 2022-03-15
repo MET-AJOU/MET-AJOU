@@ -1,11 +1,12 @@
-import Building from "@THREE/Atoms/Building";
+import { RoadsAssetSize, RoadsSrc } from "@Constant/Three";
+import Road from "@THREE/Atoms/Road";
 
 const Roads = () => {
   return (
     <>
-      <Building color="blue" position={[0, 2, 0]} src="models/ajou_road_1.gltf" />
-      <Building position={[0, 2, 0]} src="models/ajou_road_2.gltf" color="white" />
-      <Building color="black" src="models/ajou_road_3.gltf" position={[0, 2, 0]} />
+      {new Array(RoadsAssetSize).fill(1).map((_, idx) => (
+        <Road position={[0, 2, 0]} src={`${RoadsSrc}/road_${idx + 1}.gltf`} />
+      ))}
     </>
   );
 };
