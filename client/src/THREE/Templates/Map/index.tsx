@@ -9,6 +9,7 @@ import FakePlanes from "@THREE/Atoms/FakePlanes";
 
 import Buildings from "@THREE/Molecules/Buildings";
 import Roads from "@THREE/Molecules/Roads";
+import Grounds from "@THREE/Molecules/Grounds";
 
 import Test from "@THREE/Organisms/Test";
 
@@ -32,8 +33,9 @@ const MapContainer = () => {
             <Sky sunPosition={[100, 10, 100]} distance={500} />
             <BasicPlane position={[0, -2, 0]} />
             <FakePlanes />
-            <Buildings />
+            {/* <Buildings /> */}
             <Roads />
+            <Grounds />
             <Test />
             <TestCharacter src="Character/Walking.fbx" />
           </Physics>
