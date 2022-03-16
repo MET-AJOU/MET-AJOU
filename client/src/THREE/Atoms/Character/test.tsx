@@ -15,7 +15,7 @@ const TestCharacter = ({ src }: { src: string }) => {
   const [ref, api] = useSphere(() => ({
     mass: 100,
     args: [0.1],
-    position: [-3, 5, 25],
+    position: [13, 5, 21],
     type: "Dynamic",
   }));
 
