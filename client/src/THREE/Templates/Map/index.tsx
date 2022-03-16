@@ -18,6 +18,7 @@ import TestCharacter from "@THREE/Atoms/Character/test";
 import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 
 import Fog from "@THREE/Atoms/Fog";
+
 import MetaContainer from "./styles";
 
 const MapContainer = () => {
@@ -29,7 +30,7 @@ const MapContainer = () => {
           <ambientLight />
           <pointLight position={[-100, 100, 100]} />
           <pointLight position={[100, 100, 100]} />
-          <Physics>
+          <Physics gravity={[0, 0, 0]}>
             <Fog />
             <Sky sunPosition={[100, 10, 100]} distance={500} />
             <BasicPlane position={[0, -2, 0]} />

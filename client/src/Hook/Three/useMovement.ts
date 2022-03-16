@@ -29,12 +29,12 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
   //   let upwardTime = 0;
 
   useFrame((state, delta) => {
+    api.rotation.set(0, characterDir, 0);
     if (!forward && !backward && !left && !right) {
       actions["mixamo.com"].stop();
     } else {
       actions["mixamo.com"].play();
     }
-
     // console.log(delta);
     // console.log(upwardTime);
     // console.log(api.collisionResponse.set());
@@ -64,6 +64,7 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
     camera.lookAt(characterPosition);
     cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
     camera.position.lerp(cameraPosition, delta);
+    console.log(characterPosition);
   });
 };
 export default useCharacterMovement;
