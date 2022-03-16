@@ -1,15 +1,47 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Box from "@THREE/Atoms/Building/test";
+
+const 외벽높이 = 20;
+const 사이드길이 = 70;
+const 사이드두께 = 8;
 
 const FakePlanes = () => {
   // [z축 x축 y축]
+
+  // position [0] : - 왼쪽 + 오른쪽
+  // position [1] : 높이
+  // position [2] : + 아래 , - 위
+
+  // args [0] : 좌우 중심에서 길어지고 짧아짐
+  // args [1] : 높이 위아래
+  // args [2] : 위아래 중심에서 길어지고 짧아짐
+
+  // rotation [0] : 수직으로 세워짐
+  // rotation [1] : 회전
   return (
     <>
-      <Box position={[-3, 2, 30]} args={[50, 2, 56.11]} color="black" />
-      <Box color="blue" position={[-1.152040481567383, 2.38932595825195, 28.468360900878906]} args={[27, 1.8, 10]} rotation={[Math.PI / 1.02, 0, 0]} />
-      <Box color="red" position={[-9.763340950012207, 2.25932595825195, 20.11005210876465]} args={[5, 1.8, 15]} rotation={[0, 0, Math.PI / 1.028]} />
-      <Box color="orange" position={[-21.01008186340332, 2.50332595825195, 13.966218948364258]} args={[17, 1.8, 37]} />
-      <Box color="pink" position={[18.11445426940918, 2.40707612991333, 18.973560333251953]} args={[14, 2, 30]} />
-      <Box color="red" position={[9.821369171142578, 2.20983395825195, 22.94983673095703]} args={[3, 2, 7]} rotation={[0, Math.PI / 1.3, -Math.PI / 1.028]} />
+      {/* 왼쪽아래 */}
+      <Box color="blue" position={[-15, 0, 26]} args={[28.1, 6.75, 55]} rotation={[0, Math.PI / 3.54, 0]} />
+      {/* 오른쪽 아래 맨오른쪽 */}
+      <Box color="pink" position={[16.555, 0, 17.3]} args={[13.5, 6.75, 28.4]} />
+      <Box color="red" position={[9.821369171142578, 0, 22.94983673095703]} args={[3, 6.75, 7]} rotation={[0, Math.PI / 1.3, -Math.PI / 1.028]} />
+      {/* 오른쪽 아래 가운데 */}
+      <Box color="black" position={[3.5, 0, 19]} args={[10, 6.75, 11]} rotation={[0, Math.PI / 3.5, 0]} />
+      <Box color="black" position={[7, 0, 11]} args={[10, 6.75, 16]} />
+      {/* 오른쪽 아래 왼쪽 */}
+
+      {/* <Box position={[-3, 2, 30]} args={[50, 2, 56.11]} color="black" /> */}
+
+      {/* 오른쪽 테두리 */}
+      <Box position={[28, 4, 8]} args={[사이드두께, 외벽높이, 사이드길이]} color="blue" />
+      {/* 아래 테두리 */}
+      <Box position={[-10, 4, 33.4]} args={[사이드길이, 외벽높이, 사이드두께]} color="blue" />
+      {/* 왼쪽 테두리 */}
+      <Box position={[-31, 4, 0]} args={[사이드두께, 외벽높이, 사이드길이]} color="blue" />
+      {/* 오른쪽위 대각선 */}
+      <Box position={[8.75, 4, -40]} args={[사이드두께, 외벽높이, 사이드길이]} rotation={[0, Math.PI / 3.3, 0]} color="blue" />
+      {/* 왼쪽위 대각선 */}
+      <Box position={[-15.8, 4, -42]} args={[사이드두께, 외벽높이, 사이드길이]} rotation={[0, -Math.PI / 5, 0]} color="blue" />
     </>
   );
 };

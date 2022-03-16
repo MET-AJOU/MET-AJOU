@@ -3,8 +3,8 @@
 
 import { PerspectiveCamera, useAnimations, useFBX, useGLTF } from "@react-three/drei";
 import useCharacterMovement from "@Hook/Three/useMovement";
-import { useBox, useCompoundBody, usePlane, useSphere } from "@react-three/cannon";
-import { useRef, useState } from "react";
+import { useSphere } from "@react-three/cannon";
+import { useRef } from "react";
 
 const TestCharacter = ({ src }: { src: string }) => {
   const groupRef = useRef(null);
@@ -24,7 +24,8 @@ const TestCharacter = ({ src }: { src: string }) => {
   return (
     <PerspectiveCamera>
       <group ref={groupRef}>
-        <primitive scale={0.002} object={temp} ref={ref} />
+        <primitive scale={0.01} object={temp} ref={ref} />
+        {/* <primitive scale={0.002} object={temp} ref={ref} /> */}
       </group>
     </PerspectiveCamera>
   );
