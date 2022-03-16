@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { OrbitControls, Sky, TrackballControls } from "@react-three/drei";
+import { OrbitControls, PointerLockControls, Sky, TrackballControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/cannon";
 import { RecoilRoot } from "recoil";
