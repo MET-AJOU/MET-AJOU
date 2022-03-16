@@ -8,7 +8,7 @@ import { keyBoardStateType } from "@Type/Three";
 import { useRecoilValue } from "recoil";
 import { Vector3 } from "three";
 
-const SPEED = -1;
+const SPEED = -4;
 
 const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actions: any }) => {
   const { forward, backward, left, right, boost, space } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
@@ -55,19 +55,26 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
       .normalize()
       .multiplyScalar(SPEED * boostSpeed);
     api.velocity.set(direction.x, upwardSpeed, direction.z);
+    api.rotation.set(0, characterDir, 0);
+    ref.current!.getWorldPosition(characterPosition);
+
+    // fakeplane만들때만 쓸것
+    camera.lookAt(ref.current!.position);
+
+    // camera.lookAt(characterPosition);
+    // // 카메라 포지션 변경 필요
+    // cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
+    // camera.position.lerp(cameraPosition, delta);
+
+    /**
+     * 이 아래 뭐임?
+     */
     // ref.current!.getWorldDirection(temp);
     // console.log(temp.y);
 
     // console.log(ref.current.velocity);
-    api.rotation.set(0, characterDir, 0);
-    ref.current!.getWorldPosition(characterPosition);
-
-    camera.lookAt(characterPosition);
     // camera.getWorldDirection(temp);
     // console.log(temp);
-    // 카메라 포지션 변경 필요
-    cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
-    camera.position.lerp(cameraPosition, delta);
     // console.log(characterPosition);
   });
 };
