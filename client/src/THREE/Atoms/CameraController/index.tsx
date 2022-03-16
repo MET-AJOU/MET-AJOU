@@ -12,7 +12,7 @@ const Character = () => {
     type: "Dynamic",
     args: [0.1, 0.1, 0.1],
   }));
-  const [myPosition, setMyPosition] = useState({ x: -4, y: 2, z: 5 });
+  const [myPosition, setMyPosition] = useState({ x: -20, y: 5, z: 35 });
   const [director, setDirector] = useState({ dx: 0, dy: 0, dz: 0 });
 
   // position은 x는 좌 / 우 y는 위 / 아래 z는 깊이
