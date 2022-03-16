@@ -61,10 +61,14 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
     // console.log(ref.current.velocity);
     api.rotation.set(0, characterDir, 0);
     ref.current!.getWorldPosition(characterPosition);
+
     camera.lookAt(characterPosition);
+    // camera.getWorldDirection(temp);
+    // console.log(temp);
+    // 카메라 포지션 변경 필요
     cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
     camera.position.lerp(cameraPosition, delta);
-    console.log(characterPosition);
+    // console.log(characterPosition);
   });
 };
 export default useCharacterMovement;
