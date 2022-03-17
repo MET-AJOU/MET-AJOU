@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Box from "@THREE/Atoms/Building/test";
-
-const 외벽높이 = 20;
-const 사이드길이 = 70;
-const 사이드두께 = 8;
+import GroundFakePlane from "./Ground";
+import RoadFakePlane from "./Road";
+import BorderFakePlane from "./테두리";
 
 const FakePlanes = () => {
   // [z축 x축 y축]
@@ -20,28 +19,9 @@ const FakePlanes = () => {
   // rotation [1] : 회전
   return (
     <>
-      {/* 왼쪽아래 */}
-      <Box color="blue" position={[-15, 0, 26]} args={[28.1, 6.75, 55]} rotation={[0, Math.PI / 3.54, 0]} />
-      {/* 오른쪽 아래 맨오른쪽 */}
-      <Box color="pink" position={[16.555, 0, 17.3]} args={[13.5, 6.75, 28.4]} />
-      <Box color="red" position={[9.821369171142578, 0, 22.94983673095703]} args={[3, 6.75, 7]} rotation={[0, Math.PI / 1.3, -Math.PI / 1.028]} />
-      {/* 오른쪽 아래 가운데 */}
-      <Box color="black" position={[3.5, 0, 19]} args={[10, 6.75, 11]} rotation={[0, Math.PI / 3.5, 0]} />
-      <Box color="black" position={[7, 0, 11]} args={[10, 6.75, 16]} />
-      {/* 오른쪽 아래 왼쪽 */}
-
-      {/* <Box position={[-3, 2, 30]} args={[50, 2, 56.11]} color="black" /> */}
-
-      {/* 오른쪽 테두리 */}
-      <Box position={[28, 4, 8]} args={[사이드두께, 외벽높이, 사이드길이]} color="blue" />
-      {/* 아래 테두리 */}
-      <Box position={[-10, 4, 33.4]} args={[사이드길이, 외벽높이, 사이드두께]} color="blue" />
-      {/* 왼쪽 테두리 */}
-      <Box position={[-31, 4, 0]} args={[사이드두께, 외벽높이, 사이드길이]} color="blue" />
-      {/* 오른쪽위 대각선 */}
-      <Box position={[8.75, 4, -40]} args={[사이드두께, 외벽높이, 사이드길이]} rotation={[0, Math.PI / 3.3, 0]} color="blue" />
-      {/* 왼쪽위 대각선 */}
-      <Box position={[-15.8, 4, -42]} args={[사이드두께, 외벽높이, 사이드길이]} rotation={[0, -Math.PI / 5, 0]} color="blue" />
+      <GroundFakePlane />
+      <RoadFakePlane />
+      <BorderFakePlane />
     </>
   );
 };
