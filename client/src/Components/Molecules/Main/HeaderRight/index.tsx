@@ -1,11 +1,15 @@
-import { HeaderProps } from "@Type/.";
+import StartButton from "@Atoms/StartButton";
+import { useNavigate } from "react-router-dom";
 import { Text, MainHeaderRightContainer } from "./styles";
 
-const MainHeaderRight = ({ handleStartClick }: HeaderProps) => {
+const MainHeaderRight = () => {
+  const navigator = useNavigate();
+  const handleAboutClick = () => navigator("/about");
+
   return (
     <MainHeaderRightContainer>
-      <Text>팀 소개</Text>
-      <Text onClick={handleStartClick}>START</Text>
+      <Text onClick={handleAboutClick}>About us</Text>
+      <StartButton />
     </MainHeaderRightContainer>
   );
 };

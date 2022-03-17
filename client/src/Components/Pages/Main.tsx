@@ -1,7 +1,5 @@
 import MainTemplate from "@Templates/Main";
 
-const MainPage = () => {
-  return <MainTemplate />;
-};
+const MainPage = () => <MainTemplate />;
 
 export default MainPage;

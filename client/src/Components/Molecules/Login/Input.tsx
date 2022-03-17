@@ -1,9 +1,7 @@
+/* eslint-disable react/button-has-type */
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginButton from "@Atoms/Button/Login";
 import Input from "@Atoms/Input";
-
-import { LoginButtonType } from "@Atoms/Button/Type";
 import { LoginInputType } from "@Atoms/Input/Type";
 
 import { InputContainer, Title } from "./styles";
@@ -33,7 +31,7 @@ const LoginInput = () => {
       <Title>아주대학교 통합인증</Title>
       <Input {...LoginInputType} placeholder="사용자 ID를 입력해주세요." inputRef={idRef} />
       <Input {...LoginInputType} placeholder="비밀번호를 입력해주세요." type="password" inputRef={pwRef} />
-      <LoginButton {...LoginButtonType} title="로그인" onClick={handleLoginClick} />
+      <button onClick={handleLoginClick}>로그인</button>
     </InputContainer>
   );
 };
