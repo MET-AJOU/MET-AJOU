@@ -1,22 +1,18 @@
-import { useState } from "react";
+// import { useState } from "react";
 import MainHeader from "@Organisms/Main/Header";
 import MainBody from "@Organisms/Main/Body";
 import MainFooter from "@Organisms/Main/Footer";
-import MainModal from "@Organisms/Main/Modal";
+// import MainModal from "@Organisms/Main/Modal";
 
 const MainTemplate = () => {
-  const [modal, setModal] = useState(false);
-
-  const handleStartClick = () => {
-    setModal((prev) => !prev);
-  };
+  // const [modal, setModal] = useState(false);
 
   return (
     <>
-      <MainHeader handleStartClick={handleStartClick} />
+      <MainHeader />
       <MainBody />
       <MainFooter />
-      {modal && <MainModal />}
+      {/* {modal && <MainModal />} */}
     </>
   );
 };

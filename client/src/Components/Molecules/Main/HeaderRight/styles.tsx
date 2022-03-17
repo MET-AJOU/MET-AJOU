@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
-const MainHeaderRightContainer = styled.div`
+export const MainHeaderRightContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 200px;
+  align-items: center;
+  width: 300px;
 `;
 
-const Text = styled.div`
+export const Text = styled.div`
   color: #707070;
-  font-size: 32px;
+  font-size: 24px;
   cursor: pointer;
 `;
-
-export { MainHeaderRightContainer, Text };

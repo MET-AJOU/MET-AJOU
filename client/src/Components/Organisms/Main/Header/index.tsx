@@ -1,13 +1,12 @@
 import MainHeaderLeft from "@Molecules/Main/HeaderLeft/index";
 import MainHeaderRight from "@Molecules/Main/HeaderRight/index";
-import { HeaderProps } from "@Type/.";
 import { HeaderContainer } from "./styles";
 
-const MainHeader = ({ handleStartClick }: HeaderProps) => {
+const MainHeader = () => {
   return (
     <HeaderContainer>
       <MainHeaderLeft />
-      <MainHeaderRight handleStartClick={handleStartClick} />
+      <MainHeaderRight />
     </HeaderContainer>
   );
 };
