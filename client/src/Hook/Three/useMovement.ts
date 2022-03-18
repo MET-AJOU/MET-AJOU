@@ -8,7 +8,7 @@ import { keyBoardStateType } from "@Type/Three";
 import { useRecoilValue } from "recoil";
 import { Vector3 } from "three";
 
-const SPEED = -4;
+const SPEED = -1;
 
 const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actions: any }) => {
   const { forward, backward, left, right, boost, space } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
@@ -59,12 +59,12 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
     ref.current!.getWorldPosition(characterPosition);
 
     // fakeplane만들때만 쓸것
-    camera.lookAt(ref.current!.position);
+    // camera.lookAt(ref.current!.position);
 
-    // camera.lookAt(characterPosition);
-    // // 카메라 포지션 변경 필요
-    // cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
-    // camera.position.lerp(cameraPosition, delta);
+    camera.lookAt(characterPosition);
+    // 카메라 포지션 변경 필요
+    cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
+    camera.position.lerp(cameraPosition, delta);
 
     /**
      * 이 아래 뭐임?
