@@ -24,8 +24,8 @@ const TestCharacter = ({ src }: { src: string }) => {
   return (
     <PerspectiveCamera>
       <group ref={groupRef}>
-        <primitive scale={0.01} object={temp} ref={ref} />
-        {/* <primitive scale={0.002} object={temp} ref={ref} /> */}
+        {/* <primitive scale={0.01} object={temp} ref={ref} /> */}
+        <primitive scale={0.002} object={temp} ref={ref} />
       </group>
     </PerspectiveCamera>
   );

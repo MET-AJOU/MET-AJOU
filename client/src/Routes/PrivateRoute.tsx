@@ -1,4 +1,4 @@
-import { Navigate, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { RouterProps } from "@Type/.";
 
 const PrivateRoute = ({ component: Component }: RouterProps) => {

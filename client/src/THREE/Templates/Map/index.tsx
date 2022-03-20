@@ -33,14 +33,14 @@ const MapContainer = () => {
           <Physics gravity={[0, 0, 0]}>
             <Fog />
             <Sky sunPosition={[100, 10, 100]} distance={500} />
-            <BasicPlane position={[0, -2, 0]} />
             <FakePlanes />
-            {/* <Buildings /> */}
             <Roads />
             <Grounds />
             <BuildingGrounds />
-            <Test />
             <TestCharacter src="Character/Walking.fbx" />
+            {/* <BasicPlane position={[0, -2, 0]} /> */}
+            {/* <Test /> */}
+            {/* <Buildings /> */}
           </Physics>
           <Keyboard />
         </RecoilRoot>
