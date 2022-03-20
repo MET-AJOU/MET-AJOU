@@ -4,7 +4,6 @@
 import { useThree, useFrame } from "@react-three/fiber";
 import { keyBoardStateAtom } from "@Recoils/.";
 import { keyBoardStateType } from "@Type/Three";
-// import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { Vector3 } from "three";
 
