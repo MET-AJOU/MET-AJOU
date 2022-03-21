@@ -21,5 +21,6 @@ module.exports = override(
         "@src": resolve("./"),
         "@THREE": resolve("src/THREE/"),
         "@Hook": resolve("src/Hook/"),
+        "@Socket": resolve("src/Socket/"),
     })
 );

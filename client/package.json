@@ -20,6 +20,7 @@
         "react-router-dom": "^6.2.1",
         "react-scripts": "5.0.0",
         "recoil": "^0.6.1",
+        "socket.io-client": "^4.4.1",
         "styled-components": "^5.3.3",
         "styled-reset": "^4.3.4",
         "three": "^0.137.5",
