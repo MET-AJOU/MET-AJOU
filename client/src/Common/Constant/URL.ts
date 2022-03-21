@@ -1,5 +1,6 @@
 export const TEST_SERVER = `${process.env.REACT_APP_GET_TEST_SERVER_DOMAIN}${process.env.REACT_APP_GET_TEST_SERVER_PORT}`;
 export const REAL_SERVER = `${process.env.REACT_APP_GET_SERVER_DOMAIN}${process.env.REACT_APP_GET_SERVER_PORT}`;
+export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${process.env.REACT_APP_SOCKET_SERVER_PORT}`;
 
 const SERVER = TEST_SERVER;
 
