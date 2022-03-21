@@ -16,7 +16,7 @@
             "@Route/*": ["./Routes/*"],
             "@Recoils/*": ["./Recoils/*"],
             "@Hook/*":["./Hook/*"],
-            "@Socket/*":["/Socket/*"],
+            "@Socket/*":["./Socket/*"],
             "@src/*": ["./*"]
         }
     }
