@@ -20,7 +20,7 @@ const usePlanetMove = ({ firstPlanet, secondPlanet, thirdPlanet, star }: { first
     return () => {
       window.removeEventListener("scroll", saFunc);
     };
-  });
+  }, []);
 };
 
 export default usePlanetMove;
