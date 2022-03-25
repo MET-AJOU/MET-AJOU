@@ -5,7 +5,7 @@ const Roads = () => {
   return (
     <>
       {new Array(RoadsAssetSize).fill(1).map((_, idx) => (
-        <Road position={[0, 2, 0]} src={`${RoadsSrc}/road_${idx + 1}.gltf`} />
+        <Road position={[0, 1, 0]} src={`${RoadsSrc}/road_${idx + 1}.gltf`} />
       ))}
     </>
   );

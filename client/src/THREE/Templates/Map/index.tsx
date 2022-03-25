@@ -33,7 +33,7 @@ const MapContainer = () => {
           <Physics gravity={[0, 0, 0]}>
             <Fog />
             <Sky sunPosition={[100, 10, 100]} distance={500} />
-            <FakePlanes />
+            {/* <FakePlanes /> */}
             <Roads />
             <Grounds />
             <BuildingGrounds />
