@@ -30,9 +30,17 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
   useFrame((state, delta) => {
     api.rotation.set(0, characterDir, 0);
     if (!forward && !backward && !left && !right) {
-      actions["mixamo.com"].stop();
+      actions.walkingActions["Take 001"].stop();
     } else {
-      actions["mixamo.com"].play();
+      actions.walkingActions["Take 001"].play();
+    }
+    if (!boost) {
+      actions.runningActions["Take 001"].stop();
+    } else {
+      actions.runningActions["Take 001"].play();
+    }
+    if (!space) {
+      actions.jumpingActions["Take 001".stop()];
     }
     // console.log(delta);
     // console.log(upwardTime);
@@ -58,12 +66,12 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
     ref.current!.getWorldPosition(characterPosition);
 
     // fakeplane만들때만 쓸것
-    camera.lookAt(ref.current!.position);
+    // camera.lookAt(ref.current!.position);
 
-    // camera.lookAt(characterPosition);
-    // // 카메라 포지션 변경 필요
-    // cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
-    // camera.position.lerp(cameraPosition, delta);
+    camera.lookAt(characterPosition);
+    // 카메라 포지션 변경 필요
+    cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
+    camera.position.lerp(cameraPosition, delta);
 
     /**
      * 이 아래 뭐임?

@@ -36,7 +36,7 @@ const MapContainer = () => {
             <Roads />
             <Grounds />
             <BuildingGrounds />
-            <TestCharacter src="Character/Walking.fbx" />
+            <TestCharacter src="Character/common_people_male_1.fbx" />
             {/* <FakePlanes /> */}
 
             {/* <BasicPlane position={[0, -2, 0]} /> */}
