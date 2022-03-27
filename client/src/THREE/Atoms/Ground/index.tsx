@@ -1,27 +1,25 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { BoxProps, useConvexPolyhedron } from "@react-three/cannon";
+import { BoxProps, Triplet, useConvexPolyhedron } from "@react-three/cannon";
 import { useGLTF } from "@react-three/drei";
 import { ShapeOptions, ShapeType, threeToCannon } from "three-to-cannon";
 
 interface Props {
   src: string;
+  키: string;
+  블락함수?: any;
 }
 
 const makeVertices = (vertices: any[]): any => vertices?.map((vertice: any) => [vertice.x, vertice.y, vertice.z]);
 
-const Ground = ({ src, args, position = [0, 0, 0], rotation = [0, -0.09, 0] }: BoxProps & Props) => {
+const Ground = ({ src, 키, 블락함수, position = 포지션, rotation = 로테이션 }: BoxProps & Props) => {
   const { nodes } = useGLTF(src);
-  const { geometry, material } = nodes.out_ground.children[0] as any;
+  const { geometry, material } = nodes[키].children[0] as any;
+  const {
+    shape: { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius },
+  } = threeToCannon(nodes[키].children[0] as any, 옵션) as any;
 
-  const CannonOption: ShapeOptions = {
-    type: ShapeType.HULL,
-  };
-
-  const { shape } = threeToCannon(nodes.out_ground.children[0] as any, CannonOption) as any;
-
-  const { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius } = shape;
-  const test = () => console.log("hit");
-  const [a] = useConvexPolyhedron(() => ({ type: "Static", args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: test }), undefined, [makeVertices(vertices), position, rotation]);
+  const [a] = useConvexPolyhedron(() => ({ type: "Static", args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: 블락함수 ?? false }), undefined, [makeVertices(vertices), position, rotation]);
 
   return (
     <>
@@ -32,3 +30,9 @@ const Ground = ({ src, args, position = [0, 0, 0], rotation = [0, -0.09, 0] }: B
 };
 
 export default Ground;
+
+const 포지션: Triplet = [0, 0, 0];
+const 로테이션: Triplet = [0, -0.09, 0];
+const 옵션: ShapeOptions = {
+  type: ShapeType.HULL,
+};
