@@ -16,20 +16,12 @@ const Ground = ({ src, args, position = [0, 0, 0], rotation = [0, -0.09, 0] }: B
   const CannonOption: ShapeOptions = {
     type: ShapeType.HULL,
   };
-  const { shape } = threeToCannon(nodes.out_ground.children[0] as any, CannonOption) as any;
-  const { _, offset } = threeToCannon(nodes.out_ground.children[0] as any) as any;
-  const { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius } = shape;
 
-  const { shape: testShape } = threeToCannon(nodes.out_ground.children[0] as any) as any;
-  const { vertices: testVertices, faces: testFaces, faceNormals: testNormals, uniqueEdges: testAxes, boundingSphereRadius: testRadius } = testShape.convexPolyhedronRepresentation;
-  console.log(testShape);
-  // console.log(shape);
-  console.log("new : ", [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius]);
-  console.log("old : ", [makeVertices(testVertices), testFaces, makeVertices(testNormals), makeVertices(testAxes), testRadius]);
-  console.log("offset : ", offset);
+  const { shape } = threeToCannon(nodes.out_ground.children[0] as any, CannonOption) as any;
+
+  const { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius } = shape;
   const test = () => console.log("hit");
-  // const [a] = useConvexPolyhedron(() => ({ type: "Static", position: [offset.x, offset.y + 1.2, offset.z], args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: test }), undefined, [makeVertices(vertices), position, rotation]);
-  const [a] = useConvexPolyhedron(() => ({ type: "Static", position: [offset.x, offset.y + 1.2, offset.z], args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: test }), undefined, [makeVertices(vertices), position, rotation]);
+  const [a] = useConvexPolyhedron(() => ({ type: "Static", args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: test }), undefined, [makeVertices(vertices), position, rotation]);
 
   return (
     <>

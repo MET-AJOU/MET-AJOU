@@ -15,17 +15,8 @@ const Road = ({ src, args, position = [0, 0, 0], rotation = [0, -0.09, 0] }: Box
     type: ShapeType.HULL,
   };
   const { shape } = threeToCannon(nodes.road as any, CannonOption) as any;
-  const { _, offset } = threeToCannon(nodes.road as any) as any;
   const { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius } = shape;
-
-  // const [ref] = useBox(() => ({ mass: 100, type: "Static", args, position, rotation }), undefined, [args, position, rotation]);
-  // const { shape, offset } = threeToCannon(nodes.road as any) as any;
-  // const {
-  //   convexPolyhedronRepresentation: { vertices, faces, faceNormals: normals, uniqueAxes: axes },
-  //   boundingSphereRadius,
-  // } = shape;
-
-  const [a] = useConvexPolyhedron(() => ({ type: "Static", position: [offset.x, offset.y + 1.2, offset.z], args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100 }), undefined, [nodes]);
+  const [a] = useConvexPolyhedron(() => ({ type: "Static", args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100 }), undefined, [makeVertices(vertices), position, rotation]);
 
   const { geometry, material } = nodes.road.children[0] as any;
 
