@@ -15,15 +15,9 @@ const BuildingGround = ({ src, args, position = [0, 0, 0], rotation = [0, -0.09,
     type: ShapeType.HULL,
   };
   const { shape } = threeToCannon(nodes.building_ground as any, CannonOption) as any;
-  const { _, offset } = threeToCannon(nodes.building_ground as any) as any;
   const { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius } = shape;
-
-  // console.log(shape);
-  // console.log(offset);
-
   const test = () => console.log("hit");
-
-  const [a] = useConvexPolyhedron(() => ({ type: "Static", position: [offset.x, offset.y + 1.2, offset.z], args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: test }), undefined, [makeVertices(vertices), position, rotation]);
+  const [a] = useConvexPolyhedron(() => ({ type: "Static", args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: test }), undefined, [makeVertices(vertices), position, rotation]);
 
   const { geometry, material } = nodes.building_ground.children[0] as any;
 

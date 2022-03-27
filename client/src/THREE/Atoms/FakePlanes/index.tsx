@@ -19,8 +19,8 @@ const FakePlanes = () => {
   // rotation [1] : 회전
   return (
     <>
-      <GroundFakePlane />
-      <RoadFakePlane />
+      {/* <GroundFakePlane />
+      <RoadFakePlane /> */}
       <BorderFakePlane />
     </>
   );
