@@ -1,16 +1,18 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-nested-ternary */
+import { PublicApi } from "@react-three/cannon";
 import { useThree, useFrame } from "@react-three/fiber";
 import { keyBoardStateAtom } from "@Recoils/.";
 import { keyBoardStateType } from "@Type/Three";
+import { getDxDy } from "@Util/.";
 import { initAnimation } from "@Util/animation";
 import { useRecoilValue } from "recoil";
 import { Vector3 } from "three";
 
 const SPEED = -1;
 
-const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actions: any }) => {
+const useCharacterMovement = ({ api, ref, actions }: { api: PublicApi; ref: any; actions: any }) => {
   const { forward, backward, left, right, boost, space, dance } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
 
   const { camera } = useThree();
@@ -26,24 +28,20 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
   let upwardSpeed = 0;
   let boostSpeed = 1;
   let characterDir = 0;
-  //   let upwardTime = 0;
+  //   let upwardTime = 0;\
 
   useFrame((state, delta) => {
-    api.rotation.set(0, characterDir, 0);
+    camera.getWorldDirection(temp);
+
+    // api.rotation.set(0, characterDir, 0);
     initAnimation({ forward, backward, left, right, boost, space, dance, actions });
-    // console.log(delta);
-    // console.log(upwardTime);
-    // console.log(api.collisionResponse.set());
-    // api.collisionResponse(() => {
-    //   console.log(123);
-    // });
+
     characterDir = forward || left || right ? (forward ? Math.PI : backward ? Math.PI : left ? (3 * Math.PI) / 2 : Math.PI / 2) : 0;
     fowardSpeed = forward || backward ? (forward && !backward ? 1 : -1) : 0;
     fowardVector.set(0, 0, fowardSpeed);
     sideSpeed = left || right ? (right ? 1 : -1) : 0;
     sideVector.set(sideSpeed, 0, 0);
     upwardSpeed = space ? 3 : -1;
-    // console.log(canJump);
 
     boostSpeed = boost ? 2 : 1;
     direction
@@ -51,27 +49,16 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
       .normalize()
       .multiplyScalar(SPEED * boostSpeed);
     api.velocity.set(direction.x, upwardSpeed, direction.z);
-    api.rotation.set(0, characterDir, 0);
-    ref.current!.getWorldPosition(characterPosition);
 
+    api.rotation.set(0, characterDir, 0);
+    // api.quaternion.set()
+    ref.current!.getWorldPosition(characterPosition);
     // fakeplane만들때만 쓸것
     // camera.lookAt(ref.current!.position);
-
+    // api.applyForce([0, 3, 0], [characterPosition.x, characterPosition.y, characterPosition.z]);
     camera.lookAt(characterPosition);
-    // 카메라 포지션 변경 필요
-    cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 1);
+    cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 2);
     camera.position.lerp(cameraPosition, delta);
-
-    /**
-     * 이 아래 뭐임?
-     */
-    // ref.current!.getWorldDirection(temp);
-    // console.log(temp.y);
-
-    // console.log(ref.current.velocity);
-    // camera.getWorldDirection(temp);
-    // console.log(temp);
-    // console.log(characterPosition);
   });
 };
 export default useCharacterMovement;

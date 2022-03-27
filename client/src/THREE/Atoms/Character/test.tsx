@@ -24,11 +24,9 @@ const TestCharacter = ({ src }: { src: string }) => {
   useCharacterMovement({ ref, api, actions });
 
   return (
-    <PerspectiveCamera>
-      <group ref={groupRef}>
-        <primitive scale={0.002} object={temp} ref={ref} />
-      </group>
-    </PerspectiveCamera>
+    <group ref={groupRef}>
+      <primitive scale={0.002} object={temp} ref={ref} />
+    </group>
   );
 };
 
