@@ -1,11 +1,12 @@
 import { BuildingGroundAssetSize, BuildingGroundsSrc } from "@Constant/Three";
-import BuildingGround from "@THREE/Atoms/BuildingGround";
+import Ground from "@THREE/Atoms/Ground";
 
 const Grounds = () => {
+  const blocking = () => console.log("hit");
   return (
     <>
       {new Array(BuildingGroundAssetSize).fill(1).map((_, idx) => (
-        <BuildingGround position={[0, 0, 0]} src={`${BuildingGroundsSrc}/ground_${idx + 1}.gltf`} />
+        <Ground src={`${BuildingGroundsSrc}/ground_${idx + 1}.gltf`} 키="building_ground" 블락함수={blocking} />
       ))}
     </>
   );
