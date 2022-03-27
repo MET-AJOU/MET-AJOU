@@ -4,13 +4,14 @@
 import { useThree, useFrame } from "@react-three/fiber";
 import { keyBoardStateAtom } from "@Recoils/.";
 import { keyBoardStateType } from "@Type/Three";
+import { initAnimation } from "@Util/animation";
 import { useRecoilValue } from "recoil";
 import { Vector3 } from "three";
 
 const SPEED = -1;
 
 const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actions: any }) => {
-  const { forward, backward, left, right, boost, space } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
+  const { forward, backward, left, right, boost, space, dance } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
 
   const { camera } = useThree();
 
@@ -29,19 +30,7 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
 
   useFrame((state, delta) => {
     api.rotation.set(0, characterDir, 0);
-    if (!forward && !backward && !left && !right) {
-      actions.walkingActions["Take 001"].stop();
-    } else {
-      actions.walkingActions["Take 001"].play();
-    }
-    if (!boost) {
-      actions.runningActions["Take 001"].stop();
-    } else {
-      actions.runningActions["Take 001"].play();
-    }
-    if (!space) {
-      actions.jumpingActions["Take 001".stop()];
-    }
+    initAnimation({ forward, backward, left, right, boost, space, dance, actions });
     // console.log(delta);
     // console.log(upwardTime);
     // console.log(api.collisionResponse.set());
