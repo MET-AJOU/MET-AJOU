@@ -30,9 +30,17 @@ const useCharacterMovement = ({ api, ref, actions }: { api: any; ref: any; actio
   useFrame((state, delta) => {
     api.rotation.set(0, characterDir, 0);
     if (!forward && !backward && !left && !right) {
-      actions["mixamo.com"].stop();
+      actions.walkingActions["Take 001"].stop();
     } else {
-      actions["mixamo.com"].play();
+      actions.walkingActions["Take 001"].play();
+    }
+    if (!boost) {
+      actions.runningActions["Take 001"].stop();
+    } else {
+      actions.runningActions["Take 001"].play();
+    }
+    if (!space) {
+      actions.jumpingActions["Take 001".stop()];
     }
     // console.log(delta);
     // console.log(upwardTime);

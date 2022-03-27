@@ -9,8 +9,19 @@ import { useRef } from "react";
 const TestCharacter = ({ src }: { src: string }) => {
   const groupRef = useRef(null);
   const temp = useFBX(src);
-  const { animations } = temp;
-  const { actions } = useAnimations(animations, groupRef);
+  const walkingAnimation = useFBX("Character/common_people@walk.FBX");
+  const runningAnimation = useFBX("Character/common_people@run.FBX");
+  const dancingAnimation = useFBX("Character/common_people@dance.FBX");
+  const jumpingAnimation = useFBX("Character/common_people@jump-up.FBX");
+
+  const { animations: walkingAnimations } = walkingAnimation;
+  const { animations: runningAnimations } = runningAnimation;
+  const { animations: dancingAnimations } = dancingAnimation;
+  const { animations: jumpingAnimations } = jumpingAnimation;
+  const { actions: walkingActions } = useAnimations(walkingAnimations, groupRef);
+  const { actions: runningActions } = useAnimations(runningAnimations, groupRef);
+  const { actions: dancingActions } = useAnimations(dancingAnimations, groupRef);
+  const { actions: jumpingActions } = useAnimations(jumpingAnimations, groupRef);
 
   const [ref, api] = useSphere(() => ({
     mass: 100,
@@ -18,8 +29,8 @@ const TestCharacter = ({ src }: { src: string }) => {
     position: [13, 3.65, 21],
     type: "Dynamic",
   }));
-
-  useCharacterMovement({ ref, api, actions });
+  // console.log(temp);
+  useCharacterMovement({ ref, api, actions: { walkingActions, runningActions, dancingActions, jumpingActions } });
 
   return (
     <PerspectiveCamera>
