@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-expressions */
-import { keyBoardStateAtom } from "@Recoils/.";
-import { keyBoardStateType } from "@Type/Three";
+import { myUserIdAtom } from "@Recoils/Characters";
 import { useEffect } from "react";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
+import Socket from "@Socket/.";
+import { DefaultKeyboardState } from "@Constant/Three";
 
 interface KeyConfig extends KeyMap {
   keys?: string[];
@@ -15,6 +17,8 @@ interface KeyMap {
 }
 
 function useKeys(keyConfig: KeyConfig[]) {
+  const userId = useRecoilValue(myUserIdAtom);
+
   useEffect(() => {
     const keyMap = keyConfig.reduce<{ [key: string]: KeyMap }>((out, { keys, fn, up = true }) => {
       keys &&
@@ -29,14 +33,14 @@ function useKeys(keyConfig: KeyConfig[]) {
       if (!keyMap[key] || (target as HTMLElement).nodeName === "INPUT") return;
       const { fn, pressed, up } = keyMap[key];
       keyMap[key].pressed = true;
-      if (up || !pressed) fn(true);
+      if (up || !pressed) Socket.instance?.emit("keyDown", { userId, keyState: fn(true) });
     };
 
     const upHandler = ({ key, target }: KeyboardEvent) => {
       if (!keyMap[key] || (target as HTMLElement).nodeName === "INPUT") return;
       const { fn, up } = keyMap[key];
       keyMap[key].pressed = false;
-      if (up) fn(false);
+      if (up) Socket.instance?.emit("keyUp", { userId, keyState: fn(false) });
     };
 
     window.addEventListener("keydown", downHandler);
@@ -50,15 +54,14 @@ function useKeys(keyConfig: KeyConfig[]) {
 }
 
 const Keyboard = () => {
-  const setKeyboardState = useSetRecoilState(keyBoardStateAtom);
   useKeys([
-    { keys: ["ArrowUp", "w", "W"], fn: (forward) => setKeyboardState((state: keyBoardStateType) => ({ ...state, forward })) },
-    { keys: ["ArrowDown", "s", "S"], fn: (backward) => setKeyboardState((state: keyBoardStateType) => ({ ...state, backward })) },
-    { keys: ["ArrowLeft", "a", "A"], fn: (left) => setKeyboardState((state: keyBoardStateType) => ({ ...state, left })) },
-    { keys: ["ArrowRight", "d", "D"], fn: (right) => setKeyboardState((state: keyBoardStateType) => ({ ...state, right })) },
-    { keys: ["Shift"], fn: (boost) => setKeyboardState((state: keyBoardStateType) => ({ ...state, boost })) },
-    { keys: ["Space", " "], fn: (space) => setKeyboardState((state: keyBoardStateType) => ({ ...state, space })) },
-    { keys: ["z", "Z"], fn: (dance) => setKeyboardState((state: keyBoardStateType) => ({ ...state, dance })) },
+    { keys: ["ArrowUp", "w", "W"], fn: (forward) => ({ ...DefaultKeyboardState, forward }) },
+    { keys: ["ArrowDown", "s", "S"], fn: (backward) => ({ ...DefaultKeyboardState, backward }) },
+    { keys: ["ArrowLeft", "a", "A"], fn: (left) => ({ ...DefaultKeyboardState, left }) },
+    { keys: ["ArrowRight", "d", "D"], fn: (right) => ({ ...DefaultKeyboardState, right }) },
+    { keys: ["Shift"], fn: (boost) => ({ ...DefaultKeyboardState, boost }) },
+    { keys: ["Space", " "], fn: (space) => ({ ...DefaultKeyboardState, space }) },
+    { keys: ["z", "Z"], fn: (dance) => ({ ...DefaultKeyboardState, dance }) },
   ]);
   return null;
 };

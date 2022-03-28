@@ -4,7 +4,7 @@
 import { PublicApi } from "@react-three/cannon";
 import { useThree, useFrame } from "@react-three/fiber";
 import { keyBoardStateAtom } from "@Recoils/.";
-import { keyBoardStateType } from "@Type/Three";
+import { CharacterType, keyBoardStateType } from "@Type/Three";
 import { getDxDy } from "@Util/.";
 import { initAnimation } from "@Util/animation";
 import { useRecoilValue } from "recoil";
@@ -12,8 +12,9 @@ import { Vector3 } from "three";
 
 const SPEED = -1;
 
-const useCharacterMovement = ({ api, ref, actions }: { api: PublicApi; ref: any; actions: any }) => {
-  const { forward, backward, left, right, boost, space, dance } = useRecoilValue<keyBoardStateType>(keyBoardStateAtom);
+const useCharacterMovement = ({ api, ref, actions, characterState }: { api: PublicApi; ref: any; actions: any; characterState: CharacterType }) => {
+  const { keyState } = characterState;
+  const { forward, backward, left, right, boost, space, dance } = keyState;
 
   const { camera } = useThree();
 
@@ -58,6 +59,7 @@ const useCharacterMovement = ({ api, ref, actions }: { api: PublicApi; ref: any;
     // api.applyForce([0, 3, 0], [characterPosition.x, characterPosition.y, characterPosition.z]);
     camera.lookAt(characterPosition);
     cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 2);
+    // console.log(characterPosition);
     camera.position.lerp(cameraPosition, delta);
   });
 };
