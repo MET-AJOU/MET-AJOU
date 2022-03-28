@@ -16,6 +16,8 @@ import Test from "@THREE/Organisms/Test";
 
 import TestCharacter from "@THREE/Atoms/Character/test";
 import Keyboard from "@THREE/Atoms/Control/KeyBoard";
+import SocketComponent from "@THREE/Atoms/Socket";
+import Characters from "@THREE/Molecules/Characters";
 
 import Fog from "@THREE/Atoms/Fog";
 
@@ -31,12 +33,12 @@ const MapContainer = () => {
           <pointLight position={[-100, 100, 100]} />
           <pointLight position={[100, 100, 100]} />
           <Physics gravity={[0, 0, 0]}>
-            <Fog />
+            {/* <Fog />
             <Sky sunPosition={[100, 10, 100]} distance={500} />
             <Roads />
             <Grounds />
-            <BuildingGrounds />
-            <TestCharacter src="Character/common_people_male_1.fbx" />
+            <BuildingGrounds /> */}
+            <Characters />
             {/* <FakePlanes /> */}
 
             {/* <BasicPlane position={[0, -2, 0]} /> */}
@@ -44,6 +46,7 @@ const MapContainer = () => {
             {/* <Buildings /> */}
           </Physics>
           <Keyboard />
+          <SocketComponent />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>

@@ -7,21 +7,25 @@ import { useSphere } from "@react-three/cannon";
 import { useRef } from "react";
 import useGetAnimations from "@Hook/Three/useGetAnimations";
 import { animationSrcs } from "@Constant/Three";
+import { CharacterType } from "@Type/Three";
 
-const TestCharacter = ({ src }: { src: string }) => {
+const TestCharacter = ({ src, characterState }: { src: string; characterState: CharacterType }) => {
+  if (!characterState) return null;
+  const {
+    position: { x, y, z },
+  } = characterState;
   const groupRef = useRef(null);
   const temp = useFBX(src);
-
   const actions = useGetAnimations({ animationSrcs, groupRef });
 
   const [ref, api] = useSphere(() => ({
     mass: 100,
     args: [0.1],
-    position: [13, 3.65, 21],
+    position: [x, y, z],
     type: "Dynamic",
   }));
 
-  useCharacterMovement({ ref, api, actions });
+  useCharacterMovement({ ref, api, actions, characterState });
 
   return (
     <group ref={groupRef}>
