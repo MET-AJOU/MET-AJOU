@@ -1,10 +1,9 @@
 import { Suspense } from "react";
 import MapContainer from "@THREE/Templates/Map";
-import useSocket from "@Socket/useSocket";
+import useInitSocket from "@Socket/Hook/useInitSocket";
 
 const MapPage = () => {
-  const [socket] = useSocket();
-  console.log(socket);
+  useInitSocket();
 
   return (
     <Suspense fallback={null}>
