@@ -6,6 +6,7 @@ const useSocket = () => {
   let socket;
   useEffect(() => {
     socket = Socket(SOCKET_SERVER);
+    socket.emit("join", { roomId: 1, userId: 1 });
   }, []);
 
   return [socket];

@@ -5,6 +5,7 @@ import useSocket from "@Socket/useSocket";
 const MapPage = () => {
   const [socket] = useSocket();
   console.log(socket);
+
   return (
     <Suspense fallback={null}>
       <MapContainer />
