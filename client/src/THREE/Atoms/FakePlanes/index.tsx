@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Box from "@THREE/Atoms/Building/test";
-import GroundFakePlane from "./Ground";
-import RoadFakePlane from "./Road";
+
 import BorderFakePlane from "./테두리";
 
 const FakePlanes = () => {
@@ -17,13 +16,7 @@ const FakePlanes = () => {
 
   // rotation [0] : 수직으로 세워짐
   // rotation [1] : 회전
-  return (
-    <>
-      {/* <GroundFakePlane />
-      <RoadFakePlane /> */}
-      <BorderFakePlane />
-    </>
-  );
+  return <BorderFakePlane />;
 };
 
 export default FakePlanes;

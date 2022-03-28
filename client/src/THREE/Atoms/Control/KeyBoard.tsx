@@ -58,6 +58,7 @@ const Keyboard = () => {
     { keys: ["ArrowRight", "d", "D"], fn: (right) => setKeyboardState((state: keyBoardStateType) => ({ ...state, right })) },
     { keys: ["Shift"], fn: (boost) => setKeyboardState((state: keyBoardStateType) => ({ ...state, boost })) },
     { keys: ["Space", " "], fn: (space) => setKeyboardState((state: keyBoardStateType) => ({ ...state, space })) },
+    { keys: ["z", "Z"], fn: (dance) => setKeyboardState((state: keyBoardStateType) => ({ ...state, dance })) },
   ]);
   return null;
 };

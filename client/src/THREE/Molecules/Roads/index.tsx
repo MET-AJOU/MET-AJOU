@@ -1,11 +1,11 @@
 import { RoadsAssetSize, RoadsSrc } from "@Constant/Three";
-import Road from "@THREE/Atoms/Road";
+import Ground from "@THREE/Atoms/Ground";
 
 const Roads = () => {
   return (
     <>
       {new Array(RoadsAssetSize).fill(1).map((_, idx) => (
-        <Road position={[0, 0, 0]} src={`${RoadsSrc}/road_${idx + 1}.gltf`} />
+        <Ground src={`${RoadsSrc}/road_${idx + 1}.gltf`} 키="road" />
       ))}
     </>
   );

@@ -50,5 +50,4 @@ const MapContainer = () => {
   );
 };
 
-// position은 x는 좌 / 우 y는 위 / 아래 z는 깊이
 export default MapContainer;
