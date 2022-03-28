@@ -1,10 +1,12 @@
-import { PositionType } from "@Type/Three";
+import { CharacterType } from "@Type/Three";
+import { SetterOrUpdater } from "recoil";
 import { Socket } from "socket.io-client";
 
-const initSocketEvents = ({ socket }: { socket: Socket }) => {
-  socket.on("join", ({ userId, characterId, position }: { userId: number; characterId: number; position: PositionType }) => {
-    console.log(userId, characterId, position);
-  });
+const initSocketEvents = ({ socket, setCharacters }: { socket: Socket; setCharacters: SetterOrUpdater<CharacterType[] | null> }) => {
+  socket.on("joinRoom", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
+  socket.on("joinNewUser", (joinUser: CharacterType) => setCharacters((joinUsers) => [...(joinUsers as CharacterType[]), joinUser]));
+  socket.on("keyDown", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
+  socket.on("keyUp", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
 };
 
 export default initSocketEvents;
