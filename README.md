@@ -25,3 +25,19 @@
 - [Flowchart](https://www.figma.com/file/mK6e61UFKqispZScvYijFy/jouniverse_wireframe?node-id=0%3A1) 
 - [Wireframe](https://www.figma.com/file/TNN7DsdqZFS0hmTOYzeN6Z/Simple-Virtual-reality-Landing-Page-(Community)?node-id=0%3A1)
 - [Figma](https://www.figma.com/file/rRgoGRknJ6BySxUvKvRtV7/Jouniverse_Sitemap)
+
+
+## 사용 기술 
+- React & Typescript 
+- styled-components
+- @react-three/fiber , @react-three/drei , @react-three/cannon(물리엔진)
+ 
+ 
+## 개발 진행 상황
+
+### 2022-03-27
+- cannon js 의 convexPolyhedron 을 사용해 굴곡있는 지형에 대해서 물리엔진에 적용 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/66724340/160528987-ca928694-ee25-43fb-88ee-1ae4f25dbe75.gif)
+
+
+ 
