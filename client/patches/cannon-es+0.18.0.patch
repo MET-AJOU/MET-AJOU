@@ -1,0 +1,43 @@
+diff --git a/node_modules/cannon-es/dist/cannon-es.js b/node_modules/cannon-es/dist/cannon-es.js
+index c9435c5..d3a3df7 100644
+--- a/node_modules/cannon-es/dist/cannon-es.js
++++ b/node_modules/cannon-es/dist/cannon-es.js
+@@ -2204,11 +2204,11 @@ class ConvexPolyhedron extends Shape {
+       const vertex = this.vertices[this.faces[i][0]];
+ 
+       if (n.dot(vertex) < 0) {
+-        console.error(".faceNormals[" + i + "] = Vec3(" + n.toString() + ") looks like it points into the shape? The vertices follow. Make sure they are ordered CCW around the normal, using the right hand rule.");
++        // console.error(".faceNormals[" + i + "] = Vec3(" + n.toString() + ") looks like it points into the shape? The vertices follow. Make sure they are ordered CCW around the normal, using the right hand rule.");
+ 
+-        for (let j = 0; j < this.faces[i].length; j++) {
+-          console.warn(".vertices[" + this.faces[i][j] + "] = Vec3(" + this.vertices[this.faces[i][j]].toString() + ")");
+-        }
++        // for (let j = 0; j < this.faces[i].length; j++) {
++        //   console.warn(".vertices[" + this.faces[i][j] + "] = Vec3(" + this.vertices[this.faces[i][j]].toString() + ")");
++        // }
+       }
+     }
+   }
+diff --git a/node_modules/cannon-es/src/shapes/ConvexPolyhedron.ts b/node_modules/cannon-es/src/shapes/ConvexPolyhedron.ts
+index e0a90dc..b23c63c 100644
+--- a/node_modules/cannon-es/src/shapes/ConvexPolyhedron.ts
++++ b/node_modules/cannon-es/src/shapes/ConvexPolyhedron.ts
+@@ -153,12 +153,12 @@ export class ConvexPolyhedron extends Shape {
+       this.faceNormals[i] = n
+       const vertex = this.vertices[this.faces[i][0]]
+       if (n.dot(vertex) < 0) {
+-        console.error(
+-          `.faceNormals[${i}] = Vec3(${n.toString()}) looks like it points into the shape? The vertices follow. Make sure they are ordered CCW around the normal, using the right hand rule.`
+-        )
+-        for (let j = 0; j < this.faces[i].length; j++) {
+-          console.warn(`.vertices[${this.faces[i][j]}] = Vec3(${this.vertices[this.faces[i][j]].toString()})`)
+-        }
++        // console.error(
++        //   `.faceNormals[${i}] = Vec3(${n.toString()}) looks like it points into the shape? The vertices follow. Make sure they are ordered CCW around the normal, using the right hand rule.`
++        // )
++        // for (let j = 0; j < this.faces[i].length; j++) {
++        //   console.warn(`.vertices[${this.faces[i][j]}] = Vec3(${this.vertices[this.faces[i][j]].toString()})`)
++        // }
+       }
+     }
+   }
