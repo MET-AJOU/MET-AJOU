@@ -10,6 +10,8 @@ export const DefaultKeyboardState: keyBoardStateType = {
   dance: false,
 };
 
+export const HillsSrc = "models/Hill";
+
 export const BuildingsSrc = "models/Building";
 
 export const RoadsSrc = "models/Roads";
@@ -17,6 +19,8 @@ export const RoadsSrc = "models/Roads";
 export const GroundsSrc = "models/Grounds";
 
 export const BuildingGroundsSrc = "models/BuildingGrounds";
+
+export const HillsAssetSize = 22;
 
 export const RoadsAssetSize = 14;
 

@@ -21,6 +21,7 @@ import Characters from "@THREE/Molecules/Characters";
 
 import Fog from "@THREE/Atoms/Fog";
 
+import Hills from "@THREE/Molecules/Hills";
 import MetaContainer from "./styles";
 
 const MapContainer = () => {
@@ -33,12 +34,13 @@ const MapContainer = () => {
           <pointLight position={[-100, 100, 100]} />
           <pointLight position={[100, 100, 100]} />
           <Physics gravity={[0, 0, 0]}>
-            {/* <Fog />
+            <Fog />
             <Sky sunPosition={[100, 10, 100]} distance={500} />
             <Roads />
             <Grounds />
-            <BuildingGrounds /> */}
+            <BuildingGrounds />
             <Characters />
+            <Hills />
             {/* <FakePlanes /> */}
 
             {/* <BasicPlane position={[0, -2, 0]} /> */}
