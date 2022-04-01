@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { GroundAssetSize, GroundsSrc } from "@Constant/Three";
 import Ground from "@THREE/Atoms/Ground";
 
@@ -6,7 +7,7 @@ const Grounds = () => {
   return (
     <>
       {new Array(GroundAssetSize).fill(1).map((_, idx) => (
-        <Ground src={`${GroundsSrc}/ground_${idx + 1}.gltf`} 키="out_ground" 블락함수={blocking} />
+        <Ground key={idx} src={`${GroundsSrc}/ground_${idx + 1}.gltf`} 키="out_ground" 블락함수={blocking} />
       ))}
     </>
   );
