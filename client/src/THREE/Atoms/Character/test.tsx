@@ -1,22 +1,21 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { PerspectiveCamera, useAnimations, useFBX, useGLTF } from "@react-three/drei";
-import useCharacterMovement from "@Hook/Three/useMovement";
+import { useFBX } from "@react-three/drei";
 import { useSphere } from "@react-three/cannon";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import useGetAnimations from "@Hook/Three/useGetAnimations";
 import { animationSrcs } from "@Constant/Three";
 import { CharacterType } from "@Type/Three";
 
-const TestCharacter = ({ src, characterState }: { src: string; characterState: CharacterType }) => {
+const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx }: { src: string; characterState: CharacterType; characterRefs: any; idx: number; actions: any; apis: any }) => {
   if (!characterState) return null;
   const {
     position: { x, y, z },
   } = characterState;
   const groupRef = useRef(null);
   const temp = useFBX(src);
-  const actions = useGetAnimations({ animationSrcs, groupRef });
 
   const [ref, api] = useSphere(() => ({
     mass: 100,
@@ -25,7 +24,11 @@ const TestCharacter = ({ src, characterState }: { src: string; characterState: C
     type: "Dynamic",
   }));
 
-  useCharacterMovement({ ref, api, actions, characterState });
+  useEffect(() => {
+    characterRefs.current[idx] = ref;
+    apis.current[idx] = api;
+    // actions.crreunt[idx] = useGetAnimations({ animationSrcs, groupRef });
+  }, [api, ref]);
 
   return (
     <group ref={groupRef}>
