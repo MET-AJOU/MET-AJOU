@@ -33,7 +33,7 @@ const MapContainer = () => {
           <ambientLight />
           <pointLight position={[-100, 100, 100]} />
           <pointLight position={[100, 100, 100]} />
-          <Physics gravity={[0, 0, 0]}>
+          <Physics gravity={[0, 0, 0]} broadphase="SAP">
             <Fog />
             <Sky sunPosition={[100, 10, 100]} distance={500} />
             <Roads />
