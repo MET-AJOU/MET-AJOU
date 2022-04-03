@@ -16,18 +16,12 @@ import { Vector3 } from "three";
 const SPEED = -1;
 
 const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { apis: any; characterRefs: any; actions: any; characters: CharacterType[] | null }) => {
-  console.log(apis, characterRefs);
-
-  useEffect(() => {
-    if (!characters) return;
-    if (!(characterRefs.current[characters.length - 1] as any).current) return;
-  }, [characters]);
-  // const myUserId = useRecoilValue(myUserIdAtom);
-  const userKeyStates = characters?.map(({ keyState: { forward, backward, left, right, boost, space, dance } }) => ({ forward, backward, left, right, boost, space, dance }));
-  // const myUserIdx = characters?.findIndex(({ userId }) => userId === myUserId);
-  // const { keyState } = characterState;
-  // const { forward, backward, left, right, boost, space, dance } = keyState;
-
+  const myUserId = useRecoilValue(myUserIdAtom);
+  const myUserIdx = characters?.findIndex(({ userId }) => userId === myUserId);
+  const userKeyStates = characters?.map(({ keyState: { forward, backward, left, right, boost, space, dance } }) => ({ forward, backward, left, right, boost, space, dance })) ?? [];
+  // console.log(userKeyStates);
+  // console.log(apis);
+  // console.log(characterRefs);
   const { camera } = useThree();
 
   const fowardVector = new Vector3();
@@ -43,8 +37,15 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
   let characterDir = 0;
   //   let upwardTime = 0;\
   if (!characterRefs.current[0]) return;
+
+  // useEffect(() => {
+  //   if (!characters) return;
+  //   if (!(characterRefs.current[characters.length - 1] as any).current) return;
+  // }, [characters]);
+
   useFrame((state, delta) => {
     // api.rotation.set(0, characterDir, 0);
+    if (userKeyStates.length) return;
     userKeyStates?.forEach(({ forward, backward, left, right, boost, space, dance }, idx) => {
       initAnimation({ forward, backward, left, right, boost, space, dance, actions: actions[idx].current });
       characterDir = forward || left || right ? (forward ? Math.PI : backward ? Math.PI : left ? (3 * Math.PI) / 2 : Math.PI / 2) : 0;
@@ -60,7 +61,6 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
         .normalize()
         .multiplyScalar(SPEED * boostSpeed);
       apis.current[idx].velocity.set(direction.x, upwardSpeed, direction.z);
-
       apis.current[idx].rotation.set(0, characterDir, 0);
     });
     // initAnimation({ forward, backward, left, right, boost, space, dance, actions });
@@ -82,11 +82,11 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
     // api.rotation.set(0, characterDir, 0);
     // api.quaternion.set()
     // console.log(characterRefs);
-    // characterRefs.current[Number(myUserIdx)]!.getWorldPosition(characterPosition);
+    characterRefs.current[Number(myUserIdx)]!.getWorldPosition(characterPosition);
     // fakeplane만들때만 쓸것
     // camera.lookAt(ref.current!.position);
     // api.applyForce([0, 3, 0], [characterPosition.x, characterPosition.y, characterPosition.z]);
-    // camera.lookAt(characterPosition);
+    camera.lookAt(characterPosition);
     cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 2);
     // console.log(characterPosition);
     camera.position.lerp(cameraPosition, delta);
