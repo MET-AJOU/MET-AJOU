@@ -1,4 +1,5 @@
 /* eslint-disable react/require-default-props */
+// import { BoxProps, Triplet, useHeightfield } from "@react-three/cannon";
 import { BoxProps, Triplet, useConvexPolyhedron } from "@react-three/cannon";
 import { useGLTF } from "@react-three/drei";
 import { ShapeOptions, ShapeType, threeToCannon } from "three-to-cannon";
@@ -12,7 +13,7 @@ interface Props {
 const makeVertices = (vertices: any[]): any => vertices?.map((vertice: any) => [vertice.x, vertice.y, vertice.z]);
 
 const Ground = ({ src, 키, 블락함수, position = 포지션, rotation = 로테이션 }: BoxProps & Props) => {
-  const { nodes } = useGLTF(src);
+  const { nodes } = useGLTF(src) as any;
   const { geometry, material } = nodes[키].children[0] as any;
   const {
     shape: { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius },
