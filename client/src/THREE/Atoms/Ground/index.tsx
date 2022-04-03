@@ -1,4 +1,5 @@
 /* eslint-disable react/require-default-props */
+// import { BoxProps, Triplet, useHeightfield } from "@react-three/cannon";
 import { BoxProps, Triplet, useConvexPolyhedron } from "@react-three/cannon";
 import { useGLTF } from "@react-three/drei";
 import { ShapeOptions, ShapeType, threeToCannon } from "three-to-cannon";
@@ -18,9 +19,6 @@ const Ground = ({ src, 키, 블락함수, position = 포지션, rotation = 로�
     shape: { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius },
   } = threeToCannon(nodes[키].children[0] as any, 옵션) as any;
 
-  // console.log(faces);
-  // console.log(normals);
-  // console.log(vertices);
   const [a] = useConvexPolyhedron(() => ({ type: "Static", args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: 블락함수 ?? undefined }), undefined, [makeVertices(vertices), position, rotation]);
 
   return (
