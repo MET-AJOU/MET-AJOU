@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -25,8 +26,12 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
   }));
 
   useEffect(() => {
+    console.log(ref);
+    console.log(api);
     characterRefs.current[idx] = ref;
     apis.current[idx] = api;
+    console.log(characterRefs);
+    console.log(apis);
     // actions.crreunt[idx] = useGetAnimations({ animationSrcs, groupRef });
   }, [api, ref]);
 
