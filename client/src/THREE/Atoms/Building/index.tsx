@@ -8,10 +8,9 @@ interface Props {
 }
 const Building = ({ color = "white", src, args, position = [0, 0, 0], rotation = [0, -0.09, 0] }: BoxProps & Props) => {
   const { nodes } = useGLTF(src) as any;
-
   const [ref] = useBox(() => ({ mass: 100, type: "Static", args, position, rotation }), undefined, [args, position, rotation]);
 
-  const { geometry, material } = nodes.road.children[0] as any;
+  const { geometry, material } = nodes.pasted__polySurface1_group;
 
   return <mesh ref={ref} castShadow receiveShadow geometry={geometry} material={material} />;
   // 아래는 테스트용 절대 지우지 마셈

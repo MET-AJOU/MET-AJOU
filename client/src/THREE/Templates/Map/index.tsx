@@ -39,13 +39,13 @@ const MapContainer = () => {
             <Roads />
             <Grounds />
             <BuildingGrounds />
-            <Characters />
-            {/* <Hills /> */}
+            <Hills />
+            <Buildings />
+            {/* <Characters /> */}
             {/* <FakePlanes /> */}
 
             {/* <BasicPlane position={[0, -2, 0]} /> */}
             {/* <Test /> */}
-            {/* <Buildings /> */}
           </Physics>
           <Keyboard />
           <SocketComponent />
