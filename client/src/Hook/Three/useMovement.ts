@@ -55,12 +55,14 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
           .subVectors(fowardVector, sideVector)
           .normalize()
           .multiplyScalar(SPEED * boostSpeed);
-        apis.current[idx].velocity.set(direction.x, upwardSpeed, direction.z);
-        apis.current[idx].rotation.set(0, characterDir, 0);
+
+        if (apis.current[idx]) {
+          apis.current[idx].velocity.set(direction.x, upwardSpeed, direction.z);
+          apis.current[idx].rotation.set(0, characterDir, 0);
+        }
       });
 
       characterRefs.current[Number(myUserIdx)]!.current.getWorldPosition(characterPosition);
-
       camera.lookAt(characterPosition);
       cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 2);
       camera.position.lerp(cameraPosition, delta);
