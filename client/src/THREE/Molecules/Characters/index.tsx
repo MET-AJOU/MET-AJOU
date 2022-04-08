@@ -19,6 +19,7 @@ const Characters = () => {
   //   // // console.log(characters, (characterRefs.current[characters.length - 1] as any).current);
   //   // if (!(characterRefs.current[characters.length - 1] as any).current) return;
   // }, [characters]);
+
   useCharacterMovement({ characterRefs, apis, actions, characters });
 
   // useEffect(() => {

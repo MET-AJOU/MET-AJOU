@@ -26,12 +26,9 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
   }));
 
   useEffect(() => {
-    console.log(ref);
-    console.log(api);
+    console.log(idx);
     characterRefs.current[idx] = ref;
     apis.current[idx] = api;
-    console.log(characterRefs);
-    console.log(apis);
     // actions.crreunt[idx] = useGetAnimations({ animationSrcs, groupRef });
   }, [api, ref]);
 
@@ -55,5 +52,6 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
 //   console.log(next);
 //   return true;
 // }
-export default React.memo(TestCharacter);
+export default TestCharacter;
+// export default React.memo(TestCharacter);
 // export default React.memo(TestCharacter, propsCompareFn);
