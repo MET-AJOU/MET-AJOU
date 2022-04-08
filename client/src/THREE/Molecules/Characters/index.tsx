@@ -29,7 +29,7 @@ const Characters = () => {
   return (
     <>
       {characters?.map((characterState, idx) => (
-        <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src="Character/common_people_male_1.fbx" characterState={characterState} key={characterState.userId} />
+        <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src="Character/common_people_female_2.gltf" characterState={characterState} key={characterState.userId} />
       ))}
     </>
   );

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { OrbitControls, PointerLockControls, Sky, TrackballControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Physics } from "@react-three/cannon";
+import { Physics, Debug } from "@react-three/cannon";
 import { RecoilRoot } from "recoil";
 
 import BasicPlane from "@THREE/Atoms/BasicPlane";
@@ -29,16 +29,17 @@ const MapContainer = () => {
     <MetaContainer>
       <Canvas>
         <RecoilRoot>
+          {/* <Debug scale={1.1} color="black"> */}
           <OrbitControls />
           <ambientLight />
           <pointLight position={[-100, 100, 100]} />
           <pointLight position={[100, 100, 100]} />
           <Physics gravity={[0, 0, 0]} broadphase="SAP">
-            <Fog />
-            <Sky sunPosition={[100, 10, 100]} distance={500} />
-            <Roads />
-            <Grounds />
-            <BuildingGrounds />
+            {/* <Fog /> */}
+            {/* <Sky sunPosition={[100, 10, 100]} distance={500} /> */}
+            {/* <Roads /> */}
+            {/* <Grounds /> */}
+            {/* <BuildingGrounds /> */}
             <Characters />
             {/* <Hills /> */}
             {/* <FakePlanes /> */}
@@ -49,6 +50,7 @@ const MapContainer = () => {
           </Physics>
           <Keyboard />
           <SocketComponent />
+          {/* </Debug> */}
         </RecoilRoot>
       </Canvas>
     </MetaContainer>
