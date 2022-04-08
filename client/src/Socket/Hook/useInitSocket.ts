@@ -14,10 +14,12 @@ const useInitSocket = () => {
   const setMyUserId = useSetRecoilState(myUserIdAtom);
   useEffect(() => {
     const socket = SocketIo(SOCKET_SERVER);
-    initSocketEvents({ socket, setCharacters });
+    initSocketEvents({ socket, setCharacters, setMyUserId });
     joinRoom({ socket, roomId: 1, userId: 1 });
-    setMyUserId(1);
     Socket.instance = socket;
+    return () => {
+      Socket.instance?.disconnect();
+    };
   }, []);
 };
 
