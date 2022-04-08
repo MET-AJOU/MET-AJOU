@@ -42,11 +42,11 @@ const MapContainer = () => {
             {/* <BuildingGrounds /> */}
             <Characters />
             {/* <Hills /> */}
+
             {/* <FakePlanes /> */}
 
             {/* <BasicPlane position={[0, -2, 0]} /> */}
             {/* <Test /> */}
-            {/* <Buildings /> */}
           </Physics>
           <Keyboard />
           <SocketComponent />
