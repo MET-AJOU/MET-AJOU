@@ -14,19 +14,15 @@ import { Vector3 } from "three";
 
 const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx }: { src: string; characterState: CharacterType; characterRefs: any; idx: number; actions: any; apis: any }) => {
   if (!characterState) return null;
-  console.log(characterState);
 
   const {
     position: { x, y, z },
   } = characterState;
+
   const groupRef = useRef(null);
   const { nodes } = useGLTF(src) as any;
   const { geometry: geometry1, material: material1 } = nodes.mesh_0;
-
   const { geometry: geometry2, material: material2 } = nodes.mesh_0_1;
-  // let model = useFBX(src);
-  // let modelClone = model.clone();
-  // console.log(modelClone);
 
   const [ref, api] = useSphere(() => ({
     mass: 100,
@@ -35,31 +31,19 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
     type: "Dynamic",
   }));
 
+  actions.current[idx] = useGetAnimations({ animationSrcs, ref });
+
   useEffect(() => {
     characterRefs.current[idx] = ref;
     apis.current[idx] = api;
-    // actions.crreunt[idx] = useGetAnimations({ animationSrcs, groupRef });
   }, [api, ref]);
+
   return (
     <group ref={ref} scale={0.02}>
       <mesh geometry={geometry1} material={material1} />
       <mesh geometry={geometry2} material={material2} />
     </group>
   );
-
-  // return (
-  //   <Suspense fallback={null}>
-  //     <mesh scale={0.002} ref={ref} material-reflectivity={1}>
-  //       <primitive scale={0.000002} object={modelClone} dispose={null} />;
-  //     </mesh>
-  //   </Suspense>
-  // );
-  // // return (
-  //   <mesh castShadow ref={ref}>
-  //     <boxBufferGeometry attach="geometry" args={[0.1, 0.1, 0.1]} />
-  //     <meshStandardMaterial color="white" />
-  //   </mesh>
-  // );
 };
 
 // function propsCompareFn(prev: any, next: any): boolean {

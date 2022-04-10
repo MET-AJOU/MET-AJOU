@@ -49,13 +49,12 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
         sideSpeed = left || right ? (right ? 1 : -1) : 0;
         sideVector.set(sideSpeed, 0, 0);
         upwardSpeed = space ? 3 : -1;
-
         boostSpeed = boost ? 2 : 1;
         direction
           .subVectors(fowardVector, sideVector)
           .normalize()
           .multiplyScalar(SPEED * boostSpeed);
-
+        initAnimation({ forward, backward, left, right, boost, space, dance, actions: actions.current[idx] });
         if (apis.current[idx]) {
           apis.current[idx].velocity.set(direction.x, upwardSpeed, direction.z);
           apis.current[idx].rotation.set(0, characterDir, 0);

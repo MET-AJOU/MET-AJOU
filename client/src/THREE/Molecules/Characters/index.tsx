@@ -14,22 +14,12 @@ const Characters = () => {
   const actions = useRef([]);
   const apis = useRef([]);
 
-  // useEffect(() => {
-  //   // if (!characters) return;
-  //   // // console.log(characters, (characterRefs.current[characters.length - 1] as any).current);
-  //   // if (!(characterRefs.current[characters.length - 1] as any).current) return;
-  // }, [characters]);
-
   useCharacterMovement({ characterRefs, apis, actions, characters });
 
-  // useEffect(() => {
-  //   console.log(characterRefs);
-  //   console.log(apis);
-  // }, []);
   return (
     <>
       {characters?.map((characterState, idx) => (
-        <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src="Character/common_people_female_2.gltf" characterState={characterState} key={characterState.userId} />
+        <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src="Character/common_people_male_1.gltf" characterState={characterState} key={characterState.userId} />
       ))}
     </>
   );
