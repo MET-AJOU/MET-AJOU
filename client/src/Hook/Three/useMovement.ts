@@ -15,7 +15,7 @@ import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { Vector3 } from "three";
 
-const SPEED = -1;
+const SPEED = -2;
 
 const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { apis: any; characterRefs: any; actions: any; characters: CharacterType[] | null }) => {
   const myUserId = useRecoilValue(myUserIdAtom);

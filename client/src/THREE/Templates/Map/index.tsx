@@ -36,15 +36,15 @@ const MapContainer = () => {
           <pointLight position={[-100, 100, 100]} />
           <pointLight position={[100, 100, 100]} />
           <Physics gravity={[0, 0, 0]} broadphase="SAP">
-            <Debug scale={1.1} color="black">
-              <HeightMap elementSize={0.04} position={[0, -1, 0]} rotation={[3.14 / 2, 3.14, 0]} />
+            <Debug scale={1} color="black">
+              <HeightMap elementSize={0.1} position={[0, 0, -50]} rotation={[3.14 / 2, 3.14, 0.9]} />
               {/* <Fog /> */}
               {/* <Sky sunPosition={[100, 10, 100]} distance={500} /> */}
-              {/* <Roads /> */}
-              {/* <Grounds /> */}
-              {/* <BuildingGrounds /> */}
+              <Roads />
+              <Grounds />
+              <BuildingGrounds />
               <Characters />
-              {/* <Hills /> */}
+              <Hills />
 
               {/* <FakePlanes /> */}
 

@@ -5,7 +5,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useFBX, useGLTF } from "@react-three/drei";
-import { useSphere } from "@react-three/cannon";
+import { useBox, useSphere } from "@react-three/cannon";
 import React, { Suspense, useEffect, useRef } from "react";
 import useGetAnimations from "@Hook/Three/useGetAnimations";
 import { animationSrcs } from "@Constant/Three";

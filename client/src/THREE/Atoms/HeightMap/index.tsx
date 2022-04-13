@@ -6,7 +6,6 @@ import { useAsset } from "use-asset";
 
 import type { Texture } from "three";
 import type { HeightfieldArgs, HeightfieldProps } from "@react-three/cannon";
-import { useEffect } from "react";
 
 const canvas = document.createElement("canvas");
 const context = canvas.getContext("2d");
@@ -25,7 +24,7 @@ function createHeightfieldMatrix(image: HTMLImageElement): number[][] {
   const height = image.height;
   const matrix: number[][] = Array(width);
   const row: number[] = Array(height);
-  const scale = 40; // determines the vertical scale of the heightmap
+  const scale = 20; // determines the vertical scale of the heightmap
   let p: number;
 
   canvas.width = width;
@@ -44,19 +43,16 @@ function createHeightfieldMatrix(image: HTMLImageElement): number[][] {
     matrix[x] = [...row];
   }
   context.clearRect(0, 0, width, height);
-  console.log(matrix);
   return matrix;
 }
 
 type HeightmapProps = Required<Pick<HeightfieldProps, "position" | "rotation">> & Required<Pick<HeightfieldArgs["1"], "elementSize">>;
 
 const HeightMap = ({ elementSize, position, rotation }: HeightmapProps) => {
-  const heightmap = useTexture("/models/HeightMap/ajou_heightmap.png");
+  const heightmap = useTexture("/models/HeightMap/ajou_heightmap_1024.png");
   const heights = useAsset<number[][], Texture[]>(async () => createHeightfieldMatrix(heightmap.image), heightmap);
-  const [ref] = useHeightfield(() => ({ type: "Static", args: [heights, { elementSize, minValue: 1, maxValue: 20 }], position, rotation }), undefined, [elementSize, position, rotation]);
-  useEffect(() => {
-    console.log(ref);
-  }, [ref]);
+  useHeightfield(() => ({ type: "Static", args: [heights, { elementSize }], position, rotation }), undefined, [elementSize, position, rotation]);
+
   // return null;
   return null;
 };

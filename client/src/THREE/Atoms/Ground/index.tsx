@@ -16,21 +16,8 @@ const makeVertices = (vertices: any[]): any => vertices?.map((vertice: any) => [
 const Ground = ({ src, 키, 블락함수, position = 포지션, rotation = 로테이션 }: BoxProps & Props) => {
   const { nodes, materials } = useGLTF(src) as any;
   const { geometry, material } = nodes[키].children[0] as any;
-  const {
-    shape: { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius },
-  } = threeToCannon(nodes[키].children[0] as any, 옵션) as any;
 
-  const test = threeToCannon(nodes[키].children[0] as any) as any;
-  console.log(materials, nodes);
-
-  const [a] = useConvexPolyhedron(() => ({ type: "Static", args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: 블락함수 ?? undefined }), undefined, [makeVertices(vertices), position, rotation]);
-
-  return (
-    <>
-      <mesh castShadow position={position} receiveShadow geometry={geometry} material={material} />
-      <mesh ref={a} />
-    </>
-  );
+  return <mesh castShadow position={position} receiveShadow geometry={geometry} material={material} />;
 };
 
 export default Ground;
