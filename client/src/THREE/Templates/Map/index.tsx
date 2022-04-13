@@ -37,7 +37,8 @@ const MapContainer = () => {
           <pointLight position={[100, 100, 100]} />
           <Physics gravity={[0, 0, 0]} broadphase="SAP">
             <Debug scale={1} color="black">
-              <HeightMap elementSize={0.1} position={[0, 0, -50]} rotation={[3.14 / 2, 3.14, 0.9]} />
+              <HeightMap elementSize={0.03837} position={[-53, 1, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
+              {/* <HeightMap elementSize={0.05} position={[0, 0, -50]} rotation={[3.14 / 2, 3.14, 0.9]} /> */}
               {/* <Fog /> */}
               {/* <Sky sunPosition={[100, 10, 100]} distance={500} /> */}
               <Roads />
@@ -61,3 +62,16 @@ const MapContainer = () => {
 };
 
 export default MapContainer;
+
+// [z축 x축 y축]
+
+// position [0] : - 왼쪽 + 오른쪽
+// position [1] : 높이
+// position [2] : + 아래 , - 위
+
+// args [0] : 좌우 중심에서 길어지고 짧아짐
+// args [1] : 높이 위아래
+// args [2] : 위아래 중심에서 길어지고 짧아짐
+
+// rotation [0] : 수직으로 세워짐
+// rotation [1] : 회전
