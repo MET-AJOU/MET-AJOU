@@ -7,7 +7,8 @@ interface Props {
   color: string;
 }
 const Building = ({ color = "white", src, args, position = [0, 0, 0], rotation = [0, -0.09, 0] }: BoxProps & Props) => {
-  const { nodes } = useGLTF(src) as any;
+  const { nodes, materials } = useGLTF(src) as any;
+  // console.log(materials);
   const [ref] = useBox(() => ({ mass: 100, type: "Static", args, position, rotation }), undefined, [args, position, rotation]);
 
   const { geometry, material } = nodes.pasted__polySurface1_group;
