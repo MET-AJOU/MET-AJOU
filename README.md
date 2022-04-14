@@ -43,8 +43,11 @@
 - cannon.js convexPolyhedron 충돌 처리 문제점 발견 
 - heightField 를 적용하여 충돌 처리 문제 해결 
 
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/66724340/163387458-e0da09f5-da58-42bc-b2d4-468d944ddd30.gif)
 
-https://user-images.githubusercontent.com/66724340/163387286-488b739d-fb99-4ca2-b58d-6f7d77b8dc3c.mp4
+
+
+
 
 
 
