@@ -39,5 +39,14 @@
 - cannon js 의 convexPolyhedron 을 사용해 굴곡있는 지형에 대해서 물리엔진에 적용 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/66724340/160528987-ca928694-ee25-43fb-88ee-1ae4f25dbe75.gif)
 
+### 2022-04-14 
+- cannon.js convexPolyhedron 충돌 처리 문제점 발견 
+- heightField 를 적용하여 충돌 처리 문제 해결 
+
+
+https://user-images.githubusercontent.com/66724340/163387286-488b739d-fb99-4ca2-b58d-6f7d77b8dc3c.mp4
+
+
+
 
  
