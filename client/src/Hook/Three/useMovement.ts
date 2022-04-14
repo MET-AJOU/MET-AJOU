@@ -7,12 +7,12 @@
 import { PublicApi } from "@react-three/cannon";
 import { useThree, useFrame } from "@react-three/fiber";
 import { keyBoardStateAtom } from "@Recoils/.";
-import { myUserIdAtom } from "@Recoils/Characters";
+import { myPositionAtom, myUserIdAtom } from "@Recoils/Characters";
 import { CharacterType, keyBoardStateType } from "@Type/Three";
 import { getDxDy } from "@Util/.";
 import { initAnimation } from "@Util/animation";
 import { useEffect } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Vector3 } from "three";
 
 const SPEED = -2;
@@ -21,7 +21,8 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
   const myUserId = useRecoilValue(myUserIdAtom);
   const myUserIdx = characters?.findIndex(({ userId }) => userId === myUserId);
   const userKeyStates = characters?.map(({ keyState: { forward, backward, left, right, boost, space, dance } }) => ({ forward, backward, left, right, boost, space, dance })) ?? [];
-
+  const userPositions = characters?.map(({ position }) => ({ position }));
+  const setMyPosition = useSetRecoilState(myPositionAtom);
   const { camera } = useThree();
 
   const fowardVector = new Vector3();
@@ -38,8 +39,9 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
   let isSafe = false;
 
   if (characterRefs.current.length > 0 && apis.current.length > 0) isSafe = true;
-
+  let timelapse = 0;
   useFrame((state, delta) => {
+    // console.log(timelapse);
     if (isSafe) {
       userKeyStates?.forEach(({ forward, backward, left, right, boost, space, dance }, idx) => {
         // initAnimation({ forward, backward, left, right, boost, space, dance, actions: actions[idx].current });
@@ -62,9 +64,21 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
       });
 
       characterRefs.current[Number(myUserIdx)]!.current.getWorldPosition(characterPosition);
+      const { x, y, z } = characterPosition;
+      setMyPosition({ x, y, z });
       camera.lookAt(characterPosition);
+      // console.log("클라이언트", characterPosition);
+      // console.log("서버", (userPositions as any)[myUserIdx as number].position);
       cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 2);
       camera.position.lerp(cameraPosition, delta);
+      // console.log(apis.current[0]);
+      timelapse += delta;
+      if (timelapse > 0.5) {
+        userPositions?.forEach(({ position }, idx) => {
+          apis.current[idx].position.set(position.x, position.y, position.z);
+        });
+        timelapse = 0;
+      }
     }
   });
 };
