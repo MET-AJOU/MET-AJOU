@@ -15,14 +15,19 @@ const Characters = () => {
   const apis = useRef([]);
 
   useCharacterMovement({ characterRefs, apis, actions, characters });
-
+  console.log(characters);
   return (
     <>
       {characters?.map((characterState, idx) => (
-        <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src="Character/common_people_male_1.gltf" characterState={characterState} key={characterState.userId} />
+        <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src={getCharacterTest(idx)} characterState={characterState} key={`${characterState.userId}/${idx}`} />
+        // <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src={getCharacter(idx)} characterState={characterState} key={characterState.userId} />
+        // <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src="Character/common_people_male_1.gltf" characterState={characterState} key={characterState.userId} />
       ))}
     </>
   );
 };
 
 export default Characters;
+
+const getCharacter = (idx: number) => `Character/common_people_male_${idx + 1}.fbx`;
+const getCharacterTest = (idx: number) => (idx === 0 ? `Character/common_people_male_1.fbx` : `Character/common_people_male_1_test.fbx`);

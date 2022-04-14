@@ -19,12 +19,12 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
     position: { x, y, z },
   } = characterState;
 
-  const groupRef = useRef(null);
-  // const temp = useFBX(src);
+  // const groupRef = useRef(null);
+  const temp = useFBX(src);
   // const tempClone = temp.clone();
-  const { nodes } = useGLTF(src) as any;
-  const { geometry: geometry1, material: material1 } = nodes.mesh_0;
-  const { geometry: geometry2, material: material2 } = nodes.mesh_0_1;
+  // const { nodes } = useGLTF(src) as any;
+  // const { geometry: geometry1, material: material1 } = nodes.mesh_0;
+  // const { geometry: geometry2, material: material2 } = nodes.mesh_0_1;
 
   const [ref, api] = useSphere(() => ({
     mass: 100,
@@ -41,10 +41,10 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
   }, [api, ref]);
 
   return (
-    <group ref={ref} scale={0.01}>
-      {/* <primitive object={tempClone} /> */}
-      <mesh geometry={geometry1} material={material1} />
-      <mesh geometry={geometry2} material={material2} />
+    <group ref={ref} scale={0.005}>
+      <primitive object={temp} />
+      {/* <mesh geometry={geometry1} material={material1} />
+      <mesh geometry={geometry2} material={material2} /> */}
     </group>
   );
 };

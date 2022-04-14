@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-expressions */
-import { myUserIdAtom } from "@Recoils/Characters";
-import { useEffect } from "react";
+import { myPositionAtom, myUserIdAtom } from "@Recoils/Characters";
+import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import Socket from "@Socket/.";
 import { DefaultKeyboardState } from "@Constant/Three";
@@ -18,6 +18,14 @@ interface KeyMap {
 
 function useKeys(keyConfig: KeyConfig[]) {
   const userId = useRecoilValue(myUserIdAtom);
+  const position = useRecoilValue(myPositionAtom);
+  const [isPressed, setPressed] = useState(false);
+
+  useEffect(() => {
+    if (isPressed) return;
+    if (!userId) return;
+    Socket.instance?.emit("keyDown", { userId, keyState: DefaultKeyboardState, position });
+  }, [position]);
 
   useEffect(() => {
     const keyMap = keyConfig.reduce<{ [key: string]: KeyMap }>((out, { keys, fn, up = true }) => {
@@ -33,14 +41,16 @@ function useKeys(keyConfig: KeyConfig[]) {
       if (!keyMap[key] || (target as HTMLElement).nodeName === "INPUT") return;
       const { fn, pressed, up } = keyMap[key];
       keyMap[key].pressed = true;
-      if (up || !pressed) Socket.instance?.emit("keyDown", { userId, keyState: fn(true) });
+      setPressed(true);
+      if (up || !pressed) Socket.instance?.emit("keyDown", { userId, keyState: fn(true), position });
     };
 
     const upHandler = ({ key, target }: KeyboardEvent) => {
       if (!keyMap[key] || (target as HTMLElement).nodeName === "INPUT") return;
       const { fn, up } = keyMap[key];
       keyMap[key].pressed = false;
-      if (up) Socket.instance?.emit("keyUp", { userId, keyState: fn(false) });
+      setPressed(false);
+      if (up) Socket.instance?.emit("keyUp", { userId, keyState: fn(false), position });
     };
 
     window.addEventListener("keydown", downHandler);
