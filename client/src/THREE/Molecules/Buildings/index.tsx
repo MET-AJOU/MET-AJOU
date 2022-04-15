@@ -5,9 +5,13 @@ const Buildings = () => {
   // 가로 x 높이 y 세로 z
   return (
     <>
-      <Building src={`${BuildingsSrc}/library_test1.gltf`} 블락함수={undefined} />
+      <Building src={`${BuildingsSrc}/building_centrallibrary.gltf`} 블락함수={undefined} />
       <Building src={`${BuildingsSrc}/building_hongjae.gltf`} 블락함수={undefined} />
+      <Building src={`${BuildingsSrc}/building_l_centralgate.gltf`} 블락함수={undefined} />
+      <Building src={`${BuildingsSrc}/building_librarymap.gltf`} 블락함수={undefined} />
+      <Building src={`${BuildingsSrc}/building_r_centralgate.gltf`} 블락함수={undefined} />
       <Building src={`${BuildingsSrc}/building_seongho.gltf`} 블락함수={undefined} />
+      <Building src={`${BuildingsSrc}/building_stonestatue.gltf`} 블락함수={undefined} />
       <Building src={`${BuildingsSrc}/building_woncheon.gltf`} 블락함수={undefined} />
     </>
   );

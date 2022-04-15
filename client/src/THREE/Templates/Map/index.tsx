@@ -23,6 +23,13 @@ import Fog from "@THREE/Atoms/Fog";
 
 import Hills from "@THREE/Molecules/Hills";
 import HeightMap from "@THREE/Atoms/HeightMap";
+import Fences from "@THREE/Molecules/Fences";
+import SideWalks from "@THREE/Molecules/SideWalks";
+import StreetLamps from "@THREE/Molecules/StreetLamps";
+import Trees from "@THREE/Molecules/Trees";
+import TreeBases from "@THREE/Molecules/TreeBases";
+import GardenBoxs from "@THREE/Molecules/GardenBoxs";
+import Buses from "@THREE/Molecules/Buses";
 // import a from "./models/HeightMap/ajou_heightmap.raw";
 import MetaContainer from "./styles";
 
@@ -47,7 +54,13 @@ const MapContainer = () => {
             <Characters />
             <Hills />
             <Buildings />
-
+            <Fences />
+            <SideWalks />
+            <StreetLamps />
+            <Trees />
+            <TreeBases />
+            <GardenBoxs />
+            <Buses />
             {/* <FakePlanes /> */}
 
             {/* <BasicPlane position={[0, -2, 0]} /> */}

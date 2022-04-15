@@ -30,4 +30,4 @@ const Characters = () => {
 export default Characters;
 
 const getCharacter = (idx: number) => `Character/common_people_male_${idx + 1}.fbx`;
-const getCharacterTest = (idx: number) => (idx === 0 ? `Character/common_people_male_1.fbx` : `Character/common_people_male_1_test.fbx`);
+const getCharacterTest = (idx: number) => (idx === 0 ? `Character/boy_tshirt_1.fbx` : `Character/girl_tshirt_1.fbx`);
