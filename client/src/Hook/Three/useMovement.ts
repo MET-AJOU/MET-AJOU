@@ -11,7 +11,7 @@ import { myPositionAtom, myUserIdAtom } from "@Recoils/Characters";
 import { CharacterType, keyBoardStateType } from "@Type/Three";
 import { getDxDy } from "@Util/.";
 import { initAnimation } from "@Util/animation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Vector3 } from "three";
 
@@ -24,38 +24,15 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
   const userPositions = characters?.map(({ position }) => ({ position }));
   const setMyPosition = useSetRecoilState(myPositionAtom);
   const { camera } = useThree();
-
-  const fowardVector = new Vector3();
-  const sideVector = new Vector3();
-  const direction = new Vector3();
-  const characterPosition = new Vector3();
-  const cameraPosition = new Vector3();
-  const temp = new Vector3();
-  let fowardSpeed = 0;
-  let sideSpeed = 0;
-  let upwardSpeed = 0;
-  let boostSpeed = 1;
-  let characterDir = 0;
+  const [time, setTime] = useState(0);
   let isSafe = false;
 
   if (characterRefs.current.length > 0 && apis.current.length > 0) isSafe = true;
-  let timelapse = 0;
+
   useFrame((state, delta) => {
-    // console.log(timelapse);
     if (isSafe) {
       userKeyStates?.forEach(({ forward, backward, left, right, boost, space, dance }, idx) => {
-        // initAnimation({ forward, backward, left, right, boost, space, dance, actions: actions[idx].current });
-        characterDir = forward || left || right ? (forward ? Math.PI : backward ? Math.PI : left ? (3 * Math.PI) / 2 : Math.PI / 2) : 0;
-        fowardSpeed = forward || backward ? (forward && !backward ? 1 : -1) : 0;
-        fowardVector.set(0, 0, fowardSpeed);
-        sideSpeed = left || right ? (right ? 1 : -1) : 0;
-        sideVector.set(sideSpeed, 0, 0);
-        upwardSpeed = space ? 3 : -1;
-        boostSpeed = boost ? 2 : 1;
-        direction
-          .subVectors(fowardVector, sideVector)
-          .normalize()
-          .multiplyScalar(SPEED * boostSpeed);
+        const { direction, upwardSpeed, characterDir } = getDirection({ forward, left, right, backward, space, boost, dance: false });
         initAnimation({ forward, backward, left, right, boost, space, dance, actions: actions.current[idx] });
         if (apis.current[idx]) {
           apis.current[idx].velocity.set(direction.x, upwardSpeed, direction.z);
@@ -63,23 +40,57 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
         }
       });
 
-      characterRefs.current[Number(myUserIdx)]!.current.getWorldPosition(characterPosition);
-      const { x, y, z } = characterPosition;
-      setMyPosition({ x, y, z });
-      camera.lookAt(characterPosition);
-      // console.log("클라이언트", characterPosition);
-      // console.log("서버", (userPositions as any)[myUserIdx as number].position);
-      cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 2);
-      camera.position.lerp(cameraPosition, delta);
-      // console.log(apis.current[0]);
-      timelapse += delta;
-      if (timelapse > 0.5) {
-        userPositions?.forEach(({ position }, idx) => {
-          apis.current[idx].position.set(position.x, position.y, position.z);
-        });
-        timelapse = 0;
+      setCameraPosition({ characterRefs, myUserIdx, setMyPosition, camera, delta });
+
+      setTime((prev) => prev + delta);
+
+      if (time > 3) {
+        userPositions
+          ?.filter((_, idx) => idx !== myUserId)
+          ?.forEach(({ position }, idx) => {
+            apis.current[idx].position.set(position.x, position.y, position.z);
+          });
+        setTime(0);
       }
     }
   });
 };
 export default useCharacterMovement;
+
+const setCameraPosition = ({ characterRefs, myUserIdx, setMyPosition, camera, delta }: any) => {
+  const characterPosition = new Vector3();
+  const cameraPosition = new Vector3();
+
+  characterRefs.current[Number(myUserIdx)]!.current.getWorldPosition(characterPosition);
+  const { x, y, z } = characterPosition;
+  setMyPosition({ x, y, z });
+  camera.lookAt(characterPosition);
+  cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 2);
+  camera.position.lerp(cameraPosition, delta);
+};
+
+const getDirection = ({ forward, left, right, backward, space, boost, dance }: keyBoardStateType) => {
+  const characterDir = forward || left || right ? (forward ? Math.PI : backward ? Math.PI : left ? (3 * Math.PI) / 2 : Math.PI / 2) : 0;
+  const fowardSpeed = forward || backward ? (forward && !backward ? 1 : -1) : 0;
+  const sideSpeed = left || right ? (right ? 1 : -1) : 0;
+  const upwardSpeed = space ? 3 : -1;
+  const boostSpeed = boost ? 2 : 1;
+
+  const fowardVector = new Vector3();
+  const sideVector = new Vector3();
+  const direction = new Vector3();
+
+  fowardVector.set(0, 0, fowardSpeed);
+  sideVector.set(sideSpeed, 0, 0);
+
+  direction
+    .subVectors(fowardVector, sideVector)
+    .normalize()
+    .multiplyScalar(SPEED * boostSpeed);
+
+  return {
+    direction,
+    upwardSpeed,
+    characterDir,
+  };
+};

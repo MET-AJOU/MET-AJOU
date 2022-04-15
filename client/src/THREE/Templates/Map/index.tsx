@@ -38,7 +38,8 @@ const MapContainer = () => {
           <Physics gravity={[0, 0, 0]} broadphase="SAP">
             {/* <Debug scale={1} color="black"> */}
             {/* <HeightMap elementSize={0.0371} position={[-50.8, -0.1, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
-            <HeightMap elementSize={0.0742} position={[-50.8, -0.1, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
+            {/* <HeightMap elementSize={0.1484} position={[-50.8, -0.1, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
+            <HeightMap elementSize={0.0742} position={[-50.8, -0.2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
             <Fog />
             <Sky sunPosition={[100, 10, 100]} distance={500} />
             <Roads />
@@ -46,6 +47,7 @@ const MapContainer = () => {
             <BuildingGrounds />
             <Characters />
             <Hills />
+            <Buildings />
 
             {/* <FakePlanes /> */}
 

@@ -8,8 +8,6 @@ const RegisterTemplate = () => {
   const handleVerifyEmail = async () => {
     if (!emailRef.current) return;
 
-    // const res1 = await axios.get(CHECK_EXPIRED, { withCredentials: true });
-
     const res = await axios.post(
       GET_VERIFY_EMAIL,
       {
@@ -19,7 +17,6 @@ const RegisterTemplate = () => {
         withCredentials: true,
       }
     );
-    // console.log(res1);
     console.log(res);
   };
 

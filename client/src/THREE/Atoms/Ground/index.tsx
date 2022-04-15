@@ -23,7 +23,7 @@ const Ground = ({ src, 키, 블락함수, position = 포지션, rotation = 로�
 export default Ground;
 
 const 포지션: Triplet = [0, 0, 0];
-const 로테이션: Triplet = [0, -0.09, 0];
+export const 로테이션: Triplet = [0, -0.09, 0];
 const 옵션: ShapeOptions = {
   type: ShapeType.HULL,
 };

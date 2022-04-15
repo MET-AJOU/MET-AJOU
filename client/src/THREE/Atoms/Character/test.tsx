@@ -18,13 +18,7 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
   const {
     position: { x, y, z },
   } = characterState;
-
-  // const groupRef = useRef(null);
   const temp = useFBX(src);
-  // const tempClone = temp.clone();
-  // const { nodes } = useGLTF(src) as any;
-  // const { geometry: geometry1, material: material1 } = nodes.mesh_0;
-  // const { geometry: geometry2, material: material2 } = nodes.mesh_0_1;
 
   const [ref, api] = useSphere(() => ({
     mass: 100,
@@ -43,25 +37,8 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
   return (
     <group ref={ref} scale={0.005}>
       <primitive object={temp} />
-      {/* <mesh geometry={geometry1} material={material1} />
-      <mesh geometry={geometry2} material={material2} /> */}
     </group>
   );
 };
 
-// function propsCompareFn(prev: any, next: any): boolean {
-//   // const {
-//   //   src: prevSrc,
-//   //   characterState: { characterId: prevCharacterId, keyState, position, userId },
-//   // } = prev;
-//   // const {
-//   //   src,
-//   //   characterState: { characterId, keyState, position, userId },
-//   // } = prev;
-//   console.log(prev);
-//   console.log(next);
-//   return true;
-// }
 export default TestCharacter;
-// export default React.memo(TestCharacter);
-// export default React.memo(TestCharacter, propsCompareFn);

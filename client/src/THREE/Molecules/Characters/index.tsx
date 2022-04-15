@@ -15,7 +15,7 @@ const Characters = () => {
   const apis = useRef([]);
 
   useCharacterMovement({ characterRefs, apis, actions, characters });
-  console.log(characters);
+
   return (
     <>
       {characters?.map((characterState, idx) => (
