@@ -33,8 +33,7 @@ const MapContainer = () => {
         <RecoilRoot>
           <OrbitControls />
           <ambientLight />
-          <pointLight position={[-100, 100, 100]} />
-          <pointLight position={[100, 100, 100]} />
+          <pointLight position={[100, 100, 100]} intensity={0.1} />
           <Physics gravity={[0, 0, 0]} broadphase="SAP">
             {/* <Debug scale={1} color="black"> */}
             {/* <HeightMap elementSize={0.0371} position={[-50.8, -0.1, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
