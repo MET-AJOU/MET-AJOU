@@ -11,19 +11,20 @@ interface Props {
 const makeVertices = (vertices: any[]): any => vertices?.map((vertice: any) => [vertice.x, vertice.y, vertice.z]);
 const Building = ({ src, 블락함수, position = 포지션, rotation = 로테이션 }: BoxProps & Props) => {
   const { nodes } = useGLTF(src) as any;
-  const 키 = Object.keys(nodes)[0];
+  const 키 = Object.keys(nodes)[1];
 
   const { geometry, material } = nodes[키] as any;
-  const {
-    shape: { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius },
-  } = threeToCannon(nodes[키] as any, 옵션) as any;
 
-  const [a] = useConvexPolyhedron(() => ({ type: "Static", args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: 블락함수 ?? undefined }), undefined, [makeVertices(vertices), position, rotation]);
+  // const {
+  //   shape: { vertices, faces, faceNormals: normals, uniqueEdges: axes, boundingSphereRadius },
+  // } = threeToCannon(nodes[키] as any, 옵션) as any;
+
+  // const [a] = useConvexPolyhedron(() => ({ type: "Static", args: [makeVertices(vertices), faces, makeVertices(normals), makeVertices(axes), boundingSphereRadius], mass: 100, onCollide: 블락함수 ?? undefined }), undefined, [makeVertices(vertices), position, rotation]);
 
   return (
     <>
       <mesh castShadow position={position} receiveShadow geometry={geometry} material={material} />
-      <mesh ref={a} />
+      {/* <mesh ref={a} /> */}
     </>
   );
 };

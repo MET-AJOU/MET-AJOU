@@ -20,13 +20,41 @@ export const GroundsSrc = "models/Grounds";
 
 export const BuildingGroundsSrc = "models/BuildingGrounds";
 
+export const FenceSrc = "models/Fence";
+
+export const SideWalkSrc = "models/SideWalks";
+
+export const StreetLampSrc = "models/StreetLamps";
+
+export const TreeSrc = "models/Trees";
+
+export const TreeBaseSrc = "models/TreeBases";
+
+export const GardenBoxSrc = "models/GardenBoxs";
+
+export const BusSrc = "models/Buses";
+
 export const HillsAssetSize = 22;
 
 export const RoadsAssetSize = 14;
 
-export const GroundAssetSize = 9;
+export const GroundAssetSize = 13;
 
 export const BuildingGroundAssetSize = 22;
+
+export const FenceAssetSize = 18;
+
+export const SideWalkAssetSize = 6;
+
+export const StreetLampAssetSize = 10;
+
+export const TreeAssetSize = 42;
+
+export const TreeBaseAssetSize = 19;
+
+export const GardenBoxAssetSize = 6;
+
+export const BusAssetSize = 1;
 
 export const animationSrcs = {
   walkingSrc: "Character/common_people@walk.FBX",
