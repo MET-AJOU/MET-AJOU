@@ -41,8 +41,9 @@
 - 건물 asset 추가
 - 캐릭터 asset 업데이트
 - 캐릭터 애니메이션 문제 해결 
-- 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/66724340/163663919-08f5dc20-9765-473c-9022-830b0e606d41.gif)
+
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/66724340/163664072-fc10392e-5c02-4303-8a25-e9a254b28823.gif)
+
 
 
 ### 2022-04-14 
