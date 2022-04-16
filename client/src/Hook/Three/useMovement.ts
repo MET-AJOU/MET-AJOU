@@ -45,11 +45,9 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
       setTime((prev) => prev + delta);
 
       if (time > 3) {
-        userPositions
-          ?.filter((_, idx) => idx !== myUserId)
-          ?.forEach(({ position }, idx) => {
-            apis.current[idx].position.set(position.x, position.y, position.z);
-          });
+        userPositions?.forEach(({ position }, idx) => {
+          apis.current[idx].position.set(position.x, position.y, position.z);
+        });
         setTime(0);
       }
     }
