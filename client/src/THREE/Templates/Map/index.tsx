@@ -30,6 +30,8 @@ import Trees from "@THREE/Molecules/Trees";
 import TreeBases from "@THREE/Molecules/TreeBases";
 import GardenBoxs from "@THREE/Molecules/GardenBoxs";
 import Buses from "@THREE/Molecules/Buses";
+
+import Tests from "@THREE/Molecules/Tests";
 // import a from "./models/HeightMap/ajou_heightmap.raw";
 import MetaContainer from "./styles";
 
@@ -61,6 +63,7 @@ const MapContainer = () => {
             <TreeBases />
             <GardenBoxs />
             <Buses />
+            <Tests />
             {/* <FakePlanes /> */}
 
             {/* <BasicPlane position={[0, -2, 0]} /> */}

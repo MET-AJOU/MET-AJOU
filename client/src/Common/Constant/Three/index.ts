@@ -34,6 +34,8 @@ export const GardenBoxSrc = "models/GardenBoxs";
 
 export const BusSrc = "models/Buses";
 
+export const TestSrc = "models/Test";
+
 export const HillsAssetSize = 22;
 
 export const RoadsAssetSize = 14;
@@ -55,6 +57,8 @@ export const TreeBaseAssetSize = 19;
 export const GardenBoxAssetSize = 6;
 
 export const BusAssetSize = 1;
+
+export const TestAssetSize = 3;
 
 export const animationSrcs = {
   walkingSrc: "Character/common_people@walk.FBX",
