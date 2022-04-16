@@ -16,6 +16,7 @@ const makeVertices = (vertices: any[]): any => vertices?.map((vertice: any) => [
 const Ground = ({ src, 키, 블락함수, position = 포지션, rotation = 로테이션 }: BoxProps & Props) => {
   const { nodes, materials } = useGLTF(src) as any;
   const { geometry, material } = nodes[키] ? (nodes[키].children[0] as any) : nodes;
+  // console.log(nodes);
 
   return <mesh castShadow position={position} receiveShadow geometry={geometry} material={material} />;
 };
