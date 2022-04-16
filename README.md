@@ -35,15 +35,28 @@
  
 ## 개발 진행 상황
 
-### 2022-03-27
-- cannon js 의 convexPolyhedron 을 사용해 굴곡있는 지형에 대해서 물리엔진에 적용 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/66724340/160528987-ca928694-ee25-43fb-88ee-1ae4f25dbe75.gif)
+### 2022-04-15 
+- 실시간 서버 연동
+- 캐릭터 위치 동기화 문제 해결 
+- 건물 asset 추가
+- 캐릭터 asset 업데이트
+- 캐릭터 애니메이션 문제 해결 
+
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/66724340/163664072-fc10392e-5c02-4303-8a25-e9a254b28823.gif)
+
+
 
 ### 2022-04-14 
 - cannon.js convexPolyhedron 충돌 처리 문제점 발견 
 - heightField 를 적용하여 충돌 처리 문제 해결 
 
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/66724340/163387458-e0da09f5-da58-42bc-b2d4-468d944ddd30.gif)
+
+### 2022-03-27
+- cannon js 의 convexPolyhedron 을 사용해 굴곡있는 지형에 대해서 물리엔진에 적용 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/66724340/160528987-ca928694-ee25-43fb-88ee-1ae4f25dbe75.gif)
+
+
 
 
 
