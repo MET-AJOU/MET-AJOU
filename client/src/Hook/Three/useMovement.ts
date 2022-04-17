@@ -61,8 +61,7 @@ const setCameraPosition = ({ characterRefs, myUserIdx, setMyPosition, camera, de
   camera.lookAt(characterPosition);
 
   const isPressBackward = backward ? -0.5 : 0.5;
-  cameraPosition.set(characterPosition.x, characterPosition.y + 0.1, characterPosition.z + isPressBackward);
-  // cameraPosition.set(characterPosition.x, characterPosition.y + 0.25, characterPosition.z + isPressBackward);
+  cameraPosition.set(characterPosition.x, characterPosition.y + 0.25, characterPosition.z + isPressBackward);
   camera.position.lerp(cameraPosition, delta);
 };
 
