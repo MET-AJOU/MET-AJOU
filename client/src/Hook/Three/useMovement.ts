@@ -4,18 +4,15 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-nested-ternary */
-import { PublicApi } from "@react-three/cannon";
 import { useThree, useFrame } from "@react-three/fiber";
-import { keyBoardStateAtom } from "@Recoils/.";
 import { myPositionAtom, myUserIdAtom } from "@Recoils/Characters";
 import { CharacterType, keyBoardStateType } from "@Type/Three";
-import { getDxDy } from "@Util/.";
 import { initAnimation } from "@Util/animation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Vector3 } from "three";
 
-const SPEED = -2;
+const SPEED = -1;
 
 const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { apis: any; characterRefs: any; actions: any; characters: CharacterType[] | null }) => {
   const myUserId = useRecoilValue(myUserIdAtom);
@@ -26,8 +23,8 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
   const { camera } = useThree();
   const [time, setTime] = useState(0);
   let isSafe = false;
-
   if (characterRefs.current.length > 0 && apis.current.length > 0) isSafe = true;
+  // console.log(camera);
 
   useFrame((state, delta) => {
     if (isSafe) {
@@ -40,7 +37,7 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
         }
       });
 
-      setCameraPosition({ characterRefs, myUserIdx, setMyPosition, camera, delta });
+      setCameraPosition({ characterRefs, myUserIdx, setMyPosition, camera, delta, backward: userKeyStates[myUserIdx as number].backward });
 
       setTime((prev) => prev + delta);
 
@@ -55,7 +52,7 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
 };
 export default useCharacterMovement;
 
-const setCameraPosition = ({ characterRefs, myUserIdx, setMyPosition, camera, delta }: any) => {
+const setCameraPosition = ({ characterRefs, myUserIdx, setMyPosition, camera, delta, backward }: any) => {
   const characterPosition = new Vector3();
   const cameraPosition = new Vector3();
 
@@ -63,7 +60,9 @@ const setCameraPosition = ({ characterRefs, myUserIdx, setMyPosition, camera, de
   const { x, y, z } = characterPosition;
   setMyPosition({ x, y, z });
   camera.lookAt(characterPosition);
-  cameraPosition.set(characterPosition.x, characterPosition.y + 1, characterPosition.z + 2);
+
+  const isPressBackward = backward ? -0.5 : 0.5;
+  cameraPosition.set(characterPosition.x, characterPosition.y + 0.25, characterPosition.z + isPressBackward);
   camera.position.lerp(cameraPosition, delta);
 };
 
@@ -71,7 +70,7 @@ const getDirection = ({ forward, left, right, backward, space, boost, dance }: k
   const characterDir = forward || left || right ? (forward ? Math.PI : backward ? Math.PI : left ? (3 * Math.PI) / 2 : Math.PI / 2) : 0;
   const fowardSpeed = forward || backward ? (forward && !backward ? 1 : -1) : 0;
   const sideSpeed = left || right ? (right ? 1 : -1) : 0;
-  const upwardSpeed = space ? 3 : -1;
+  const upwardSpeed = space ? 1 : -0.5;
   const boostSpeed = boost ? 2 : 1;
 
   const fowardVector = new Vector3();

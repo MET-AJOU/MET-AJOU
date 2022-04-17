@@ -35,7 +35,7 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
   }, [api, ref]);
 
   return (
-    <group ref={ref} scale={0.005}>
+    <group ref={ref} scale={0.0015}>
       <primitive object={temp} />
     </group>
   );
