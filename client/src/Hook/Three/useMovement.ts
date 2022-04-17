@@ -24,7 +24,6 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
   const [time, setTime] = useState(0);
   let isSafe = false;
   if (characterRefs.current.length > 0 && apis.current.length > 0) isSafe = true;
-  // console.log(camera);
 
   useFrame((state, delta) => {
     if (isSafe) {
