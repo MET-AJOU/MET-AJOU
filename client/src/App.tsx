@@ -10,7 +10,7 @@ import RegisterPage from "@Pages/Register";
 import MobileView from "@Pages/Mobile";
 
 const App = () => {
-  if (window.innerWidth < 1440) return <MobileView />;
+  if (window.innerWidth < 768) return <MobileView />;
   return (
     <Suspense fallback={<div>1</div>}>
       <Routes>
