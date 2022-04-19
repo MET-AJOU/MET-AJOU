@@ -3,7 +3,7 @@ import { MobileBackgroundImg } from "./MobileStyle";
 
 const MobileView = () => {
   useEffect(() => {
-    window.alert("MET:AJOU는 모바일 및 테블릿 환경에서 지원하지 않습니다.");
+    window.alert("MET:AJOU는 데스크탑에서 이용하실 수 있습니다.");
   }, []);
 
   return <MobileBackgroundImg src="/asset/썸네일.png" alt="썸네일" />;
