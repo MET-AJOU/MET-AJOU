@@ -6,12 +6,12 @@ const ModalCharacterItem = ({ src }: { src: string }) => {
   const object = useFBX(src);
   const { camera } = useThree();
   const cameraPosition = new Vector3();
-  cameraPosition.set(5, 7, 5);
+  cameraPosition.set(0, 3.5, 5);
   useFrame((_, delta) => {
     camera.position.lerp(cameraPosition, delta);
   });
 
-  return <primitive object={object} scale={0.05} />;
+  return <primitive object={object} scale={0.055} />;
 };
 
 export default ModalCharacterItem;

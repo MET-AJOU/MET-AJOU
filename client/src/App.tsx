@@ -7,7 +7,7 @@ import AboutPage from "@Pages/About";
 // import CheckUserRoute from "@Route/CheckUserRoute";
 import { Suspense } from "react";
 import RegisterPage from "@Pages/Register";
-import MainModal from "@Organisms/Main/Modal";
+import SelectModePage from "@Pages/SelectMode";
 // import MobileView from "@Pages/Mobile";
 
 const App = () => {
@@ -20,8 +20,8 @@ const App = () => {
         <Route path="/login" element={<PublicRoute component={LoginPage} />} />
         <Route path="/register" element={<PublicRoute component={RegisterPage} />} />
         <Route path="/map" element={<PublicRoute component={MapPage} />} />
+        <Route path="/selectMode" element={<PublicRoute component={SelectModePage} />} />
       </Routes>
-      <MainModal />
     </Suspense>
   );
 };

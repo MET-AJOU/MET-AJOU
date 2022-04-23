@@ -17,8 +17,11 @@ export const ModalContainer = styled.div`
 `;
 
 export const ItemContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 400px;
+  position: absolute;
+  top: 0px;
+  left: 80px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -32,6 +35,7 @@ export const ModalTitle = styled.h1`
   line-height: 48px;
   text-align: center;
   margin-top: 10px;
+  height: 50px;
 `;
 
 export const ModalDescription = styled.p`
@@ -43,9 +47,11 @@ export const ModalDescription = styled.p`
   text-align: center;
   padding: 10px;
   color: #000000;
+  height: 35px;
 `;
 
 export const ModalLogo = styled.img`
   width: 150px;
+  height: 50px;
   padding: 10px;
 `;

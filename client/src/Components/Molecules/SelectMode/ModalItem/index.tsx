@@ -1,4 +1,4 @@
-import { GUEST_TITLE } from "@Organisms/Main/Modal";
+import { GUEST_TITLE } from "@Templates/SelectMode";
 import ModalCharacter from "../ModalCharacter";
 import { ModalItemContainer, ModalItemTitle } from "./styles";
 

@@ -1,18 +1,16 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Suspense } from "react";
 import { ModalCharacterContainer } from "./style";
 import ModalCharacterItem from "./Item";
 
 const ModalCharacter = ({ src }: { src: string }) => {
-  const handlePreventClick = (e: any) => {
-    e.stopPropagation();
-  };
   return (
-    <ModalCharacterContainer onClick={handlePreventClick}>
+    <ModalCharacterContainer>
       <Canvas>
         <ambientLight />
-        <OrbitControls />
-        <ModalCharacterItem src={src} />
+        <Suspense fallback={null}>
+          <ModalCharacterItem src={src} />
+        </Suspense>
       </Canvas>
     </ModalCharacterContainer>
   );
