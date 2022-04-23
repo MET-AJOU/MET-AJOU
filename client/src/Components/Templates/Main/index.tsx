@@ -5,14 +5,11 @@ import MainFooter from "@Organisms/Main/Footer";
 // import MainModal from "@Organisms/Main/Modal";
 
 const MainTemplate = () => {
-  // const [modal, setModal] = useState(false);
-
   return (
     <>
       <MainHeader />
       <MainBody />
       <MainFooter />
-      {/* {modal && <MainModal />} */}
     </>
   );
 };

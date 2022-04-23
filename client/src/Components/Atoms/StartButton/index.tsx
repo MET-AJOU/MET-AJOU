@@ -1,11 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "./styles";
+import useOpenModalHook from "./useOpenModalHook";
 
 const StartButton = () => {
-  const navigator = useNavigate();
-  const handleStartClick = () => navigator("/map");
-  return <Button onClick={handleStartClick}>start now</Button>;
+  const on = useOpenModalHook();
+
+  return <Button onClick={on}>start now</Button>;
 };
 
 export default React.memo(StartButton);

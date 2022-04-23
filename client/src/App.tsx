@@ -7,10 +7,11 @@ import AboutPage from "@Pages/About";
 // import CheckUserRoute from "@Route/CheckUserRoute";
 import { Suspense } from "react";
 import RegisterPage from "@Pages/Register";
-import MobileView from "@Pages/Mobile";
+import MainModal from "@Organisms/Main/Modal";
+// import MobileView from "@Pages/Mobile";
 
 const App = () => {
-  if (window.innerWidth < 768) return <MobileView />;
+  // if (window.innerWidth < 768) return <MobileView />;
   return (
     <Suspense fallback={<div>1</div>}>
       <Routes>
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/register" element={<PublicRoute component={RegisterPage} />} />
         <Route path="/map" element={<PublicRoute component={MapPage} />} />
       </Routes>
+      <MainModal />
     </Suspense>
   );
 };
