@@ -32,7 +32,6 @@ import GardenBoxs from "@THREE/Molecules/GardenBoxs";
 import Buses from "@THREE/Molecules/Buses";
 
 import Tests from "@THREE/Molecules/Tests";
-// import a from "./models/HeightMap/ajou_heightmap.raw";
 import MetaContainer from "./styles";
 
 const MapContainer = () => {
