@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const LoginFormContainer = styled.div`
   position: absolute;
-  top: 60px;
-  right: 100px;
+  top: 100px;
+  right: 130px;
   width: 300px;
   height: 110px;
   display: flex;

@@ -1,18 +1,25 @@
 import styled from "styled-components";
 
 export const ModalItemContainer = styled.div`
-  width: 40%;
-  width: 250px;
-  height: 80%;
+  height: 75%;
+  width: 300px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   background: #ffffff;
-  box-shadow: 0px 0px 20px #00000029;
-  border-radius: 74px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
   opacity: 1;
   z-index: 1;
   cursor: pointer;
+  transition-duration: 1s;
+
+  :hover {
+    width: 310px;
+    height: 80%;
+    transition-duration: 1s;
+  }
 `;
 
 export const ModalItemTitle = styled.h1`

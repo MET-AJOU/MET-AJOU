@@ -10,7 +10,7 @@ const SelectModeTemplate = () => {
   const handleMoveLogin = () => navigate("/login");
 
   return (
-    <LoginContainer>
+    <LoginContainer title="해당되는 권한을 선택해 주세요">
       <ItemContainer>
         <ModalItem handleMoveEvent={handleMoveMap} title={GUEST_TITLE} />
         <ModalItem handleMoveEvent={handleMoveLogin} title={AJOU_TITLE} />

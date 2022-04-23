@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const ModalContainer = styled.div`
-  width: 800px;
-  height: 600px;
+  width: 1000px;
+  height: 650px;
   position: fixed;
-  top: 100px;
-  left: calc(50% - 400px);
-  box-shadow: 0px 0px 50px #00000029;
+  top: 75px;
+  left: calc(50% - 500px);
+  box-shadow: inset 2px 2px 20px rgba(0, 0, 0, 0.1);
   border-radius: 28px;
   background-color: #ffffff;
   display: flex;
@@ -17,29 +17,29 @@ export const ModalContainer = styled.div`
 `;
 
 export const ItemContainer = styled.div`
-  width: 80%;
+  width: 650px;
   height: 400px;
   position: absolute;
   top: 0px;
-  left: 80px;
+  left: 175px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 `;
 
 export const ModalTitle = styled.h1`
-  font-family: "Roboto";
+  font-family: "NanumBarunGothic";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 32px;
   line-height: 48px;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 26px;
   height: 50px;
 `;
 
 export const ModalDescription = styled.p`
-  font-family: "Roboto";
+  font-family: "NanumBarunGothic";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -47,11 +47,11 @@ export const ModalDescription = styled.p`
   text-align: center;
   padding: 10px;
   color: #000000;
-  height: 35px;
+  height: 47px;
 `;
 
 export const ModalLogo = styled.img`
-  width: 150px;
-  height: 50px;
+  width: 200px;
+  height: 60px;
   padding: 10px;
 `;

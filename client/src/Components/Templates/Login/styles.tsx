@@ -12,7 +12,7 @@ export const LoginBodyContainer = styled.div`
 export const LoginBodyAjouLogo = styled.img`
   position: absolute;
   top: 20px;
-  left: 130px;
-  width: 230px;
-  height: 230px;
+  left: 170px;
+  width: 300px;
+  height: 300px;
 `;
