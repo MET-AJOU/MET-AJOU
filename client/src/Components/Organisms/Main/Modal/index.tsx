@@ -1,18 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import ModalItem from "@Molecules/Main/ModalItem";
-import { Text } from "@Molecules/Main/HeaderRight/styles";
+import { checkModalOpenState } from "@Recoils/Modal";
+import { useRecoilValue } from "recoil";
 import { ModalContainer, ItemContainer } from "./styles";
 
 const MainModal = () => {
+  const on = useRecoilValue(checkModalOpenState);
   const navigate = useNavigate();
-  const handleMoveEvent = () => navigate("/map");
-  const handleMoveEvent2 = () => navigate("/login");
+  if (!on) return null;
+  const handleMoveMap = () => navigate("/map");
+  const handleMoveLogin = () => navigate("/login");
   return (
     <ModalContainer>
-      <Text>로그인</Text>
       <ItemContainer>
-        <ModalItem handleMoveEvent={handleMoveEvent} title="GUEST" />
-        <ModalItem handleMoveEvent={handleMoveEvent2} title="아주인" />
+        <ModalItem handleMoveEvent={handleMoveMap} title="GUEST" />
+        <ModalItem handleMoveEvent={handleMoveLogin} title="아주인" />
       </ItemContainer>
     </ModalContainer>
   );
