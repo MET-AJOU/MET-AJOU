@@ -55,3 +55,11 @@ export interface PositionType {
   y: number;
   z: number;
 }
+
+export interface BaseImageProps {
+  url: string;
+  width: string;
+  height: string;
+  left: string;
+  top: string;
+}
