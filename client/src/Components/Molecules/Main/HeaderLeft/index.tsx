@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const MainHeaderLeft = () => {
   const navigator = useNavigate();
   const handleMoveHome = () => navigator("/");
-  return <img src="/asset/Logo.png" alt="logo" width="45px" style={{ cursor: "pointer" }} onClick={handleMoveHome} />;
+  return <img src="/asset/Logo.png" alt="logo" width="84px" height="45px" style={{ cursor: "pointer" }} onClick={handleMoveHome} />;
 };
 
 export default MainHeaderLeft;
