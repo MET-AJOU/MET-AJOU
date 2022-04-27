@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
-  height: 500px;
+  height: 600px;
 `;
 
 export const InfoContainer = styled.div`
@@ -30,18 +30,52 @@ export const Text = styled.p`
 
 export const Heart1Style: InlineStyleType = {
   position: "relative",
-  top: "-150px",
+  top: "-725px",
   left: "130px",
 };
 
 export const Heart2Style: InlineStyleType = {
   position: "relative",
-  top: "-150px",
+  top: "-725px",
   left: "130px",
 };
 
 export const SeonGuStyle: InlineStyleType = {
   position: "relative",
-  top: "50px",
+  top: "-500px",
   left: "150px",
+};
+
+export const MoonStyle: InlineStyleType = {
+  position: "relative",
+  top: "-50px",
+  height: "700px",
+  left: "-250px",
+  zIndex: "-2",
+};
+
+export const Wave1Style: InlineStyleType = {
+  position: "relative",
+  top: "-600px",
+  zIndex: "-6",
+  width: "100vw",
+};
+
+export const Wave2Style: InlineStyleType = {
+  position: "relative",
+  top: "-950px",
+  zIndex: "-5",
+  width: "100vw",
+};
+export const Wave3Style: InlineStyleType = {
+  position: "relative",
+  top: "-1250px",
+  zIndex: "-4",
+  width: "100vw",
+};
+export const Wave4Style: InlineStyleType = {
+  position: "relative",
+  top: "-1452px",
+  zIndex: "-3",
+  width: "100vw",
 };

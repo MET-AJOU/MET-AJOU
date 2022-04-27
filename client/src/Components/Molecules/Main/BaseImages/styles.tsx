@@ -8,4 +8,6 @@ export const BaseImage = styled.img<BaseImageProps & { idx: number }>`
   left: ${({ left }) => left};
   top: ${({ top }) => top};
   z-index: ${({ idx }) => -idx - 4};
+  ${({ transform }) => transform && `transform:${transform}`}
+  ${({ boxShadow }) => boxShadow && `box-shadow:${boxShadow}`}
 `;

@@ -1,19 +1,16 @@
 import styled from "styled-components";
 
-const MainFooterContainer = styled.div`
+export const MainFooterContainer = styled.div`
   width: 100vw;
-  height: 250px;
-  padding: 65px;
-  background: #2e2e2e;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-
-  div {
-    margin-top: 14px;
-    color: rgba(255, 255, 255, 0.8);
-  }
+  height: 130px;
 `;
 
-export default MainFooterContainer;
+export const LogoContainer = styled.div`
+  display: grid;
+  margin-left: 85vw;
+  margin-top: 80px;
+  width: 300px;
+  height: 120px;
+  grid-template-columns: 70px 0;
+  grid-template-rows: 1fr 1fr;
+`;
