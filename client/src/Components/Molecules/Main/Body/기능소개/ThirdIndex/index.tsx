@@ -1,17 +1,25 @@
-import React from "react";
+import BlueText from "@Atoms/BlueText";
+import StartButton from "@Atoms/StartButton";
+import { Heart1, Heart2, SeonGu } from "@Atoms/Svgs";
+import { Container, InfoContainer, Title, Text, Heart1Style, Heart2Style, SeonGuStyle } from "./styles";
 
 const ThirdIndex = () => {
   return (
-    <div className="thirdIndex">
-      <img src="/asset/Main/index03.png" alt="목차3" width="100%" height="500px" />
-      <div className="ThirdIndex_Text_Container">
-        <div className="title">3. My Page</div>
-        <p>학교 생활에 필요한 정보들을 한데 모아 관리할 수 있어요:</p>
-        <p>시간표, 공지사항 등 개인 일정 뿐만 아니라</p>
-        <p>메타버스 속 자신의 캐릭터와 친구들을 관리해보세요!</p>
-      </div>
-    </div>
+    <Container>
+      <InfoContainer>
+        <Title>여러분이 상상하는</Title>
+        <Title>
+          <BlueText>메타버스 속 아주대학교</BlueText>는 어떤 모습인가요?
+        </Title>
+        <Text>Met:Ajou는 현실의 경험 그 이상을 제공합니다!</Text>
+        <Text>지금 바로 접속해보세요!</Text>
+        <StartButton color="blue" />
+      </InfoContainer>
+      <Heart1 style={Heart1Style} />
+      <Heart2 style={Heart2Style} />
+      <SeonGu style={SeonGuStyle} />
+    </Container>
   );
 };
 
-export default React.memo(ThirdIndex);
+export default ThirdIndex;

@@ -11,9 +11,13 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     text-decoration: none;
     color: #000000;
+    font-family: 'NanumBarunGothic';
   }
   *::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
+  }
+  body{
+    overflow-x:hidden;
   }
 `;
 export default GlobalStyle;
