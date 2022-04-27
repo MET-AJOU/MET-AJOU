@@ -1,12 +1,19 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import MainFooterContainer from "./styles";
+import { Sign, FaceBook, Insta } from "@Atoms/Svgs/";
+import { InlineHover } from "@Style/.";
+import { MainFooterContainer, LogoContainer } from "./styles";
 
 const MainFooter = () => {
   const handleInstaClick = () => window.open("https://www.instagram.com/0325_youngjin/");
+  const handleFacebookClick = () => window.open("https://www.facebook.com/");
+
   return (
     <MainFooterContainer>
-      <img src="/asset/Main/insta.png" alt="instaLogo" onClick={handleInstaClick} />
-      <div>©METAJOU2022.</div>
+      <LogoContainer>
+        <FaceBook style={InlineHover} onClick={handleFacebookClick} />
+        <Insta style={InlineHover} onClick={handleInstaClick} />
+        <Sign />
+      </LogoContainer>
     </MainFooterContainer>
   );
 };

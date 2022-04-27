@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
-  height: 700px;
+  height: 600px;
 `;
 
 export const InfoContainer = styled.div`
@@ -75,7 +75,7 @@ export const Wave3Style: InlineStyleType = {
 };
 export const Wave4Style: InlineStyleType = {
   position: "relative",
-  top: "-1650px",
+  top: "-1452px",
   zIndex: "-3",
   width: "100vw",
 };
