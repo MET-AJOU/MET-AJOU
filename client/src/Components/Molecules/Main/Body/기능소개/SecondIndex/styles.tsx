@@ -73,3 +73,22 @@ export const TextLeft = styled(Text)`
 export const TextRight = styled(Text)`
   text-align: right;
 `;
+
+export const Star1Style: InlineStyleType = {
+  position: "absolute",
+  top: "3300px",
+  left: "600px",
+};
+
+export const Star2Style: InlineStyleType = {
+  position: "absolute",
+  top: "3380px",
+  left: "650px",
+};
+
+export const JoyStickStyle: InlineStyleType = {
+  position: "absolute",
+  width: "800px",
+  top: "3200px",
+  left: "700px",
+};

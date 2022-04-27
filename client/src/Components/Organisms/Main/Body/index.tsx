@@ -4,6 +4,7 @@ import HomeTutorial from "@Molecules/Main/Body/tutorial";
 import HomeTechIntroduce from "@Molecules/Main/Body/기능소개";
 import FirstIndex from "@Molecules/Main/Body/기능소개/FirstIndex";
 import SecondIndex from "@Molecules/Main/Body/기능소개/SecondIndex";
+import ThirdIndex from "@Molecules/Main/Body/기능소개/ThirdIndex";
 import HomeBottomInfo from "@Molecules/Main/Body/접속유도/bottom";
 import HomeInfo from "@Molecules/Main/Body/접속유도/top";
 import { TechIntroduceContainer } from "./styles";
@@ -15,6 +16,7 @@ const MainBody = () => {
       <HomeInfo />
       <FirstIndex />
       <SecondIndex />
+      <ThirdIndex />
       {/* <TechIntroduceContainer>
         <HomeTechIntroduce />
         <HomeTutorial />

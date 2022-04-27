@@ -10,7 +10,7 @@ export const Container = styled.div`
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 24px;
   background: #ffffff;
   align-items: center;
   justify-content: center;
