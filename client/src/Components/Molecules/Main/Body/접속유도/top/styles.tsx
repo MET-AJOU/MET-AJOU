@@ -1,4 +1,4 @@
-import { BaseImageProps, InlineStyleType } from "@Type/.";
+import { InlineStyleType } from "@Type/.";
 import styled from "styled-components";
 
 export const HomeInfoContainer = styled.div`
@@ -6,15 +6,6 @@ export const HomeInfoContainer = styled.div`
   height: 100vh;
   padding-top: 80px;
   margin: auto;
-`;
-
-export const BaseImage = styled.img<BaseImageProps & { idx: number }>`
-  position: absolute;
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  left: ${({ left }) => left};
-  top: ${({ top }) => top};
-  z-index: ${({ idx }) => -idx - 1};
 `;
 
 export const AjouLogoStyle: InlineStyleType = { position: "absolute", width: "25vw", left: "70vw", top: "100px" };
