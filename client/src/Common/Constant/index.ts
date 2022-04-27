@@ -1,6 +1,6 @@
 /* eslint-disable no-loss-of-precision */
 
-import { Info1, Info2, Info3, Info4, Info5, Info6 } from "@Atoms/InfoSvgs";
+import { Info1, Info2, Info3, Info4, Info5, Info6 } from "@Atoms/Svgs";
 
 export const hello = () => "hello";
 
