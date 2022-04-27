@@ -1,7 +1,9 @@
 import BlueText from "@Atoms/BlueText";
 import StartButton from "@Atoms/StartButton";
-import { Heart1, Heart2, SeonGu } from "@Atoms/Svgs";
-import { Container, InfoContainer, Title, Text, Heart1Style, Heart2Style, SeonGuStyle } from "./styles";
+import { LandingBottomWave2, LandingBottomWave3, LandingBottomWave4, Heart1, Heart2, SeonGu, Moon, LandingBottomWave1 } from "@Atoms/Svgs";
+// import BaseImages from "@Molecules/Main/BaseImages";
+// import { MAIN_BOTTOM_WAVE_IMAGES } from "@Style/.";
+import { Wave1Style, Wave2Style, Wave3Style, Wave4Style, Container, InfoContainer, Title, Text, Heart1Style, Heart2Style, SeonGuStyle, MoonStyle } from "./styles";
 
 const ThirdIndex = () => {
   return (
@@ -18,6 +20,12 @@ const ThirdIndex = () => {
       <Heart1 style={Heart1Style} />
       <Heart2 style={Heart2Style} />
       <SeonGu style={SeonGuStyle} />
+      <Moon style={MoonStyle} />
+      {/* <BaseImages data={MAIN_BOTTOM_WAVE_IMAGES} /> */}
+      <LandingBottomWave1 style={Wave1Style} />
+      <LandingBottomWave2 style={Wave2Style} />
+      <LandingBottomWave3 style={Wave3Style} />
+      <LandingBottomWave4 style={Wave4Style} />
     </Container>
   );
 };

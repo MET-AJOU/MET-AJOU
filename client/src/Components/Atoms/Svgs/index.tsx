@@ -14,5 +14,10 @@ import { ReactComponent as JoyStick } from "@Asset/joystick.svg";
 import { ReactComponent as Heart1 } from "@Asset/heart1.svg";
 import { ReactComponent as Heart2 } from "@Asset/heart2.svg";
 import { ReactComponent as SeonGu } from "@Asset/Seongu.svg";
+import { ReactComponent as Moon } from "@Asset/moon1.svg";
+import { ReactComponent as LandingBottomWave1 } from "@Asset/landing_bottom_wave1.svg";
+import { ReactComponent as LandingBottomWave2 } from "@Asset/landing_bottom_wave2.svg";
+import { ReactComponent as LandingBottomWave3 } from "@Asset/landing_bottom_wave3.svg";
+import { ReactComponent as LandingBottomWave4 } from "@Asset/landing_bottom_wave4.svg";
 
-export { Info1, Info2, Info3, Info4, Info5, Info6, MetImage1, MetImage2, Sky1, Sky2, Star1, Star2, JoyStick, Heart1, Heart2, SeonGu };
+export { LandingBottomWave1, LandingBottomWave2, LandingBottomWave3, LandingBottomWave4, Info1, Info2, Info3, Info4, Info5, Info6, MetImage1, MetImage2, Sky1, Sky2, Star1, Star2, JoyStick, Heart1, Heart2, SeonGu, Moon };

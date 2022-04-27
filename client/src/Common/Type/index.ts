@@ -58,6 +58,8 @@ export interface PositionType {
 
 export interface BaseImageProps {
   url?: string;
+  transform?: string;
+  boxShadow?: string;
   width: string;
   height: string;
   left: string;
