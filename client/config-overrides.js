@@ -1,9 +1,10 @@
-const { addWebpackAlias, override } = require("customize-cra");
+const { useBabelRc, addWebpackAlias, override } = require("customize-cra");
 const path = require("path");
 
 const resolve = (src) => path.resolve(__dirname, src);
 
 module.exports = override(
+    useBabelRc(),
     addWebpackAlias({
         "@": resolve("src"),
         "@Pages": resolve("src/Components/Pages/"),
@@ -22,5 +23,6 @@ module.exports = override(
         "@THREE": resolve("src/THREE/"),
         "@Hook": resolve("src/Hook/"),
         "@Socket": resolve("src/Socket/"),
+        "@Asset": resolve("src/Assets/"),
     })
 );

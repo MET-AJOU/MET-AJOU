@@ -17,7 +17,8 @@
             "@Recoils/*": ["./Recoils/*"],
             "@Hook/*":["./Hook/*"],
             "@Socket/*":["./Socket/*"],
-            "@src/*": ["./*"]
+            "@src/*": ["./*"],
+            "@Asset/*":["./Assets/*"],
         }
     }
 }
