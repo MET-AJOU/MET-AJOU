@@ -1,4 +1,4 @@
-import { BaseImageProps } from "@Type/.";
+import { BaseImageProps, InlineStyleType } from "@Type/.";
 
 export const TOP_MAIN_IMAGE_STYLES: BaseImageProps[] = [
   {
@@ -51,3 +51,5 @@ export const TOP_MAIN_IMAGE_STYLES: BaseImageProps[] = [
     top: "-56px",
   },
 ];
+
+export const InlineHover: InlineStyleType = { cursor: "pointer" };
