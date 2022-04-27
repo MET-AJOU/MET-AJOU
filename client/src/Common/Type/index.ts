@@ -57,9 +57,13 @@ export interface PositionType {
 }
 
 export interface BaseImageProps {
-  url: string;
+  url?: string;
   width: string;
   height: string;
   left: string;
   top: string;
+}
+
+export interface InlineStyleType {
+  [key: string]: string;
 }

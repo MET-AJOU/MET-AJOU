@@ -8,7 +8,7 @@ export const MainHeaderRightContainer = styled.div`
 `;
 
 export const Text = styled.div`
-  color: #707070;
+  color: #ffffff;
   font-size: 14px;
   cursor: pointer;
 `;
