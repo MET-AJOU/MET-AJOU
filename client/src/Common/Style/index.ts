@@ -18,14 +18,14 @@ export const TOP_MAIN_IMAGE_STYLES: BaseImageProps[] = [
   {
     url: "/asset/Main/Top/top_01.png",
     width: "130vw",
-    height: "853px",
+    height: "873px",
     left: "-25vw",
     top: "-0px",
   },
   {
     url: "/asset/Main/Top/top_02.png",
     width: "97vw",
-    height: "600px",
+    height: "620px",
     left: "0px",
     top: "0px",
   },

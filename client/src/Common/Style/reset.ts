@@ -16,5 +16,8 @@ const GlobalStyle = createGlobalStyle`
   *::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
   }
+  body{
+    overflow-x:hidden;
+  }
 `;
 export default GlobalStyle;

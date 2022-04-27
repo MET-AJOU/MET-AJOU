@@ -10,7 +10,7 @@ export const GridContainer = styled.div`
   width: 60vw;
   height: 40vw;
   margin: auto;
-  margin-top: -10px;
+  margin-top: -40px;
   display: grid;
 
   grid-template-rows: repeat(2, 1fr);

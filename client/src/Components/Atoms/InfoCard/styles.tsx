@@ -8,6 +8,7 @@ export const Container = styled.div`
   padding: auto;
   box-shadow: inset 20px 20px 10px rgba(0, 0, 0, 0.1);
   font-weight: 400;
+  font-style: normal;
   font-size: 12px;
   line-height: 14px;
   background: #ffffff;
