@@ -9,7 +9,7 @@ const BaseImages = ({ data }: { data: BaseImageProps[] }) => {
   return (
     <div ref={ref}>
       {data.map((ImageStyle: BaseImageProps, idx) => (
-        <BaseImage key={`baseimage +${ImageStyle.url}`} alt={`baseimage${idx}`} src={ImageStyle.url} {...{ ...ImageStyle, idx }} />
+        <BaseImage className={isVisible ? "down" : "up"} key={`baseimage +${ImageStyle.url}`} alt={`baseimage${idx}`} src={ImageStyle.url} {...{ ...ImageStyle, idx }} />
       ))}
     </div>
   );
