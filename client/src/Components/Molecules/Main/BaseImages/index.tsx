@@ -4,12 +4,12 @@ import { useInView } from "react-hook-inview";
 import { BaseImageProps } from "@Type/.";
 import { Container, BaseImage } from "./styles";
 
-const BaseImages = ({ data }: { data: BaseImageProps[] }) => {
+const BaseImages = ({ data, className }: { data: BaseImageProps[]; className: string }) => {
   const [ref, isVisible] = useInView();
   return (
     <Container ref={ref}>
       {data.map((ImageStyle: BaseImageProps, idx) => (
-        <BaseImage className={isVisible ? "down" : "up"} key={`baseimage +${ImageStyle.url}`} alt={`baseimage${idx}`} src={ImageStyle.url} {...{ ...ImageStyle, idx }} />
+        <BaseImage className={className} key={`baseimage +${ImageStyle.url}`} alt={`baseimage${idx}`} src={ImageStyle.url} {...{ ...ImageStyle, idx }} />
       ))}
     </Container>
   );
