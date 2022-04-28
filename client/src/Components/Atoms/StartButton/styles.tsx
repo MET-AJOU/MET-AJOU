@@ -14,4 +14,11 @@ export const Button = styled.button<Props>`
   background: ${({ color }) => (color === "blue" ? "#6096FD" : "rgba(255, 255, 255, 0.3)")};
   ${({ color }) => color === "blue" && "box-shadow: 0px 10px 20px rgba(96, 150, 253, 0.3);"}
   border-radius: 30px;
+  transition: 0.5s;
+  &:hover {
+    width: 100px;
+    height: 35px;
+    font-size: 16px;
+    transition: 0.5s;
+  }
 `;
