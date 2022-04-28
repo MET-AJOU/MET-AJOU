@@ -1,8 +1,8 @@
-import AjouLogo from "@Atoms/AjouLogo";
-import AirPlane from "@Atoms/AirPlane";
-import AirPath from "@Atoms/AirPath";
+import AirPath from "@Atoms/Svgs/AirPath";
 import BlueText from "@Atoms/BlueText";
 import StartButton from "@Atoms/StartButton";
+import AirPlane from "@Atoms/Svgs/AirPlane";
+import AjouLogo from "@Atoms/Svgs/AjouLogo";
 import { HomeInfoContainer, AjouLogoStyle, AirPlaneStyle, AirPathStyle, InfoTitle, BlueBox, InfoContainer } from "./styles";
 
 const HomeInfo = () => {

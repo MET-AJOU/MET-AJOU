@@ -24,7 +24,7 @@ export const LoginButtonContainer = styled.div`
       transition-duration: 1s;
     }
     div {
-      font-size: 22px;
+      font-size: 21px;
       transition-duration: 1s;
     }
   }
