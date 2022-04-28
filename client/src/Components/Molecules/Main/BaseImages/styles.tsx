@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { BaseImageProps } from "@Type/.";
 
+export const Container = styled.div``;
 export const BaseImage = styled.img<BaseImageProps & { idx: number }>`
   position: absolute;
   width: ${({ width }) => width};
