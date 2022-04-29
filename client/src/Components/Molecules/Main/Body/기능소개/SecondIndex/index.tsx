@@ -1,5 +1,5 @@
 import { MetImage1, MetImage2, Sky1, Sky2, Star1, Star2, JoyStick } from "@Atoms/Svgs";
-import { Title, Card1, Card2, Container, MetImage1Style, MetImage2Style, Sky1Style, Sky2Style, TextRight, TextLeft, Star1Style, Star2Style, JoyStickStyle } from "./styles";
+import { Title, Card1, Card2, Container, MetImage1Style, MetImage2Style, IfameStyle, Sky1Style, Sky2Style, TextRight, TextLeft, Star1Style, Star2Style, JoyStickStyle } from "./styles";
 
 const SecondIndex = () => {
   return (
@@ -29,6 +29,7 @@ const SecondIndex = () => {
       <Star1 style={Star1Style} />
       <Star2 style={Star2Style} />
       <JoyStick style={JoyStickStyle} />
+      <iframe title="metajou_info_video" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation" style={IfameStyle} src="https://www.youtube.com/watch?v=WiUvCKbV5gw" />
     </Container>
   );
 };
