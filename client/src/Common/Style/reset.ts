@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
+import { animationStyles } from "./animations";
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
   * {
@@ -19,5 +21,8 @@ const GlobalStyle = createGlobalStyle`
   body{
     overflow-x:hidden;
   }
+
+  ${animationStyles}
 `;
+
 export default GlobalStyle;

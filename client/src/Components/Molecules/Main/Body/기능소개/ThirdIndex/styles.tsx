@@ -4,6 +4,21 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100vw;
   height: 600px;
+  & .waves {
+    animation: bottom_waves 13s infinite;
+    -webkit-animation: bottom_waves 13s infinite;
+  }
+  & .hearts {
+    position: relative;
+    left: 110px;
+    transition: 1s;
+  }
+  & .hearts1 {
+    top: -15px;
+  }
+  & .hearts2 {
+    top: -45px;
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -11,7 +26,7 @@ export const InfoContainer = styled.div`
   width: 80%;
   flex-direction: column;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 300px;
   height: 200px;
   justify-content: space-around;
   align-items: center;
@@ -30,20 +45,23 @@ export const Text = styled.p`
 
 export const Heart1Style: InlineStyleType = {
   position: "relative",
-  top: "-725px",
-  left: "130px",
+  top: "0px",
+  left: "120px",
+  transition: "1s",
 };
 
 export const Heart2Style: InlineStyleType = {
   position: "relative",
-  top: "-725px",
-  left: "130px",
+  top: "-35px",
+  left: "120px",
+  transition: "1s",
 };
 
 export const SeonGuStyle: InlineStyleType = {
   position: "relative",
   top: "-500px",
   left: "150px",
+  animation: "rotate_45 3s infinite",
 };
 
 export const MoonStyle: InlineStyleType = {

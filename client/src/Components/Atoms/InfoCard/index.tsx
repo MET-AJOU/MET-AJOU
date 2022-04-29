@@ -1,3 +1,5 @@
+import { useInView } from "react-hook-inview";
+
 import { Container } from "./styles";
 
 interface Props {
@@ -5,11 +7,13 @@ interface Props {
   text: string[];
 }
 const InfoCard = ({ Element, text }: Props) => {
+  const [ref, isVisible] = useInView();
+
   return (
-    <Container>
-      <Element />
-      <p style={{ marginTop: "10px" }}>{text[0]}</p>
-      <p>{text[1]}</p>
+    <Container ref={ref}>
+      <Element className={isVisible ? "slide_up" : "slide_down"} />
+      <p className={isVisible ? "slide_up" : "slide_down"}>{text[0]}</p>
+      <p className={isVisible ? "slide_up" : "slide_down"}>{text[1]}</p>
     </Container>
   );
 };

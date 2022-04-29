@@ -17,8 +17,8 @@ export const Button = styled.button<Props>`
   transition: 0.5s;
   &:hover {
     width: 100px;
-    height: 35px;
-    font-size: 16px;
+    height: 30px;
     transition: 0.5s;
+    text-align: center;
   }
 `;
