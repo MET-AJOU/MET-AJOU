@@ -11,9 +11,9 @@ const InfoCard = ({ Element, text }: Props) => {
 
   return (
     <Container ref={ref}>
-      <Element className={isVisible ? "up" : "down"} />
-      <p className={isVisible ? "up" : "down"}>{text[0]}</p>
-      <p className={isVisible ? "up" : "down"}>{text[1]}</p>
+      <Element className={isVisible ? "slide_up" : "slide_down"} />
+      <p className={isVisible ? "slide_up" : "slide_down"}>{text[0]}</p>
+      <p className={isVisible ? "slide_up" : "slide_down"}>{text[1]}</p>
     </Container>
   );
 };

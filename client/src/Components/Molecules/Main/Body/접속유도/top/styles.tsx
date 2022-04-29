@@ -21,46 +21,9 @@ export const InfoContainer = styled.div`
   flex-direction: column;
   width: 52vw;
   height: 400px;
+  min-height: 400px;
   align-items: flex-start;
-  justify-content: space-around;
-
-  & .down {
-    transition: 1s;
-    position: relative;
-    top: 200px;
-    opacity: 0;
-  }
-
-  & .up_first {
-    transition: 1s;
-    position: relative;
-    top: 0px;
-    opacity: 1;
-  }
-  & .up_second {
-    transition: 1s;
-    position: relative;
-    top: 0px;
-    opacity: 0.3;
-  }
-  & .up_third {
-    transition: 1s;
-    position: relative;
-    top: 0px;
-    opacity: 1;
-  }
-  & .up_forth {
-    transition: 1s;
-    position: relative;
-    top: 0px;
-    opacity: 0.3;
-  }
-  & .up_fifth {
-    transition: 1s;
-    position: relative;
-    top: 0px;
-    opacity: 0.3;
-  }
+  /* justify-content: space-around; */
 `;
 
 export const BlueBox = styled.div`
@@ -75,11 +38,14 @@ export const InfoTitle = styled.div`
   font-size: 48px;
   font-weight: 600;
   line-height: 55px;
+  margin-top: 20px;
 `;
 
 export const TextContainer = styled.div`
   width: 100%;
   height: 100px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 `;
 
 export const InfoText = styled.p`
@@ -89,6 +55,5 @@ export const InfoText = styled.p`
   line-height: 16px;
   margin-top: 10px;
   margin-left: 5px;
-
   color: #000000;
 `;

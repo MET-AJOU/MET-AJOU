@@ -17,16 +17,4 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 16px;
-
-  .up {
-    position: relative;
-    top: 0px;
-    opacity: 1;
-    transition: 1s;
-  }
-  .down {
-    position: absolute;
-    top: 200px;
-    opacity: 0;
-  }
 `;

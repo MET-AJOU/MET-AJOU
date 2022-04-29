@@ -59,6 +59,7 @@ export const Title = styled.p`
   color: #4173d3;
   font-size: 36px;
   font-weight: 600;
+  margin-top: 30px;
 `;
 
 export const Text = styled.p`
@@ -78,6 +79,8 @@ export const Star1Style: InlineStyleType = {
   position: "absolute",
   top: "3300px",
   left: "600px",
+  transform: "rotate3d(0,1,0,720deg)",
+  transition: "transform 2s",
 };
 
 export const Star2Style: InlineStyleType = {
@@ -88,7 +91,18 @@ export const Star2Style: InlineStyleType = {
 
 export const JoyStickStyle: InlineStyleType = {
   position: "absolute",
-  width: "800px",
-  top: "3200px",
-  left: "700px",
+  width: "70vw",
+  top: "3250px",
+  left: "640px",
+  minWidth: "70vw",
+};
+
+export const IfameStyle: InlineStyleType = {
+  position: "absolute",
+  minWidth: "29vw",
+  width: "29vw",
+  top: "3410px",
+  left: "950px",
+  height: "16.5vw",
+  minHeight: "250px",
 };
