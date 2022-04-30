@@ -8,7 +8,7 @@ export const Container = styled.div`
 
 export const MetImage1Style: InlineStyleType = {
   position: "absolute",
-  left: "253px",
+  left: "35vw",
   top: "1892px",
 };
 
@@ -20,7 +20,7 @@ export const MetImage2Style: InlineStyleType = {
 
 export const Sky1Style: InlineStyleType = {
   position: "absolute",
-  left: "703px",
+  left: "55vw",
   top: "2192px",
   zIndex: "1",
 };
@@ -46,7 +46,7 @@ const Card = styled.div`
 `;
 
 export const Card1 = styled(Card)`
-  left: 853px;
+  left: 65vw;
   top: 1952px;
 `;
 

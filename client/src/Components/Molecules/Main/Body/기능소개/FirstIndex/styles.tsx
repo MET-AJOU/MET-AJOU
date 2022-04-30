@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 80vw;
-  height: 100vh;
+  height: 800px;
   margin: auto;
 `;
 
 export const GridContainer = styled.div`
   width: 60vw;
-  height: 40vw;
+  height: 85%;
   margin: auto;
-  margin-top: -40px;
+  margin-top: 10vh;
   display: grid;
 
   grid-template-rows: repeat(2, 1fr);

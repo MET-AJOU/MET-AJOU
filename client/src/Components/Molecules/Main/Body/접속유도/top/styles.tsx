@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 export const HomeInfoContainer = styled.div`
   width: 93vw;
-  height: 100vh;
+  height: 700px;
   padding-top: 80px;
   margin: auto;
 `;
 
-export const AjouLogoStyle: InlineStyleType = { position: "absolute", width: "25vw", left: "70vw", top: "100px" };
+export const AjouLogoStyle: InlineStyleType = { position: "absolute", width: "25vw", left: "66vw", top: "15vh" };
 
 export const AirPlaneStyle: InlineStyleType = { position: "absolute", width: "20vw", left: "77vw", top: "320px" };
 

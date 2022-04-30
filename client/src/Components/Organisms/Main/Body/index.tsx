@@ -9,11 +9,11 @@ import HomeBottomInfo from "@Molecules/Main/Body/접속유도/bottom";
 import HomeInfo from "@Molecules/Main/Body/접속유도/top";
 import { MIDDLE_MAIN_IMAGE_STYLES, TOP_MAIN_IMAGE_STYLES } from "@Style/.";
 
-import { TechIntroduceContainer } from "./styles";
+import { Container } from "./styles";
 
 const MainBody = () => {
   return (
-    <>
+    <Container>
       <BaseImages className="top" data={TOP_MAIN_IMAGE_STYLES} />
       <BaseImages className="middle" data={MIDDLE_MAIN_IMAGE_STYLES} />
       <HomeInfo />
@@ -25,7 +25,7 @@ const MainBody = () => {
         <HomeTutorial />
         <HomeBottomInfo />
       </TechIntroduceContainer> */}
-    </>
+    </Container>
   );
 };
 

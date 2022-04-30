@@ -88,10 +88,11 @@ export const animationStyles = `
     
   }
   50%{
-    width:200vw;
+    width:150vw;
+    margin-top: -20px;
   }
   to{
-
+    
   }
 }
 
@@ -100,7 +101,8 @@ export const animationStyles = `
 
   }
   50%{
-    width:200vw;
+    width:150vw;
+    margin-top: -20px;
   }
   to{
     
