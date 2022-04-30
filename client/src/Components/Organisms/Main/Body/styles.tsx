@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  .air {
+    transform: rotate3d(0, 0, 1, -65deg);
+  }
   .air_plane {
+  }
+  .air_path {
   }
 `;
 
