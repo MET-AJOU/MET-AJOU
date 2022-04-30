@@ -3,16 +3,16 @@ import styled from "styled-components";
 
 export const HomeInfoContainer = styled.div`
   width: 93vw;
-  height: 700px;
+  height: 70vh;
   padding-top: 80px;
   margin: auto;
 `;
 
 export const AjouLogoStyle: InlineStyleType = { position: "absolute", width: "25vw", left: "66vw", top: "15vh" };
 
-export const AirPlaneStyle: InlineStyleType = { position: "absolute", width: "20vw", left: "77vw", top: "320px" };
+export const AirPlaneStyle: InlineStyleType = { position: "absolute", width: "20vw", left: "45vw", top: "15vh" };
 
-export const AirPathStyle: InlineStyleType = { position: "absolute", width: "10vw", left: "89vw", top: "395px" };
+export const AirPathStyle: InlineStyleType = { position: "absolute", width: "10vw", left: "45vw", top: "15vh" };
 
 export const InfoContainer = styled.div`
   margin-top: -55px;

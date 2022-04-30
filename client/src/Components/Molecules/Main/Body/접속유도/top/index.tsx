@@ -34,8 +34,8 @@ const HomeInfo = () => {
   return (
     <HomeInfoContainer className="cont" ref={ref}>
       <AjouLogo style={AjouLogoStyle} />
-      <AirPlane className="air air_plane" style={AirPlaneStyle} />
-      <AirPath className="air air_path" style={AirPathStyle} />
+      <AirPlane className="air_top air_plane_top" style={AirPlaneStyle} />
+      <AirPath className="air_top air_path_top" style={AirPathStyle} />
       <InfoContainer>
         <BlueBox />
         <InfoTitle className="slide_down">

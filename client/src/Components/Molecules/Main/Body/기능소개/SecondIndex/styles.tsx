@@ -9,26 +9,26 @@ export const Container = styled.div`
 export const MetImage1Style: InlineStyleType = {
   position: "absolute",
   left: "35vw",
-  top: "1892px",
+  top: "230vh",
 };
 
 export const MetImage2Style: InlineStyleType = {
   position: "absolute",
   left: "600px",
-  top: "2747px",
+  top: "330vh",
 };
 
 export const Sky1Style: InlineStyleType = {
   position: "absolute",
   left: "55vw",
-  top: "2192px",
+  top: "265vh",
   zIndex: "1",
 };
 
 export const Sky2Style: InlineStyleType = {
   position: "absolute",
   left: "400px",
-  top: "3047px",
+  top: "370vh",
   zIndex: "1",
 };
 
@@ -47,12 +47,12 @@ const Card = styled.div`
 
 export const Card1 = styled(Card)`
   left: 65vw;
-  top: 1952px;
+  top: 235vh;
 `;
 
 export const Card2 = styled(Card)`
   left: 300px;
-  top: 2800px;
+  top: 335vh;
 `;
 
 export const Title = styled.p`
@@ -77,32 +77,32 @@ export const TextRight = styled(Text)`
 
 export const Star1Style: InlineStyleType = {
   position: "absolute",
-  top: "3300px",
+  top: "417vh",
   left: "600px",
-  transform: "rotate3d(0,1,0,720deg)",
-  transition: "transform 2s",
+  // transform: "rotate3d(0,1,0,720deg)",
+  // transition: "transform 2s",
 };
 
 export const Star2Style: InlineStyleType = {
   position: "absolute",
-  top: "3380px",
+  top: "424vh",
   left: "650px",
 };
 
 export const JoyStickStyle: InlineStyleType = {
   position: "absolute",
-  width: "70vw",
-  top: "3250px",
-  left: "640px",
+  width: "80vw",
+  top: "430vh",
+  left: "600px",
   minWidth: "70vw",
 };
 
 export const IfameStyle: InlineStyleType = {
   position: "absolute",
-  minWidth: "29vw",
-  width: "29vw",
-  top: "3410px",
-  left: "950px",
-  height: "16.5vw",
+  minWidth: "33vw",
+  width: "33vw",
+  top: "448vh",
+  left: "960px",
+  height: "18vw",
   minHeight: "250px",
 };
