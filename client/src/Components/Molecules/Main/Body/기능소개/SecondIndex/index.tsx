@@ -29,7 +29,7 @@ const SecondIndex = () => {
       <Star1 style={Star1Style} />
       <Star2 style={Star2Style} />
       <JoyStick style={JoyStickStyle} />
-      <iframe title="metajou_info_video" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation" style={IfameStyle} src="https://www.youtube.com/watch?v=WiUvCKbV5gw" />
+      <iframe title="metajou_info_video" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation" style={IfameStyle} src="https://www.youtube.com/embed/WiUvCKbV5gw" />
     </Container>
   );
 };

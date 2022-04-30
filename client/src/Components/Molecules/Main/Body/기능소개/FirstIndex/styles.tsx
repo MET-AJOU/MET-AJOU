@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 80vw;
-  height: 800px;
+  height: 100vh;
   margin: auto;
 `;
 
@@ -10,7 +10,7 @@ export const GridContainer = styled.div`
   width: 60vw;
   height: 85%;
   margin: auto;
-  margin-top: 10vh;
+  margin-top: 15vh;
   display: grid;
 
   grid-template-rows: repeat(2, 1fr);
