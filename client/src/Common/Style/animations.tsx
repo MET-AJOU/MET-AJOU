@@ -108,4 +108,79 @@ export const animationStyles = `
     
   }
 }
+
+@keyframes air_top_move{
+  from{
+    position:absolute;
+    left:100vw;
+    top:35vw;
+    opacity:1;
+  }
+  60% {
+    opacity:1;
+  }
+  to{
+    left: 45vw;
+    top: 15vh;
+    opacity:0;
+  }
+}
+
+
+@-webkit-keyframes air_top_move {
+  from{
+    position:absolute;
+    left:100vw;
+    top:35vw;
+    opacity:1;
+  }
+  60% {
+    opacity:1;
+  }
+  to{
+    left: 45vw;
+    top: 15vh;
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes air_top_move_path {
+  from{
+    position:absolute;
+    left:100vw;
+    top:32vw;
+    opacity:1;
+  }
+  40%{
+    opacity:1;
+  }
+  60% {
+    opacity:0;
+  }
+  to{
+    left: 48vw;
+    top: 10vh;
+    opacity:0;
+  }
+}
+
+@keyframes air_top_move_path{
+  from{
+    position:absolute;
+    left:100vw;
+    top:32vw;
+    opacity:1;
+  }
+  40%{
+    opacity:1;
+  }
+  60% {
+    opacity:0;
+  }
+  to{
+    left: 48vw;
+    top: 10vh;
+    opacity:0;
+  }
+}
 `;

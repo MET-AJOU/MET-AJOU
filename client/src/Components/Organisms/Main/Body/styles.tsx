@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  .air {
+  .air_top {
     transform: rotate3d(0, 0, 1, -65deg);
   }
-  .air_plane {
+  .air_plane_top {
+    animation: air_top_move 4s;
+    -webkit-animation: air_top_move 4s;
   }
-  .air_path {
+  .air_path_top {
+    animation: air_top_move_path 4s;
+    animation-delay: 0.3s;
+    -webkit-animation: air_top_move_path 4s;
+    -webkit-animation-delay: 0.3s;
   }
 `;
 
