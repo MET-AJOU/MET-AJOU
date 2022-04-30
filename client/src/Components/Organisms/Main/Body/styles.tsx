@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  .air_plane {
+  }
+`;
+
 export const TechIntroduceContainer = styled.div`
   position: relative;
   width: 100vw;

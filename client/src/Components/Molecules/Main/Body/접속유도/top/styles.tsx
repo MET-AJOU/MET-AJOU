@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const HomeInfoContainer = styled.div`
   width: 93vw;
-  height: 100vh;
+  height: 700px;
   padding-top: 80px;
   margin: auto;
 `;

@@ -11,6 +11,7 @@ export const Container = styled.div`
 export const BaseImage = styled.img<BaseImageProps & { idx: number }>`
   position: absolute;
   width: ${({ width }) => width};
+  height: ${({ height }) => height};
   top: ${({ top }) => top};
   z-index: ${({ idx }) => -idx - 8};
   ${({ transform }) => transform && `transform:${transform}`}

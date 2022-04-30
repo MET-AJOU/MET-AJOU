@@ -4,7 +4,7 @@ export const TOP_MAIN_IMAGE_STYLES: BaseImageProps[] = [
   {
     url: "/asset/Main/Top/top_01.png",
     width: "130vw",
-    height: "873px",
+    height: "100vh",
     left: "-25vw",
     top: "-0px",
   },
@@ -44,14 +44,14 @@ export const MIDDLE_MAIN_IMAGE_STYLES: BaseImageProps[] = [
     width: "130vw",
     height: "2163.61px",
     left: "-85px",
-    top: "1490.39px",
+    top: "165vh",
   },
   {
     url: "/asset/Main/Middle/middle_01.png",
     width: "120vw",
     height: "1061px",
     left: "-5vw",
-    top: "610px",
+    top: "75vh",
   },
 ];
 
