@@ -14,6 +14,32 @@ export const Container = styled.div`
     -webkit-animation: air_top_move_path 4s;
     -webkit-animation-delay: 0.3s;
   }
+  .air_middle {
+    transform: rotate3d(0, 0, 1, -105deg);
+  }
+  .air_plane_middle {
+    animation: air_middle_move 4s;
+    -webkit-animation: air_middle_move 4s;
+  }
+  .air_path_middle {
+    animation: air_middle_move_path 4s;
+    -webkit-animation: air_middle_move_path 4s;
+  }
+  .air_bottom {
+    transform: rotate3d(0, 0, 1, -120deg);
+  }
+  .air_plane_bottom {
+    animation: air_bottom_move 5s;
+    -webkit-animation: air_bottom_move 5s;
+  }
+  .air_path_bottom {
+    animation: air_bottom_move_path 5s;
+    -webkit-animation: air_bottom_move_path 5s;
+  }
+  .stars_rotate {
+    animation: rotate_twice 4s;
+    -webkit-animation: rotate_twice 4s;
+  }
 `;
 
 export const TechIntroduceContainer = styled.div`

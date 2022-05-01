@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
-  height: 2163px;
+  height: 300vh;
 `;
 
 export const MetImage1Style: InlineStyleType = {
@@ -79,8 +79,6 @@ export const Star1Style: InlineStyleType = {
   position: "absolute",
   top: "417vh",
   left: "600px",
-  // transform: "rotate3d(0,1,0,720deg)",
-  // transition: "transform 2s",
 };
 
 export const Star2Style: InlineStyleType = {
