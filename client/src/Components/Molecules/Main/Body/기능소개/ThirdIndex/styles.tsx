@@ -14,10 +14,12 @@ export const Container = styled.div`
     transition: 1s;
   }
   & .hearts1 {
-    top: -15px;
+    top: -135px;
+    transition: 0.5s;
   }
   & .hearts2 {
-    top: -45px;
+    top: -175px;
+    transition: 0.5s;
   }
 `;
 
@@ -52,14 +54,14 @@ export const Heart1Style: InlineStyleType = {
 
 export const Heart2Style: InlineStyleType = {
   position: "relative",
-  top: "-35px",
+  top: "-135px",
   left: "120px",
   transition: "1s",
 };
 
 export const SeonGuStyle: InlineStyleType = {
   position: "relative",
-  top: "-500px",
+  top: "-590px",
   left: "150px",
   animation: "rotate_45 3s infinite",
 };
