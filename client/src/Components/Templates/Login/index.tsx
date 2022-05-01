@@ -1,16 +1,18 @@
-import LoginForm from "@Organisms/Login";
+import LoginBody from "@Organisms/Login/LoginBody";
 import LoginContainer from "@Organisms/Login/LoginContainer";
-import { LoginBodyAjouLogo, LoginBodyContainer } from "./styles";
+import SelectModeTitle from "@Organisms/SelectMode/SelectModeTitle";
 
 const LoginTemplate = () => {
   return (
-    <LoginContainer title="소셜로그인을 완료해주세요">
-      <LoginBodyContainer>
-        <LoginBodyAjouLogo src="/asset/Login/AjouLogo.png" alt="아주로고" />
-        <LoginForm />
-      </LoginBodyContainer>
+    <LoginContainer>
+      <SelectModeTitle src={src} title={title} description={description} />
+      <LoginBody />
     </LoginContainer>
   );
 };
 
 export default LoginTemplate;
+
+const src = "/asset/StartModal/ModalLogo.png";
+const title = "MET:AJOU에 방문해주셔서 감사합니다!";
+const description = "소셜로그인을 완료해주세요";

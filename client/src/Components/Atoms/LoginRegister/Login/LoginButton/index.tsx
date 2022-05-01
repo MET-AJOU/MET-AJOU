@@ -1,4 +1,4 @@
-import { GOOGLE_LOGIN } from "@Organisms/Login";
+import { GOOGLE_LOGIN } from "@Molecules/Login/LoginForm";
 import { LoginButtonContainer } from "./style";
 
 const LoginButton = ({ fn, title }: { fn: (() => string) | undefined; title: string }) => {
