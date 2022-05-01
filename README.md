@@ -1,7 +1,7 @@
 
 # 🤗 Welcome !! MET:AJOU
 
-22-1 Paran MetaBus In AJOU
+22-1 Paran MetaBus In AJOU 🌍
 
 <div align=center>
 
@@ -16,15 +16,25 @@
 ## 🧑🏻‍💻 Introduce
 
 안녕하세요, 저희는 2022년 1학기 파란학기 MET:AJOU 입니다!! <br/>
-총 8명의 아주대학교 학생들로 이루어져있으며 <br/>
+총 7명의 아주대학교 학생들로 이루어져있으며 <br/>
+3명의 개발자와 4명의 디자이너가 함께 아주대학교 메타버스를 만들고 있습니다! <br/>
 감사합니다!! 🙇🏻 <br/>
+
+## 💻 Developers 
+
+| FrontEnd   | FrontEnd | BackEnd  |
+| :------: | :------: | :------: |
+| [김영진](https://github.com/jin-Pro) | [홍한솔](https://github.com/Noelsky-code) | [최민석](https://github.com/MinShiGee) |
+| <img src="https://github.com/jin-Pro.png" /> |<img src="https://github.com/Noelsky-code.png" /> | <img src="https://github.com/MinShiGee.png" /> | 
+
 
 ## Design 
 
 - [Sitemap](https://www.figma.com/file/rRgoGRknJ6BySxUvKvRtV7/Jouniverse_Sitemap) 
 - [Flowchart](https://www.figma.com/file/mK6e61UFKqispZScvYijFy/jouniverse_wireframe?node-id=0%3A1) 
 - [Wireframe](https://www.figma.com/file/TNN7DsdqZFS0hmTOYzeN6Z/Simple-Virtual-reality-Landing-Page-(Community)?node-id=0%3A1)
-- [Figma](https://www.figma.com/file/rRgoGRknJ6BySxUvKvRtV7/Jouniverse_Sitemap)
+- [메인 페이지 & About us 페이지 디자인](https://www.figma.com/file/9X7cIVaYVS0R9ln1MvMmy8/MET%3AAJOU-%EC%B5%9C%EC%A2%85%EB%B2%84%EC%A0%84?node-id=114%3A94)
+- [로그인 & 회원가입 & 캐릭터선택 디자인](https://www.figma.com/file/9X7cIVaYVS0R9ln1MvMmy8/MET%3AAJOU-%EC%B5%9C%EC%A2%85%EB%B2%84%EC%A0%84?node-id=527%3A33)
 
 
 ## 사용 기술 
@@ -34,6 +44,10 @@
  
  
 ## 개발 진행 상황
+### 2022-04-24
+- 로그인페이지 & 회원가입 페이지 UI 구현
+![pjimage](https://user-images.githubusercontent.com/66724340/165261222-1439041d-19dd-46fb-9b0e-0c09fb27f9a9.jpg)
+
 
 ### 2022-04-15 
 - 실시간 서버 연동
@@ -42,8 +56,7 @@
 - 캐릭터 asset 업데이트
 - 캐릭터 애니메이션 문제 해결 
 
-![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/66724340/163664072-fc10392e-5c02-4303-8a25-e9a254b28823.gif)
-
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/66724340/165255284-978a2d67-13e6-46c4-8e44-3d6f08aa95ed.gif)
 
 
 ### 2022-04-14 
@@ -58,11 +71,3 @@
 
 
 
-
-
-
-
-
-
-
- 

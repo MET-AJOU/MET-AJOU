@@ -7,7 +7,7 @@ const StreetLamps = () => {
   return (
     <>
       {new Array(StreetLampAssetSize).fill(1).map((_, idx) => (
-        <Ground key={idx} src={`${StreetLampSrc}/StreetLamp_${idx + 1}.gltf`} 키="streetlamp" 블락함수={blocking} />
+        <Ground key={idx} src={`${StreetLampSrc}/Streetlamp_${idx + 1}.gltf`} 키="streetlamp" 블락함수={blocking} />
       ))}
     </>
   );

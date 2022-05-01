@@ -9,7 +9,7 @@ const MainHeaderRight = () => {
   return (
     <MainHeaderRightContainer>
       <Text onClick={handleAboutClick}>About us</Text>
-      <StartButton />
+      <StartButton color="white" />
     </MainHeaderRightContainer>
   );
 };

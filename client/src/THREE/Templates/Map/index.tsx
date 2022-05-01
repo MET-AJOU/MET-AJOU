@@ -32,7 +32,6 @@ import GardenBoxs from "@THREE/Molecules/GardenBoxs";
 import Buses from "@THREE/Molecules/Buses";
 
 import Tests from "@THREE/Molecules/Tests";
-// import a from "./models/HeightMap/ajou_heightmap.raw";
 import MetaContainer from "./styles";
 
 const MapContainer = () => {
@@ -42,7 +41,8 @@ const MapContainer = () => {
         <RecoilRoot>
           <OrbitControls />
           <ambientLight />
-          <pointLight position={[100, 100, 100]} intensity={0.1} />
+          <pointLight position={[100, 100, 100]} intensity={1} />
+          {/* <Physics gravity={[0, 0, 0]}> */}
           <Physics gravity={[0, 0, 0]} broadphase="SAP">
             {/* <Debug scale={1} color="black"> */}
             {/* <HeightMap elementSize={0.0371} position={[-50.8, -0.1, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}

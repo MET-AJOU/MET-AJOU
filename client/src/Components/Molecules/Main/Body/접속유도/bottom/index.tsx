@@ -1,5 +1,3 @@
-import StartButton from "@Atoms/StartButton";
-
 const HomeBottomInfo = () => {
   return (
     <div className="last">
@@ -11,10 +9,7 @@ const HomeBottomInfo = () => {
           <span className="colorFont">MET:AJOU</span>는 현실의 경험 그 이상을 제공합니다!
         </div>
         <div className="text container">
-          지금 바로 접속하세요 !
-          <span>
-            <StartButton />
-          </span>
+          지금 바로 접속하세요 !<span>{/* <StartButton /> */}</span>
         </div>
       </div>
     </div>
