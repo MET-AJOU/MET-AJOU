@@ -1,5 +1,4 @@
 import { useInView } from "react-hook-inview";
-import { useEffect } from "react";
 
 import AjouLogo from "@Atoms/AjouLogo";
 import AirPlane from "@Atoms/AirPlane";
@@ -7,29 +6,12 @@ import AirPath from "@Atoms/AirPath";
 import BlueText from "@Atoms/BlueText";
 import StartButton from "@Atoms/StartButton";
 import { InfoText, TextContainer, HomeInfoContainer, AjouLogoStyle, AirPlaneStyle, AirPathStyle, InfoTitle, BlueBox, InfoContainer } from "./styles";
+import useAnimation from "./useAnimation";
 
 const HomeInfo = () => {
   const [ref, isVisible] = useInView();
 
-  useEffect(() => {
-    if (!isVisible) return;
-    const childrens = document.querySelector(".cont")?.querySelectorAll(".slide_down");
-    if (!childrens) return;
-
-    setTimeout(() => {
-      childrens[0].classList.add("slide_up");
-      childrens[0].classList.remove("slide_down");
-    }, 1000);
-
-    setTimeout(() => {
-      childrens[1].classList.add("slide_up_opacity");
-      childrens[1].classList.remove("slide_down");
-    }, 2000);
-    setTimeout(() => {
-      childrens[2].classList.add("slide_up");
-      childrens[2].classList.remove("slide_down");
-    }, 3000);
-  }, [isVisible]);
+  useAnimation(isVisible);
 
   return (
     <HomeInfoContainer className="cont" ref={ref}>

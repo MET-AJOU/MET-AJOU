@@ -9,28 +9,29 @@ import { Title, Card1, Card2, Container, MetImage1Style, MetImage2Style, IfameSt
 
 const SecondIndex = () => {
   const [ref, isVisible] = useInView();
+  const [joyStickref, joyStickVisible] = useInView();
 
-  useAnimation(isVisible);
+  useAnimation(isVisible, joyStickVisible);
 
   return (
     <Container className="second_cont" ref={ref}>
-      {/* <AirPlane className="air_middle air_plane_middle" />
-      <AirPath className="air_middle air_path_middle" /> */}
-      <MetImage1 className="first slide_down_bottom" style={MetImage1Style} />
-      <MetImage2 className="second slide_down_bottom" style={MetImage2Style} />
-      <Sky1 className="first slide_down_bottom" style={Sky1Style} />
-      <Sky2 className="second slide_down_bottom" style={Sky2Style} />
-      <Card1 className="first slide_down_bottom">
-        <Title className="first slide_down">Communication</Title>
-        <TextRight className="first slide_down">
+      <AirPlane className={`air_middle ${isVisible && "air_plane_middle"}`} style={{ opacity: 0 }} />
+      <AirPath className={`air_middle ${isVisible && "air_path_middle"}`} style={{ opacity: 0 }} />
+      <MetImage1 className="first slide_down_middle" style={MetImage1Style} />
+      <MetImage2 className="second slide_down_middle" style={MetImage2Style} />
+      <Sky1 className="first slide_down_middle" style={Sky1Style} />
+      <Sky2 className="second slide_down_middle" style={Sky2Style} />
+      <Card1 className="first slide_down_middle">
+        <Title className="first slide_down_middle">Communication</Title>
+        <TextRight className="first slide_down_middle">
           실시간 문자,음성 채팅,감정표현
           <br />
           목적에 맞는 룸 채널 접속
         </TextRight>
       </Card1>
-      <Card2 className="second slide_down_bottom">
-        <Title className="second slide_down">Experience</Title>
-        <TextLeft className="second slide_down">
+      <Card2 className="second slide_down_middle">
+        <Title className="second slide_down_middle">Experience</Title>
+        <TextLeft className="second slide_down_middle">
           캐릭터 커스터마이징
           <br />
           건물별 소개영상 시청
@@ -38,9 +39,11 @@ const SecondIndex = () => {
           캠퍼스 투어
         </TextLeft>
       </Card2>
-      <Star1 style={Star1Style} />
-      <Star2 style={Star2Style} />
-      <JoyStick style={JoyStickStyle} />
+      <AirPlane className={`air_bottom ${isVisible && "air_plane_bottom"}`} style={{ opacity: 0 }} />
+      <AirPath className={`air_bottom ${isVisible && "air_path_bottom"}`} style={{ opacity: 0 }} />
+      <Star1 className="third slide_down_bottom" style={Star1Style} />
+      <Star2 className="third slide_down_bottom" style={Star2Style} />
+      <JoyStick ref={joyStickref} style={JoyStickStyle} />
       <iframe title="metajou_info_video" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation" style={IfameStyle} src="https://www.youtube.com/embed/WiUvCKbV5gw" />
     </Container>
   );
