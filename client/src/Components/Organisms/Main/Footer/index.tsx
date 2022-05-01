@@ -4,8 +4,8 @@ import { InlineHover } from "@Style/.";
 import { MainFooterContainer, LogoContainer } from "./styles";
 
 const MainFooter = () => {
-  const handleInstaClick = () => window.open("https://www.instagram.com/0325_youngjin/");
-  const handleFacebookClick = () => window.open("https://www.facebook.com/");
+  const handleInstaClick = () => window.open("https://www.instagram.com/met_ajou/");
+  const handleFacebookClick = () => window.open("https://www.facebook.com/profile.php?id=100080959173615");
 
   return (
     <MainFooterContainer>
