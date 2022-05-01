@@ -40,7 +40,7 @@ export const animationStyles = `
 
 .hide_up {
   position:relative;
-  top:400px;
+  top:-10vh;
   opacity:0;
 }
 
