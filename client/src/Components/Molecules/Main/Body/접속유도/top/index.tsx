@@ -2,10 +2,9 @@ import { useInView } from "react-hook-inview";
 
 import AjouLogo from "@Atoms/AjouLogo";
 import AirPlane from "@Atoms/AirPlane";
-import AirPath from "@Atoms/AirPath";
 import BlueText from "@Atoms/BlueText";
 import StartButton from "@Atoms/StartButton";
-import { InfoText, TextContainer, HomeInfoContainer, AjouLogoStyle, AirPlaneStyle, AirPathStyle, InfoTitle, BlueBox, InfoContainer } from "./styles";
+import { InfoText, TextContainer, HomeInfoContainer, AjouLogoStyle, AirPlaneStyle, InfoTitle, BlueBox, InfoContainer } from "./styles";
 import useAnimation from "./useAnimation";
 
 const HomeInfo = () => {
@@ -17,7 +16,6 @@ const HomeInfo = () => {
     <HomeInfoContainer className="cont" ref={ref}>
       <AjouLogo style={AjouLogoStyle} />
       <AirPlane className="air_top air_plane_top" style={AirPlaneStyle} />
-      <AirPath className="air_top air_path_top" style={AirPathStyle} />
       <InfoContainer>
         <BlueBox />
         <InfoTitle className="slide_down">

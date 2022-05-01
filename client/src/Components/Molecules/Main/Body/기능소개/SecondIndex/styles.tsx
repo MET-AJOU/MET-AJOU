@@ -77,14 +77,14 @@ export const TextRight = styled(Text)`
 
 export const Star1Style: InlineStyleType = {
   position: "absolute",
-  top: "417vh",
-  left: "600px",
+  top: "435vh",
+  left: "16vw",
 };
 
 export const Star2Style: InlineStyleType = {
   position: "absolute",
-  top: "424vh",
-  left: "650px",
+  top: "439vh",
+  left: "20vw",
 };
 
 export const JoyStickStyle: InlineStyleType = {
