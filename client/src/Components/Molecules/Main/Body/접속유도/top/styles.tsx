@@ -10,7 +10,7 @@ export const HomeInfoContainer = styled.div`
 
 export const AjouLogoStyle: InlineStyleType = { position: "absolute", width: "25vw", left: "66vw", top: "15vh" };
 
-export const AirPlaneStyle: InlineStyleType = { position: "absolute", width: "20vw", left: "45vw", top: "15vh" };
+export const AirPlaneStyle: InlineStyleType = { position: "absolute", width: "20vw", left: "45vw", top: "15vh", opacity: "0" };
 
 export const AirPathStyle: InlineStyleType = { position: "absolute", width: "10vw", left: "45vw", top: "15vh" };
 

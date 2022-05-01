@@ -7,6 +7,10 @@ export const animationStyles = `
   transition: 1s;
 }
 
+.slide_up_no_pos {
+  opacity: 1;
+  transition: 1s;
+}
 .slide_up_opacity {
   position: relative;
   top: 0px;
@@ -18,6 +22,12 @@ export const animationStyles = `
   position: absolute;
   top: 200px;
   opacity: 0;
+}
+
+.slide_down_bottom {
+  position:absolute !important;
+  top: 3000px !important; 
+  opacity:0;
 }
 
 .hide_up {
@@ -180,6 +190,41 @@ export const animationStyles = `
   to{
     left: 48vw;
     top: 10vh;
+    opacity:0;
+  }
+}
+
+@keyframes air_middle_move{
+  from{
+    position:absolute;
+    left:100vw;
+    top:210vh;
+    opacity:1;
+  }
+  90% {
+    opacity:1;
+  }
+  to{
+    left: 0vw;
+    top: 230vh;
+    opacity:0;
+  }
+}
+
+
+@-webkit-keyframes air_middle_move {
+  from{
+    position:absolute;
+    left:100vw;
+    top:220vh;
+    opacity:1;
+  }
+  60% {
+    opacity:1;
+  }
+  to{
+    left: 0vw;
+    top: 230vh;
     opacity:0;
   }
 }
