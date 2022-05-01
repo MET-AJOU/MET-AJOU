@@ -23,10 +23,14 @@ export const animationStyles = `
   top: 200px;
   opacity: 0;
 }
-
+.slide_down_middle{
+  position:absolute !important;
+  top: 380vh !important; 
+  opacity:0;
+}
 .slide_down_bottom {
   position:absolute !important;
-  top: 3000px !important; 
+  top: 450vh !important; 
   opacity:0;
 }
 
@@ -198,15 +202,16 @@ export const animationStyles = `
   from{
     position:absolute;
     left:100vw;
-    top:210vh;
+    top:200vh;
     opacity:1;
   }
   90% {
     opacity:1;
   }
   to{
-    left: 0vw;
-    top: 230vh;
+    position:absolute;
+    left: 0px;
+    top: 220vh;
     opacity:0;
   }
 }
@@ -216,16 +221,153 @@ export const animationStyles = `
   from{
     position:absolute;
     left:100vw;
-    top:220vh;
+    top:200vh;
     opacity:1;
   }
   60% {
     opacity:1;
   }
   to{
-    left: 0vw;
-    top: 230vh;
+    position:absolute;
+    left: 0px;
+    top: 220vh;
     opacity:0;
   }
 }
+
+@keyframes air_middle_move_path{
+  from{
+    position:absolute;
+    left:110vw;
+    top:195vh;
+    opacity:1;
+  }
+  60% {
+    opacity:1;
+  }
+  to{
+    position:absolute;
+    left: 10vw;
+    top: 215vh;
+    opacity:0;
+  }
+
+}
+
+
+@-webkit-keyframes air_middle_move_path {
+  from{
+    position:absolute;
+    left:110vw;
+    top:197vh;
+    opacity:1;
+  }
+  60% {
+    opacity:1;
+  }
+  to{
+    position:absolute;
+    left: 10vw;
+    top: 217vh;
+    opacity:0;
+  }
+}
+
+@keyframes air_bottom_move{
+  from{
+    position:absolute;
+    left:100vw;
+    top:400vh;
+    opacity:1;
+  }
+  60% {
+    opacity:1;
+  }
+  to{
+    position:absolute;
+    left: 0vw;
+    top: 470vh;
+    opacity:0;
+  }
+}
+
+
+@-webkit-keyframes air_bottom_move {
+  from{
+    position:absolute;
+    left:100vw;
+    top:400vh;
+    opacity:1;
+  }
+  60% {
+    opacity:1;
+  }
+  to{
+    position:absolute;
+    left: 0vw;
+    top: 470vh;
+    opacity:0;
+  }
+}
+
+@keyframes air_bottom_move_path{
+  from{
+    position:absolute;
+    left:110vw;
+    top:390vh;
+    opacity:1;
+  }
+  70% {
+    opacity:1;
+  }
+  to{
+    position:absolute;
+    left: 10vw;
+    top: 460vh;
+    opacity:0;
+  }
+}
+
+
+@-webkit-keyframes air_bottom_move_path {
+  from{
+    position:absolute;
+    left:110vw;
+    top:390vh;
+    opacity:1;
+  }
+  70% {
+    opacity:1;
+  }
+  to{
+    position:absolute;
+    left: 10vw;
+    top: 460vh;
+    opacity:0;
+  }
+}
+
+@keyframes rotate_twice {
+  from{
+    
+  }
+  50%{
+    transform: rotate3d(0,1,0,360deg)
+  }
+  to{
+
+  }
+}
+@-webkit-keyframes rotate_twice {
+  from{
+    
+  }
+  50%{
+    transform: rotate3d(0,1,0,360deg)
+  }
+  to{
+
+  }
+}
+
 `;
