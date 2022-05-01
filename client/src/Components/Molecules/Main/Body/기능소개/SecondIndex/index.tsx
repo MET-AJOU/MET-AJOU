@@ -39,8 +39,8 @@ const SecondIndex = () => {
           캠퍼스 투어
         </TextLeft>
       </Card2>
-      <AirPlane className={`air_bottom ${isVisible && "air_plane_bottom"}`} style={{ opacity: 0 }} />
-      <AirPath className={`air_bottom ${isVisible && "air_path_bottom"}`} style={{ opacity: 0 }} />
+      <AirPlane className={`air_bottom ${joyStickVisible && "air_plane_bottom"}`} style={{ opacity: 0 }} />
+      <AirPath className={`air_bottom ${joyStickVisible && "air_path_bottom"}`} style={{ opacity: 0 }} />
       <Star1 className="third slide_down_bottom" style={Star1Style} />
       <Star2 className="third slide_down_bottom" style={Star2Style} />
       <JoyStick ref={joyStickref} style={JoyStickStyle} />
