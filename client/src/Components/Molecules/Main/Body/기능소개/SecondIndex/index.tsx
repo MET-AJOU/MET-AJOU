@@ -2,7 +2,7 @@
 import { useInView } from "react-hook-inview";
 
 import { MetImage1, MetImage2, Sky1, Sky2, Star1, Star2, JoyStick, AirplaneBig } from "@Atoms/Svgs";
-import AirPlane from "@Atoms/AirPlane";
+import AirPlane from "@Atoms/Svgs/AirPlane";
 import useAnimation from "./useAnimation";
 import { Title, Card1, Card2, Container, MetImage1Style, MetImage2Style, IfameStyle, Sky1Style, Sky2Style, TextRight, TextLeft, Star1Style, Star2Style, JoyStickStyle } from "./styles";
 

@@ -17,10 +17,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<PublicRoute component={MainPage} />} />
         <Route path="/about" element={<PublicRoute component={AboutPage} />} />
-        <Route path="/login" element={<PublicRoute component={LoginPage} />} />
-        <Route path="/register" element={<PublicRoute component={RegisterPage} />} />
-        <Route path="/map" element={<PublicRoute component={MapPage} />} />
         <Route path="/selectMode" element={<PublicRoute component={SelectModePage} />} />
+        <Route path="/login" element={<PublicRoute component={LoginPage} />} />
+        <Route path="/verify" element={<PublicRoute component={RegisterPage} />} />
+        <Route path="/map" element={<PublicRoute component={MapPage} />} />
       </Routes>
     </Suspense>
   );

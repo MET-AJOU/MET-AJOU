@@ -1,6 +1,6 @@
 /* eslint-disable no-return-assign */
 import { GOOGLE_URL } from "@Constant/URL";
-import LoginButton from "@Molecules/Login/LoginButton";
+import LoginButton from "@Atoms/LoginRegister/Login/LoginButton";
 import { LoginFormContainer } from "./styles";
 
 const LoginForm = () => {
