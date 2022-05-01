@@ -9,16 +9,16 @@ const useAnimation = (isVisible: boolean) => {
     setTimeout(() => {
       childrens[0].classList.add("slide_up");
       childrens[0].classList.remove("slide_down");
-    }, 1000);
+    }, 700);
 
     setTimeout(() => {
       childrens[1].classList.add("slide_up_opacity");
       childrens[1].classList.remove("slide_down");
-    }, 2000);
+    }, 1200);
     setTimeout(() => {
       childrens[2].classList.add("slide_up");
       childrens[2].classList.remove("slide_down");
-    }, 3000);
+    }, 1700);
   }, [isVisible]);
 };
 

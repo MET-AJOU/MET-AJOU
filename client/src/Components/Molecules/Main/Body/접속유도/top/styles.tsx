@@ -36,7 +36,7 @@ export const InfoTitle = styled.div`
   font-size: 48px;
   font-weight: 600;
   line-height: 55px;
-  margin-top: 20px;
+  margin-top: 60px;
 `;
 
 export const TextContainer = styled.div`
