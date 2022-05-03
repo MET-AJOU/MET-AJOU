@@ -55,8 +55,8 @@ const SlideAnimations = `
 
 .stand_left{
   position:relative;
-  left:-45vw;
-  top: -14vh;
+  left:-45vw!important;
+  top: -14vh!important;
   opacity:0;
 }`;
 
