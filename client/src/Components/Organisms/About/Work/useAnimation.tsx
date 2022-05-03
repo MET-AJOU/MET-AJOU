@@ -6,6 +6,11 @@ const useAnimation = (isVisible: boolean) => {
     if (!isVisible) return;
     const cont = document.querySelector(".about_work_cont");
     if (!cont) return;
+    const seongu = cont.querySelector(".stand_left");
+
+    setTimeout(() => {
+      seongu?.classList.remove("stand_left");
+    }, 1000);
   }, [isVisible]);
 };
 

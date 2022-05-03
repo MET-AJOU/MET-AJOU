@@ -5,6 +5,7 @@ import MainHeader from "@Organisms/Main/Header";
 import AboutStory from "@Organisms/About/Story";
 import AboutValues from "@Organisms/About/Values";
 import AboutWork from "@Organisms/About/Work";
+import AboutWho from "@Organisms/About/Who";
 import { AboutTemplateContainer } from "./styles";
 
 const AboutTemplate = () => {
@@ -16,6 +17,7 @@ const AboutTemplate = () => {
       <AboutStory />
       <AboutValues />
       <AboutWork />
+      <AboutWho />
       <MainFooter />
     </AboutTemplateContainer>
   );

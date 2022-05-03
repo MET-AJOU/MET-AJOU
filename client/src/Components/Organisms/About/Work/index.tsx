@@ -4,7 +4,7 @@ import AboutTitle from "@Atoms/AboutTitle";
 import { GreyText } from "@Atoms/Text";
 import InstaCard from "@Molecules/About/InstaCard";
 import useAnimation from "./useAnimation";
-import { Container, InstaContainer } from "./styles";
+import { Container, InstaContainer, Seongu } from "./styles";
 
 const AboutWork = () => {
   const [ref, isVisible] = useInView();
@@ -18,6 +18,7 @@ const AboutWork = () => {
           <InstaCard className={isVisible ? "" : `slide_down_relative`} />
         ))}
       </InstaContainer>
+      <Seongu className="stand_left" src="/asset/About/seongu.svg" alt="about_seongu" />
     </Container>
   );
 };

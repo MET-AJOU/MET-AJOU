@@ -24,3 +24,11 @@ export const InstaContainer = styled.div`
   background: #eff3ff;
   border-radius: 24px;
 `;
+
+export const Seongu = styled.img`
+  position: relative;
+  width: 10vw;
+  left: -25vw;
+  top: -14vh;
+  transition: 1.5s;
+`;
