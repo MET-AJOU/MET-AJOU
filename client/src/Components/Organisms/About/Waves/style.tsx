@@ -43,7 +43,7 @@ export const MiddleWave1Style: InlineStyleType = {
 };
 export const MiddleWave2Style: InlineStyleType = {
   position: "absolute",
-  width: "100vw",
+  width: "110vw",
   top: "300vh",
   zIndex: "-3",
 };
