@@ -30,14 +30,14 @@ export const CharacterContainer = styled.div`
   width: 80%;
   display: flex;
   margin: auto;
-  margin-top: 8vh;
+  margin-top: -4vh;
   ${CenterAroundStyle}
 `;
 export const ImageTextContainer = styled.div`
   width: 80%;
   display: flex;
   margin: auto;
-  margin-top: -11vh;
+  margin-top: -20vh;
   text-align: center;
   min-height: 1vh;
   ${CenterAroundStyle}

@@ -54,3 +54,5 @@ export const CARD_LIST_DATA: ValueDataType[] = [
     text: ["문자 채팅,감정표현 등", "다양한 방식으로 여러분의", "마음을 전해보세요"],
   },
 ];
+
+export const TEAM_INFO_SIZE = 3;

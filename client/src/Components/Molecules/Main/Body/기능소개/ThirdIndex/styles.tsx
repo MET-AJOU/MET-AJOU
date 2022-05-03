@@ -4,10 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100vw;
   height: 600px;
-  & .waves {
-    animation: bottom_waves 13s infinite;
-    -webkit-animation: bottom_waves 13s infinite;
-  }
+
   & .hearts {
     position: relative;
     left: 110px;
@@ -72,30 +69,4 @@ export const MoonStyle: InlineStyleType = {
   height: "700px",
   left: "-250px",
   zIndex: "-2",
-};
-
-export const Wave1Style: InlineStyleType = {
-  position: "relative",
-  top: "-600px",
-  zIndex: "-6",
-  width: "120vw",
-};
-
-export const Wave2Style: InlineStyleType = {
-  position: "relative",
-  top: "-950px",
-  zIndex: "-5",
-  width: "120vw",
-};
-export const Wave3Style: InlineStyleType = {
-  position: "relative",
-  top: "-1250px",
-  zIndex: "-4",
-  width: "120vw",
-};
-export const Wave4Style: InlineStyleType = {
-  position: "relative",
-  top: "-1452px",
-  zIndex: "-3",
-  width: "120vw",
 };
