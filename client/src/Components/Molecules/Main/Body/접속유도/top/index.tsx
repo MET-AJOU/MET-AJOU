@@ -2,7 +2,7 @@ import { useInView } from "react-hook-inview";
 
 import AirPlane from "@Atoms/Svgs/AirPlane";
 import AjouLogo from "@Atoms/Svgs/AjouLogo";
-import BlueText from "@Atoms/BlueText";
+import { BlueText } from "@Atoms/Text";
 import StartButton from "@Atoms/StartButton";
 import { InfoText, TextContainer, HomeInfoContainer, AjouLogoStyle, AirPlaneStyle, InfoTitle, BlueBox, InfoContainer } from "./styles";
 import useAnimation from "./useAnimation";

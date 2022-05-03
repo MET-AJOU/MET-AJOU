@@ -69,3 +69,9 @@ export interface BaseImageProps {
 export interface InlineStyleType {
   [key: string]: string;
 }
+
+export interface ValueDataType {
+  src :string;
+  title:string;
+  text:string[];
+}

@@ -1,49 +1,27 @@
-/* eslint-disable react/no-array-index-key */
-import { AboutValuesContainer, AboutValuesTitle, ItemContainer, ListContainer } from "./styles";
+import { useInView } from "react-hook-inview";
+
+import ValueCard from "@Molecules/About/ValueCard";
+import { GreyText } from "@Atoms/Text";
+import AboutTitle from "@Atoms/AboutTitle";
+import { CARD_LIST_DATA } from "@Constant/.";
+import useAnimation from "./useAnimation";
+import { Container, CardContainer } from "./styles";
 
 const AboutValues = () => {
-  return (
-    <AboutValuesContainer>
-      <AboutValuesTitle>
-        우리의 가치
-        <p>어쩌고 저쩌고</p>
-      </AboutValuesTitle>
+  const [ref, isVisible] = useInView();
+  useAnimation(isVisible);
 
-      <ListContainer>
-        {CARD_LIST.map((item, idx) => (
-          <ItemContainer key={idx}>
-            <img src={item.src} alt="이미지" />
-            <p>{item.title}</p>
-            <br />
-            <span>{item.text}</span>
-          </ItemContainer>
+  return (
+    <Container className="about_value_cont">
+      <AboutTitle>Our Values</AboutTitle>
+      <GreyText>프로젝트를 통해 실현시키고자하는 목표와 가치</GreyText>
+      <CardContainer ref={ref}>
+        {CARD_LIST_DATA.map((data) => (
+          <ValueCard data={data} className="slide_down_relative" key={`valueCARD ${data.src}`} />
         ))}
-      </ListContainer>
-    </AboutValuesContainer>
+      </CardContainer>
+    </Container>
   );
 };
 
 export default AboutValues;
-
-const CARD_LIST = [
-  {
-    src: "/asset/Main/planet01.png",
-    title: "value1",
-    text: "asdf",
-  },
-  {
-    src: "/asset/Main/planet01.png",
-    title: "value2",
-    text: "asfdsfdafdsfadadfsfadsfadsafd",
-  },
-  {
-    src: "/asset/Main/planet01.png",
-    title: "value3",
-    text: "asdfsfadasfdasfdsfdsafd",
-  },
-  {
-    src: "/asset/Main/planet01.png",
-    title: "value4",
-    text: "asfdafdsfasdsafdfsadfsadsfadsaas",
-  },
-];

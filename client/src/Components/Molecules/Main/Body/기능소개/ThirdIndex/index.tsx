@@ -1,6 +1,6 @@
 import { useInView } from "react-hook-inview";
 
-import BlueText from "@Atoms/BlueText";
+import { BlueText } from "@Atoms/Text";
 import StartButton from "@Atoms/StartButton";
 import { LandingBottomWave2, LandingBottomWave3, LandingBottomWave4, Heart1, Heart2, SeonGu, Moon, LandingBottomWave1 } from "@Atoms/Svgs";
 import { Wave1Style, Wave2Style, Wave3Style, Wave4Style, Container, InfoContainer, Title, Text, SeonGuStyle, MoonStyle } from "./styles";
