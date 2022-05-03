@@ -9,7 +9,7 @@ export const Container = styled.div`
   ${CenterAroundStyle}
   text-align: center;
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 40vh;
   margin-bottom: 30vh;
   font-weight: 600;
 `;

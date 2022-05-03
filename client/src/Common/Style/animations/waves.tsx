@@ -1,4 +1,11 @@
 const WaveAnimations = `
+  .wave_down {
+    margin-top: 20vh;
+    transition:1s;
+  }
+  .wave_up{
+    transition:1s;
+  }
   & .waves {
     animation: bottom_waves 13s infinite;
     -webkit-animation: bottom_waves 13s infinite;
