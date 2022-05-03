@@ -10,7 +10,7 @@ export const Container = styled.div`
   text-align: center;
   margin: auto;
   margin-top: 40vh;
-  margin-bottom: 30vh;
+  margin-bottom: 40vh;
   font-weight: 600;
 `;
 export const Title = styled(BlueText)`
