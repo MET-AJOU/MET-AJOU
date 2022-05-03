@@ -1,4 +1,4 @@
-import InfoCard from "@Atoms/InfoCard";
+import InfoCard from "@Molecules/Main/InfoCard";
 import { MAIN_INFO_DATA } from "@Constant/.";
 import React from "react";
 import { Container, GridContainer } from "./styles";
