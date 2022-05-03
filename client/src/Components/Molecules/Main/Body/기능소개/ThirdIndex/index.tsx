@@ -1,9 +1,10 @@
 import { useInView } from "react-hook-inview";
 
+import BottomWaves from "@Molecules/BottomWaves";
 import { BlueText } from "@Atoms/Text";
 import StartButton from "@Atoms/StartButton";
-import { LandingBottomWave2, LandingBottomWave3, LandingBottomWave4, Heart1, Heart2, SeonGu, Moon, LandingBottomWave1 } from "@Atoms/Svgs";
-import { Wave1Style, Wave2Style, Wave3Style, Wave4Style, Container, InfoContainer, Title, Text, SeonGuStyle, MoonStyle } from "./styles";
+import { Heart1, Heart2, SeonGu, Moon } from "@Atoms/Svgs";
+import { Container, InfoContainer, Title, Text, SeonGuStyle, MoonStyle } from "./styles";
 import useAnimation from "./useAnimation";
 
 const ThirdIndex = () => {
@@ -28,11 +29,8 @@ const ThirdIndex = () => {
       </div>
       <SeonGu style={SeonGuStyle} />
       <Moon style={MoonStyle} />
+      <BottomWaves />
       {/* <BaseImages data={MAIN_BOTTOM_WAVE_IMAGES} /> */}
-      <LandingBottomWave1 className="waves" style={Wave1Style} />
-      <LandingBottomWave2 className="waves" style={Wave2Style} />
-      <LandingBottomWave3 className="waves" style={Wave3Style} />
-      <LandingBottomWave4 className="waves" style={Wave4Style} />
     </Container>
   );
 };

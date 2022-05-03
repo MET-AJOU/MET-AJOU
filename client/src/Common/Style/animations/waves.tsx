@@ -1,5 +1,8 @@
 const WaveAnimations = `
-
+  & .waves {
+    animation: bottom_waves 13s infinite;
+    -webkit-animation: bottom_waves 13s infinite;
+  }
 @keyframes about_waves {
   from {
     
