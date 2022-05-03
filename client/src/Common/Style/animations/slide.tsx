@@ -8,7 +8,7 @@ const SlideAnimations = `
 
 .slide_down_relative {
   position:relative;
-  top:200px;
+  top:200px!important;
   opacity:0;
   transition:1s;
 }
