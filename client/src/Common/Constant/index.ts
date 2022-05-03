@@ -1,6 +1,7 @@
 /* eslint-disable no-loss-of-precision */
 
 import { Info1, Info2, Info3, Info4, Info5, Info6 } from "@Atoms/Svgs";
+import { ValueDataType } from "@Type/.";
 
 export const hello = () => "hello";
 
@@ -28,5 +29,28 @@ export const MAIN_INFO_DATA = [
   {
     Element: Info6,
     text: ["목적에 맞는", "룸 채널 선택 & 접속"],
+  },
+];
+
+export const CARD_LIST_DATA: ValueDataType[] = [
+  {
+    src: "/asset/About/value1.svg",
+    title: "만남",
+    text: ["특별한 장소에서의 소중한", "추억들을 되새겨보고", "새로운 인연도 만나보세요"],
+  },
+  {
+    src: "/asset/About/value2.svg",
+    title: "응집",
+    text: ["아주대학생들만의", "커뮤니티 공간 속에서", "소속감을 높여보세요"],
+  },
+  {
+    src: "/asset/About/value3.svg",
+    title: "표현",
+    text: ["여러분 내면의", "다양한 페르소나들을", "아바타로 표현해보세요"],
+  },
+  {
+    src: "/asset/About/value4.svg",
+    title: "소통",
+    text: ["문자 채팅,감정표현 등", "다양한 방식으로 여러분의", "마음을 전해보세요"],
   },
 ];
