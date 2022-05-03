@@ -15,7 +15,7 @@ const AboutWho = () => {
       <AboutTitle>Who we are</AboutTitle>
       <AboutTeamInfo />
       {Moons.map((moonName) => (
-        <img src={`/asset/About/${moonName}.svg`} className={`${isVisible ? moonName : ""}`} alt={`${moonName}`} />
+        <img src={`/asset/About/${moonName}.svg`} className={`${isVisible ? moonName : "slide_down"}`} alt={`${moonName}`} />
       ))}
     </Container>
   );

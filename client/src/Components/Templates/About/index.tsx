@@ -6,6 +6,8 @@ import AboutStory from "@Organisms/About/Story";
 import AboutValues from "@Organisms/About/Values";
 import AboutWork from "@Organisms/About/Work";
 import AboutWho from "@Organisms/About/Who";
+import AboutMeet from "@Organisms/About/Meet";
+import BottomWaves from "@Molecules/BottomWaves";
 import { AboutTemplateContainer } from "./styles";
 
 const AboutTemplate = () => {
@@ -18,7 +20,9 @@ const AboutTemplate = () => {
       <AboutValues />
       <AboutWork />
       <AboutWho />
+      <AboutMeet />
       <MainFooter />
+      <BottomWaves style={{ marginTop: "20vh" }} />
     </AboutTemplateContainer>
   );
 };
