@@ -24,5 +24,7 @@ import { ReactComponent as AirPath } from "@Asset/Landing/air_path.svg";
 import { ReactComponent as Sign } from "@Asset/METAJOU2022.svg";
 import { ReactComponent as FaceBook } from "@Asset/facebook.svg";
 import { ReactComponent as Insta } from "@Asset/insta.svg";
+import { ReactComponent as LeftArrow } from "@Asset/left_arrow.svg";
+import { ReactComponent as RightArrow } from "@Asset/right_arrow.svg";
 
-export { AirplaneBig, AirPath, Sign, FaceBook, Insta, LandingBottomWave1, LandingBottomWave2, LandingBottomWave3, LandingBottomWave4, Info1, Info2, Info3, Info4, Info5, Info6, MetImage1, MetImage2, Sky1, Sky2, Star1, Star2, JoyStick, Heart1, Heart2, SeonGu, Moon };
+export { LeftArrow, RightArrow, AirplaneBig, AirPath, Sign, FaceBook, Insta, LandingBottomWave1, LandingBottomWave2, LandingBottomWave3, LandingBottomWave4, Info1, Info2, Info3, Info4, Info5, Info6, MetImage1, MetImage2, Sky1, Sky2, Star1, Star2, JoyStick, Heart1, Heart2, SeonGu, Moon };
