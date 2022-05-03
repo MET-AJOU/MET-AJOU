@@ -56,3 +56,13 @@ export const MIDDLE_MAIN_IMAGE_STYLES: BaseImageProps[] = [
 ];
 
 export const InlineHover: InlineStyleType = { cursor: "pointer" };
+
+export const FlexColumnStyle = `
+  display:flex;
+  flex-direction : column;
+`;
+
+export const CenterAroundStyle = `
+  align-items: center;
+  justify-content: space-around;
+`;

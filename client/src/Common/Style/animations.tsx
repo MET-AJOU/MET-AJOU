@@ -7,6 +7,12 @@ export const animationStyles = `
   transition: 1s;
 }
 
+.slide_down_relative {
+  position:relative;
+  top:200px;
+  opacity:0;
+  transition:1s;
+}
 .hide {
   opacity: 0;
   transition: 1s;
@@ -44,6 +50,10 @@ export const animationStyles = `
   opacity:0;
 }
 
+.scale_down{
+  width: 0%!important;
+}
+
 @keyframes rotate_45 {
     from{
 
@@ -69,6 +79,31 @@ export const animationStyles = `
     transform :rotate3d(0,0,1,-10deg);
   }
   to{
+
+  }
+}
+
+@keyframes about_waves {
+  from {
+    
+  }
+  50% {
+    width:101vw;
+    margin-top : -4vh;
+  }
+  to {
+
+  }
+}
+
+@-webkit-keyframes about_waves {
+  from {
+    
+  }
+  50% {
+    margin-top : -20px;
+  }
+  to {
 
   }
 }
