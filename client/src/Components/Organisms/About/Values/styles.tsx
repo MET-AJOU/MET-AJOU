@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FlexColumnStyle, CenterAroundStyle } from "@Style/.";
 
 export const Container = styled.div`
-  width: 90vw;
+  width: 80vw;
   height: 65vh;
   margin: auto;
   margin-top: 50vh;
@@ -15,5 +15,6 @@ export const CardContainer = styled.div`
   height: 70%;
   display: flex;
   margin: auto;
-  ${CenterAroundStyle}
+  filter: drop-shadow(20px 10px 10px rgba(0, 0, 0, 0.1));
+  ${CenterAroundStyle};
 `;

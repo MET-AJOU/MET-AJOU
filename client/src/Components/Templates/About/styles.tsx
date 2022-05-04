@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AboutTemplateContainer = styled.div`
   width: 100vw;
-  height: 680vh;
+  height: 740vh;
   overflow-y: hidden;
   .about_wave {
     animation: about_waves 5s infinite;

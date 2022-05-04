@@ -24,13 +24,14 @@ export const Title = styled.p`
   font-weight: 600;
   font-size: 48px;
   line-height: 50px;
+  margin-bottom: 20px;
   color: #ffffff;
 `;
 
 export const SubTitle = styled.span`
   font-weight: 600;
   font-size: 36px;
-  line-height: 40px;
+  line-height: 50px;
   color: #ffffff;
 `;
 export const BlackSubTitle = styled(SubTitle)`
@@ -38,6 +39,7 @@ export const BlackSubTitle = styled(SubTitle)`
   opacity: 0.7;
 `;
 export const TextContainer = styled.div`
+  margin-top: 40px;
   width: 100%;
   height: 20vh;
   color: #ffffff;

@@ -16,7 +16,7 @@ const AboutInfo = () => {
           Meet <BlackSubTitle>Ajou</BlackSubTitle>
         </SubTitle>
         <SubTitle>
-          Meet <BlackSubTitle>Ajou</BlackSubTitle>
+          Meta <BlackSubTitle>Ajou</BlackSubTitle>
         </SubTitle>
       </TitleContainer>
       <TextContainer className="slide_down">

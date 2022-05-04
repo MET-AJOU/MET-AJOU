@@ -21,6 +21,8 @@ export const Text = styled.span`
 
 export const TextBoxContainer = styled.div`
   width: 80%;
+  min-width: 80%;
+  min-height: 10vh;
   display: flex;
   margin: auto;
   ${CenterAroundStyle}

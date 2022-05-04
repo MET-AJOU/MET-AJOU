@@ -9,8 +9,8 @@ export const Container = styled.div`
   ${CenterAroundStyle}
   text-align: center;
   margin: auto;
-  margin-top: 40vh;
-  margin-bottom: 40vh;
+  margin-top: 60vh;
+  margin-bottom: 50vh;
   font-weight: 600;
 `;
 export const Title = styled(BlueText)`
