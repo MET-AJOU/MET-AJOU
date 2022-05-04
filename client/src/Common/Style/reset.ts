@@ -43,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     overflow-x:hidden;
+    font-family: 'NanumBarunGothic';
   }
 
   ${animationStyles}

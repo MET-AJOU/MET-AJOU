@@ -11,7 +11,7 @@ const AboutWho = () => {
 
   return (
     <Container ref={ref}>
-      <img src="/asset/About/middle_1.svg" className={`${isVisible ? "wave_up_abs" : "wave_down"}`} style={MiddleWave1Style} alt="middlewave1" />
+      <img src="/asset/About/middle_1.svg" className={`${isVisible ? "wave_up_abs" : "wave_up"}`} style={MiddleWave1Style} alt="middlewave1" />
       <img src="/asset/About/middle_2.svg" className={`${isVisible ? "wave_down" : "wave_up"}`} style={MiddleWave2Style} alt="middlewave2" />
       <AboutTitle>Who we are</AboutTitle>
       <AboutTeamInfo />
