@@ -6,7 +6,7 @@ export const Container = styled.div`
   ${FlexColumnStyle}
   height: 80vh;
   margin: auto;
-  margin-top: 50vh;
+  margin-top: 60vh;
   align-items: center;
 `;
 

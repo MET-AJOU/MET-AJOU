@@ -1,28 +1,30 @@
-import { useState } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import Slider from "react-slick";
 
-import { Circle, LeftArrow, RightArrow } from "@Atoms/Svgs";
-import { TEAM_INFO_SIZE } from "@Constant/.";
+import { LeftArrow, RightArrow } from "@Atoms/Svgs";
 
-import { CircleContainer, Container, TeamImg } from "./styles";
+import { Container, TeamImg } from "./styles";
+
+const Setting = {
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  fade: true,
+  nextArrow: <RightArrow />,
+  prevArrow: <LeftArrow />,
+  speed: 700,
+  dots: true,
+};
 
 const AboutTeamInfo = () => {
-  const [idx, setIdx] = useState(1);
-  const handleRightArrow = () => idx !== TEAM_INFO_SIZE && setIdx((prev: number) => prev + 1);
-  const handleLeftArrow = () => idx !== 1 && setIdx((prev: number) => prev - 1);
-
   return (
-    <>
-      <Container>
-        <LeftArrow className="arrow" onClick={handleLeftArrow} />
-        <TeamImg src={`/asset/About/team_info_${idx}.svg`} alt={`team_info_${idx}`} />
-        <RightArrow className="arrow" onClick={handleRightArrow} />
-      </Container>
-      <CircleContainer>
-        {new Array(TEAM_INFO_SIZE).fill(0).map((_, index: number) => (
-          <Circle fill={idx === index + 1 ? "#6096FD" : "#C4C4C4"} />
-        ))}
-      </CircleContainer>
-    </>
+    <Container>
+      <Slider {...Setting}>
+        <TeamImg src="/asset/About/team_info_1.svg" alt="team_info_1" />
+        <TeamImg src="/asset/About/team_info_2.svg" alt="team_info_2" />
+        <TeamImg src="/asset/About/team_info_3.svg" alt="team_info_3" />
+      </Slider>
+    </Container>
   );
 };
 

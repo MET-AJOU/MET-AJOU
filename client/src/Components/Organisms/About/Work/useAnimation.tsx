@@ -10,7 +10,7 @@ const useAnimation = (isVisible: boolean) => {
 
     setTimeout(() => {
       seongu?.classList.remove("stand_left");
-    }, 1000);
+    }, 500);
   }, [isVisible]);
 };
 

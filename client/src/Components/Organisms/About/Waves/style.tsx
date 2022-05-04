@@ -30,7 +30,7 @@ export const TopWave4Style: InlineStyleType = {
 
 export const VideoFrameStyle: InlineStyleType = {
   position: "absolute",
-  top: "40vh",
+  top: "20vh",
   width: "40vw",
   left: "50vw",
 };

@@ -8,7 +8,8 @@ import { Container, InstaContainer, Seongu } from "./styles";
 
 const AboutWork = () => {
   const [ref, isVisible] = useInView();
-  useAnimation(isVisible);
+  const [seonguRef, seonguVisible] = useInView();
+  useAnimation(seonguVisible);
   return (
     <Container className="about_work_cont">
       <AboutTitle>How we work</AboutTitle>
@@ -18,7 +19,7 @@ const AboutWork = () => {
           <InstaCard className={isVisible ? "" : `slide_down_relative`} />
         ))}
       </InstaContainer>
-      <Seongu className="stand_left" src="/asset/About/seongu.svg" alt="about_seongu" />
+      <Seongu ref={seonguRef} className="stand_left" src="/asset/About/seongu.svg" alt="about_seongu" />
     </Container>
   );
 };

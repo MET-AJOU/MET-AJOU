@@ -23,6 +23,7 @@
         "react-is": "^18.1.0",
         "react-router-dom": "^6.2.1",
         "react-scripts": "5.0.0",
+        "react-slick": "^0.29.0",
         "recoil": "^0.6.1",
         "socket.io-client": "^4.4.1",
         "styled-components": "^5.3.3",
@@ -58,6 +59,7 @@
         ]
     },
     "devDependencies": {
+        "@types/react-slick": "^0.23.8",
         "@types/recoil": "^0.0.9",
         "@types/three": "^0.137.0",
         "@typescript-eslint/eslint-plugin": "^5.12.0",

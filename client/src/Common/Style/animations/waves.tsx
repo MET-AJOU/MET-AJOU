@@ -1,6 +1,10 @@
 const WaveAnimations = `
   .wave_down {
-    margin-top: 20vh;
+    margin-top: 10vh;
+    transition:1s;
+  }
+  .wave_up_abs {
+    margin-top:-30vh;
     transition:1s;
   }
   .wave_up{

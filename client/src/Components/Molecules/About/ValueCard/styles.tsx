@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   ${FlexColumnStyle}
   height: 100%;
-  width: 20%;
+  width: 22%;
   border-radius: 16px;
   background: #ffffff;
   align-items: center;
