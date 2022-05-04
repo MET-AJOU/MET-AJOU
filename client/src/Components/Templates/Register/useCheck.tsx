@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 const useCheck = () => {
-  const [check, setCheck] = useState<boolean>(true);
+  const [check, setCheck] = useState<boolean>(false);
 
   const handleCheck = useCallback(() => setCheck((prev) => !prev), []);
 
