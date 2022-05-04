@@ -2,7 +2,7 @@ import React from "react";
 import { ChildrenContainer, FooterContainer, ModalContainer } from "./styles";
 import useLineMove from "./useLineMove";
 
-const LoginContainer = ({ children }: { children: React.ReactElement[] }) => {
+const LoginContainer = ({ children }: { children: React.ReactElement[] | React.ReactElement }) => {
   const [imgRef1, imgRef2] = useLineMove();
   return (
     <ModalContainer>

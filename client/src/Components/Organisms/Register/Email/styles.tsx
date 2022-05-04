@@ -44,14 +44,14 @@ export const RegisterInput = styled.input`
   width: 190px;
   height: 50px;
   font-family: "NanumBarunGothic";
-  font-style: normal;
-  font-weight: 600;
+  font-style: Bold;
+  font-weight: 700;
   font-size: 40px;
   line-height: 48px;
 
   text-align: end;
   text-decoration-line: underline;
-
+  text-underline-offset: 7px;
   color: #6096fd;
 
   :focus {
