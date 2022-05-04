@@ -19,14 +19,6 @@ export const Container = styled.div`
     margin-top: 10vh;
     z-index: 3;
   }
-  & .slick-slide {
-    margin: 0 426px;
-    transition: 0.7s;
-  }
-  & .slick-active {
-    margin: 0 !important;
-    transition: 0.7s;
-  }
   /* & .slick-current > div > img {
     opacity: 1 !important;
     transition: 0.7s;
