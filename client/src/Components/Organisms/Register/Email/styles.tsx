@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const RegisterInputFormContainer = styled.div`
   width: 100%;
-  height: 400px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -44,15 +44,16 @@ export const RegisterInput = styled.input`
   width: 190px;
   height: 50px;
   font-family: "NanumBarunGothic";
-  font-style: normal;
-  font-weight: 600;
+  font-style: Bold;
+  font-weight: 700;
   font-size: 40px;
   line-height: 48px;
 
   text-align: end;
   text-decoration-line: underline;
-
+  text-underline-offset: 7px;
   color: #6096fd;
+  cursor: pointer;
 
   :focus {
     outline: none;
@@ -87,6 +88,8 @@ export const RegisterNextButton = styled.img`
   width: 56px;
   height: 56px;
   transition-duration: 1s;
+  cursor: pointer;
+  z-index: 2;
   :hover {
     width: 66px;
     height: 66px;

@@ -8,6 +8,8 @@ import AboutPage from "@Pages/About";
 import { Suspense } from "react";
 import RegisterPage from "@Pages/Register";
 import SelectModePage from "@Pages/SelectMode";
+import PrivacyPage from "@Pages/Privacy";
+import NickNamePage from "@Pages/NickName";
 // import MobileView from "@Pages/Mobile";
 
 const App = () => {
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="/selectMode" element={<PublicRoute component={SelectModePage} />} />
         <Route path="/login" element={<PublicRoute component={LoginPage} />} />
         <Route path="/verify" element={<PublicRoute component={RegisterPage} />} />
+        <Route path="/privacy" element={<PublicRoute component={PrivacyPage} />} />
+        <Route path="/nickName" element={<PublicRoute component={NickNamePage} />} />
         <Route path="/map" element={<PublicRoute component={MapPage} />} />
       </Routes>
     </Suspense>
