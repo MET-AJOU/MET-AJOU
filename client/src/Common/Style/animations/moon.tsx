@@ -4,7 +4,7 @@ const MoonAnimations = `
 
     }
     50% {
-      margin-top : -20vh;
+      margin-top : -3vh;
     }
     to {
 
@@ -15,7 +15,7 @@ const MoonAnimations = `
 
     }
     50% {
-      margin-top : -20vh;
+      margin-top : -3vh;
     }
     to {
 
@@ -26,7 +26,7 @@ const MoonAnimations = `
 
     }
     50% {
-      margin-top : 20vh;
+      margin-top : 3vh;
     }
     to {
 
@@ -37,7 +37,7 @@ const MoonAnimations = `
 
     }
     50% {
-      margin-top : 20vh;
+      margin-top : 3vh;
     }
     to {
 
