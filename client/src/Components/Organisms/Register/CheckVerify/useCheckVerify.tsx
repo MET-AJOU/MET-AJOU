@@ -2,17 +2,22 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CHANGE_IDX } from "@Molecules/Register/CheckEmailVerifyInput";
 import { useCallback, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { checkFillCode, handleCheckVerify, makeCodeToString } from "./util";
 
 const useCheckVerify = () => {
   const [next, setNext] = useState(true);
   const [code, setCode] = useState<codeType>(INIT_CODE);
   const inputRefs = useRef([]);
+  const navigator = useNavigate();
 
   const handleMoveNext = useCallback(async () => {
     if (!checkFillCode(code)) setNext(false);
     else if (!(await handleCheckVerify(makeCodeToString(code)))) setNext(false);
-    else setNext(true);
+    else {
+      setNext(true);
+      navigator("/privacy");
+    }
   }, []);
 
   const handleCode = useCallback(
