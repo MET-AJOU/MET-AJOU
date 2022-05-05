@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { getRenderCharacter, handleSelectFn } from "./util";
+import { getDefaultHairColor, getRenderCharacter, handleSelectFn } from "./util";
 
 const useSelectCharacter = () => {
   const [select, setSelect] = useState<number>(0);
@@ -7,7 +7,13 @@ const useSelectCharacter = () => {
   const [costumeColor, setCostumeColor] = useState<number>(0);
   const [costumeSelect, setCostumeSelect] = useState<number>(0);
 
-  const handleSelect = useCallback(handleSelectFn(setSelect), []);
+  const handleSelect = (idx: number) => () => {
+    setSelect(idx);
+    setHairColor(getDefaultHairColor(idx));
+    setCostumeColor(0);
+    setCostumeSelect(0);
+  };
+  // const handleSelect = useCallback(handleSelectFn(setSelect), []);
   const handleHairColor = useCallback(handleSelectFn(setHairColor), []);
   const handleCostumeColor = useCallback(handleSelectFn(setCostumeColor), []);
   const handleCostumeSelect = useCallback(handleSelectFn(setCostumeSelect), []);
