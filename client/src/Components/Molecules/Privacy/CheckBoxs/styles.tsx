@@ -25,4 +25,5 @@ export const PrivacyDescription = styled.span`
 
 export const PrivacyDescriptionImpact = styled(PrivacyDescription)`
   color: #6096fd;
+  cursor: pointer;
 `;
