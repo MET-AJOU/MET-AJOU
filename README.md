@@ -48,6 +48,12 @@
  
  
 ## 개발 진행 상황
+
+### 2022-05-04 
+- AboutUs 페이지 UI 구현
+![about](https://user-images.githubusercontent.com/66724340/166949308-b38ded2a-f689-4374-b4cf-6b8b0769117b.PNG)
+
+
 ### 2022-04-28
 - 랜딩 페이지 UI 구현 
 ![랜딩페이지](https://user-images.githubusercontent.com/66724340/165566913-d13d15f9-6e36-4554-82ca-36f5823c1010.PNG)
