@@ -10,6 +10,7 @@ import RegisterPage from "@Pages/Register";
 import SelectModePage from "@Pages/SelectMode";
 import PrivacyPage from "@Pages/Privacy";
 import NickNamePage from "@Pages/NickName";
+import CharacterPage from "@Pages/Character";
 // import MobileView from "@Pages/Mobile";
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/verify" element={<PublicRoute component={RegisterPage} />} />
         <Route path="/privacy" element={<PublicRoute component={PrivacyPage} />} />
         <Route path="/nickName" element={<PublicRoute component={NickNamePage} />} />
+        <Route path="/character" element={<PublicRoute component={CharacterPage} />} />
         <Route path="/map" element={<PublicRoute component={MapPage} />} />
       </Routes>
     </Suspense>
