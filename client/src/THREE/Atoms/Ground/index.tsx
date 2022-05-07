@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/require-default-props */
 // import { BoxProps, Triplet, useHeightfield } from "@react-three/cannon";
@@ -15,8 +16,7 @@ const makeVertices = (vertices: any[]): any => vertices?.map((vertice: any) => [
 
 const Ground = ({ src, 키, 블락함수, position = 포지션, rotation = 로테이션 }: BoxProps & Props) => {
   const { nodes, materials } = useGLTF(src) as any;
-  const { geometry, material } = nodes[키] ? (nodes[키].children[0] as any) : nodes;
-  // console.log(nodes);
+  const { geometry, material } = nodes[키] ? (nodes[키].children[0] as any) : nodes.geometry ? nodes : nodes[Object.keys(nodes)[0]];
 
   return <mesh castShadow position={position} receiveShadow geometry={geometry} material={material} />;
 };
