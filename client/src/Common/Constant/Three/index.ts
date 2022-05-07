@@ -9,6 +9,7 @@ export const DefaultKeyboardState: keyBoardStateType = {
   space: false,
   dance: false,
 };
+export const FieldSrc = "models/Fields";
 
 export const HillsSrc = "models/Hill";
 
@@ -40,7 +41,7 @@ export const HillsAssetSize = 22;
 
 export const RoadsAssetSize = 14;
 
-export const GroundAssetSize = 13;
+export const GroundAssetSize = 14;
 
 export const BuildingGroundAssetSize = 22;
 
@@ -48,17 +49,38 @@ export const FenceAssetSize = 18;
 
 export const SideWalkAssetSize = 6;
 
-export const StreetLampAssetSize = 10;
+export const StreetLampAssetSize = 21;
 
-export const TreeAssetSize = 42;
+export const TreeAssetSize = 105;
+
+export const TreeFBXAssetStart = 43;
 
 export const TreeBaseAssetSize = 19;
+
+export const TreeBaseFBXAssetStart = 20;
 
 export const GardenBoxAssetSize = 6;
 
 export const BusAssetSize = 1;
 
 export const TestAssetSize = 3;
+
+export const FieldAssetSize = 13;
+
+export const BuildingAssetSrc = [
+  `${BuildingsSrc}/building_centrallibrary.gltf`,
+  `${BuildingsSrc}/building_hongjae.glb`,
+  `${BuildingsSrc}/building_l_centralgate.gltf`,
+  `${BuildingsSrc}/building_librarymap.gltf`,
+  `${BuildingsSrc}/building_r_centralgate.gltf`,
+  `${BuildingsSrc}/building_seongho.glb`,
+  `${BuildingsSrc}/building_stonestatue.gltf`,
+  `${BuildingsSrc}/building_woncheon.glb`,
+  `${BuildingsSrc}/building_gym.gltf`,
+  `${BuildingsSrc}/building_screen.gltf`,
+  `${BuildingsSrc}/building_songjae.gltf`,
+  `${BuildingsSrc}/building_yulgok.gltf`,
+];
 
 export const animationSrcs = {
   walkingSrc: "Character/common_people@walk.FBX",
