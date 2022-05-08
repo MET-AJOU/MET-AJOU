@@ -25,7 +25,7 @@ export const FenceSrc = "models/Fence";
 
 export const SideWalkSrc = "models/SideWalks";
 
-export const StreetLampSrc = "models/StreetLamps";
+export const StreetLampSrc = "models/StreetLamp";
 
 export const TreeSrc = "models/Trees";
 
