@@ -69,7 +69,7 @@ const MapContainer = () => {
             <Tests />
             <Fields />
             <GardenStairs />
-            <AddGrounds />
+            {/* <AddGrounds /> */}
             {/* <FakePlanes /> */}
 
             {/* <BasicPlane position={[0, -2, 0]} /> */}
