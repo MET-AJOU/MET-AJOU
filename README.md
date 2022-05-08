@@ -48,6 +48,9 @@
  
  
 ## 개발 진행 상황
+### 2022-05-08 
+- 운동장 ~ 송재관 3d asset 추가 
+![에셋](https://user-images.githubusercontent.com/66724340/167291770-ac467326-22a1-474a-8958-c50515a7626e.jpg)
 
 ### 2022-05-04 
 - AboutUs 페이지 UI 구현
