@@ -6,7 +6,7 @@ const Fields = () => {
   return (
     <>
       {new Array(FieldAssetSize).fill(1).map((_, idx) => (
-        <FBXs key={idx} src={`${FieldSrc}/field_${idx + 1}.fbx`} />
+        <FBXs key={`Field${idx}`} src={`${FieldSrc}/field_${idx + 1}.fbx`} />
       ))}
     </>
   );

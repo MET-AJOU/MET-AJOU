@@ -7,7 +7,7 @@ const Fences = () => {
   return (
     <>
       {new Array(FenceAssetSize).fill(1).map((_, idx) => (
-        <Ground key={idx} src={`${FenceSrc}/Fence_${idx + 1}.gltf`} 키="fence" 블락함수={blocking} />
+        <Ground key={`Fences${idx}`} src={`${FenceSrc}/Fence_${idx + 1}.gltf`} 키="fence" 블락함수={blocking} />
       ))}
     </>
   );

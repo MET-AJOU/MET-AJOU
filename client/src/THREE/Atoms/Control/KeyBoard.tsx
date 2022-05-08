@@ -11,7 +11,7 @@ interface KeyConfig extends KeyMap {
 }
 
 interface KeyMap {
-  fn: (pressed: boolean) => void;
+  fn: (pressed: boolean) => object;
   up?: boolean;
   pressed?: boolean;
 }
@@ -42,7 +42,13 @@ function useKeys(keyConfig: KeyConfig[]) {
       const { fn, pressed, up } = keyMap[key];
       keyMap[key].pressed = true;
       setPressed(true);
-      if (up || !pressed) Socket.instance?.emit("keyDown", { userId, keyState: fn(true), position });
+      const keyState = Object.values(keyMap).reduce((state, { fn: _fn, pressed: _pressed }) => {
+        if (_pressed) return { ...state, ..._fn(true) };
+        return state;
+      }, DefaultKeyboardState);
+      console.log(keyMap);
+      console.log(keyState);
+      if (up || !pressed) Socket.instance?.emit("keyDown", { userId, keyState, position });
     };
 
     const upHandler = ({ key, target }: KeyboardEvent) => {
@@ -65,13 +71,13 @@ function useKeys(keyConfig: KeyConfig[]) {
 
 const Keyboard = () => {
   useKeys([
-    { keys: ["ArrowUp", "w", "W"], fn: (forward) => ({ ...DefaultKeyboardState, forward }) },
-    { keys: ["ArrowDown", "s", "S"], fn: (backward) => ({ ...DefaultKeyboardState, backward }) },
-    { keys: ["ArrowLeft", "a", "A"], fn: (left) => ({ ...DefaultKeyboardState, left }) },
-    { keys: ["ArrowRight", "d", "D"], fn: (right) => ({ ...DefaultKeyboardState, right }) },
-    { keys: ["Shift"], fn: (boost) => ({ ...DefaultKeyboardState, boost }) },
-    { keys: ["Space", " "], fn: (space) => ({ ...DefaultKeyboardState, space }) },
-    { keys: ["z", "Z"], fn: (dance) => ({ ...DefaultKeyboardState, dance }) },
+    { keys: ["ArrowUp", "w", "W"], fn: (forward) => ({ forward }) },
+    { keys: ["ArrowDown", "s", "S"], fn: (backward) => ({ backward }) },
+    { keys: ["ArrowLeft", "a", "A"], fn: (left) => ({ left }) },
+    { keys: ["ArrowRight", "d", "D"], fn: (right) => ({ right }) },
+    { keys: ["Shift"], fn: (boost) => ({ boost }) },
+    { keys: ["Space", " "], fn: (space) => ({ space }) },
+    { keys: ["z", "Z"], fn: (dance) => ({ dance }) },
   ]);
   return null;
 };

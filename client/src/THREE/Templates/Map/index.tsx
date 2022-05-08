@@ -31,6 +31,8 @@ import TreeBases from "@THREE/Molecules/TreeBases";
 import GardenBoxs from "@THREE/Molecules/GardenBoxs";
 import Buses from "@THREE/Molecules/Buses";
 import Fields from "@THREE/Molecules/Fields";
+import GardenStairs from "@THREE/Molecules/GardenStairs";
+import AddGrounds from "@THREE/Molecules/AddGrounds";
 
 import Tests from "@THREE/Molecules/Tests";
 import MetaContainer from "./styles";
@@ -66,6 +68,8 @@ const MapContainer = () => {
             <Buses />
             <Tests />
             <Fields />
+            <GardenStairs />
+            {/* <AddGrounds /> */}
             {/* <FakePlanes /> */}
 
             {/* <BasicPlane position={[0, -2, 0]} /> */}

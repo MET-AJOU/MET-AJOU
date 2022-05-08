@@ -6,7 +6,7 @@ const Buildings = () => {
   return (
     <>
       {BuildingAssetSrc.map((src: string) => (
-        <Building src={src} 블락함수={undefined} />
+        <Building key={`Buidings${src}`} src={src} 블락함수={undefined} />
       ))}
     </>
   );

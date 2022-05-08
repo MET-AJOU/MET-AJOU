@@ -37,6 +37,12 @@ export const BusSrc = "models/Buses";
 
 export const TestSrc = "models/Test";
 
+export const GardenStairSrc = "models/GardenStairs";
+
+export const AddGroundSrc = "models/AddGrounds";
+
+export const AddGroundAssetSize = 1;
+
 export const HillsAssetSize = 22;
 
 export const RoadsAssetSize = 14;
@@ -59,13 +65,17 @@ export const TreeBaseAssetSize = 19;
 
 export const TreeBaseFBXAssetStart = 20;
 
-export const GardenBoxAssetSize = 6;
+export const GardenBoxAssetSize = 8;
+
+export const GardenBoxFBXAssetStart = 6;
 
 export const BusAssetSize = 1;
 
 export const TestAssetSize = 3;
 
 export const FieldAssetSize = 13;
+
+export const GardenStairAssetSize = 2;
 
 export const BuildingAssetSrc = [
   `${BuildingsSrc}/building_centrallibrary.gltf`,
