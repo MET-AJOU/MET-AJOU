@@ -1,10 +1,10 @@
 import CharacterForm from "@Organisms/Character";
 import LoginContainer from "@Organisms/Login/LoginContainer";
 
-const CharacterTemplate = () => {
+const CharacterTemplate = ({ type }: { type: string }) => {
   return (
     <LoginContainer>
-      <CharacterForm />
+      <CharacterForm type={type} />
     </LoginContainer>
   );
 };

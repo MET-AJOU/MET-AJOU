@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const MessagesContainer = styled.div`
   width: 413px;
-  height: 190px;
-  width: 0px;
   height: 0px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 6px;

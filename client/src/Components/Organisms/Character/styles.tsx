@@ -29,3 +29,8 @@ export const CharacterSelectContainer = styled.div`
   justify-content: space-around;
   align-items: center;
 `;
+
+export const SelectPreviewContainer = styled.div`
+  width: 200px;
+  height: 270px;
+`;

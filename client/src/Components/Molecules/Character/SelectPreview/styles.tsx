@@ -7,6 +7,8 @@ export const SelectPreviewContainer = styled.div`
   border-radius: 12px;
   width: 200px;
   height: 270px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
