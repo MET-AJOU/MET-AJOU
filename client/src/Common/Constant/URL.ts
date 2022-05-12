@@ -1,5 +1,6 @@
 export const AUTH_SERVER = `${process.env.REACT_APP_GET_SERVER_DOMAIN}${process.env.REACT_APP_GET_SERVER_PORT}`;
-export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${process.env.REACT_APP_SOCKET_SERVER_PORT}`;
+// export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${process.env.REACT_APP_SOCKET_SERVER_PORT}`;
+export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${process.env.REACT_APP_SOCKET_SERVER_PORT}/socket`;
 export const GOOGLE_URL = `${AUTH_SERVER}${process.env.REACT_APP_GET_GOOGLE_URL}`;
 
 export const CHECK_TOKEN = `${AUTH_SERVER}/api/token/mine`;
