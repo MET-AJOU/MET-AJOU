@@ -1,14 +1,14 @@
+import useOn from "@Hook/useOn";
 import { MapOptionAtomContainer, MapOptionImgContainer, MapOptionTextContainer } from "./styles";
 
 const Controller = () => {
+  const { on, handleToggleOn } = useOn();
   return (
     <MapOptionAtomContainer>
-      <MapOptionImgContainer>
+      <MapOptionImgContainer onMouseEnter={handleToggleOn} onMouseLeave={handleToggleOn}>
         <img src="./asset/MapOption/MapOption/controller.png" alt="조작가이드" />
       </MapOptionImgContainer>
-      <MapOptionTextContainer>
-        <div>조작가이드</div>
-      </MapOptionTextContainer>
+      <MapOptionTextContainer>{on && <div>조작가이드</div>}</MapOptionTextContainer>
     </MapOptionAtomContainer>
   );
 };

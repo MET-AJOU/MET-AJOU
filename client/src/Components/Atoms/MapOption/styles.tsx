@@ -9,6 +9,7 @@ export const MapOptionImgContainer = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
   img {
     width: 24px;
     height: 24px;
@@ -19,23 +20,41 @@ export const MapOptionTextContainer = styled.div`
   background: #ffffff;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
-  padding: 5px;
   display: inline-block;
   margin: 10px 0;
   cursor: pointer;
   font-size: 14px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const MapOptionAtomContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin: 0 10px;
+
+  &:hover {
+    div div {
+      padding: 5px;
+    }
+  }
 `;
 
 export const MiniMapContainer = styled.div`
   position: fixed;
   bottom: 5vh;
   right: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:hover {
+    div div {
+      padding: 5px;
+    }
+  }
 `;
