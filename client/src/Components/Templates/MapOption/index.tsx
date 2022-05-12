@@ -1,10 +1,12 @@
-import { ViewContainer } from "./styles";
+import MapOptionBottom from "@Organisms/MapOption/Bottom";
+import MapOptionHeader from "@Organisms/MapOption/Header";
 
-const MapOptionTemplate = () => {
+const MapOptionTemplate = ({ title, now }: { title: string; now: number }) => {
   return (
-    <ViewContainer>
-      <div>hhh</div>
-    </ViewContainer>
+    <>
+      <MapOptionHeader title={title} now={now} />
+      <MapOptionBottom />
+    </>
   );
 };
 
