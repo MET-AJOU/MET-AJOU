@@ -22,15 +22,15 @@ export interface SelectHairType {
 export const HAIR_COLOR = [
   {
     id: 0,
-    color: "#6C462A",
-  },
-  {
-    id: 1,
     color: "#EA8044",
   },
   {
-    id: 2,
+    id: 1,
     color: "#F7D93C",
+  },
+  {
+    id: 2,
+    color: "#6C462A",
   },
   {
     id: 3,

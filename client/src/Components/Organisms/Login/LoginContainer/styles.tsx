@@ -11,15 +11,12 @@ export const ModalContainer = styled.div`
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
-  /* padding-top: 50px; */
 `;
 
 export const ChildrenContainer = styled.div`
   width: 100%;
   height: calc(600px - 145px - 200px);
-  /* position: relative; */
 `;
 export const FooterContainer = styled.div`
   position: absolute;

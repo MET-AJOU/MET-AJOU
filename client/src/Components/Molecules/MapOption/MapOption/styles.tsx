@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
-export const ModalCharacterContainer = styled.div`
-  height: calc(100% - 130px);
-  width: 100%;
+export const MapOptionContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: fixed;
+  top: 5vh;
+  right: 5vh;
 `;

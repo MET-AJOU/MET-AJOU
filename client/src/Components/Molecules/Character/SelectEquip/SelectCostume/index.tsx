@@ -36,14 +36,10 @@ const 과잠_COLOR = [
   },
   {
     id: 1,
-    color: "#111C83",
-  },
-  {
-    id: 2,
     color: "#B1B1B1",
   },
   {
-    id: 3,
+    id: 2,
     color: "#EAE0CC",
   },
 ];
