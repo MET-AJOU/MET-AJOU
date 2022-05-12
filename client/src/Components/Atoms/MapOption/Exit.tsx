@@ -8,7 +8,7 @@ const Exit = () => {
       <MapOptionImgContainer onMouseEnter={handleToggleOn} onMouseLeave={handleToggleOn}>
         <img src="./asset/MapOption/MapOption/exit.png" alt="나가기" />
       </MapOptionImgContainer>
-      <MapOptionTextContainer>{on && <div>나가기</div>}</MapOptionTextContainer>
+      <MapOptionTextContainer type="Down">{on && <div>나가기</div>}</MapOptionTextContainer>
     </MapOptionAtomContainer>
   );
 };

@@ -8,7 +8,7 @@ const MyPage = () => {
       <MapOptionImgContainer onMouseEnter={handleToggleOn} onMouseLeave={handleToggleOn}>
         <img src="./asset/MapOption/MapOption/mypage.png" alt="마이페이지" />
       </MapOptionImgContainer>
-      <MapOptionTextContainer>
+      <MapOptionTextContainer type="Down">
         <div>{on && "마이페이지"}</div>
       </MapOptionTextContainer>
     </MapOptionAtomContainer>

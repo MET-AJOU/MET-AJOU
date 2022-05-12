@@ -9,7 +9,7 @@ const Voice = () => {
 
   return (
     <VoiceContainer onClick={handleVoiceToggle}>
-      <MapOptionTextContainer>{on && <div>음소거</div>}</MapOptionTextContainer>
+      <MapOptionTextContainer type="Up">{on && <div>음소거</div>}</MapOptionTextContainer>
       <MapOptionImgContainer onMouseEnter={handleToggleOn} onMouseLeave={handleToggleOn}>
         <img src={imgSrc} alt="나가기" />
       </MapOptionImgContainer>

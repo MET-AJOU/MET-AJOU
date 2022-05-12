@@ -8,7 +8,7 @@ const Controller = () => {
       <MapOptionImgContainer onMouseEnter={handleToggleOn} onMouseLeave={handleToggleOn}>
         <img src="./asset/MapOption/MapOption/controller.png" alt="조작가이드" />
       </MapOptionImgContainer>
-      <MapOptionTextContainer>{on && <div>조작가이드</div>}</MapOptionTextContainer>
+      <MapOptionTextContainer type="Down">{on && <div>조작가이드</div>}</MapOptionTextContainer>
     </MapOptionAtomContainer>
   );
 };

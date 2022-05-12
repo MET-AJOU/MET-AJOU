@@ -16,7 +16,7 @@ export const MapOptionImgContainer = styled.div`
   }
 `;
 
-export const MapOptionTextContainer = styled.div`
+export const MapOptionTextContainer = styled.div<{ type: string }>`
   background: #ffffff;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
@@ -25,7 +25,9 @@ export const MapOptionTextContainer = styled.div`
   cursor: pointer;
   font-size: 14px;
   height: 24px;
-
+  position: absolute;
+  top: ${({ type }) => (type === "Up" ? `-45px` : `52px`)};
+  width: max-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +38,7 @@ export const MapOptionAtomContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 10px;
-
+  position: relative;
   &:hover {
     div div {
       padding: 5px;
