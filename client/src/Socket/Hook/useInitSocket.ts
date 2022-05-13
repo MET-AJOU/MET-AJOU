@@ -13,7 +13,7 @@ const useInitSocket = () => {
   const setCharacters = useSetRecoilState(CharactersAtom);
   const setMyUserId = useSetRecoilState(myUserIdAtom);
   useEffect(() => {
-    const socket = SocketIo(SOCKET_SERVER);
+    const socket = SocketIo(SOCKET_SERVER, { transports: ["websocket"] });
     initSocketEvents({ socket, setCharacters, setMyUserId });
     joinRoom({ socket, roomId: 1, userId: 1 });
     Socket.instance = socket;
