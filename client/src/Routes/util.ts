@@ -46,6 +46,5 @@ export const setHandlePage =
   () => {
     if (!userData) return;
     const data = getComponent(userData);
-    console.log("data : ", data);
     setPage(data);
   };
