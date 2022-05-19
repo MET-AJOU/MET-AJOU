@@ -1,5 +1,6 @@
 import ChangeModal from "@Atoms/MapOption/Modal/Change";
 import ControlModal from "@Atoms/MapOption/Modal/ControlModal";
+import ExitModal from "@Atoms/MapOption/Modal/Exit";
 import MyPageModal from "@Atoms/MapOption/Modal/MyPage/MyPageModal";
 import useCloseModal from "@Atoms/MapOption/Modal/useCloseModal";
 import { ModalState } from "@Recoils/MapOption/Modal";
@@ -29,7 +30,7 @@ const useGetModal = () => {
     case MYPAGE:
       return <MyPageModal targetRef={ref} />;
     case EXIT:
-      return "//";
+      return <ExitModal targetRef={ref} />;
     case CHANGE:
       return <ChangeModal targetRef={ref} />;
     default:
