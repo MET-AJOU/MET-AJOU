@@ -13,14 +13,15 @@ const useEmail = ({ handleCheck }: { handleCheck: () => void }) => {
     if (str.length > 0) setNext(true);
   }, []);
 
-  const handleMoveNext = () => {
-    if (email.length > 0) {
-      // 비동기로 작성
-      handleVerifyEmail(email);
-      handleCheck();
-    } else {
+  const handleMoveNext = async () => {
+    if (email.length <= 0) {
       setNext(false);
+      return;
     }
+    handleCheck();
+    const res = await handleVerifyEmail(email);
+    if (res) return;
+    handleCheck();
   };
   return { email, next, handleEmailChange, handleMoveNext };
 };

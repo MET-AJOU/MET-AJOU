@@ -1,10 +1,16 @@
 import { GET_VERIFY_EMAIL } from "@Constant/URL";
-import axios from "axios";
+import { Request } from "@Util/Request";
+
+const postVerifyEmail = async (ajouUserId: string) => {
+  const res = await Request({ url: GET_VERIFY_EMAIL, body: { ajouUserId } });
+  return res;
+};
 
 export const handleVerifyEmail = async (ajouUserId: string) => {
-  const res = await axios.post(GET_VERIFY_EMAIL, {
-    ajouUserId,
-  });
-  console.log(res);
-  return !!res;
+  const { isEmailSended }: postVerifyEmailType = await postVerifyEmail(ajouUserId);
+  return isEmailSended;
 };
+
+export interface postVerifyEmailType {
+  isEmailSended: boolean;
+}
