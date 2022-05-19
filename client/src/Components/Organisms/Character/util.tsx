@@ -1,9 +1,11 @@
+import { GET_SELECT_CHARACTER_URL } from "@Constant/URL";
+
 export const handleSelectFn = (setter: React.Dispatch<React.SetStateAction<number>>) => (idx: number) => () => {
   setter(idx);
 };
 
 export const getRenderCharacter = ({ select, hairColor, costumeSelect, costumeColor }: getRenderCharacterType): string => {
-  const title = `${[select, "-", hairColor, "-", costumeSelect, "-", costumeColor].join("")}.fbx`;
+  const title = `${GET_SELECT_CHARACTER_URL}${[select, "-", hairColor, "-", costumeSelect, "-", costumeColor].join("")}.fbx`;
   return title;
 };
 
