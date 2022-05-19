@@ -56,3 +56,31 @@ export const Pins = styled.div`
   width: 198px;
   height: 231px;
 `;
+
+export const BuildingInfoContainer = styled.div`
+  display: grid;
+  grid-template-rows: 70px 391px;
+`;
+
+export const BuildingTitle = styled.p`
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const BuildingImg = styled.img`
+  width: 60%;
+  height: 40%;
+`;
+
+export const Text = styled.p`
+  font-size: 14px;
+  line-height: 20px;
+`;
