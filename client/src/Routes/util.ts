@@ -1,4 +1,4 @@
-import { GET_API_TOKEN_MINE, GET_CHARACTER, GET_PROFILE } from "@Constant/URL";
+import { GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER } from "@Constant/URL";
 import ChannelPage from "@Pages/Channel";
 import CharacterPage from "@Pages/Character";
 import NickNamePage from "@Pages/NickName";
