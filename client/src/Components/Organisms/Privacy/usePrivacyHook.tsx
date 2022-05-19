@@ -1,30 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { checkBoxCheck, handleVerifyUseable } from "./util";
+import { checkBoxCheck, handleSetChecked, handleSetMoveNext, handleVerifyUseable } from "./util";
 
 const usePrivacyHook = () => {
   const [next, setNext] = useState(true);
   const [checked, setChecked] = useState(INIT_CHECKED);
-  const inputRefs = useRef([]);
+  const inputRefs = useRef<HTMLInputElement[]>([]);
   const navigator = useNavigate();
 
-  const handleMoveNext = async () => {
-    if (!checkBoxCheck(inputRefs)) {
-      setNext(false);
-      return;
-    }
-    const data = await handleVerifyUseable();
-    if (!data) return;
-    navigator("/nickName");
-  };
-  const handleChecked = (idx: number) => () => {
-    const ref = inputRefs.current[idx] as HTMLInputElement;
-    setChecked((prev) => ({
-      ...prev,
-      [idx]: ref?.checked,
-    }));
-  };
+  const handleMoveNext = useCallback(() => handleSetMoveNext({ inputRefs, setNext, navigator }), []);
+  const handleChecked = useCallback(handleSetChecked({ inputRefs, setChecked }), []);
+
   return { next, inputRefs, handleMoveNext, handleChecked };
 };
 

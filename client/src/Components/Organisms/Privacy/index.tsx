@@ -22,6 +22,7 @@ export default PrivacyForm;
 
 interface usePrivacyHookType extends PrivacyCheckBoxsType {
   next: boolean;
+  inputRefs: React.MutableRefObject<HTMLInputElement[]>;
+  handleMoveNext: () => () => Promise<void>;
   handleChecked: (idx: number) => () => void;
-  handleMoveNext: () => void;
 }
