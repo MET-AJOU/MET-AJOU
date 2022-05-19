@@ -4,10 +4,7 @@ export const handleSelectFn = (setter: React.Dispatch<React.SetStateAction<numbe
   setter(idx);
 };
 
-export const getRenderCharacter = ({ select, hairColor, costumeSelect, costumeColor }: getRenderCharacterType): string => {
-  const title = `${GET_SELECT_CHARACTER_URL}${[select, "-", hairColor, "-", costumeSelect, "-", costumeColor].join("")}.fbx`;
-  return title;
-};
+export const getRenderCharacter = ({ select, hairColor, costumeSelect, costumeColor }: getRenderCharacterType): string => `${GET_SELECT_CHARACTER_URL}${[select, ".", hairColor, ".", costumeSelect, ".", costumeColor].join("")}.fbx`;
 
 interface getRenderCharacterType {
   select: number;

@@ -2,8 +2,8 @@ import useCheckUser from "./useCheckUser";
 
 const CheckUserRoute = () => {
   const Page = useCheckUser();
-  console.log(Page);
   if (!Page) return null;
+  console.log(Page);
   return <Page />;
 };
 

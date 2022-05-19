@@ -13,7 +13,6 @@ const useSelectCharacter = () => {
     setCostumeColor(0);
     setCostumeSelect(0);
   };
-  // const handleSelect = useCallback(handleSelectFn(setSelect), []);
   const handleHairColor = useCallback(handleSelectFn(setHairColor), []);
   const handleCostumeColor = useCallback(handleSelectFn(setCostumeColor), []);
   const handleCostumeSelect = useCallback(handleSelectFn(setCostumeSelect), []);
