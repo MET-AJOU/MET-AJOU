@@ -1,3 +1,4 @@
+import { MODALCONTAINER } from "@Organisms/MapOption/Modal/useGetModal";
 import useCloseModal from "../useCloseModal";
 import { CloseModal } from "../styles";
 import { ContentContainer, ExitModalContainer, Text, Button } from "./styles";
@@ -8,7 +9,7 @@ const ExitModal = ({ targetRef }: { targetRef: any }) => {
   const handleExit = useHandleExit();
 
   return (
-    <ExitModalContainer ref={targetRef}>
+    <ExitModalContainer ref={targetRef} id={MODALCONTAINER}>
       <ContentContainer>
         <Text>정말 나가시겠습니까?</Text>
         <Button onClick={handleExit} color="blue">
