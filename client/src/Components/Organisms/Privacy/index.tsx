@@ -1,11 +1,10 @@
 import PrivacyCheckBoxs, { PrivacyCheckBoxsType } from "@Molecules/Privacy/CheckBoxs";
 import PrivacyTitle from "@Molecules/Privacy/Title";
 import RegisterNextButtonComponent from "@Molecules/Register/RegisterNextButtonComponent";
-import { checkSrc } from "@Organisms/Register/Email";
 import { Br, RegisterDescript } from "@Organisms/Register/Email/styles";
 import { PrivacyTemplateContainer } from "./styles";
 import usePrivacyHook from "./usePrivacyHook";
-import { checkBoxCheck } from "./util";
+import { checkBoxCheck, checkSrc } from "./util";
 
 const PrivacyForm = () => {
   const { next, inputRefs, handleMoveNext, handleChecked }: usePrivacyHookType = usePrivacyHook();

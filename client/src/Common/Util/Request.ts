@@ -9,7 +9,7 @@ export const Request = async ({ url, body }: API_TYPE): Promise<any> => {
       alert(data.message);
       return false;
     }
-    return data.data;
+    return data.res;
   } catch (e) {
     alert("API 통신 에러");
     return false;
@@ -25,6 +25,6 @@ interface API_RES_TYPE {
   data: {
     state: boolean;
     message: string;
-    data: object;
+    res: object;
   };
 }
