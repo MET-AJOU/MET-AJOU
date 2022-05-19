@@ -9,14 +9,14 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { CharactersAtom, myUserIdAtom } from "@Recoils/Characters";
 import Socket from "..";
 
-const useInitSocket = () => {
+const useInitSocket = (setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>, roomId: number) => {
   const setCharacters = useSetRecoilState(CharactersAtom);
   const setMyUserId = useSetRecoilState(myUserIdAtom);
   useEffect(() => {
     const socket = SocketIo(SOCKET_SERVER);
     // const socket = SocketIo(SOCKET_SERVER, { transports: ["websocket"] });
-    initSocketEvents({ socket, setCharacters, setMyUserId });
-    joinRoom({ socket, roomId: 1, userId: 1 });
+    initSocketEvents({ socket, setCharacters, setMyUserId, setJoinedUserNumber });
+    joinRoom({ socket, roomId, userId: 1 });
     Socket.instance = socket;
     return () => {
       Socket.instance?.disconnect();

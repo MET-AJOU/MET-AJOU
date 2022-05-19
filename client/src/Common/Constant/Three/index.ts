@@ -9,37 +9,55 @@ export const DefaultKeyboardState: keyBoardStateType = {
   space: false,
   dance: false,
 };
-export const FieldSrc = "models/Fields";
+export const FieldSrc = "models/AjouMap/Fields";
 
-export const HillsSrc = "models/Hill";
+export const HillsSrc = "models/AjouMap/Hill";
 
-export const BuildingsSrc = "models/Building";
+export const BuildingsSrc = "models/AjouMap/Building";
 
-export const RoadsSrc = "models/Roads";
+export const RoadsSrc = "models/AjouMap/Roads";
 
-export const GroundsSrc = "models/Grounds";
+export const GroundsSrc = "models/AjouMap/Grounds";
 
-export const BuildingGroundsSrc = "models/BuildingGrounds";
+export const BuildingGroundsSrc = "models/AjouMap/BuildingGrounds";
 
-export const FenceSrc = "models/Fence";
+export const FenceSrc = "models/AjouMap/Fence";
 
-export const SideWalkSrc = "models/SideWalks";
+export const SideWalkSrc = "models/AjouMap/SideWalks";
 
-export const StreetLampSrc = "models/StreetLamp";
+export const StreetLampSrc = "models/AjouMap/StreetLamp";
 
-export const TreeSrc = "models/Trees";
+export const TreeSrc = "models/AjouMap/Trees";
 
-export const TreeBaseSrc = "models/TreeBases";
+export const TreeBaseSrc = "models/AjouMap/TreeBases";
 
-export const GardenBoxSrc = "models/GardenBoxs";
+export const GardenBoxSrc = "models/AjouMap/GardenBoxs";
 
-export const BusSrc = "models/Buses";
+export const BusSrc = "models/AjouMap/Buses";
 
-export const TestSrc = "models/Test";
+export const TestSrc = "models/AjouMap/Test";
 
-export const GardenStairSrc = "models/GardenStairs";
+export const GardenStairSrc = "models/AjouMap/GardenStairs";
 
-export const AddGroundSrc = "models/AddGrounds";
+export const AddGroundSrc = "models/AjouMap/AddGrounds";
+
+export const CeilingSrc = "models/Debate/Ceilings";
+
+export const ChairSrc = "models/Debate/Chairs";
+
+export const FloorSrc = "models/Debate/Floors";
+
+export const OutWallsSrc = "models/Debate/OutWalls";
+
+export const WallsSrc = "models/Debate/Walls";
+
+export const PropsSrc = "models/Debate/Props";
+
+export const RoomSrc = "models/Debate/Room";
+
+export const TablesSrc = "models/Debate/Tables";
+
+export const WindowSrc = "models/Debate/Windows";
 
 export const AddGroundAssetSize = 1;
 
@@ -76,6 +94,16 @@ export const TestAssetSize = 3;
 export const FieldAssetSize = 13;
 
 export const GardenStairAssetSize = 2;
+
+export const CeilingAssetSize = 3;
+
+export const ChairAssetSize = 32;
+
+export const FloorAssetSize = 2;
+
+export const PropsAssetSize = 13;
+
+export const TabelAssetSize = 16;
 
 export const BuildingAssetSrc = [
   `${BuildingsSrc}/building_centrallibrary.gltf`,

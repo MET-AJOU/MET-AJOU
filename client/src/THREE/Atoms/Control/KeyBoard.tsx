@@ -46,8 +46,6 @@ function useKeys(keyConfig: KeyConfig[]) {
         if (_pressed) return { ...state, ..._fn(true) };
         return state;
       }, DefaultKeyboardState);
-      console.log(keyMap);
-      console.log(keyState);
       if (up || !pressed) Socket.instance?.emit("keyDown", { userId, keyState, position });
     };
 

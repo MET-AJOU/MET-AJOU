@@ -1,7 +1,7 @@
 /* eslint-disable no-loss-of-precision */
 
 import { Info1, Info2, Info3, Info4, Info5, Info6 } from "@Atoms/Svgs";
-import { ValueDataType } from "@Type/.";
+import { ChanelInfoType, ValueDataType } from "@Type/.";
 
 export const hello = () => "hello";
 
@@ -56,3 +56,30 @@ export const CARD_LIST_DATA: ValueDataType[] = [
 ];
 
 export const TEAM_INFO_SIZE = 3;
+
+export const CHANNEL_INFO: ChanelInfoType[] = [
+  {
+    id: 1,
+    title: "아주대학교 캠퍼스",
+    src: "/asset/Channel/map.png",
+    total: 100,
+  },
+  {
+    id: 2,
+    title: "자유 소통방",
+    src: "/asset/Channel/talk.png",
+    total: 30,
+  },
+  {
+    id: 3,
+    title: "토론 강의실",
+    src: "/asset/Channel/debate.png",
+    total: 30,
+  },
+  {
+    id: 4,
+    title: "체육관",
+    src: "/asset/Channel/gym.png",
+    total: 30,
+  },
+];

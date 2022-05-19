@@ -1,11 +1,14 @@
+import { ChanelInfoType } from "@Type/.";
 import { MapInfoContainer } from "./styles";
 
-const MapInfo = ({ title, now }: { title: string; now: number }) => {
+const MapInfo = ({ chanelInfo, now }: { chanelInfo: ChanelInfoType; now: number }) => {
   return (
     <MapInfoContainer>
-      <p>{title}</p>
+      <p>{chanelInfo.title}</p>
       <img src="./asset/MapOption/MapInfo/people.png" alt="사람이미지" />
-      <p>{now} / 100</p>
+      <p>
+        {now} / {chanelInfo.total}
+      </p>
     </MapInfoContainer>
   );
 };

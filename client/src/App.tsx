@@ -12,6 +12,7 @@ import PrivacyPage from "@Pages/Privacy";
 import NickNamePage from "@Pages/NickName";
 import CharacterPage from "@Pages/Character";
 import ChannelPage from "@Pages/Channel";
+import DebatePage from "@Pages/Debate";
 // import MobileView from "@Pages/Mobile";
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/character" element={<PublicRoute component={CharacterPage} />} />
         <Route path="/Channel" element={<PublicRoute component={ChannelPage} />} />
         <Route path="/map" element={<PublicRoute component={MapPage} />} />
+        <Route path="/debate" element={<PublicRoute component={DebatePage} />} />
       </Routes>
     </Suspense>
   );
