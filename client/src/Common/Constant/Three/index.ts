@@ -9,37 +9,37 @@ export const DefaultKeyboardState: keyBoardStateType = {
   space: false,
   dance: false,
 };
-export const FieldSrc = "models/Fields";
+export const FieldSrc = "models/AjouMap/Fields";
 
-export const HillsSrc = "models/Hill";
+export const HillsSrc = "models/AjouMap/Hill";
 
-export const BuildingsSrc = "models/Building";
+export const BuildingsSrc = "models/AjouMap/Building";
 
-export const RoadsSrc = "models/Roads";
+export const RoadsSrc = "models/AjouMap/Roads";
 
-export const GroundsSrc = "models/Grounds";
+export const GroundsSrc = "models/AjouMap/Grounds";
 
-export const BuildingGroundsSrc = "models/BuildingGrounds";
+export const BuildingGroundsSrc = "models/AjouMap/BuildingGrounds";
 
-export const FenceSrc = "models/Fence";
+export const FenceSrc = "models/AjouMap/Fence";
 
-export const SideWalkSrc = "models/SideWalks";
+export const SideWalkSrc = "models/AjouMap/SideWalks";
 
-export const StreetLampSrc = "models/StreetLamp";
+export const StreetLampSrc = "models/AjouMap/StreetLamp";
 
-export const TreeSrc = "models/Trees";
+export const TreeSrc = "models/AjouMap/Trees";
 
-export const TreeBaseSrc = "models/TreeBases";
+export const TreeBaseSrc = "models/AjouMap/TreeBases";
 
-export const GardenBoxSrc = "models/GardenBoxs";
+export const GardenBoxSrc = "models/AjouMap/GardenBoxs";
 
-export const BusSrc = "models/Buses";
+export const BusSrc = "models/AjouMap/Buses";
 
-export const TestSrc = "models/Test";
+export const TestSrc = "models/AjouMap/Test";
 
-export const GardenStairSrc = "models/GardenStairs";
+export const GardenStairSrc = "models/AjouMap/GardenStairs";
 
-export const AddGroundSrc = "models/AddGrounds";
+export const AddGroundSrc = "models/AjouMap/AddGrounds";
 
 export const AddGroundAssetSize = 1;
 
