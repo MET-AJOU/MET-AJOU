@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 /* eslint-disable no-alert */
 import axios from "axios";
 
@@ -13,6 +12,7 @@ export const Request = async ({ url, body }: API_TYPE): Promise<any> => {
     return data.data;
   } catch (e) {
     alert("API 통신 에러");
+    return false;
   }
 };
 

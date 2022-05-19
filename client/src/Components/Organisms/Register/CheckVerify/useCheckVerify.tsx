@@ -12,12 +12,17 @@ const useCheckVerify = () => {
   const navigator = useNavigate();
 
   const handleMoveNext = useCallback(async () => {
-    if (!checkFillCode(code)) setNext(false);
-    else if (!(await handleCheckVerify(makeCodeToString(code)))) setNext(false);
-    else {
-      setNext(true);
-      navigator("/privacy");
+    if (!checkFillCode(code)) {
+      setNext(false);
+      return;
     }
+    const data = await handleCheckVerify(makeCodeToString(code));
+    if (!data) {
+      setNext(false);
+      return;
+    }
+    setNext(true);
+    navigator("/privacy");
   }, [code]);
 
   const handleCode = useCallback(

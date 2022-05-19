@@ -20,15 +20,17 @@ export const makeCodeToString = (code: codeType) => {
   return answer;
 };
 
-export const handleCheckVerify = async (verifyToken: string) => {
+const postCheckVerify = async (verifyToken: string) => {
   const res = await Request({
     url: CHECK_VERIFY_EMAIL,
     body: {
       verifyToken,
     },
   });
-  // const res = await axios.post(CHECK_VERIFY_EMAIL, {
-  //   verifyToken,
-  // });
-  return !!res;
+  return res;
+};
+
+export const handleCheckVerify = async (verifyToken: string) => {
+  const res = await postCheckVerify(verifyToken);
+  return res?.verifingTokenSendResult ?? false;
 };

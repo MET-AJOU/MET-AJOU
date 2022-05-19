@@ -7,10 +7,6 @@ const postVerifyEmail = async (ajouUserId: string) => {
 };
 
 export const handleVerifyEmail = async (ajouUserId: string) => {
-  const { isEmailSended }: postVerifyEmailType = await postVerifyEmail(ajouUserId);
-  return isEmailSended;
+  const res = await postVerifyEmail(ajouUserId);
+  return res?.isEmailSended ?? false;
 };
-
-export interface postVerifyEmailType {
-  isEmailSended: boolean;
-}
