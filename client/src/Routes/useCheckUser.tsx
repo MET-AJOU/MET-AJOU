@@ -1,20 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import { getComponent, getUserToken, routingType } from "./util";
+import { routingType, setHandlePage, setHandleUserData } from "./util";
 
 const useCheckUser = (): (() => JSX.Element) | null => {
   const [userData, setUserData] = useState<routingType | null>(null);
   const [page, setPage] = useState<(() => JSX.Element) | null>(null);
-  const handleUserData = async () => {
-    const data: routingType = await getUserToken();
-    setUserData(data);
-  };
 
-  const handlePage = useCallback(() => {
-    if (!userData) return;
-    const data = getComponent(userData);
-    console.log("data : ", data);
-    setPage(data);
-  }, [userData]);
+  const handleUserData = useCallback(() => setHandleUserData(setUserData), []);
+  const handlePage = useCallback(() => setHandlePage({ userData, setPage }), [userData]);
 
   useEffect(() => {
     handleUserData();
