@@ -11,11 +11,8 @@ const useCheckUser = (): (() => JSX.Element) | null => {
   useEffect(() => {
     handleUserData();
   }, []);
+  useEffect(handlePage, [handlePage]);
 
-  useEffect(() => {
-    handlePage();
-  }, [handlePage]);
-  console.log("page : ", page);
   return page;
 };
 
