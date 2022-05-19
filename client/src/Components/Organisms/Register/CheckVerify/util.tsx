@@ -20,11 +20,11 @@ export const makeCodeToString = (code: codeType) => {
   return answer;
 };
 
-export const handleCheckVerify = async (VerifyToken: string) => {
+export const handleCheckVerify = async (verifyToken: string) => {
   const res = await axios.post(
     CHECK_VERIFY_EMAIL,
     {
-      VerifyToken,
+      verifyToken,
     },
     {
       withCredentials: true,
