@@ -77,7 +77,7 @@ const MapContainer = () => {
             {/* </Debug> */}
           </Physics>
           <Keyboard />
-          <SocketComponent />
+          <SocketComponent roomId={1} />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>
