@@ -4,6 +4,8 @@ import { Canvas } from "@react-three/fiber";
 import { Physics, Debug } from "@react-three/cannon";
 import { RecoilRoot } from "recoil";
 
+import { CHANNEL_INFO } from "@Constant/.";
+
 import BasicPlane from "@THREE/Atoms/BasicPlane";
 import FakePlanes from "@THREE/Atoms/FakePlanes";
 
@@ -77,7 +79,7 @@ const MapContainer = () => {
             {/* </Debug> */}
           </Physics>
           <Keyboard />
-          <SocketComponent roomId={1} />
+          <SocketComponent roomId={CHANNEL_INFO[0].id} />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>

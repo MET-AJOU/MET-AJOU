@@ -1,10 +1,11 @@
+import { ChanelInfoType } from "@Type/.";
 import MapInfo from "@Molecules/MapOption/MapInfo";
 import MapOption from "@Molecules/MapOption/MapOption";
 
-const MapOptionHeader = ({ title, now }: { title: string; now: number }) => {
+const MapOptionHeader = ({ channelInfo, now }: { channelInfo: ChanelInfoType; now: number }) => {
   return (
     <>
-      <MapInfo title={title} now={now} />
+      <MapInfo chanelInfo={channelInfo} now={now} />
       <MapOption />
     </>
   );

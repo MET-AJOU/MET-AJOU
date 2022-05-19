@@ -71,7 +71,14 @@ export interface InlineStyleType {
 }
 
 export interface ValueDataType {
-  src :string;
-  title:string;
-  text:string[];
+  src: string;
+  title: string;
+  text: string[];
+}
+
+export interface ChanelInfoType {
+  id: number;
+  title: string;
+  src: string;
+  total: number;
 }

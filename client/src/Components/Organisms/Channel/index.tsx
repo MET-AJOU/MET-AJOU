@@ -1,3 +1,4 @@
+import { CHANNEL_INFO } from "@Constant/.";
 import ChannelItem from "@Molecules/Channel";
 import RegisterNextButtonComponent from "@Molecules/Register/RegisterNextButtonComponent";
 
@@ -12,7 +13,7 @@ const ChannelForm = () => {
     <ChannelFormContainer>
       <ChannelFormTitle>채널 선택</ChannelFormTitle>
       <ChannelItemContainer>
-        {CHANNEL_SET.map((item) => (
+        {CHANNEL_INFO.map((item) => (
           <ChannelItem now={0} key={item.id} {...item} onClick={handleSelect(item.id)} />
         ))}
       </ChannelItemContainer>
@@ -23,30 +24,3 @@ const ChannelForm = () => {
 };
 
 export default ChannelForm;
-
-const CHANNEL_SET = [
-  {
-    id: 1,
-    title: "아주대학교 캠퍼스",
-    src: "/asset/Channel/map.png",
-    total: 100,
-  },
-  {
-    id: 2,
-    title: "자유 소통방",
-    src: "/asset/Channel/talk.png",
-    total: 30,
-  },
-  {
-    id: 3,
-    title: "토론 강의실",
-    src: "/asset/Channel/debate.png",
-    total: 30,
-  },
-  {
-    id: 4,
-    title: "체육관",
-    src: "/asset/Channel/gym.png",
-    total: 30,
-  },
-];

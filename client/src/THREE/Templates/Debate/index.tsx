@@ -3,6 +3,8 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { RecoilRoot } from "recoil";
 
+import { CHANNEL_INFO } from "@Constant/.";
+
 import Ceilings from "@THREE/Molecules/Debate/Ceilings";
 import Chairs from "@THREE/Molecules/Debate/Chairs";
 import OutWalls from "@THREE/Molecules/Debate/OutWalls";
@@ -41,7 +43,7 @@ const DebateMap = () => {
             <Characters />
           </Physics>
           <Keyboard />
-          <SocketComponent roomId={3} />
+          <SocketComponent roomId={CHANNEL_INFO[2].id} />
         </RecoilRoot>
       </Canvas>
     </MapContainer>
