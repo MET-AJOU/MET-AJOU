@@ -1,8 +1,9 @@
-export const AUTH_SERVER = `${process.env.REACT_APP_GET_SERVER_DOMAIN}${process.env.REACT_APP_GET_AUTH_SERVER_PORT}${process.env.REACT_APP_GET_AUTH_SERVER_PORT}`;
-export const DATA_SERVER = `${process.env.REACT_APP_GET_SERVER_DOMAIN}${process.env.REACT_APP_GET_DATA_SERVER_PORT}${process.env.REACT_APP_GET_DATA_SERVER_PORT}`;
+export const GOOGLE_SERVER = `${process.env.REACT_APP_GET_SERVER_DOMAIN}${process.env.REACT_APP_GET_AUTH_SERVER_PORT}`;
+export const AUTH_SERVER = `${GOOGLE_SERVER}${process.env.REACT_APP_GET_AUTH_SERVER_URL}`;
+export const DATA_SERVER = `${process.env.REACT_APP_GET_SERVER_DOMAIN}${process.env.REACT_APP_GET_DATA_SERVER_PORT}${process.env.REACT_APP_GET_DATA_SERVER_URL}`;
 // export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${process.env.REACT_APP_SOCKET_SERVER_PORT}`;
 export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${process.env.REACT_APP_SOCKET_SERVER_PORT}`;
-export const GOOGLE_URL = `${AUTH_SERVER}${process.env.REACT_APP_GET_GOOGLE_URL}`;
+export const GOOGLE_URL = `${GOOGLE_SERVER}${process.env.REACT_APP_GET_GOOGLE_URL}`;
 
 export const GET_API_TOKEN_MINE = `${AUTH_SERVER}/token/mine`;
 export const CHECK_TOKEN = `${AUTH_SERVER}/token/mine`;
