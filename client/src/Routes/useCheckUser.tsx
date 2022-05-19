@@ -6,13 +6,13 @@ const useCheckUser = (): (() => JSX.Element) | null => {
   const [page, setPage] = useState<(() => JSX.Element) | null>(null);
   const handleUserData = async () => {
     const data: routingType = await getUserToken();
-    console.log(data);
     setUserData(data);
   };
 
   const handlePage = useCallback(() => {
     if (!userData) return;
     const data = getComponent(userData);
+    console.log("data : ", data);
     setPage(data);
   }, [userData]);
 
@@ -22,8 +22,8 @@ const useCheckUser = (): (() => JSX.Element) | null => {
 
   useEffect(() => {
     handlePage();
-  }, [userData, handlePage]);
-
+  }, [handlePage]);
+  console.log("page : ", page);
   return page;
 };
 
