@@ -41,6 +41,24 @@ export const GardenStairSrc = "models/AjouMap/GardenStairs";
 
 export const AddGroundSrc = "models/AjouMap/AddGrounds";
 
+export const CeilingSrc = "models/Debate/Ceilings";
+
+export const ChairSrc = "models/Debate/Chairs";
+
+export const FloorSrc = "models/Debate/Floors";
+
+export const OutWallsSrc = "models/Debate/OutWalls";
+
+export const WallsSrc = "models/Debate/Walls";
+
+export const PropsSrc = "models/Debate/Props";
+
+export const RoomSrc = "models/Debate/Room";
+
+export const TablesSrc = "models/Debate/Tables";
+
+export const WindowSrc = "models/Debate/Windows";
+
 export const AddGroundAssetSize = 1;
 
 export const HillsAssetSize = 22;
@@ -76,6 +94,16 @@ export const TestAssetSize = 3;
 export const FieldAssetSize = 13;
 
 export const GardenStairAssetSize = 2;
+
+export const CeilingAssetSize = 3;
+
+export const ChairAssetSize = 32;
+
+export const FloorAssetSize = 2;
+
+export const PropsAssetSize = 13;
+
+export const TabelAssetSize = 16;
 
 export const BuildingAssetSrc = [
   `${BuildingsSrc}/building_centrallibrary.gltf`,
