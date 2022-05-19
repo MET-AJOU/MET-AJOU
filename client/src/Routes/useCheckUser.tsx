@@ -6,6 +6,7 @@ const useCheckUser = (): (() => JSX.Element) | null => {
   const [page, setPage] = useState<(() => JSX.Element) | null>(null);
   const handleUserData = async () => {
     const data: routingType = await getUserToken();
+    console.log(data);
     setUserData(data);
   };
 
