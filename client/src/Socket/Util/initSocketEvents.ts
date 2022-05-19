@@ -8,6 +8,7 @@ const initSocketEvents = ({ socket, setCharacters, setMyUserId }: { socket: Sock
   socket.on("keyDown", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
   socket.on("keyUp", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
   socket.on("getUserId", (userId: number) => setMyUserId(userId));
+  socket.on("leaveUser", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
 };
 
 export default initSocketEvents;
