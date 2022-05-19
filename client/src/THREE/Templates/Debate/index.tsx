@@ -21,7 +21,7 @@ import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 
 import { MapContainer } from "./styles";
 
-const DebateMap = () => {
+const DebateMap = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>> }) => {
   return (
     <MapContainer>
       <Canvas>
@@ -43,7 +43,7 @@ const DebateMap = () => {
             <Characters />
           </Physics>
           <Keyboard />
-          <SocketComponent roomId={CHANNEL_INFO[2].id} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[2].id} />
         </RecoilRoot>
       </Canvas>
     </MapContainer>

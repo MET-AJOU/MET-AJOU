@@ -39,7 +39,7 @@ import AddGrounds from "@THREE/Molecules/AjouMap/AddGrounds";
 import Tests from "@THREE/Molecules/AjouMap/Tests";
 import MetaContainer from "./styles";
 
-const MapContainer = () => {
+const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>> }) => {
   return (
     <MetaContainer>
       <Canvas>
@@ -79,7 +79,7 @@ const MapContainer = () => {
             {/* </Debug> */}
           </Physics>
           <Keyboard />
-          <SocketComponent roomId={CHANNEL_INFO[0].id} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>
