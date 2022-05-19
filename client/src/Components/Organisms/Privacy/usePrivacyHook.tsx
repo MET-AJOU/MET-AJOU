@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { checkBoxCheck } from "./util";
+import { checkBoxCheck, handleVerifyUseable } from "./util";
 
 const usePrivacyHook = () => {
   const [next, setNext] = useState(true);
@@ -9,12 +9,13 @@ const usePrivacyHook = () => {
   const inputRefs = useRef([]);
   const navigator = useNavigate();
 
-  const handleMoveNext = () => {
-    const test = checkBoxCheck(inputRefs);
-    if (test === "") {
+  const handleMoveNext = async () => {
+    if (!checkBoxCheck(inputRefs)) {
       setNext(false);
       return;
     }
+    const data = await handleVerifyUseable();
+    if (!data) return;
     navigator("/nickName");
   };
   const handleChecked = (idx: number) => () => {

@@ -1,8 +1,8 @@
-import { GET_VERIFY_EMAIL } from "@Constant/URL";
+import { POST_VERIFY_EMAIL } from "@Constant/URL";
 import { Request } from "@Util/Request";
 
 const postVerifyEmail = async (ajouUserId: string) => {
-  const res = await Request({ url: GET_VERIFY_EMAIL, body: { ajouUserId } });
+  const res = await Request({ url: POST_VERIFY_EMAIL, body: { ajouUserId } });
   return res;
 };
 
