@@ -82,3 +82,10 @@ export interface ChanelInfoType {
   src: string;
   total: number;
 }
+
+export interface MiniMapPinType {
+  building: string;
+  path: string;
+  info?: string;
+  bubble?: number;
+}
