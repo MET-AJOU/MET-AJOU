@@ -30,8 +30,8 @@ export const getComponent = ({ role, verifiedEmail, useable, userName, avatarCus
 
 export interface routingType {
   role: "ROLE_USER" | "ROLE_GUEST";
-  verifiedEmail: string | undefined;
-  useable: boolean | undefined;
-  userName: string | undefined;
-  avatarCustomCode: string | undefined;
+  verifiedEmail: string | null;
+  useable: boolean | null;
+  userName: string | null;
+  avatarCustomCode: string | null;
 }
