@@ -5,8 +5,8 @@ const useCheckUser = (): (() => JSX.Element) | null => {
   const [userData, setUserData] = useState<routingType | null>(null);
   const [page, setPage] = useState<(() => JSX.Element) | null>(null);
 
-  const handleUserData = useCallback(() => setHandleUserData(setUserData), []);
-  const handlePage = useCallback(() => setHandlePage({ userData, setPage }), [userData]);
+  const handleUserData = useCallback(setHandleUserData(setUserData), []);
+  const handlePage = useCallback(setHandlePage({ userData, setPage }), [userData]);
 
   useEffect(() => {
     handleUserData();
