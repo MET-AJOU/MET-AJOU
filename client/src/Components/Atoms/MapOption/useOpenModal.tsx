@@ -1,4 +1,4 @@
-import { CONTROL, EXIT, MYPAGE } from "@Organisms/MapOption/Modal/useGetModal";
+import { CONTROL, EXIT, MINIMAP, MYPAGE } from "@Organisms/MapOption/Modal/useGetModal";
 import { ModalState } from "@Recoils/MapOption/Modal";
 import { useSetRecoilState } from "recoil";
 
@@ -17,7 +17,11 @@ const useOpenModal = () => {
     setState(EXIT);
   };
 
-  return { handleControllerOpen, handleMyPageOpen, handleExitOpen };
+  const handleMiniMapOpen = () => {
+    setState(MINIMAP);
+  };
+
+  return { handleControllerOpen, handleMyPageOpen, handleExitOpen, handleMiniMapOpen };
 };
 
 export default useOpenModal;

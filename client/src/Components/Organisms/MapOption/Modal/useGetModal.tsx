@@ -1,6 +1,7 @@
 import ChangeModal from "@Atoms/MapOption/Modal/Change";
 import ControlModal from "@Atoms/MapOption/Modal/ControlModal";
 import ExitModal from "@Atoms/MapOption/Modal/Exit";
+import MiniMapModal from "@Atoms/MapOption/Modal/MiniMap";
 import MyPageModal from "@Atoms/MapOption/Modal/MyPage/MyPageModal";
 import useCloseModal from "@Atoms/MapOption/Modal/useCloseModal";
 import { ModalState } from "@Recoils/MapOption/Modal";
@@ -33,6 +34,8 @@ const useGetModal = () => {
       return <ExitModal targetRef={ref} />;
     case CHANGE:
       return <ChangeModal targetRef={ref} />;
+    case MINIMAP:
+      return <MiniMapModal targetRef={ref} />;
     default:
       return null;
   }
@@ -45,6 +48,7 @@ export const MYPAGE = "MyPage";
 export const EXIT = "Exit";
 export const CHANGE = "Change";
 export const MODALCONTAINER = "ModalContainer";
+export const MINIMAP = "MiniMap";
 
 const closeKeyPressModal =
   (fn: () => void) =>
