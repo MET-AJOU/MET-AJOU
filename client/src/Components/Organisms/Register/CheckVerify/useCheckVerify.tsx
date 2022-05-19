@@ -18,7 +18,7 @@ const useCheckVerify = () => {
       setNext(true);
       navigator("/privacy");
     }
-  }, []);
+  }, [code]);
 
   const handleCode = useCallback(
     (id: number) =>
