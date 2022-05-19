@@ -1,14 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Navigate } from "react-router-dom";
-import { RouterProps } from "@Type/.";
-import { useRecoilValue } from "recoil";
-import { checkUserSelector } from "@Recoils/Account";
+import useCheckUser from "./useCheckUser";
 
-const CheckUserRoute = ({ component: Component }: RouterProps) => {
-  // const test = useRecoilValue(checkUserSelector);
-  // console.log(test);
-  const user = true;
-  return <>{user ? <Component /> : <Navigate to="/register" />} </>;
+const CheckUserRoute = () => {
+  const Page = useCheckUser();
+  if (!Page) return null;
+  return <Page />;
 };
 
 export default CheckUserRoute;

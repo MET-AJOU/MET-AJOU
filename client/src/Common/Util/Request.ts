@@ -1,9 +1,10 @@
 /* eslint-disable no-alert */
 import axios from "axios";
 
-export const Request = async ({ url, body }: API_TYPE): Promise<any> => {
+export const Request = async ({ url, body, method }: API_TYPE): Promise<any> => {
   try {
-    const { data }: API_RES_TYPE = await axios.post(url, body);
+    const request = method === "GET" ? axios.get : axios.post;
+    const { data }: API_RES_TYPE = await request(url, body);
     console.log(data);
     if (!data?.state) {
       alert(data.message);
@@ -18,7 +19,8 @@ export const Request = async ({ url, body }: API_TYPE): Promise<any> => {
 
 interface API_TYPE {
   url: string;
-  body: object;
+  body?: object;
+  method?: "POST" | "GET";
 }
 
 interface API_RES_TYPE {
@@ -28,3 +30,9 @@ interface API_RES_TYPE {
     res: object;
   };
 }
+
+const defaultProps = {
+  method: "POST",
+};
+
+Request.defaultProps = defaultProps;
