@@ -1,9 +1,7 @@
 /* eslint-disable no-restricted-syntax */
-
 import { POST_VERIFY_USEABLE } from "@Constant/URL";
 import { Request } from "@Util/Request";
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 export const checkBoxCheck = (refs: any): boolean => {
   if (refs?.current.length === 0) return false;
   for (const ref of refs.current) {
