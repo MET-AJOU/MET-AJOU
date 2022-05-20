@@ -6,10 +6,17 @@ import PrivacyPage from "@Pages/Privacy";
 import RegisterPage from "@Pages/Register";
 import { Request } from "@Util/Request";
 
+const getUserTokenURL = [GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER];
 const getUserToken = async () => {
+  console.time("promise All");
+  const res = await Promise.all(getUserTokenURL.map((url: string) => Request({ url, method: "GET" })));
+  console.log(res);
+  console.timeEnd("promise All");
+  console.time("동기");
   const { role, verifiedEmail, useable } = await Request({ url: GET_API_TOKEN_MINE, method: "GET" });
   const { userName } = await Request({ url: GET_PROFILE, method: "GET" });
   const { avatarCustomCode } = await Request({ url: GET_CHARACTER, method: "GET" });
+  console.timeEnd("동기");
   return {
     role,
     verifiedEmail,
@@ -48,3 +55,8 @@ export const setHandlePage =
     const data = getComponent(userData);
     setPage(data);
   };
+
+export const testHandlePage = ({ userData }: { userData: routingType | null }) => {
+  if (!userData) return null;
+  return getComponent(userData);
+};

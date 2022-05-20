@@ -1,19 +1,21 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useCallback, useEffect, useState } from "react";
-import { routingType, setHandlePage, setHandleUserData } from "./util";
+import { routingType, setHandleUserData, testHandlePage } from "./util";
 
 const useCheckUser = (): (() => JSX.Element) | null => {
   const [userData, setUserData] = useState<routingType | null>(null);
-  const [page, setPage] = useState<(() => JSX.Element) | null>(null);
 
   const handleUserData = useCallback(setHandleUserData(setUserData), []);
-  const handlePage = useCallback(setHandlePage({ userData, setPage }), [userData]);
+  const page = useCallback(() => testHandlePage({ userData }), [userData]);
 
   useEffect(() => {
     handleUserData();
   }, []);
-  useEffect(handlePage, [handlePage]);
+  // const [page, setPage] = useState<(() => JSX.Element) | null>(null);
+  // const handlePage = useCallback(setHandlePage({ userData, setPage }), [userData]);
+  // useEffect(handlePage, [handlePage]);
 
-  return page;
+  return page();
 };
 
 export default useCheckUser;
