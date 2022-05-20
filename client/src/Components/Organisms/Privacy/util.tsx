@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-syntax */
-import { POST_VERIFY_USEABLE } from "@Constant/URL";
+import { NICKNAME, POST_VERIFY_USEABLE } from "@Constant/URL";
 import { routingType } from "@Route/util";
 import { Request } from "@Util/Request";
 import { NavigateFunction } from "react-router-dom";
@@ -41,7 +41,7 @@ export const handleSetMoveNext =
         useable: true,
       };
     });
-    navigator("/nickName");
+    navigator(NICKNAME);
   };
 
 export const handleSetChecked =

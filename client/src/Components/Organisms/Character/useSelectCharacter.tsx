@@ -1,3 +1,4 @@
+import { CHANNEL } from "@Constant/URL";
 import { userDataAtom } from "@Recoils/UserData";
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +20,7 @@ const useSelectCharacter = () => {
         avatarCustomCode: renderCharacter,
       };
     });
-    navigator("/Channel");
+    navigator(CHANNEL);
   };
 
   const handleSelect = (idx: number) => () => {

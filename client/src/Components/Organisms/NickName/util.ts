@@ -1,4 +1,4 @@
-import { POST_PROFILE } from "@Constant/URL";
+import { CHARACTER, POST_PROFILE } from "@Constant/URL";
 import { routingType } from "@Route/util";
 import { Request } from "@Util/Request";
 import { NavigateFunction } from "react-router-dom";
@@ -28,7 +28,7 @@ export const handleSetMoveNext =
         userName: nickName,
       };
     });
-    navigator("/character");
+    navigator(CHARACTER);
   };
 
 const postUserNickName = async (userName: string) => {

@@ -18,3 +18,14 @@ export const GET_PROFILE = `${DATA_SERVER}/profile`;
 export const POST_PROFILE = `${DATA_SERVER}/profile`;
 export const GET_CHARACTER = `${DATA_SERVER}/character`;
 export const POST_CHARACTER = `${DATA_SERVER}/character`;
+
+export const CHANNEL = "/Channel";
+export const CHARACTER = "/character";
+export const NICKNAME = "/nickName";
+export const PRIVACY = "/privacy";
+export const VERIFY = "/verify";
+export const LOGIN = "/login";
+export const SELECTMODE = "/selectMode";
+export const ABOUT = "/about";
+export const MAP = "/map";
+export const DEBATE = "/debate";

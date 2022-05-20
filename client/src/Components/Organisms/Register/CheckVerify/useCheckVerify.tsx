@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { PRIVACY } from "@Constant/URL";
 import { CHANGE_IDX } from "@Molecules/Register/CheckEmailVerifyInput";
 import { userDataAtom } from "@Recoils/UserData";
 import { useCallback, useRef, useState } from "react";
@@ -31,7 +32,7 @@ const useCheckVerify = () => {
         verifiedEmail: "temp",
       };
     });
-    navigator("/privacy");
+    navigator(PRIVACY);
   }, [code]);
 
   const handleCode = useCallback(
