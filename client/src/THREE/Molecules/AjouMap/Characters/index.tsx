@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-no-useless-fragment */
-import { Ref, useEffect, useRef } from "react";
+import { useRef } from "react";
 import useCharacterMovement from "@Hook/Three/useMovement";
 import { CharactersAtom } from "@Recoils/Characters";
 import TestCharacter from "@THREE/Atoms/Character/test";
-
 import { useRecoilValue } from "recoil";
 
 const Characters = () => {

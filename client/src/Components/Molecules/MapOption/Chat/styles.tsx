@@ -18,5 +18,6 @@ export const ChatContainer = styled.div`
     padding: 0 10px;
 
     margin-top: 10px;
+    color: #ffffff;
   }
 `;
