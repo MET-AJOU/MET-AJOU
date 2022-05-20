@@ -6,8 +6,8 @@ const ControlModal = ({ targetRef }: { targetRef: any }) => {
   const handleCloseModal = useCloseModal();
   return (
     <ControlModalContainer ref={targetRef} id={MODALCONTAINER}>
-      <ControlModalImg src="./asset/MapOption/Modal/control.png" alt="컨트롤 모달" />
-      <CloseModal size="10" src="./asset/MapOption/Modal/closeModal.png" alt="close" onClick={handleCloseModal} />
+      <ControlModalImg src="./asset/MapOption/Modal/control.svg" alt="컨트롤 모달" />
+      <CloseModal size="30" src="./asset/MapOption/Modal/closeModal.png" alt="close" onClick={handleCloseModal} />
     </ControlModalContainer>
   );
 };

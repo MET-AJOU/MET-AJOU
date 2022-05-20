@@ -1,0 +1,34 @@
+<svg width="1114" height="692" viewBox="0 0 1114 692" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="mix-blend-mode:overlay" filter="url(#filter0_d_1009_108)">
+<path d="M1087.1 0.322754H26.9013C14.2533 0.322754 4 11.0077 4 24.1883V660.134C4 673.315 14.2533 684 26.9013 684H1087.1C1099.75 684 1110 673.315 1110 660.134V24.1883C1110 11.0077 1099.75 0.322754 1087.1 0.322754Z" fill="white"/>
+</g>
+<g clip-path="url(#clip0_1009_108)">
+<circle cx="79" cy="86" r="41" fill="#EBF1FF"/>
+<circle cx="409" cy="141" r="36" fill="#EBF1FF"/>
+<circle cx="875" cy="84" r="31" fill="#EBF1FF"/>
+<circle cx="110" cy="428" r="31" fill="#DEE7FF"/>
+<circle opacity="0.9" cx="924" cy="597" r="65" fill="#EBF1FF"/>
+<path opacity="0.9" d="M143 657C143 691.794 114.794 720 80 720C45.2061 720 17 691.794 17 657C17 622.206 45.2061 594 80 594C114.794 594 143 622.206 143 657Z" fill="#EBF1FF"/>
+<circle cx="930" cy="507" r="200.5" stroke="#DEE7FF"/>
+<circle cx="1052" cy="354" r="25" fill="#DEE7FF"/>
+<circle cx="74" cy="657" r="158.5" stroke="#DEE7FF"/>
+<circle cx="989" cy="36" r="130.5" stroke="#EBF1FF"/>
+<circle cx="194" cy="292" r="158.5" stroke="#DEE7FF"/>
+<circle cx="529" cy="-31" r="65.5" stroke="#DEE7FF"/>
+</g>
+<defs>
+<filter id="filter0_d_1009_108" x="0" y="0.322754" width="1114" height="691.677" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1009_108"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1009_108" result="shape"/>
+</filter>
+<clipPath id="clip0_1009_108">
+<rect width="1106" height="683.68" fill="white" transform="translate(4)"/>
+</clipPath>
+</defs>
+</svg>
