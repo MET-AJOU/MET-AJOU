@@ -1,10 +1,10 @@
 import StartButton from "@Atoms/StartButton";
-import { useNavigate } from "react-router-dom";
+import { ABOUT } from "@Constant/URL";
+import useMovePage from "@Hook/useMovePage";
 import { Text, MainHeaderRightContainer } from "./styles";
 
 const MainHeaderRight = () => {
-  const navigator = useNavigate();
-  const handleAboutClick = () => navigator("/about");
+  const handleAboutClick = useMovePage(ABOUT);
 
   return (
     <MainHeaderRightContainer>

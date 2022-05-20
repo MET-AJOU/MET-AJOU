@@ -1,12 +1,9 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import { useNavigate } from "react-router-dom";
-
 import Logo from "@Atoms/Svgs/Logo";
 import { InlineHover } from "@Style/.";
+import useMovePage from "@Hook/useMovePage";
 
 const MainHeaderLeft = () => {
-  const navigator = useNavigate();
-  const handleMoveHome = () => navigator("/");
+  const handleMoveHome = useMovePage("/");
 
   return <Logo style={InlineHover} onClick={handleMoveHome} />;
 };

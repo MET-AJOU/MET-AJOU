@@ -1,17 +1,17 @@
+import { CHARACTER } from "@Constant/URL";
+import useMovePage from "@Hook/useMovePage";
 import { userDataAtom } from "@Recoils/UserData";
 import { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { handleSetMoveNext, handleSetNickName } from "./util";
+import { setHandleMoveNext, setHandleNickName } from "./util";
 
 const useNickName = () => {
   const setUserData = useSetRecoilState(userDataAtom);
   const [next, setNext] = useState(true);
   const [nickName, setNickName] = useState("");
-  const navigator = useNavigate();
-
-  const handleMoveNext = handleSetMoveNext({ setNext, nickName, navigator, setUserData });
-  const handleNickName = useCallback(() => handleSetNickName(setNickName), []);
+  const nextPage = useMovePage(CHARACTER);
+  const handleMoveNext = setHandleMoveNext({ setNext, nickName, nextPage, setUserData });
+  const handleNickName = useCallback(setHandleNickName(setNickName), []);
 
   return { next, nickName, handleMoveNext, handleNickName };
 };

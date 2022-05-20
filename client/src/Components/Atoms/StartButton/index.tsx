@@ -1,11 +1,11 @@
 /* eslint-disable react/require-default-props */
+import { SELECTMODE } from "@Constant/URL";
+import useMovePage from "@Hook/useMovePage";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "./styles";
 
 const StartButton = ({ color, className }: { color: string; className?: string }) => {
-  const navigator = useNavigate();
-  const handleMoveStart = () => navigator("/selectMode");
+  const handleMoveStart = useMovePage(SELECTMODE);
 
   return (
     <Button color={color} onClick={handleMoveStart} className={className}>

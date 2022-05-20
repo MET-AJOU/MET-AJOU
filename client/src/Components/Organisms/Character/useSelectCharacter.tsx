@@ -1,7 +1,7 @@
 import { CHANNEL } from "@Constant/URL";
-import { userDataAtom } from "@Recoils/UserData";
+import useMovePage from "@Hook/useMovePage";
+import { changeAvatarCode, userDataAtom } from "@Recoils/UserData";
 import { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { getDefaultHairColor, getRenderCharacter, handleSelectFn } from "./util";
 
@@ -10,17 +10,12 @@ const useSelectCharacter = () => {
   const [hairColor, setHairColor] = useState<number>(0);
   const [costumeColor, setCostumeColor] = useState<number>(0);
   const [costumeSelect, setCostumeSelect] = useState<number>(0);
+  const nextPage = useMovePage(CHANNEL);
   const setUserData = useSetRecoilState(userDataAtom);
 
-  const navigator = useNavigate();
   const handleMoveNext = () => {
-    setUserData((prev: any) => {
-      return {
-        ...prev,
-        avatarCustomCode: renderCharacter,
-      };
-    });
-    navigator(CHANNEL);
+    setUserData(changeAvatarCode(renderCharacter));
+    nextPage();
   };
 
   const handleSelect = (idx: number) => () => {
