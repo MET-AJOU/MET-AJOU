@@ -13,7 +13,7 @@ const useCheckUser = (): [(() => JSX.Element) | null, Function] => {
 
   const handleUserData = useCallback(setHandleUserData(setUserData), []);
   const page = useCallback(() => handlePage({ userData }), [userData]);
-  const handleLocation = useCallback(() => setHandleLocation({ userData, pathname, navigator }), [userData]);
+  const handleLocation = useCallback(() => setHandleLocation({ userData, pathname, navigator }), [userData, pathname]);
 
   useEffect(() => {
     handleUserData();
