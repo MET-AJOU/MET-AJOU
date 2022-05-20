@@ -27,6 +27,6 @@ export const setHandleMoveNext =
   };
 
 const postUserNickName = async (userName: string) => {
-  const res = await Request({ url: POST_PROFILE, body: { userName } });
+  const res = await Request({ url: POST_PROFILE, body: { userName, userInfo: "" } });
   return res;
 };
