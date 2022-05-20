@@ -8,7 +8,9 @@ export const MessagesContainer = styled.div`
   box-sizing: border-box;
   overflow: auto;
   transition-duration: 2s;
-
+  div {
+    color: #ffffff;
+  }
   &.on {
     transition-duration: 2s;
     width: 413px;

@@ -26,3 +26,9 @@ export interface CharacterType {
   position: PositionType;
   keyState: keyBoardStateType;
 }
+
+export interface ChatType {
+  userId: number;
+  message: string;
+  position: PositionType;
+}
