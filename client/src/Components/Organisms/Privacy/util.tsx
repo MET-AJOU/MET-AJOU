@@ -1,10 +1,10 @@
 /* eslint-disable no-restricted-syntax */
 import { POST_VERIFY_USEABLE } from "@Constant/URL";
+import { changeUseable } from "@Recoils/UserData";
 import { routingType } from "@Route/util";
 import { Request } from "@Util/Request";
-import { NavigateFunction } from "react-router-dom";
 import { SetterOrUpdater } from "recoil";
-import { checkedType } from "./usePrivacyHook";
+// import { checkedType } from "./usePrivacyHook";
 
 export const checkBoxCheck = (refs: any): boolean => {
   if (refs?.current.length === 0) return false;
@@ -21,13 +21,13 @@ const postUseable = async () => {
   return res;
 };
 
-export const handleVerifyUseable = async () => {
+const handleVerifyUseable = async () => {
   const res = await postUseable();
   return res?.useable ?? false;
 };
 
-export const handleSetMoveNext =
-  ({ inputRefs, setNext, navigator, setUserData }: { inputRefs: React.MutableRefObject<HTMLInputElement[]>; setNext: (v: boolean) => void; navigator: NavigateFunction; setUserData: SetterOrUpdater<routingType | null> }) =>
+export const setHandleMoveNext =
+  ({ inputRefs, setNext, nextPage, setUserData }: { inputRefs: React.MutableRefObject<HTMLInputElement[]>; setNext: (v: boolean) => void; nextPage: () => void; setUserData: SetterOrUpdater<routingType | null> }) =>
   async () => {
     if (!checkBoxCheck(inputRefs)) {
       setNext(false);
@@ -35,22 +35,17 @@ export const handleSetMoveNext =
     }
     const data = await handleVerifyUseable();
     if (!data) return;
-    setUserData((prev: any) => {
-      return {
-        ...prev,
-        useable: true,
-      };
-    });
-    navigator("/nickName");
+    setUserData(changeUseable);
+    nextPage();
   };
 
-export const handleSetChecked =
-  ({ inputRefs, setChecked }: { inputRefs: React.MutableRefObject<HTMLInputElement[]>; setChecked: React.Dispatch<React.SetStateAction<checkedType>> }) =>
-  (idx: number) =>
-  () => {
-    const ref = inputRefs.current[idx] as HTMLInputElement;
-    setChecked((prev: checkedType) => ({
-      ...prev,
-      [idx]: ref?.checked,
-    }));
-  };
+// export const setHandleChecked =
+//   ({ inputRefs, setChecked }: { inputRefs: React.MutableRefObject<HTMLInputElement[]>; setChecked: React.Dispatch<React.SetStateAction<checkedType>> }) =>
+//   (idx: number) =>
+//   () => {
+//     const ref = inputRefs.current[idx] as HTMLInputElement;
+//     setChecked((prev: checkedType) => ({
+//       ...prev,
+//       [idx]: ref?.checked,
+//     }));
+//   };

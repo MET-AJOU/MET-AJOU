@@ -7,9 +7,7 @@ import { setHandleUserData, handlePage, setHandleLocation } from "./util";
 const useCheckUser = (): [(() => JSX.Element) | null, Function] => {
   const [userData, setUserData] = useRecoilState(userDataAtom);
   const { pathname } = useLocation();
-  console.log("mypathname : ", pathname);
   const navigator = useNavigate();
-  // const [userData, setUserData] = useState<routingType | null>(null);
 
   const handleUserData = useCallback(setHandleUserData(setUserData), []);
   const page = useCallback(() => handlePage({ userData }), [userData]);

@@ -1,56 +1,19 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { CHANGE_IDX } from "@Molecules/Register/CheckEmailVerifyInput";
+import { PRIVACY } from "@Constant/URL";
+import useMovePage from "@Hook/useMovePage";
 import { userDataAtom } from "@Recoils/UserData";
 import { useCallback, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { checkFillCode, handleCheckVerify, makeCodeToString } from "./util";
+import { setHandleCode, setHandleMoveNext } from "./util";
 
 const useCheckVerify = () => {
   const setUserData = useSetRecoilState(userDataAtom);
   const [next, setNext] = useState(true);
   const [code, setCode] = useState<codeType>(INIT_CODE);
   const inputRefs = useRef([]);
-  const navigator = useNavigate();
+  const nextPage = useMovePage(PRIVACY);
 
-  const handleMoveNext = useCallback(async () => {
-    if (!checkFillCode(code)) {
-      setNext(false);
-      return;
-    }
-    const data = await handleCheckVerify(makeCodeToString(code));
-    if (!data) {
-      setNext(false);
-      return;
-    }
-    setNext(true);
-    setUserData((prev: any) => {
-      return {
-        ...prev,
-        verifiedEmail: "temp",
-      };
-    });
-    navigator("/privacy");
-  }, [code]);
-
-  const handleCode = useCallback(
-    (id: number) =>
-      ({ target: { value } }: { target: { value: string } }) => {
-        const idx = CHANGE_IDX[id];
-
-        (inputRefs.current[id + 1] as HTMLInputElement)?.focus();
-
-        setCode((prev) => {
-          if (prev[idx] !== "") return prev;
-          return {
-            ...prev,
-            [idx]: value,
-          };
-        });
-      },
-    []
-  );
+  const handleMoveNext = useCallback(setHandleMoveNext({ setNext, code, setUserData, nextPage }), [code]);
+  const handleCode = useCallback(setHandleCode({ inputRefs, setCode }), []);
 
   return { code, next, inputRefs, handleMoveNext, handleCode };
 };

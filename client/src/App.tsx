@@ -8,6 +8,7 @@ import AboutPage from "@Pages/About";
 import SelectModePage from "@Pages/SelectMode";
 import DebatePage from "@Pages/Debate";
 import CheckUserRoute from "@Route/CheckUserRoute";
+import { ABOUT, CHANNEL, CHARACTER, DEBATE, LOGIN, MAP, NICKNAME, PRIVACY, SELECTMODE, VERIFY } from "@Constant/URL";
 
 const App = () => {
   // if (window.innerWidth < 768) return <MobileView />;
@@ -15,16 +16,16 @@ const App = () => {
     <Suspense fallback={<div>1</div>}>
       <Routes>
         <Route path="/" element={<PublicRoute component={MainPage} />} />
-        <Route path="/about" element={<PublicRoute component={AboutPage} />} />
-        <Route path="/selectMode" element={<PublicRoute component={SelectModePage} />} />
-        <Route path="/login" element={<PublicRoute component={LoginPage} />} />
-        <Route path="/verify" element={<CheckUserRoute />} />
-        <Route path="/privacy" element={<CheckUserRoute />} />
-        <Route path="/nickName" element={<CheckUserRoute />} />
-        <Route path="/character" element={<CheckUserRoute />} />
-        <Route path="/Channel" element={<CheckUserRoute />} />
-        <Route path="/map" element={<PublicRoute component={MapPage} />} />
-        <Route path="/debate" element={<PublicRoute component={DebatePage} />} />
+        <Route path={ABOUT} element={<PublicRoute component={AboutPage} />} />
+        <Route path={SELECTMODE} element={<PublicRoute component={SelectModePage} />} />
+        <Route path={LOGIN} element={<PublicRoute component={LoginPage} />} />
+        <Route path={VERIFY} element={<CheckUserRoute />} />
+        <Route path={PRIVACY} element={<CheckUserRoute />} />
+        <Route path={NICKNAME} element={<CheckUserRoute />} />
+        <Route path={CHARACTER} element={<CheckUserRoute />} />
+        <Route path={CHANNEL} element={<CheckUserRoute />} />
+        <Route path={MAP} element={<PublicRoute component={MapPage} />} />
+        <Route path={DEBATE} element={<PublicRoute component={DebatePage} />} />
       </Routes>
     </Suspense>
   );
