@@ -5,7 +5,7 @@ const Bubble = ({ pattern }: { pattern: any }) => {
     document.querySelector("#Bubble")?.insertAdjacentHTML("afterbegin", pattern);
   }, []);
   return (
-    <svg id="Bubble" width="277" height="243" viewBox="0 0 277 243" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg id="Bubble" width="267" height="319" viewBox="0 0 267 319" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <filter id="filter0_d_1010_139" x="49" y="0" width="53" height="31" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
           <feFlood floodOpacity="0" result="BackgroundImageFix" />

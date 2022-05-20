@@ -14,7 +14,7 @@ const MiniMapModal = ({ targetRef }: { targetRef: any }) => {
     <ModalContainer ref={targetRef} id={MODALCONTAINER}>
       <Title>미니맵</Title>
       <MapFrame>
-        <MiniMap setClick={setClick} />
+        <MiniMap clickState={clickState} setClick={setClick} />
         <BuildingInfo clickState={clickState} />
       </MapFrame>
       <CloseModal size="6" top="5%" src="./asset/MapOption/Modal/closeModal.png" alt="close" onClick={handleCloseModal} />

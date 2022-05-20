@@ -35,6 +35,7 @@ export const MapFrame = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: -3;
 `;
 
 export const Map = styled.div`
@@ -47,6 +48,7 @@ export const Map = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: -2;
 `;
 
 export const Pins = styled.div`
@@ -59,7 +61,8 @@ export const Pins = styled.div`
 
 export const BuildingInfoContainer = styled.div`
   display: grid;
-  grid-template-rows: 70px 391px;
+  margin-top: 30px;
+  grid-template-rows: 70px 483px;
 `;
 
 export const BuildingTitle = styled.p`
@@ -83,4 +86,15 @@ export const BuildingImg = styled.img`
 export const Text = styled.p`
   font-size: 14px;
   line-height: 20px;
+  padding: 30px;
+`;
+
+export const BubbleContainer = styled.div`
+  position: relative;
+  width: 277px;
+  height: 243px;
+  left: 72px;
+  top: -235px;
+  z-index: 0;
+  pointer-events: none;
 `;
