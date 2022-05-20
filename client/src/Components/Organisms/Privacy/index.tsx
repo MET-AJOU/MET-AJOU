@@ -7,11 +7,13 @@ import usePrivacyHook from "./usePrivacyHook";
 import { checkBoxCheck, checkSrc } from "./util";
 
 const PrivacyForm = () => {
-  const { next, inputRefs, handleMoveNext, handleChecked }: usePrivacyHookType = usePrivacyHook();
+  const { next, inputRefs, handleMoveNext }: usePrivacyHookType = usePrivacyHook();
+  // const { next, inputRefs, handleMoveNext, handleChecked }: usePrivacyHookType = usePrivacyHook();
   return (
     <PrivacyTemplateContainer>
       <PrivacyTitle />
-      <PrivacyCheckBoxs inputRefs={inputRefs} handleChecked={handleChecked} />
+      <PrivacyCheckBoxs inputRefs={inputRefs} />
+      {/* <PrivacyCheckBoxs inputRefs={inputRefs} handleChecked={handleChecked} /> */}
       {next ? <Br /> : <RegisterDescript>서비스를 이용하기 위해서 약관에 동의해주세요</RegisterDescript>}
       <RegisterNextButtonComponent handleMoveNext={handleMoveNext} src={checkSrc(checkBoxCheck(inputRefs))} />
     </PrivacyTemplateContainer>
@@ -24,5 +26,5 @@ interface usePrivacyHookType extends PrivacyCheckBoxsType {
   next: boolean;
   inputRefs: React.MutableRefObject<HTMLInputElement[]>;
   handleMoveNext: () => Promise<void>;
-  handleChecked: (idx: number) => () => void;
+  // handleChecked: (idx: number) => () => void;
 }
