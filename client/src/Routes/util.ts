@@ -5,18 +5,28 @@ import NickNamePage from "@Pages/NickName";
 import PrivacyPage from "@Pages/Privacy";
 import RegisterPage from "@Pages/Register";
 import { Request } from "@Util/Request";
+import { NavigateFunction } from "react-router-dom";
+import { SetterOrUpdater } from "recoil";
 
 const getUserTokenURL = [GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER];
 const getUserToken = async () => {
   console.time("promise All");
   const res = await Promise.all(getUserTokenURL.map((url: string) => Request({ url, method: "GET" })));
-  console.log(res);
+  const data = setUserTokenData(res);
+  console.log(data);
   console.timeEnd("promise All");
   console.time("동기");
   const { role, verifiedEmail, useable } = await Request({ url: GET_API_TOKEN_MINE, method: "GET" });
   const { userName } = await Request({ url: GET_PROFILE, method: "GET" });
   const { avatarCustomCode } = await Request({ url: GET_CHARACTER, method: "GET" });
   console.timeEnd("동기");
+  console.log({
+    role,
+    verifiedEmail,
+    useable,
+    userName,
+    avatarCustomCode,
+  });
   return {
     role,
     verifiedEmail,
@@ -25,6 +35,16 @@ const getUserToken = async () => {
     avatarCustomCode,
   };
 };
+
+const setUserTokenData = (arr: any[]) =>
+  arr.reduce((acc, cur) => {
+    if ("role" in cur) acc.role = cur.role;
+    if ("verifiedEmail" in cur) acc.verifiedEmail = cur.verifiedEmail;
+    if ("useable" in cur) acc.useable = cur.useable;
+    if ("userName" in cur) acc.userName = cur.userName;
+    if ("avatarCustomCode" in cur) acc.avatarCustomCode = cur.avatarCustomCode;
+    return acc;
+  }, {});
 
 const getComponent = ({ role, verifiedEmail, useable, userName, avatarCustomCode }: routingType): (() => JSX.Element) => {
   if (role === "ROLE_USER") return ChannelPage;
@@ -43,20 +63,36 @@ export interface routingType {
   avatarCustomCode: string | null;
 }
 
-export const setHandleUserData = (setter: (value: React.SetStateAction<routingType | null>) => void) => async () => {
+export const setHandleUserData = (setter: SetterOrUpdater<routingType | null>) => async () => {
   const data: routingType = await getUserToken();
   setter(data);
 };
 
-export const setHandlePage =
-  ({ userData, setPage }: { userData: routingType | null; setPage: (value: React.SetStateAction<(() => JSX.Element) | null>) => void }) =>
-  () => {
-    if (!userData) return;
-    const data = getComponent(userData);
-    setPage(data);
-  };
-
-export const testHandlePage = ({ userData }: { userData: routingType | null }) => {
+export const handlePage = ({ userData }: { userData: routingType | null }) => {
   if (!userData) return null;
   return getComponent(userData);
+};
+
+const getComponentName = ({ role, verifiedEmail, useable, userName, avatarCustomCode }: routingType): string => {
+  if (role === "ROLE_USER") return "/Channel";
+  if (avatarCustomCode) return "/Channel";
+  if (userName) return "/character";
+  if (useable) return "/nickName";
+  if (verifiedEmail) return "/privacy";
+  return "/verify";
+};
+
+const checkLocation = ({ userData }: { userData: routingType | null }) => {
+  if (!userData) return null;
+  return getComponentName(userData);
+};
+
+export const setHandleLocation = ({ userData, pathname, navigator }: { userData: routingType | null; pathname: string; navigator: NavigateFunction }) => {
+  const location = checkLocation({ userData });
+  console.log("location : ", location);
+  console.log("pathname : ", pathname);
+  if (!location) return false;
+  if (pathname === location) return false;
+  navigator(location);
+  return true;
 };

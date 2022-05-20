@@ -1,6 +1,8 @@
 import { POST_PROFILE } from "@Constant/URL";
+import { routingType } from "@Route/util";
 import { Request } from "@Util/Request";
 import { NavigateFunction } from "react-router-dom";
+import { SetterOrUpdater } from "recoil";
 
 export const handleSetNickName =
   (setter: Function) =>
@@ -12,7 +14,7 @@ export const handleSetNickName =
   };
 
 export const handleSetMoveNext =
-  ({ setNext, nickName, navigator }: { setNext: (v: boolean) => void; nickName: string; navigator: NavigateFunction }) =>
+  ({ setNext, nickName, navigator, setUserData }: { setNext: (v: boolean) => void; nickName: string; navigator: NavigateFunction; setUserData: SetterOrUpdater<routingType | null> }) =>
   async () => {
     if (nickName === "") {
       setNext(false);
@@ -20,6 +22,12 @@ export const handleSetMoveNext =
     }
     const res = await postUserNickName(nickName);
     if (!res) return;
+    setUserData((prev: any) => {
+      return {
+        ...prev,
+        userName: nickName,
+      };
+    });
     navigator("/character");
   };
 

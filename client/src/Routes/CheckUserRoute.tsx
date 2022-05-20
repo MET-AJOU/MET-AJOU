@@ -1,12 +1,9 @@
-// import NickNamePage from "@Pages/NickName";
 import useCheckUser from "./useCheckUser";
 
 const CheckUserRoute = () => {
-  const Page = useCheckUser();
+  const [Page, fn] = useCheckUser();
   if (!Page) return null;
-  console.log(Page);
-  // const Page = NickNamePage;
-  // console.log(Page);
+  if (fn()) return null;
   return <Page />;
 };
 

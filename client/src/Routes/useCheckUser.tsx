@@ -1,21 +1,24 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useCallback, useEffect, useState } from "react";
-import { routingType, setHandleUserData, testHandlePage } from "./util";
+import { userDataAtom } from "@Recoils/UserData";
+import { useCallback, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { setHandleUserData, handlePage, setHandleLocation } from "./util";
 
-const useCheckUser = (): (() => JSX.Element) | null => {
-  const [userData, setUserData] = useState<routingType | null>(null);
+const useCheckUser = (): [(() => JSX.Element) | null, Function] => {
+  const [userData, setUserData] = useRecoilState(userDataAtom);
+  const { pathname } = useLocation();
+  const navigator = useNavigate();
+  // const [userData, setUserData] = useState<routingType | null>(null);
 
   const handleUserData = useCallback(setHandleUserData(setUserData), []);
-  const page = useCallback(() => testHandlePage({ userData }), [userData]);
+  const page = useCallback(() => handlePage({ userData }), [userData]);
+  const handleLocation = useCallback(() => setHandleLocation({ userData, pathname, navigator }), [userData]);
 
   useEffect(() => {
     handleUserData();
   }, []);
-  // const [page, setPage] = useState<(() => JSX.Element) | null>(null);
-  // const handlePage = useCallback(setHandlePage({ userData, setPage }), [userData]);
-  // useEffect(handlePage, [handlePage]);
 
-  return page();
+  return [page(), handleLocation];
 };
 
 export default useCheckUser;
