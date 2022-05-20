@@ -5,6 +5,7 @@ import NickNamePage from "@Pages/NickName";
 import PrivacyPage from "@Pages/Privacy";
 import RegisterPage from "@Pages/Register";
 import { Request } from "@Util/Request";
+import { NavigateFunction } from "react-router-dom";
 import { SetterOrUpdater } from "recoil";
 
 const getUserTokenURL = [GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER];
@@ -70,4 +71,28 @@ export const setHandleUserData = (setter: SetterOrUpdater<routingType | null>) =
 export const handlePage = ({ userData }: { userData: routingType | null }) => {
   if (!userData) return null;
   return getComponent(userData);
+};
+
+const getComponentName = ({ role, verifiedEmail, useable, userName, avatarCustomCode }: routingType): string => {
+  if (role === "ROLE_USER") return "/Channel";
+  if (avatarCustomCode) return "/Channel";
+  if (userName) return "/character";
+  if (useable) return "/nickName";
+  if (verifiedEmail) return "/privacy";
+  return "/verify";
+};
+
+const checkLocation = ({ userData }: { userData: routingType | null }) => {
+  if (!userData) return null;
+  return getComponentName(userData);
+};
+
+export const setHandleLocation = ({ userData, pathname, navigator }: { userData: routingType | null; pathname: string; navigator: NavigateFunction }) => {
+  const location = checkLocation({ userData });
+  console.log("location : ", location);
+  console.log("pathname : ", pathname);
+  if (!location) return false;
+  if (pathname === location) return false;
+  navigator(location);
+  return true;
 };
