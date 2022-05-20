@@ -8,13 +8,22 @@ export const MessagesContainer = styled.div`
   box-sizing: border-box;
   overflow: auto;
   transition-duration: 2s;
-  div {
-    color: #ffffff;
-  }
+
   &.on {
     transition-duration: 2s;
     width: 413px;
     height: 190px;
     padding: 10px;
   }
+`;
+
+export const ChatContainer = styled.div`
+  color: #ffffff;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+`;
+
+export const ChatEnterContainer = styled(ChatContainer)`
+  color: #6096fd;
 `;

@@ -29,6 +29,6 @@ export interface CharacterType {
 
 export interface ChatType {
   userId: number;
-  message: string;
-  position: PositionType;
+  message: string | undefined;
+  position: PositionType | undefined;
 }

@@ -10,6 +10,14 @@ const initSocketEvents = ({ setOutUserId, socket, setCharacters, setMyUserId, se
   socket.on("joinNewUser", (joinUser: CharacterType) => {
     setJoinedUserNumber((prev) => prev + 1);
     setCharacters((joinUsers) => [...(joinUsers as CharacterType[]), joinUser]);
+    setChatInfos((prev) => [
+      ...prev,
+      {
+        userId: joinUser.userId,
+        message: undefined,
+        position: undefined,
+      },
+    ]);
   });
   socket.on("keyDown", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
   socket.on("keyUp", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
