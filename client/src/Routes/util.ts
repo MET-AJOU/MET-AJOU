@@ -9,32 +9,6 @@ import { NavigateFunction } from "react-router-dom";
 import { SetterOrUpdater } from "recoil";
 
 const getUserTokenURL = [GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER];
-const getUserToken = async () => {
-  console.time("promise All");
-  const res = await Promise.all(getUserTokenURL.map((url: string) => Request({ url, method: "GET" })));
-  const data = setUserTokenData(res);
-  console.log(data);
-  console.timeEnd("promise All");
-  console.time("동기");
-  const { role, verifiedEmail, useable } = await Request({ url: GET_API_TOKEN_MINE, method: "GET" });
-  const { userName } = await Request({ url: GET_PROFILE, method: "GET" });
-  const { avatarCustomCode } = await Request({ url: GET_CHARACTER, method: "GET" });
-  console.timeEnd("동기");
-  console.log({
-    role,
-    verifiedEmail,
-    useable,
-    userName,
-    avatarCustomCode,
-  });
-  return {
-    role,
-    verifiedEmail,
-    useable,
-    userName,
-    avatarCustomCode,
-  };
-};
 
 const setUserTokenData = (arr: any[]) =>
   arr.reduce((acc, cur) => {
@@ -45,6 +19,11 @@ const setUserTokenData = (arr: any[]) =>
     if ("avatarCustomCode" in cur) acc.avatarCustomCode = cur.avatarCustomCode;
     return acc;
   }, {});
+
+const getUserToken = async () => {
+  const res = await Promise.all(getUserTokenURL.map((url: string) => Request({ url, method: "GET" })));
+  return setUserTokenData(res);
+};
 
 const getComponent = ({ role, verifiedEmail, useable, userName, avatarCustomCode }: routingType): (() => JSX.Element) => {
   if (role === "ROLE_USER") return ChannelPage;
