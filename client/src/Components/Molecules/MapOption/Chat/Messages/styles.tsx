@@ -16,3 +16,14 @@ export const MessagesContainer = styled.div`
     padding: 10px;
   }
 `;
+
+export const ChatContainer = styled.div`
+  color: #ffffff;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+`;
+
+export const ChatEnterContainer = styled(ChatContainer)`
+  color: #6096fd;
+`;

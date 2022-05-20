@@ -5,7 +5,6 @@ import { useRef } from "react";
 import useCharacterMovement from "@Hook/Three/useMovement";
 import { CharactersAtom } from "@Recoils/Characters";
 import TestCharacter from "@THREE/Atoms/Character/test";
-
 import { useRecoilValue } from "recoil";
 
 const Characters = () => {
