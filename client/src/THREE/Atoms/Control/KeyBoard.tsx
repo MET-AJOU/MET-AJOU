@@ -16,10 +16,22 @@ interface KeyMap {
   pressed?: boolean;
 }
 
+let keyMap: { [key: string]: KeyMap };
+
 function useKeys(keyConfig: KeyConfig[]) {
   const userId = useRecoilValue(myUserIdAtom);
   const position = useRecoilValue(myPositionAtom);
   const [isPressed, setPressed] = useState(false);
+  useEffect(() => {
+    keyMap = keyConfig.reduce<{ [key: string]: KeyMap }>((out, { keys, fn, up = true }) => {
+      keys &&
+        keys.forEach((key) => {
+          // eslint-disable-next-line no-param-reassign
+          out[key] = { fn, pressed: false, up };
+        });
+      return out;
+    }, {});
+  }, []);
 
   useEffect(() => {
     if (isPressed) return;
@@ -28,15 +40,6 @@ function useKeys(keyConfig: KeyConfig[]) {
   }, [position]);
 
   useEffect(() => {
-    const keyMap = keyConfig.reduce<{ [key: string]: KeyMap }>((out, { keys, fn, up = true }) => {
-      keys &&
-        keys.forEach((key) => {
-          // eslint-disable-next-line no-param-reassign
-          out[key] = { fn, pressed: false, up };
-        });
-      return out;
-    }, {});
-
     const downHandler = ({ key, target }: KeyboardEvent) => {
       if (!keyMap[key] || (target as HTMLElement).nodeName === "INPUT") return;
       const { fn, pressed, up } = keyMap[key];
@@ -46,6 +49,7 @@ function useKeys(keyConfig: KeyConfig[]) {
         if (_pressed) return { ...state, ..._fn(true) };
         return state;
       }, DefaultKeyboardState);
+
       if (up || !pressed) Socket.instance?.emit("keyDown", { userId, keyState, position });
     };
 
@@ -53,7 +57,8 @@ function useKeys(keyConfig: KeyConfig[]) {
       if (!keyMap[key] || (target as HTMLElement).nodeName === "INPUT") return;
       const { fn, up } = keyMap[key];
       keyMap[key].pressed = false;
-      setPressed(false);
+      Object.values(keyMap).every(({ pressed }) => !pressed) && setPressed(false);
+
       if (up) Socket.instance?.emit("keyUp", { userId, keyState: fn(false), position });
     };
 

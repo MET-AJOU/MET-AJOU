@@ -7,7 +7,6 @@ const useAnimation = (isVisible: boolean, joyStickVisible: boolean) => {
 
 const useBottomAnimation = (joyStickVisible: boolean) => {
   useEffect(() => {
-    console.log(joyStickVisible);
     if (!joyStickVisible) return;
     const cont = document.querySelector(".second_cont");
     if (!cont) return;

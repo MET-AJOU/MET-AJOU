@@ -66,7 +66,7 @@ const setCameraPosition = ({ characterRefs, myUserIdx, setMyPosition, camera, de
 };
 
 const getDirection = ({ forward, left, right, backward, space, boost, dance }: keyBoardStateType) => {
-  const characterDir = forward || left || right ? (forward ? Math.PI : backward ? Math.PI : left ? (3 * Math.PI) / 2 : Math.PI / 2) : 0;
+  const characterDir = forward || left || right ? (forward ? (left || right ? (left ? (Math.PI * 5) / 4 : (Math.PI * 3) / 4) : Math.PI) : backward ? (left || right ? (left ? (Math.PI * 7) / 4 : Math.PI / 4) : Math.PI) : left ? (3 * Math.PI) / 2 : Math.PI / 2) : 0;
   const fowardSpeed = forward || backward ? (forward && !backward ? 1 : -1) : 0;
   const sideSpeed = left || right ? (right ? 1 : -1) : 0;
   const upwardSpeed = space ? 1 : -0.5;

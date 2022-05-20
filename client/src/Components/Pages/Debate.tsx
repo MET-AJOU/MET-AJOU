@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Suspense, useState } from "react";
 import DebateMap from "@THREE/Templates/Debate/";
 import MapOptionTemplate from "@Templates/MapOption";
