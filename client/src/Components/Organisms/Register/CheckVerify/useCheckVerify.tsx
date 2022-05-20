@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CHANGE_IDX } from "@Molecules/Register/CheckEmailVerifyInput";
+import { userDataAtom } from "@Recoils/UserData";
 import { useCallback, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import { checkFillCode, handleCheckVerify, makeCodeToString } from "./util";
 
 const useCheckVerify = () => {
+  const setUserData = useSetRecoilState(userDataAtom);
   const [next, setNext] = useState(true);
   const [code, setCode] = useState<codeType>(INIT_CODE);
   const inputRefs = useRef([]);
@@ -22,6 +25,12 @@ const useCheckVerify = () => {
       return;
     }
     setNext(true);
+    setUserData((prev: any) => {
+      return {
+        ...prev,
+        verifiedEmail: "temp",
+      };
+    });
     navigator("/privacy");
   }, [code]);
 
