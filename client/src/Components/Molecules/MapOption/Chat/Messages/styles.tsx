@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const MessagesContainer = styled.div`
   width: 413px;
@@ -17,13 +17,22 @@ export const MessagesContainer = styled.div`
   }
 `;
 
-export const ChatContainer = styled.div`
+export const ChatContainer = styled.div<ChatType>`
   color: #ffffff;
   padding: 5px;
   display: flex;
   align-items: center;
+  ${({ type }) => type === "chat" && ChatStyle}
+  ${({ type }) => type !== "chat" && EnterAndExitStyle}
 `;
 
-export const ChatEnterContainer = styled(ChatContainer)`
+const ChatStyle = css`
+  color: #ffffff;
+`;
+const EnterAndExitStyle = css`
   color: #6096fd;
 `;
+
+interface ChatType {
+  type: string;
+}

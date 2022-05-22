@@ -1,16 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { PositionType } from "@Type/Three";
-import { ChatContainer, ChatEnterContainer } from "../styles";
+import { ChatContainer } from "../styles";
 
-const ChatInfo = ({ userId, message, position }: { userId: number; message: string | undefined; position: PositionType | undefined }) => {
-  if (message) {
-    return (
-      <ChatContainer>
-        {userId} : {message}
-      </ChatContainer>
-    );
-  }
-  return <ChatEnterContainer>{userId} 님이 접속하셨습니다.</ChatEnterContainer>;
+const ChatInfo = ({ userId, message, position, type }: { userId: number; message: string; position: PositionType | undefined; type: string }) => {
+  return (
+    <ChatContainer type={type}>
+      {userId} : {message}
+    </ChatContainer>
+  );
 };
 
 export default ChatInfo;
