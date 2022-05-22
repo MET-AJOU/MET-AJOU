@@ -1,4 +1,7 @@
-import { GET_SELECT_CHARACTER_URL } from "@Constant/URL";
+import { GET_SELECT_CHARACTER_URL, POST_CHARACTER } from "@Constant/URL";
+import { changeAvatarCode } from "@Recoils/UserData";
+import { routingType } from "@Route/util";
+import { Request } from "@Util/Request";
 
 export const handleSelectFn = (setter: React.Dispatch<React.SetStateAction<number>>) => (idx: number) => () => {
   setter(idx);
@@ -36,3 +39,17 @@ const 갈 = 0;
 const 주 = 1;
 const 노 = 2;
 const 검 = 3;
+
+const postUserCharacter = async (avatarCustomCode: string) => {
+  const res = await Request({ url: POST_CHARACTER, body: { avatarCustomCode } });
+  return res;
+};
+
+export const setHandleMoveNext =
+  ({ setUserData, nextPage, renderCharacter }: { setUserData: (valOrUpdater: routingType | ((currVal: routingType | null) => routingType | null) | null) => void; nextPage: () => void; renderCharacter: string }) =>
+  async () => {
+    const res = await postUserCharacter(renderCharacter);
+    if (!res) return;
+    setUserData(changeAvatarCode(renderCharacter));
+    nextPage();
+  };
