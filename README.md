@@ -48,6 +48,12 @@
  
  
 ## 개발 진행 상황
+### 2022-05-20 
+- 플레잉 페이지 UI 개발
+- 실시간 채팅 UI 개발 
+![ui](https://user-images.githubusercontent.com/66724340/169699463-56e7e438-df7d-4887-a024-1783fbcce65c.PNG)
+![ui2](https://user-images.githubusercontent.com/66724340/169699470-ca9cfc29-f16d-4821-ada0-9fc3eade8938.PNG)
+
 ### 2022-05-08 
 - 운동장 ~ 송재관 3d asset 추가 
 ![에셋](https://user-images.githubusercontent.com/66724340/167291770-ac467326-22a1-474a-8958-c50515a7626e.jpg)
