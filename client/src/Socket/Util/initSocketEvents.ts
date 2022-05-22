@@ -14,8 +14,9 @@ const initSocketEvents = ({ setOutUserId, socket, setCharacters, setMyUserId, se
       ...prev,
       {
         userId: joinUser.userId,
-        message: undefined,
+        message: "님이 입장하셨습니다.",
         position: undefined,
+        type: "enter",
       },
     ]);
   });
@@ -25,9 +26,18 @@ const initSocketEvents = ({ setOutUserId, socket, setCharacters, setMyUserId, se
     setMyUserId(userId);
     setOutUserId(userId);
   });
-  socket.on("leaveUser", (joinUsers: CharacterType[]) => {
+  socket.on("leaveUser", ({ joinUsers, leaveUserId }: { joinUsers: CharacterType[]; leaveUserId: string }) => {
     setJoinedUserNumber(joinUsers.length);
     setCharacters(joinUsers);
+    setChatInfos((prev) => [
+      ...prev,
+      {
+        userId: Number(leaveUserId),
+        message: "님이 퇴장하셨습니다.",
+        position: undefined,
+        type: "leave",
+      },
+    ]);
   });
   socket.on("chat", (chatInfo: ChatType) => {
     setChatInfos((prev) => [...prev, chatInfo]);
