@@ -7,14 +7,7 @@ export const handleSelectFn = (setter: React.Dispatch<React.SetStateAction<numbe
   setter(idx);
 };
 
-export const getRenderCharacter = ({ select, hairColor, costumeSelect, costumeColor }: getRenderCharacterType): string => `${GET_SELECT_CHARACTER_URL}${[select, ".", hairColor, ".", costumeSelect, ".", costumeColor].join("")}.fbx`;
-
-interface getRenderCharacterType {
-  select: number;
-  hairColor: number;
-  costumeSelect: number;
-  costumeColor: number;
-}
+export const getRenderCharacter = ({ characterCode }: { characterCode: string }): string => `${GET_SELECT_CHARACTER_URL}${characterCode}.fbx`;
 
 export const getDefaultHairColor = (character: number): number => {
   switch (character) {
@@ -46,10 +39,10 @@ const postUserCharacter = async (avatarCustomCode: string) => {
 };
 
 export const setHandleMoveNext =
-  ({ setUserData, nextPage, renderCharacter }: { setUserData: (valOrUpdater: routingType | ((currVal: routingType | null) => routingType | null) | null) => void; nextPage: () => void; renderCharacter: string }) =>
+  ({ setUserData, nextPage, characterCode }: { setUserData: (valOrUpdater: routingType | ((currVal: routingType | null) => routingType | null) | null) => void; nextPage: () => void; characterCode: string }) =>
   async () => {
-    const res = await postUserCharacter(renderCharacter);
+    const res = await postUserCharacter(characterCode);
     if (!res) return;
-    setUserData(changeAvatarCode(renderCharacter));
+    setUserData(changeAvatarCode(characterCode));
     nextPage();
   };

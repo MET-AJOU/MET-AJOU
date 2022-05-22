@@ -23,8 +23,9 @@ const useSelectCharacter = () => {
   const handleCostumeColor = useCallback(handleSelectFn(setCostumeColor), []);
   const handleCostumeSelect = useCallback(handleSelectFn(setCostumeSelect), []);
 
-  const renderCharacter = getRenderCharacter({ select, hairColor, costumeSelect, costumeColor });
-  const handleMoveNext = setHandleMoveNext({ setUserData, nextPage, renderCharacter });
+  const characterCode = [select, ".", hairColor, ".", costumeSelect, ".", costumeColor].join("");
+  const renderCharacter = getRenderCharacter({ characterCode });
+  const handleMoveNext = setHandleMoveNext({ setUserData, nextPage, characterCode });
 
   return { select, handleSelect, hairColor, handleHairColor, costumeColor, handleCostumeColor, costumeSelect, handleCostumeSelect, renderCharacter, handleMoveNext };
 };
