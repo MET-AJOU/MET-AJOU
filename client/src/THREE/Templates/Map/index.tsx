@@ -2,7 +2,7 @@
 import { OrbitControls, Sky } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics, Debug } from "@react-three/cannon";
-import { RecoilRoot, useSetRecoilState } from "recoil";
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from "recoil";
 
 import { CHANNEL_INFO } from "@Constant/.";
 
@@ -30,12 +30,14 @@ import Benches from "@THREE/Molecules/AjouMap/Benches";
 
 import GardenBoxs from "@THREE/Molecules/AjouMap/GardenBoxs";
 import Objects from "@THREE/Molecules/AjouMap/Objects";
-
+import { userDataAtom } from "@Recoils/UserData";
 import MetaContainer from "./styles";
 
-const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>> }) => {
+const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>}) => {
   const setUserId = useSetRecoilState(myUserIdAtom);
   const setChatInfos = useSetRecoilState(chatAtom);
+  const userData = useRecoilValue(userDataAtom);
+
   return (
     <MetaContainer>
       <Canvas>
@@ -51,7 +53,7 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
             <HeightMap elementSize={0.0742} position={[-50.8, -0.2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
             <Fog />
             <Sky sunPosition={[100, 10, 100]} distance={500} />
-            <Characters />
+            <Characters/>
             <Benches />
             <Buildings />
             <GardenBoxs />
@@ -63,7 +65,7 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
             <Trees />
           </Physics>
           <Keyboard />
-          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setUserId={setUserId} setChatInfos={setChatInfos} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setUserId={setUserId} setChatInfos={setChatInfos} userData={userData} />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>

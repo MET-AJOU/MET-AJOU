@@ -21,14 +21,14 @@ export interface SocketObjectType {
 }
 
 export interface CharacterType {
-  userId: number;
-  characterId: number;
+  userId: string;
+  characterId: string;
   position: PositionType;
   keyState: keyBoardStateType;
 }
 
 export interface ChatType {
-  userId: number;
+  userId: string;
   message: string;
   position: PositionType | undefined;
   type: string;
