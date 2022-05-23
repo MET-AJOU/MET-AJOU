@@ -1,9 +1,9 @@
 import { CharacterType, PositionType } from "@Type/Three";
 import { atom, selector } from "recoil";
 
-export const myUserIdAtom = atom<number>({
+export const myUserIdAtom = atom<string>({
   key: "myUserIdAtom",
-  default: 0,
+  default: "",
 });
 
 export const myPositionAtom = atom<PositionType>({
@@ -12,7 +12,7 @@ export const myPositionAtom = atom<PositionType>({
 });
 export const CharactersAtom = atom<null | CharacterType[]>({
   key: "CharactersAtom",
-  default: null,
+  default: [],
 });
 
 export const CharacterByIdSelector = selector({

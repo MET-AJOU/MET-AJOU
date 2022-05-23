@@ -2,7 +2,7 @@ import { CharacterType, ChatType } from "@Type/Three";
 import { SetterOrUpdater } from "recoil";
 import { Socket } from "socket.io-client";
 
-const initSocketEvents = ({ setOutUserId, socket, setCharacters, setMyUserId, setJoinedUserNumber, setChatInfos }: { socket: Socket; setCharacters: SetterOrUpdater<CharacterType[] | null>; setMyUserId: SetterOrUpdater<number>; setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setOutUserId: SetterOrUpdater<number>; setChatInfos: SetterOrUpdater<ChatType[]> }) => {
+const initSocketEvents = ({ setOutUserId, socket, setCharacters, setMyUserId, setJoinedUserNumber, setChatInfos }: { socket: Socket; setCharacters: SetterOrUpdater<CharacterType[] | null>; setMyUserId: SetterOrUpdater<string>; setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setOutUserId: SetterOrUpdater<string>; setChatInfos: SetterOrUpdater<ChatType[]> }) => {
   socket.on("joinRoom", (joinUsers: CharacterType[]) => {
     setJoinedUserNumber(joinUsers.length);
     setCharacters(joinUsers);
@@ -22,7 +22,8 @@ const initSocketEvents = ({ setOutUserId, socket, setCharacters, setMyUserId, se
   });
   socket.on("keyDown", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
   socket.on("keyUp", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
-  socket.on("getUserId", (userId: number) => {
+  socket.on("getUserId", (userId: string) => {
+    // 게스트일때만 받자
     setMyUserId(userId);
     setOutUserId(userId);
   });
@@ -32,7 +33,7 @@ const initSocketEvents = ({ setOutUserId, socket, setCharacters, setMyUserId, se
     setChatInfos((prev) => [
       ...prev,
       {
-        userId: Number(leaveUserId),
+        userId: leaveUserId,
         message: "님이 퇴장하셨습니다.",
         position: undefined,
         type: "leave",

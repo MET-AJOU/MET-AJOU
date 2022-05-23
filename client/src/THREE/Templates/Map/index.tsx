@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { OrbitControls, Sky, Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics, Debug } from "@react-three/cannon";
-import { RecoilRoot, useSetRecoilState } from "recoil";
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from "recoil";
 
 import { CHANNEL_INFO } from "@Constant/.";
 
@@ -33,11 +33,14 @@ import GardenBoxs from "@THREE/Molecules/AjouMap/GardenBoxs";
 import Objects from "@THREE/Molecules/AjouMap/Objects";
 
 import LoadingPage from "@Pages/Loding";
+import { userDataAtom } from "@Recoils/UserData";
 import MetaContainer from "./styles";
 
 const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>> }) => {
   const setUserId = useSetRecoilState(myUserIdAtom);
   const setChatInfos = useSetRecoilState(chatAtom);
+  const userData = useRecoilValue(userDataAtom);
+
   return (
     <MetaContainer>
       <Canvas>
@@ -73,7 +76,7 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
             </Suspense>
           </Physics>
           <Keyboard />
-          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setUserId={setUserId} setChatInfos={setChatInfos} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setUserId={setUserId} setChatInfos={setChatInfos} userData={userData} />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>
