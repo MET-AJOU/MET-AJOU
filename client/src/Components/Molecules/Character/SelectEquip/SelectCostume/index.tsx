@@ -6,12 +6,12 @@ import { getCharacterCostume } from "./util";
 
 const 과잠 = 2;
 
-const SelectCostume = ({ select, costumeColor, costumeSelect, handleCostumeColor, handleCostumeSelect }: SelectCostumeType) => {
+const SelectCostume = ({ character, costumeColor, costumeSelect, handleCostumeColor, handleCostumeSelect }: SelectCostumeType) => {
   return (
     <>
       <SelectColorContainer>{costumeSelect === 과잠 && 과잠_COLOR.map((item, idx) => <SelectColorItem key={item.id} color={item.color} select={idx === costumeColor} onClick={handleCostumeColor(idx)} />)}</SelectColorContainer>
       <SelectCostumeItemBox>
-        {getCharacterCostume(select).map((item, idx) => (
+        {getCharacterCostume(character).map((item, idx) => (
           <SelectCostumeItem select={costumeSelect === idx} src={item.src} key={item.id} onClick={handleCostumeSelect(idx)} />
         ))}
       </SelectCostumeItemBox>
@@ -22,7 +22,7 @@ const SelectCostume = ({ select, costumeColor, costumeSelect, handleCostumeColor
 export default SelectCostume;
 
 export interface SelectCostumeType {
-  select: number;
+  character: number;
   costumeColor: number;
   costumeSelect: number;
   handleCostumeColor: (idx: number) => () => void;

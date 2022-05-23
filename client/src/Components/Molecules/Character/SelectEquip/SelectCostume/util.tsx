@@ -3,7 +3,7 @@ export const getCharacterCostume = (character: number) =>
     if (idx === 0) {
       return {
         ...item,
-        src: `/asset/Character/Costume/basic${character}.png`,
+        src: `/asset/Character/Costume/basic_${character}.png`,
       };
     }
     return item;
@@ -12,7 +12,7 @@ export const getCharacterCostume = (character: number) =>
 const COSTUME_SET = [
   {
     id: 0,
-    src: `/asset/Character/Costume/basic${0}.png`,
+    src: `/asset/Character/Costume/basic0.png`,
   },
   {
     id: 1,
