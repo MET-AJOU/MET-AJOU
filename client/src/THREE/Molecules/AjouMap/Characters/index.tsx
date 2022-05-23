@@ -11,7 +11,6 @@ const Characters = () => {
   const characterRefs = useRef([]);
   const actions = useRef([]);
   const apis = useRef([]);
-
   useCharacterMovement({ characterRefs, apis, actions, characters });
 
   return (
