@@ -4,7 +4,7 @@ import useCharacterMovement from "@Hook/Three/useMovement";
 import { CharactersAtom } from "@Recoils/Characters";
 import TestCharacter from "@THREE/Atoms/Character/test";
 import { useRecoilValue } from "recoil";
-import { getRenderCharacter } from "@Organisms/Character/util";
+import { getRenderUserCharacter } from "@Organisms/Character/util";
 
 const Characters = () => {
   const characters = useRecoilValue(CharactersAtom);
@@ -17,7 +17,8 @@ const Characters = () => {
   return (
     <>
       {characters?.map((characterState, idx) => (
-        <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src={getRenderCharacter({ characterCode: characterState.userId })} characterState={characterState} key={characterState.userId} />
+        <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src={getRenderUserCharacter({ characterCode: "minshigee" })} characterState={characterState} key={characterState.userId} />
+        // <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src={getRenderUserCharacter({ characterCode: characterState.userId })} characterState={characterState} key={characterState.userId} />
       ))}
     </>
   );

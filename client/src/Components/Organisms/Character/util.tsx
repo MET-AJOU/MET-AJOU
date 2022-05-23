@@ -1,4 +1,4 @@
-import { GET_SELECT_CHARACTER_URL, POST_CHARACTER } from "@Constant/URL";
+import { GET_SELECT_CHARACTER_URL, GET_USER_CHARACTER_URL, POST_CHARACTER } from "@Constant/URL";
 import { changeAvatarCode } from "@Recoils/UserData";
 import { routingType } from "@Route/util";
 import { Request } from "@Util/Request";
@@ -8,6 +8,7 @@ export const handleSelectFn = (setter: React.Dispatch<React.SetStateAction<numbe
 };
 
 export const getRenderCharacter = ({ characterCode }: { characterCode: string }): string => `${GET_SELECT_CHARACTER_URL}${characterCode}.fbx`;
+export const getRenderUserCharacter = ({ characterCode }: { characterCode: string }): string => `${GET_USER_CHARACTER_URL}${characterCode}.fbx`;
 
 export const getDefaultHairColor = (character: number): number => {
   switch (character) {
