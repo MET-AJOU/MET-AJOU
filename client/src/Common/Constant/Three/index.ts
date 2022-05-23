@@ -75,9 +75,7 @@ export const SideWalkAssetSize = 6;
 
 export const StreetLampAssetSize = 21;
 
-export const TreeAssetSize = 105;
-
-export const TreeFBXAssetStart = 43;
+export const TreeAssetSize = 89;
 
 export const TreeBaseAssetSize = 19;
 
