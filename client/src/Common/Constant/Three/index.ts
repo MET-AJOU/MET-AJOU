@@ -20,7 +20,7 @@ export const SideWalkSrc = "models/AjouMap/SideWalks";
 
 export const StreetLampSrc = "models/AjouMap/StreetLamp";
 
-export const TreeSrc = "models/AjouMap/Trees";
+export const TreeSrc = "models/AjouMap/Tree";
 
 export const GardenBoxSrc = "models/AjouMap/GardenBoxs";
 
