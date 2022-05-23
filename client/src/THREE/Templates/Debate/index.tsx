@@ -14,7 +14,7 @@ import Tables from "@THREE/Molecules/Debate/Tables";
 import Walls from "@THREE/Molecules/Debate/Walls";
 import Floors from "@THREE/Molecules/Debate/Floors";
 import Windows from "@THREE/Molecules/Debate/Windows";
-import BasicPlane from "@THREE/Atoms/BasicPlane";
+
 import SocketComponent from "@THREE/Atoms/Socket";
 import Characters from "@THREE/Molecules/AjouMap/Characters";
 import Keyboard from "@THREE/Atoms/Control/KeyBoard";
@@ -34,7 +34,7 @@ const DebateMap = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatc
             <OrbitControls />
             <ambientLight />
             <pointLight position={[100, 100, 100]} intensity={1} />
-            <BasicPlane position={[0, 0, 0]} />
+
             <Ceilings />
             <Chairs />
             <Floors />
