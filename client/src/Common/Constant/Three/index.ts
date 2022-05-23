@@ -59,6 +59,8 @@ export const TablesSrc = "models/Debate/Tables";
 
 export const WindowSrc = "models/Debate/Windows";
 
+export const BenchSrc = "models/AjouMap/Benches";
+
 export const AddGroundAssetSize = 1;
 
 export const HillsAssetSize = 22;
@@ -83,7 +85,7 @@ export const TreeBaseFBXAssetStart = 20;
 
 export const GardenBoxAssetSize = 8;
 
-export const ObjectAssetSize = 1;
+export const ObjectAssetSize = 35;
 
 export const TestAssetSize = 3;
 
@@ -100,6 +102,8 @@ export const FloorAssetSize = 2;
 export const PropsAssetSize = 13;
 
 export const TabelAssetSize = 16;
+
+export const BenchAssetSize = 9;
 
 export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital"];
 
