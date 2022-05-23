@@ -31,7 +31,7 @@ import StreetLamps from "@THREE/Molecules/AjouMap/StreetLamps";
 import Trees from "@THREE/Molecules/AjouMap/Trees";
 import TreeBases from "@THREE/Molecules/AjouMap/TreeBases";
 import GardenBoxs from "@THREE/Molecules/AjouMap/GardenBoxs";
-import Buses from "@THREE/Molecules/AjouMap/Buses";
+import Buses from "@THREE/Molecules/AjouMap/Objects";
 import Fields from "@THREE/Molecules/AjouMap/Fields";
 import GardenStairs from "@THREE/Molecules/AjouMap/GardenStairs";
 import AddGrounds from "@THREE/Molecules/AjouMap/AddGrounds";

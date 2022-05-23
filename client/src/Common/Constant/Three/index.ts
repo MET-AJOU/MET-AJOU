@@ -101,20 +101,7 @@ export const PropsAssetSize = 13;
 
 export const TabelAssetSize = 16;
 
-export const BuildingAssetSrc = [
-  `${BuildingsSrc}/building_centrallibrary.gltf`,
-  `${BuildingsSrc}/building_hongjae.glb`,
-  `${BuildingsSrc}/building_l_centralgate.gltf`,
-  `${BuildingsSrc}/building_librarymap.gltf`,
-  `${BuildingsSrc}/building_r_centralgate.gltf`,
-  `${BuildingsSrc}/building_seongho.glb`,
-  `${BuildingsSrc}/building_stonestatue.gltf`,
-  `${BuildingsSrc}/building_woncheon.glb`,
-  `${BuildingsSrc}/building_gym.gltf`,
-  `${BuildingsSrc}/building_screen.gltf`,
-  `${BuildingsSrc}/building_songjae.gltf`,
-  `${BuildingsSrc}/building_yulgok.gltf`,
-];
+export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital"];
 
 export const animationSrcs = {
   walkingSrc: "Character/common_people@walk.FBX",
