@@ -18,7 +18,7 @@ const CharacterForm = ({ type }: { type: string }) => {
         <SelectPreviewContainer>
           <SelectPreview renderCharacter={renderCharacter} />
         </SelectPreviewContainer>
-        <SelectEquip hairColor={hairColor} handleHairColor={handleHairColor} costumeColor={costumeColor} handleCostumeColor={handleCostumeColor} costumeSelect={costumeSelect} handleCostumeSelect={handleCostumeSelect} />
+        <SelectEquip character={select} hairColor={hairColor} handleHairColor={handleHairColor} costumeColor={costumeColor} handleCostumeColor={handleCostumeColor} costumeSelect={costumeSelect} handleCostumeSelect={handleCostumeSelect} />
       </CharacterSelectContainer>
       {type === NEW && <RegisterNextButtonComponent handleMoveNext={handleMoveNext} src={checkSrc(" ")} />}
       {type === UPDATE && <MyPageSelectButton>저장</MyPageSelectButton>}

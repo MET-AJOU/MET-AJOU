@@ -11,14 +11,13 @@ const Characters = () => {
   const characterRefs = useRef([]);
   const actions = useRef([]);
   const apis = useRef([]);
-
   useCharacterMovement({ characterRefs, apis, actions, characters });
 
   return (
     <>
       {characters?.map((characterState, idx) => (
-        <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src={getRenderUserCharacter({ characterCode: "minshigee" })} characterState={characterState} key={characterState.userId} />
-        // <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src={getRenderUserCharacter({ characterCode: characterState.userId })} characterState={characterState} key={characterState.userId} />
+        // <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src={getRenderUserCharacter({ characterCode: "minshigee" })} characterState={characterState} key={characterState.userId} />
+        <TestCharacter apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src={getRenderUserCharacter({ characterCode: characterState.userId })} characterState={characterState} key={characterState.userId} />
       ))}
     </>
   );

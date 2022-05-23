@@ -3,9 +3,8 @@ import SelectHair from "./SelectHair";
 import { SelectEquipContainer, SelectEquipTitleContainer, SeletEqupTitle } from "./styles";
 import useSelectEquip, { useSelectEquipType } from "./useSelectEquip";
 
-const SelectEquip = ({ hairColor, handleHairColor, costumeColor, handleCostumeColor, costumeSelect, handleCostumeSelect }: SelectEquipType) => {
+const SelectEquip = ({ character, hairColor, handleHairColor, costumeColor, handleCostumeColor, costumeSelect, handleCostumeSelect }: SelectEquipType) => {
   const { select, handleSelect }: useSelectEquipType = useSelectEquip();
-
   return (
     <SelectEquipContainer>
       <SelectEquipTitleContainer>
@@ -16,7 +15,7 @@ const SelectEquip = ({ hairColor, handleHairColor, costumeColor, handleCostumeCo
           머리
         </SeletEqupTitle>
       </SelectEquipTitleContainer>
-      {select ? <SelectHair hairColor={hairColor} handleHairColor={handleHairColor} /> : <SelectCostume select={select} costumeColor={costumeColor} costumeSelect={costumeSelect} handleCostumeColor={handleCostumeColor} handleCostumeSelect={handleCostumeSelect} />}
+      {select ? <SelectHair hairColor={hairColor} handleHairColor={handleHairColor} /> : <SelectCostume character={character} costumeColor={costumeColor} costumeSelect={costumeSelect} handleCostumeColor={handleCostumeColor} handleCostumeSelect={handleCostumeSelect} />}
     </SelectEquipContainer>
   );
 };
@@ -25,6 +24,7 @@ export default SelectEquip;
 
 interface SelectEquipType {
   // SelectCostumeType && SelectHairType
+  character: number;
   hairColor: number;
   handleHairColor: (idx: number) => () => void;
   costumeColor: number;

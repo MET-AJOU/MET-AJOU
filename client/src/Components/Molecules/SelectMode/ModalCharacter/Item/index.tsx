@@ -1,9 +1,12 @@
 import { useFBX } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { Vector3 } from "three";
+import { Group, Vector3 } from "three";
+
+const cache: CharacterCacheType = {};
 
 const ModalCharacterItem = ({ src }: { src: string }) => {
-  const object = useFBX(src);
+  const object = cache[src] ?? useFBX(src);
+  cache[src] = object;
   const { camera } = useThree();
   const cameraPosition = new Vector3();
   cameraPosition.set(0, 3.5, 5);
@@ -15,3 +18,7 @@ const ModalCharacterItem = ({ src }: { src: string }) => {
 };
 
 export default ModalCharacterItem;
+
+interface CharacterCacheType {
+  [index: string]: Group;
+}
