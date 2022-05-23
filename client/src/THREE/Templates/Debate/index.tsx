@@ -1,6 +1,7 @@
+import { Suspense } from "react";
 import { Physics } from "@react-three/cannon";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Html, OrbitControls } from "@react-three/drei";
 import { RecoilRoot, useSetRecoilState } from "recoil";
 
 import { CHANNEL_INFO } from "@Constant/.";
@@ -21,6 +22,7 @@ import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 
 import { myUserIdAtom } from "@Recoils/Characters";
 import { chatAtom } from "@Recoils/MapOption/Chat";
+import LoadingPage from "@Pages/Loding";
 import { MapContainer } from "./styles";
 
 const DebateMap = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>> }) => {
@@ -34,17 +36,24 @@ const DebateMap = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatc
             <OrbitControls />
             <ambientLight />
             <pointLight position={[100, 100, 100]} intensity={1} />
-
-            <Ceilings />
-            <Chairs />
-            <Floors />
-            <OutWalls />
-            <Props />
-            <Room />
-            <Tables />
-            <Walls />
-            <Windows />
-            <Characters />
+            <Suspense
+              fallback={
+                <Html>
+                  <LoadingPage />
+                </Html>
+              }
+            >
+              <Ceilings />
+              <Chairs />
+              <Floors />
+              <OutWalls />
+              <Props />
+              <Room />
+              <Tables />
+              <Walls />
+              <Windows />
+              <Characters />
+            </Suspense>
           </Physics>
           <Keyboard />
           <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[2].id} setUserId={setUserId} setChatInfos={setChatInfos} />

@@ -83,3 +83,7 @@ export const CHANNEL_INFO: ChanelInfoType[] = [
     total: 30,
   },
 ];
+
+export const LoadingImageSrc = "./asset/Loading/";
+
+export const LoadingImageSize = 2;
