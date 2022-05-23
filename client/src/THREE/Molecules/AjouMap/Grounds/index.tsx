@@ -1,13 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 import { GroundAssetSize, GroundsSrc } from "@Constant/Three";
-import Ground from "@THREE/Atoms/Ground";
+import FBXs from "@THREE/Atoms/Fbxs";
 
 const Grounds = () => {
-  const blocking = () => console.log("hit");
   return (
     <>
       {new Array(GroundAssetSize).fill(1).map((_, idx) => (
-        <Ground key={idx} src={`${GroundsSrc}/ground_${idx + 1}.gltf`} 키="out_ground" 블락함수={blocking} />
+        <FBXs key={`grounds${idx}`} src={`${GroundsSrc}/ground_${String(idx + 1).padStart(2, "0")}.fbx`} />
       ))}
     </>
   );

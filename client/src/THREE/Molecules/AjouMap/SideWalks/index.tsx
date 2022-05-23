@@ -1,13 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 import { SideWalkAssetSize, SideWalkSrc } from "@Constant/Three";
-import Ground from "@THREE/Atoms/Ground";
+import FBXs from "@THREE/Atoms/Fbxs";
 
 const SideWalks = () => {
-  const blocking = () => console.log("hit SideWalk");
   return (
     <>
       {new Array(SideWalkAssetSize).fill(1).map((_, idx) => (
-        <Ground key={idx} src={`${SideWalkSrc}/Sidewalk_${idx + 1}.gltf`} 키="sidewalk" 블락함수={blocking} />
+        <FBXs key={`roads${idx}`} src={`${SideWalkSrc}/sidewalk_${String(idx + 1).padStart(2, "0")}.fbx`} />
       ))}
     </>
   );
