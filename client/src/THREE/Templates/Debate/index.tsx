@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Physics } from "@react-three/cannon";
 import { Canvas } from "@react-three/fiber";
 import { Html, OrbitControls } from "@react-three/drei";
-import { RecoilRoot, useSetRecoilState } from "recoil";
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from "recoil";
 
 import { CHANNEL_INFO } from "@Constant/.";
 
@@ -23,11 +23,13 @@ import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 import { myUserIdAtom } from "@Recoils/Characters";
 import { chatAtom } from "@Recoils/MapOption/Chat";
 import LoadingPage from "@Pages/Loding";
+import { userDataAtom } from "@Recoils/UserData";
 import { MapContainer } from "./styles";
 
 const DebateMap = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>> }) => {
   const setUserId = useSetRecoilState(myUserIdAtom);
   const setChatInfos = useSetRecoilState(chatAtom);
+  const userData = useRecoilValue(userDataAtom);
   return (
     <MapContainer>
       <Canvas>
@@ -56,7 +58,7 @@ const DebateMap = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatc
             </Suspense>
           </Physics>
           <Keyboard />
-          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[2].id} setUserId={setUserId} setChatInfos={setChatInfos} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[2].id} setUserId={setUserId} setChatInfos={setChatInfos} userData={userData} />
         </RecoilRoot>
       </Canvas>
     </MapContainer>
