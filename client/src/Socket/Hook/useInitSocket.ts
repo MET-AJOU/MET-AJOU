@@ -9,15 +9,17 @@ import { SetterOrUpdater, useRecoilValue, useSetRecoilState } from "recoil";
 import { CharactersAtom, myUserIdAtom } from "@Recoils/Characters";
 import { ChatType } from "@Type/Three";
 import Socket from "..";
+import { routingType } from "@Route/util";
 
-const useInitSocket = (setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>, roomId: number, setOutUserId: SetterOrUpdater<number>, setChatInfos: SetterOrUpdater<ChatType[]>) => {
+const useInitSocket = (setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>, roomId: number, setOutUserId: SetterOrUpdater<number>, setChatInfos: SetterOrUpdater<ChatType[]>, userData : routingType | null) => {
   const setCharacters = useSetRecoilState(CharactersAtom);
   const setMyUserId = useSetRecoilState(myUserIdAtom);
+  console.log(userData);
   useEffect(() => {
     const socket = SocketIo(SOCKET_SERVER);
     // const socket = SocketIo(SOCKET_SERVER, { transports: ["websocket"] });
     initSocketEvents({ socket, setCharacters, setMyUserId, setJoinedUserNumber, setOutUserId, setChatInfos });
-    joinRoom({ socket, roomId, userId: 1 });
+    joinRoom({ socket, roomId, userId: userData?.userName, characterId: userData?.avatarCustomCode });
     Socket.instance = socket;
     return () => {
       Socket.instance?.disconnect();
