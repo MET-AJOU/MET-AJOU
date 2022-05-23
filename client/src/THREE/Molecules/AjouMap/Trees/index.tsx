@@ -6,7 +6,7 @@ const Trees = () => {
   return (
     <>
       {new Array(TreeAssetSize).fill(1).map((_, idx) => (
-        <FBXs key={`${idx}TreeSrc`} src={`${TreeSrc}/Tree_${String(idx + 1).padStart(3, "0")}.fbx`} />
+        <FBXs key={`${idx}TreeSrc`} src={`${TreeSrc}/tree_${String(idx + 1).padStart(3, "0")}.fbx`} />
       ))}
     </>
   );
