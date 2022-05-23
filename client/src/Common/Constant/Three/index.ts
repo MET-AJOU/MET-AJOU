@@ -33,7 +33,7 @@ export const TreeBaseSrc = "models/AjouMap/TreeBases";
 
 export const GardenBoxSrc = "models/AjouMap/GardenBoxs";
 
-export const BusSrc = "models/AjouMap/Buses";
+export const ObjectSrc = "models/AjouMap/Objects";
 
 export const TestSrc = "models/AjouMap/Test";
 
@@ -73,7 +73,7 @@ export const FenceAssetSize = 18;
 
 export const SideWalkAssetSize = 6;
 
-export const StreetLampAssetSize = 21;
+export const StreetLampAssetSize = 30;
 
 export const TreeAssetSize = 89;
 
@@ -83,9 +83,7 @@ export const TreeBaseFBXAssetStart = 20;
 
 export const GardenBoxAssetSize = 8;
 
-export const GardenBoxFBXAssetStart = 6;
-
-export const BusAssetSize = 1;
+export const ObjectAssetSize = 1;
 
 export const TestAssetSize = 3;
 

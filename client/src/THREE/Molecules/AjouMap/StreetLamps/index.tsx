@@ -1,13 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 import { StreetLampAssetSize, StreetLampSrc } from "@Constant/Three";
-import Ground from "@THREE/Atoms/Ground";
+import Fbxs from "@THREE/Atoms/Fbxs";
 
 const StreetLamps = () => {
-  const blocking = () => console.log("hit StreetLamps");
   return (
     <>
       {new Array(StreetLampAssetSize).fill(1).map((_, idx) => (
-        <Ground key={idx} src={`${StreetLampSrc}/Streetlamp_${idx + 1}.gltf`} 키="streetlamp" 블락함수={blocking} />
+        <Fbxs src={`${StreetLampSrc}/Streetlamp_${String(idx + 1).padStart(2, "0")}.fbx`} key={`streetlamp_${idx}`} />
       ))}
     </>
   );
