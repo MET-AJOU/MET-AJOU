@@ -67,7 +67,7 @@ export const HillsAssetSize = 22;
 
 export const RoadsAssetSize = 14;
 
-export const GroundAssetSize = 14;
+export const GroundAssetSize = 54;
 
 export const BuildingGroundAssetSize = 22;
 
