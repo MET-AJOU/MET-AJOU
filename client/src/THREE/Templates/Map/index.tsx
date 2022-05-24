@@ -25,7 +25,6 @@ import SideWalks from "@THREE/Molecules/AjouMap/SideWalks";
 import StreetLamps from "@THREE/Molecules/AjouMap/StreetLamps";
 import Trees from "@THREE/Molecules/AjouMap/Trees";
 
-import { myUserIdAtom } from "@Recoils/Characters";
 import { chatAtom } from "@Recoils/MapOption/Chat";
 import Benches from "@THREE/Molecules/AjouMap/Benches";
 
@@ -57,12 +56,11 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
               }
             >
               {/* <Debug scale={1} color="black"> */}
-              {/* <HeightMap elementSize={0.0371} position={[-50.8, -0.1, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
-              {/* <HeightMap elementSize={0.1484} position={[-50.8, -0.1, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
-              <HeightMap elementSize={0.0742} position={[-50.8, -0.2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
+              <HeightMap elementSize={0.1484} position={[-52.8, -2.2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
+              {/* <HeightMap elementSize={0.0742} position={[-52.9, -2.2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
               <Fog />
               <Sky sunPosition={[100, 10, 100]} distance={500} />
-              <Characters />
+              {/* <Characters /> */}
               <Benches />
               <Buildings />
               <GardenBoxs />
@@ -72,10 +70,11 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
               <SideWalks />
               <StreetLamps />
               <Trees />
+              {/* </Debug> */}
             </Suspense>
           </Physics>
           <Keyboard />
-          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
+          {/* <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} /> */}
         </RecoilRoot>
       </Canvas>
     </MetaContainer>
