@@ -11,7 +11,7 @@ import { ChatType } from "@Type/Three";
 import { routingType } from "@Route/util";
 import Socket from "..";
 
-const useInitSocket = (setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>, roomId: number, setOutUserId: SetterOrUpdater<string>, setChatInfos: SetterOrUpdater<ChatType[]>, userData: routingType | null) => {
+const useInitSocket = ({ setJoinedUserNumber, roomId, setOutUser, setChatInfos, userData }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; roomId: number; setOutUser: SetterOrUpdater<routingType | null>; setChatInfos: SetterOrUpdater<ChatType[]>; userData: routingType | null }) => {
   const setCharacters = useSetRecoilState(CharactersAtom);
   const setMyUserId = useSetRecoilState(myUserIdAtom);
 
@@ -25,7 +25,7 @@ const useInitSocket = (setJoinedUserNumber: React.Dispatch<React.SetStateAction<
   useEffect(() => {
     // const socket = SocketIo(SOCKET_SERVER, { transports: ["websocket"] });
     const socket = SocketIo(SOCKET_SERVER);
-    initSocketEvents({ socket, setCharacters, setMyUserId, setJoinedUserNumber, setOutUserId, setChatInfos });
+    initSocketEvents({ socket, setCharacters, setMyUserId, setJoinedUserNumber, setOutUser, setChatInfos });
     joinRoom({ socket, roomId, userId: userData?.userName ?? null });
     Socket.instance = socket;
     return () => {
