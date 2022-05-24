@@ -74,7 +74,7 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
             </Suspense>
           </Physics>
           <Keyboard />
-          {/* <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} /> */}
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>
