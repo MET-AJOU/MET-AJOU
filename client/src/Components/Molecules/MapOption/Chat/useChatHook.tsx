@@ -6,7 +6,8 @@ import { useRecoilValue } from "recoil";
 import { routingType } from "@Route/util";
 
 const useChatHook = () => {
-  const { userName: userId } = useRecoilValue(userDataAtom) as routingType;
+  const userData = useRecoilValue(userDataAtom) as routingType;
+  const userId = userData ?? "";
   const position = useRecoilValue(myPositionAtom);
   const [on, setOn] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
