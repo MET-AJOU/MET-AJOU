@@ -1,10 +1,12 @@
-import { myUserIdAtom, myPositionAtom } from "@Recoils/Characters";
+import { myPositionAtom } from "@Recoils/Characters";
+import { userDataAtom } from "@Recoils/UserData";
 import Socket from "@Socket/.";
 import { useEffect, useRef, useState } from "react";
 import { useRecoilValue } from "recoil";
+import { routingType } from "@Route/util";
 
 const useChatHook = () => {
-  const userId = useRecoilValue(myUserIdAtom);
+  const { userName: userId } = useRecoilValue(userDataAtom) as routingType;
   const position = useRecoilValue(myPositionAtom);
   const [on, setOn] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -18,7 +20,6 @@ const useChatHook = () => {
     if (!inputRef.current) return;
     if (keyCode !== 13) return;
     const message = inputRef.current.value;
-    console.log(userId);
     Socket.instance?.emit("chat", { userId, message, position });
     inputRef.current.value = "";
   };
