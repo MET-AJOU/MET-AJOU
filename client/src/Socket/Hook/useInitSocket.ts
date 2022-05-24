@@ -17,10 +17,10 @@ const useInitSocket = (setJoinedUserNumber: React.Dispatch<React.SetStateAction<
 
   useEffect(() => {
     // 게스트라면 없음
-    console.log(userData);
+    console.log(userData?.userName);
     if (!userData?.userName) return;
     setMyUserId(userData.userName);
-  }, [userData]);
+  }, []);
 
   useEffect(() => {
     // const socket = SocketIo(SOCKET_SERVER, { transports: ["websocket"] });
