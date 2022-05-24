@@ -17,6 +17,7 @@ const useInitSocket = (setJoinedUserNumber: React.Dispatch<React.SetStateAction<
 
   useEffect(() => {
     // 게스트라면 없음
+    console.log(userData);
     if (!userData?.userName) return;
     setMyUserId(userData.userName);
   }, [userData]);
