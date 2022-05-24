@@ -24,6 +24,7 @@ const initSocketEvents = ({ setOutUserId, socket, setCharacters, setMyUserId, se
   socket.on("keyUp", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
   socket.on("getUserId", (userId: string) => {
     // 게스트일때만 받자
+    console.log("guest이ㄹ때만 출ㅕㄱ하라했다.");
     setMyUserId(userId);
     setOutUserId(userId);
   });
