@@ -7,7 +7,7 @@ import { routingType } from "@Route/util";
 
 const useChatHook = () => {
   const userData = useRecoilValue(userDataAtom) as routingType;
-  const userId = userData ?? "";
+  const userId = userData ?? "nn";
   const position = useRecoilValue(myPositionAtom);
   const [on, setOn] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -20,6 +20,7 @@ const useChatHook = () => {
   const handleSendChat = ({ keyCode }: { keyCode: any }) => {
     if (!inputRef.current) return;
     if (keyCode !== 13) return;
+    console.log(userId);
     const message = inputRef.current.value;
     Socket.instance?.emit("chat", { userId, message, position });
     inputRef.current.value = "";
