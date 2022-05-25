@@ -3,13 +3,14 @@ import { GET_VIDEO_URL } from "@Constant/URL";
 import { MODALCONTAINER } from "@Organisms/MapOption/Modal/useGetModal";
 import { CloseModal } from "../styles";
 import useCloseModal from "../useCloseModal";
-import { ModalContainer, VideoContainer } from "./styles";
+import { ModalContainer, VideoContainer, VideoFrame } from "./styles";
 
 const VideoModal = ({ targetRef, src }: { targetRef: any; src: string }) => {
   const handleCloseModal = useCloseModal();
 
   return (
     <ModalContainer ref={targetRef} id={MODALCONTAINER}>
+      <VideoFrame src="./asset/MapOption/MiniMap/videoframe.svg" alt="video" />
       <VideoContainer>
         <video width="100%" height="100%" controls>
           <source src={`${GET_VIDEO_URL}${src}`} />

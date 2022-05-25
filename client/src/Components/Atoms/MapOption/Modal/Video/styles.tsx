@@ -9,7 +9,13 @@ export const ModalContainer = styled.div`
 `;
 
 export const VideoContainer = styled.div`
-  width: 80vw;
-  height: 80vh;
-  margin: 10vh auto;
+  width: 45vw;
+  height: 55vh;
+  margin: 20vh auto;
+`;
+
+export const VideoFrame = styled.img`
+  position: absolute;
+  top: 10vh;
+  z-index: -1;
 `;
