@@ -46,6 +46,8 @@ export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae
 
 /* debate */
 
+export const DEBATE_ASSET_SIZE = 0.0015;
+
 export const CeilingSrc = "models/Debate/Ceilings";
 
 export const ChairSrc = "models/Debate/Chairs";
@@ -63,15 +65,15 @@ export const RoomSrc = "models/Debate/Room";
 export const TablesSrc = "models/Debate/Tables";
 export const WindowSrc = "models/Debate/Windows";
 
-export const CeilingAssetSize = 3;
+export const CeilingAssetSize = 1;
 
-export const ChairAssetSize = 32;
+export const ChairAssetSize = 1;
 
-export const FloorAssetSize = 2;
+export const FloorAssetSize = 1;
 
-export const PropsAssetSize = 13;
+export const PropsAssetSize = 8;
 
-export const TabelAssetSize = 16;
+export const TabelAssetSize = 1;
 
 export const BenchAssetSize = 9;
 

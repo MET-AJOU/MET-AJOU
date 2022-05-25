@@ -1,9 +1,9 @@
 /* eslint-disable react/no-array-index-key */
-import { WindowSrc } from "@Constant/Three";
+import { WindowSrc, DEBATE_ASSET_SIZE } from "@Constant/Three";
 import FBXs from "@THREE/Atoms/Fbxs";
 
 const Windows = () => {
-  return <FBXs src={`${WindowSrc}/WindowFrame.fbx`} />;
+  return <FBXs size={DEBATE_ASSET_SIZE} src={`${WindowSrc}/WindowFrame.fbx`} />;
 };
 
 export default Windows;
