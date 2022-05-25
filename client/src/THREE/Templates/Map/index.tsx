@@ -47,23 +47,24 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
           <ambientLight />
           <pointLight position={[100, 100, 100]} intensity={1} />
           <Physics gravity={[0, 0, 0]} broadphase="SAP">
-            {/* <Debug scale={1} color="black"> */}
-            {/* </Debug> */}
-            {/* <HeightMap elementSize={0.0371} position={[-52.8, -2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
-            <HeightMap elementSize={0.0742} position={[-52.9, -2.08, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
-            {/* <HeightMap elementSize={0.1484} position={[-52.8, -2.2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
-            <Fog />
-            <Sky sunPosition={[100, 10, 100]} distance={500} />
-            <Characters />
-            <Benches />
-            <Buildings />
-            <GardenBoxs />
-            <Grounds />
-            <Objects />
-            <Roads />
-            <SideWalks />
-            <StreetLamps />
-            <Trees />
+            <Debug scale={1} color="black">
+              {/* <HeightMap elementSize={0.0371} position={[-52.8, -2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
+              {/* <HeightMap elementSize={0.0742} position={[-52.9, -2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
+              <HeightMap elementSize={0.0742} position={[-52.9, -2.08, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
+              {/* <HeightMap elementSize={0.1484} position={[-52.8, -2.2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
+              <Fog />
+              <Sky sunPosition={[100, 10, 100]} distance={500} />
+              <Characters />
+              <Benches />
+              <Buildings />
+              <GardenBoxs />
+              <Grounds />
+              <Objects />
+              <Roads />
+              <SideWalks />
+              <StreetLamps />
+              <Trees />
+            </Debug>
           </Physics>
           <Keyboard />
           <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
