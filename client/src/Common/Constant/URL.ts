@@ -4,6 +4,7 @@ export const DATA_SERVER = `${process.env.REACT_APP_GET_SERVER_DOMAIN}${process.
 // export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${process.env.REACT_APP_SOCKET_SERVER_PORT}`;
 export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${process.env.REACT_APP_SOCKET_SERVER_PORT}`;
 export const GOOGLE_URL = `${GOOGLE_SERVER}${process.env.REACT_APP_GET_GOOGLE_URL}`;
+export const KAKAO_URL = `${GOOGLE_SERVER}${process.env.REACT_APP_GET_KAKAO_URL}`;
 export const GET_SELECT_CHARACTER_URL = `${process.env.REACT_APP_CHARACTER_URL}`;
 export const GET_USER_CHARACTER_URL = `${process.env.REACT_APP_USER_CHARACTER_URL}`;
 
