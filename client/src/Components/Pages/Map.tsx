@@ -1,17 +1,16 @@
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import MapContainer from "@THREE/Templates/Map";
 import MapOptionTemplate from "@Templates/MapOption";
 import { CHANNEL_INFO } from "@Constant/.";
-import LoadingPage from "./Loding";
 
 const MapPage = () => {
   const [joinedUserNumber, setJoinedUserNumber] = useState(0);
-
+  const [loading, setLoading] = useState(false);
   return (
-    <Suspense fallback={<LoadingPage />}>
-      <MapContainer setJoinedUserNumber={setJoinedUserNumber} />
-      <MapOptionTemplate channelInfo={CHANNEL_INFO[0]} now={joinedUserNumber} />
-    </Suspense>
+    <>
+      <MapContainer setJoinedUserNumber={setJoinedUserNumber} setLoading={setLoading} />
+      <MapOptionTemplate channelInfo={CHANNEL_INFO[0]} now={joinedUserNumber} loading={loading} />
+    </>
   );
 };
 
