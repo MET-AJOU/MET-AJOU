@@ -9,7 +9,6 @@ import { checkSrc } from "./util";
 
 const ChannelForm = () => {
   const { select, next, handleMoveNext, handleSelect }: useChannelType = useChannel();
-  console.log(select);
   return (
     <ChannelFormContainer>
       <ChannelFormTitle>채널 선택</ChannelFormTitle>

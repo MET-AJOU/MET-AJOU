@@ -9,7 +9,6 @@ import SelectModePage from "@Pages/SelectMode";
 import DebatePage from "@Pages/Debate";
 import CheckUserRoute from "@Route/CheckUserRoute";
 import { ABOUT, CHANNEL, CHARACTER, DEBATE, LOGIN, MAP, NICKNAME, PRIVACY, SELECTMODE, VERIFY } from "@Constant/URL";
-import ChannelPage from "@Pages/Channel";
 
 const App = () => {
   // if (window.innerWidth < 768) return <MobileView />;
@@ -24,8 +23,7 @@ const App = () => {
         <Route path={PRIVACY} element={<CheckUserRoute />} />
         <Route path={NICKNAME} element={<CheckUserRoute />} />
         <Route path={CHARACTER} element={<CheckUserRoute />} />
-        <Route path={CHANNEL} element={<PublicRoute component={ChannelPage} />} />
-        {/* <Route path={CHANNEL} element={<CheckUserRoute />} /> */}
+        <Route path={CHANNEL} element={<CheckUserRoute />} />
         <Route path={MAP} element={<PublicRoute component={MapPage} />} />
         <Route path={DEBATE} element={<PublicRoute component={DebatePage} />} />
       </Routes>
