@@ -49,8 +49,8 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
           <Physics gravity={[0, 0, 0]}>
             <Debug scale={1} color="black">
               {/* <HeightMap elementSize={0.0371} position={[-52.8, -2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
-              {/* <HeightMap elementSize={0.0742} position={[-52.9, -2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
-              <HeightMap elementSize={0.0742} position={[-52.9, -2.08, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
+              {/* <HeightMap elementSize={0.07586002} position={[-54.5, -2.08, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
+              <HeightMap elementSize={0.0742} position={[-52.9, -2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
               {/* <HeightMap elementSize={0.1484} position={[-52.8, -2.2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
               <Fog />
               <Sky sunPosition={[100, 10, 100]} distance={500} />

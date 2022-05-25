@@ -17,14 +17,13 @@ const useInitSocket = ({ setJoinedUserNumber, roomId, setOutUser, setChatInfos, 
 
   useEffect(() => {
     // 게스트라면 없음
-    console.log(userData?.userName);
     if (!userData?.userName) return;
     setMyUserId(userData.userName);
   }, []);
 
   useEffect(() => {
     // const socket = SocketIo(SOCKET_SERVER, { transports: ["websocket"] });
-    const socket = SocketIo(SOCKET_SERVER);
+    const socket = SocketIo(SOCKET_SERVER, { transports: ["websocket"] });
     initSocketEvents({ socket, setCharacters, setMyUserId, setJoinedUserNumber, setOutUser, setChatInfos });
     joinRoom({ socket, roomId, userId: userData?.userName ?? null });
     Socket.instance = socket;

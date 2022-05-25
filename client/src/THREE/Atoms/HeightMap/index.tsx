@@ -52,6 +52,7 @@ const HeightMap = ({ elementSize, position, rotation }: HeightmapProps) => {
   // const heightmap = useTexture("/models/AjouMap/HeightMap/ajou_heightmap_2048.png");
   const heightmap = useTexture("/models/AjouMap/HeightMap/ajou_heightmap_1024.png");
   // const heightmap = useTexture("/models/AjouMap/HeightMap/ajou_heightmap_512.png");
+  // const heightmap = useTexture("/models/AjouMap/HeightMap/ajou_heightmap_10242.png");
   const heights = useAsset<number[][], Texture[]>(async () => createHeightfieldMatrix(heightmap.image), heightmap).map((items) => items.map((item) => item * 1.9));
   // console.log(heights);
   useHeightfield(() => ({ type: "Static", args: [heights, { elementSize }], position, rotation }), undefined, [elementSize, position, rotation]);
