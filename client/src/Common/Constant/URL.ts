@@ -6,6 +6,7 @@ export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${proce
 export const GOOGLE_URL = `${GOOGLE_SERVER}${process.env.REACT_APP_GET_GOOGLE_URL}`;
 export const GET_SELECT_CHARACTER_URL = `${process.env.REACT_APP_CHARACTER_URL}`;
 export const GET_USER_CHARACTER_URL = `${process.env.REACT_APP_USER_CHARACTER_URL}`;
+export const GET_VIDEO_URL = `${process.env.REACT_APP_CHARACTER_URL}`;
 
 export const GET_API_TOKEN_MINE = `${AUTH_SERVER}/token/mine`;
 export const CHECK_TOKEN = `${AUTH_SERVER}/token/mine`;

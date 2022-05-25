@@ -88,4 +88,5 @@ export interface MiniMapPinType {
   path: string;
   info?: string;
   bubble?: number;
+  video?: string;
 }

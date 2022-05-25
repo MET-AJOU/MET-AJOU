@@ -56,7 +56,7 @@ const DebateMap = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatc
             </Suspense>
           </Physics>
           <Keyboard />
-          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[2].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
         </RecoilRoot>
       </Canvas>
     </MapContainer>
