@@ -22,7 +22,7 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
 
   const [ref, api] = useSphere(() => ({
     mass: 100,
-    args: [0.1],
+    args: [0.05],
     position: [x, y, z],
     type: "Dynamic",
   }));

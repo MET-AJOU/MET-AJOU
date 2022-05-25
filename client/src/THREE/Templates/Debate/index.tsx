@@ -25,7 +25,7 @@ import LoadingPage from "@Pages/Loding";
 import { userDataAtom } from "@Recoils/UserData";
 import { MapContainer } from "./styles";
 
-const DebateMap = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>> }) => {
+const DebateMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const setChatInfos = useSetRecoilState(chatAtom);
   const [userData, setUserData] = useRecoilState(userDataAtom);
   return (
@@ -39,7 +39,7 @@ const DebateMap = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatc
             <Suspense
               fallback={
                 <Html>
-                  <LoadingPage />
+                  <LoadingPage setLoading={setLoading} />
                 </Html>
               }
             >
