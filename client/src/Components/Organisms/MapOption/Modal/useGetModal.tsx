@@ -4,6 +4,7 @@ import ExitModal from "@Atoms/MapOption/Modal/Exit";
 import MiniMapModal from "@Atoms/MapOption/Modal/MiniMap";
 import MyPageModal from "@Atoms/MapOption/Modal/MyPage/MyPageModal";
 import useCloseModal from "@Atoms/MapOption/Modal/useCloseModal";
+import VideoModal from "@Atoms/MapOption/Modal/Video";
 import { ModalState } from "@Recoils/MapOption/Modal";
 import { useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
@@ -22,6 +23,10 @@ const useGetModal = () => {
       window.removeEventListener("keydown", handleEvent);
     };
   }, []);
+
+  if (typeof modalState !== typeof " ") {
+    return <VideoModal targetRef={ref} src={(modalState as any).src} />;
+  }
 
   switch (modalState) {
     case "":

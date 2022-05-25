@@ -21,7 +21,11 @@ const useOpenModal = () => {
     setState(MINIMAP);
   };
 
-  return { handleControllerOpen, handleMyPageOpen, handleExitOpen, handleMiniMapOpen };
+  const handleVideoOpen = (src: string) => {
+    setState({ type: "video", src });
+  };
+
+  return { handleControllerOpen, handleMyPageOpen, handleExitOpen, handleMiniMapOpen, handleVideoOpen };
 };
 
 export default useOpenModal;
