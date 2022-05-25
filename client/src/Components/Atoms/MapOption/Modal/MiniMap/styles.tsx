@@ -12,7 +12,7 @@ export const ModalContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  offset: 0px, 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
 `;
 
 export const Title = styled.p`

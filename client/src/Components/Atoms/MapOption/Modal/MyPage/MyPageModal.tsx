@@ -1,4 +1,5 @@
 import SelectPreview from "@Molecules/Character/SelectPreview";
+import useSelectCharacter from "@Organisms/Character/useSelectCharacter";
 import { MODALCONTAINER } from "@Organisms/MapOption/Modal/useGetModal";
 import { CloseModal } from "../styles";
 
@@ -9,12 +10,13 @@ import useChangeModal from "./useChangeModal";
 const MyPageModal = ({ targetRef }: { targetRef: any }) => {
   const handleCloseModal = useCloseModal();
   const handleChangeModal = useChangeModal();
+  const { renderCharacter } = useSelectCharacter();
   return (
     <MyPageModalContainer ref={targetRef} id={MODALCONTAINER}>
       <MyPageModalTitle>마이페이지</MyPageModalTitle>
       <MyPageBodyContainer>
         <MyPageSelectPreviewContainer>
-          <SelectPreview renderCharacter="" />
+          <SelectPreview renderCharacter={renderCharacter} />
           <MyPageCharacterChangeButton onClick={handleChangeModal}>캐릭터 변경</MyPageCharacterChangeButton>
         </MyPageSelectPreviewContainer>
         <div>
