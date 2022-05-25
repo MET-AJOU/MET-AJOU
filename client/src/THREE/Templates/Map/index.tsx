@@ -46,7 +46,7 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
           <OrbitControls />
           <ambientLight />
           <pointLight position={[100, 100, 100]} intensity={1} />
-          <Physics gravity={[0, 0, 0]} broadphase="SAP">
+          <Physics gravity={[0, 0, 0]}>
             <Debug scale={1} color="black">
               {/* <HeightMap elementSize={0.0371} position={[-52.8, -2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
               {/* <HeightMap elementSize={0.0742} position={[-52.9, -2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}

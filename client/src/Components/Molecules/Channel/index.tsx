@@ -1,11 +1,11 @@
 import React from "react";
-import { ChannelItemBox, ChannelItemImgContainer, ChannelItemTitleContainer } from "./styles";
+import { ChannelItemBox, ChannelItemImg, ChannelItemImgContainer, ChannelItemTitleContainer } from "./styles";
 
-const ChannelItem = ({ title, onClick, src, total, now }: ChannelItemType) => {
+const ChannelItem = ({ title, onClick, src, total, now, select }: ChannelItemType) => {
   return (
     <ChannelItemBox onClick={onClick}>
       <ChannelItemImgContainer>
-        <img src={src} alt="맵 이미지" />
+        <ChannelItemImg src={src} alt="맵 이미지" select={select} />
         <div>
           {now} / {total}
         </div>
@@ -23,4 +23,5 @@ interface ChannelItemType {
   src: string;
   total: number;
   now: number;
+  select: boolean;
 }
