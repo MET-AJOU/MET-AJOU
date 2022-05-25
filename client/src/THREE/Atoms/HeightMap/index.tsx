@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-plusplus */
 /* eslint-disable prefer-destructuring */
 import { useTexture } from "@react-three/drei";
@@ -49,12 +50,30 @@ function createHeightfieldMatrix(image: HTMLImageElement): number[][] {
 type HeightmapProps = Required<Pick<HeightfieldProps, "position" | "rotation">> & Required<Pick<HeightfieldArgs["1"], "elementSize">>;
 
 const HeightMap = ({ elementSize, position, rotation }: HeightmapProps) => {
-  // const heightmap = useTexture("/models/AjouMap/HeightMap/ajou_heightmap_2048.png");
   const heightmap = useTexture("/models/AjouMap/HeightMap/ajou_heightmap_1024.png");
-  // const heightmap = useTexture("/models/AjouMap/HeightMap/ajou_heightmap_512.png");
-  // const heightmap = useTexture("/models/AjouMap/HeightMap/ajou_heightmap_10242.png");
-  const heights = useAsset<number[][], Texture[]>(async () => createHeightfieldMatrix(heightmap.image), heightmap).map((items) => items.map((item) => item * 1.9));
-  // console.log(heights);
+  const heights = useAsset<number[][], Texture[]>(async () => createHeightfieldMatrix(heightmap.image), heightmap).map((items) =>
+    items.map((item) => {
+      if (item > 3) return item * 2.75;
+      if (item > 2.5) return item * 2.72;
+      if (item > 1.8) return item * 2.9;
+      if (item > 1.6) return item * 2.95;
+      if (item > 1.4) return item * 3;
+      if (item > 1.3) return item * 3.05;
+      if (item > 1.25) return item * 3.05;
+      if (item > 1.2) return item * 3.1;
+      if (item > 1.1) return item * 3.1;
+      if (item > 1) return item * 3.2;
+      if (item > 0.95) return item * 3.2;
+      if (item > 0.949) return item * 3.2;
+      if (item > 0.8) return item * 3.3;
+      if (item > 0.79) return item * 3.4;
+      if (item > 0.75) return item * 3.9;
+      if (item > 0.7) return item * 3.4;
+      if (item > 0.6) return item * 3.5;
+      if (item > 0.5) return item * 3.7;
+      return item * 1;
+    })
+  );
   useHeightfield(() => ({ type: "Static", args: [heights, { elementSize }], position, rotation }), undefined, [elementSize, position, rotation]);
 
   return null;
