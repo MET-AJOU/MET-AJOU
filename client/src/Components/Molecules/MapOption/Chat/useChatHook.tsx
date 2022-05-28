@@ -1,27 +1,32 @@
-import { myUserIdAtom, myPositionAtom } from "@Recoils/Characters";
+import { myPositionAtom } from "@Recoils/Characters";
+import { userDataAtom } from "@Recoils/UserData";
 import Socket from "@Socket/.";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRecoilValue } from "recoil";
+import { routingType } from "@Route/util";
 
 const useChatHook = () => {
-  const userId = useRecoilValue(myUserIdAtom);
+  const userData = useRecoilValue(userDataAtom) as routingType;
+  const userId = useMemo(() => userData?.userName ?? "nn", [userData]);
   const position = useRecoilValue(myPositionAtom);
   const [on, setOn] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const ChatRef = useRef<HTMLDivElement>(null);
 
-  const handleFocusInput = () => {
+  const handleFocusInput = useCallback(() => {
     setOn((prev) => !prev);
-  };
+  }, []);
 
-  const handleSendChat = ({ keyCode }: { keyCode: any }) => {
-    if (!inputRef.current) return;
-    if (keyCode !== 13) return;
-    const message = inputRef.current.value;
-    console.log(userId);
-    Socket.instance?.emit("chat", { userId, message, position });
-    inputRef.current.value = "";
-  };
+  const handleSendChat = useCallback(
+    ({ keyCode }: { keyCode: any }) => {
+      if (!inputRef.current) return;
+      if (keyCode !== 13) return;
+      const message = inputRef.current.value;
+      Socket.instance?.emit("chat", { userId, message, position });
+      inputRef.current.value = "";
+    },
+    [userId]
+  );
 
   useEffect(() => {
     if (!ChatRef.current) return;

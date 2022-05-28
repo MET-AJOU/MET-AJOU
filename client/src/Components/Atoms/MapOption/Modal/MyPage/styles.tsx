@@ -12,7 +12,7 @@ export const MyPageModalContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  offset: 0px, 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
 `;
 
 export const MyPageModalTitle = styled.h1`
@@ -83,4 +83,10 @@ export const MyPageUserInfoBody = styled.div`
   border-radius: 0px 0px 12px 12px;
   width: 300px;
   height: 350px;
+`;
+
+export const InfoRow = styled.div`
+  display: flex;
+  width: 90%;
+  height: 10%;
 `;

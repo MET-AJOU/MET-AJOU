@@ -1,8 +1,10 @@
+import { changeUserName } from "@Recoils/UserData";
+import { routingType } from "@Route/util";
 import { CharacterType, ChatType } from "@Type/Three";
 import { SetterOrUpdater } from "recoil";
 import { Socket } from "socket.io-client";
 
-const initSocketEvents = ({ setOutUserId, socket, setCharacters, setMyUserId, setJoinedUserNumber, setChatInfos }: { socket: Socket; setCharacters: SetterOrUpdater<CharacterType[] | null>; setMyUserId: SetterOrUpdater<string>; setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setOutUserId: SetterOrUpdater<string>; setChatInfos: SetterOrUpdater<ChatType[]> }) => {
+const initSocketEvents = ({ setOutUser, socket, setCharacters, setMyUserId, setJoinedUserNumber, setChatInfos }: { socket: Socket; setCharacters: SetterOrUpdater<CharacterType[] | null>; setMyUserId: SetterOrUpdater<string>; setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setOutUser: SetterOrUpdater<routingType | null>; setChatInfos: SetterOrUpdater<ChatType[]> }) => {
   socket.on("joinRoom", (joinUsers: CharacterType[]) => {
     setJoinedUserNumber(joinUsers.length);
     setCharacters(joinUsers);
@@ -25,7 +27,7 @@ const initSocketEvents = ({ setOutUserId, socket, setCharacters, setMyUserId, se
   socket.on("getUserId", (userId: string) => {
     // 게스트일때만 받자
     setMyUserId(userId);
-    setOutUserId(userId);
+    setOutUser(changeUserName(userId));
   });
   socket.on("leaveUser", ({ joinUsers, leaveUserId }: { joinUsers: CharacterType[]; leaveUserId: string }) => {
     setJoinedUserNumber(joinUsers.length);

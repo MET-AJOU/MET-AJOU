@@ -9,7 +9,7 @@ export const ExitModalContainer = styled.div`
   width: 27vw;
   height: 33vh;
   border-radius: 16px;
-  offset: 0px, 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
 `;
 
 export const Text = styled.p`
@@ -48,6 +48,6 @@ export const Button = styled.button<Props>`
     height: 56px;
     transition: 0.5s;
     text-align: center;
-    offset: 0px, 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
   }
 `;

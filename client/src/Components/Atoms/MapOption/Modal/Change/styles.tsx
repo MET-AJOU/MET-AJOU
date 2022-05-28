@@ -7,5 +7,5 @@ export const ChangeModalContainer = styled.div`
   width: 70%;
   height: 80%;
   border-radius: 20px;
-  offset: 0px, 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
 `;

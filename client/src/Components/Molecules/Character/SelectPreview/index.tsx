@@ -2,7 +2,6 @@ import ModalCharacter from "@Molecules/SelectMode/ModalCharacter";
 import { SelectPreviewBg, SelectPreviewContainer, SelectPreviewFloor } from "./styles";
 
 const SelectPreview = ({ renderCharacter }: { renderCharacter: string }) => {
-  console.log(renderCharacter);
   return (
     <SelectPreviewContainer>
       <SelectPreviewBg src="/asset/Character/bg.png" alt="highlight" />

@@ -1,10 +1,11 @@
+/* eslint-disable react/require-default-props */
 import { useFBX } from "@react-three/drei";
 
-const FBXs = ({ src }: { src: string }) => {
+const FBXs = ({ src, size }: { src: string; size?: number }) => {
   const temp = useFBX(src);
 
   return (
-    <group>
+    <group scale={size || 1}>
       <primitive object={temp} />
     </group>
   );

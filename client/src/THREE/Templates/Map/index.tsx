@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Suspense } from "react";
+// import { Suspense } from "react";
 import { OrbitControls, Sky, Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics, Debug } from "@react-three/cannon";
-import { RecoilRoot, useRecoilValue, useSetRecoilState } from "recoil";
+import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
 import { CHANNEL_INFO } from "@Constant/.";
 
@@ -25,21 +25,21 @@ import SideWalks from "@THREE/Molecules/AjouMap/SideWalks";
 import StreetLamps from "@THREE/Molecules/AjouMap/StreetLamps";
 import Trees from "@THREE/Molecules/AjouMap/Trees";
 
-import { myUserIdAtom } from "@Recoils/Characters";
 import { chatAtom } from "@Recoils/MapOption/Chat";
 import Benches from "@THREE/Molecules/AjouMap/Benches";
 
 import GardenBoxs from "@THREE/Molecules/AjouMap/GardenBoxs";
 import Objects from "@THREE/Molecules/AjouMap/Objects";
 
-import LoadingPage from "@Pages/Loding";
+// import LoadingPage from "@Pages/Loding";
 import { userDataAtom } from "@Recoils/UserData";
+import LoadingPage from "@Pages/Loding";
+import { Suspense } from "react";
 import MetaContainer from "./styles";
 
-const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>> }) => {
-  const setUserId = useSetRecoilState(myUserIdAtom);
+const MapContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const setChatInfos = useSetRecoilState(chatAtom);
-  const userData = useRecoilValue(userDataAtom);
+  const [userData, setUserData] = useRecoilState(userDataAtom);
 
   return (
     <MetaContainer>
@@ -48,19 +48,16 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
           <OrbitControls />
           <ambientLight />
           <pointLight position={[100, 100, 100]} intensity={1} />
-          {/* <Physics gravity={[0, 0, 0]}> */}
-          <Physics gravity={[0, 0, 0]} broadphase="SAP">
+          <Physics gravity={[0, 0, 0]}>
             <Suspense
               fallback={
                 <Html>
-                  <LoadingPage />
+                  <LoadingPage setLoading={setLoading} />
                 </Html>
               }
             >
               {/* <Debug scale={1} color="black"> */}
-              {/* <HeightMap elementSize={0.0371} position={[-50.8, -0.1, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
-              {/* <HeightMap elementSize={0.1484} position={[-50.8, -0.1, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} /> */}
-              <HeightMap elementSize={0.0742} position={[-50.8, -0.2, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
+              <HeightMap elementSize={0.0742} position={[-52.9, -0.5, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
               <Fog />
               <Sky sunPosition={[100, 10, 100]} distance={500} />
               <Characters />
@@ -73,10 +70,11 @@ const MapContainer = ({ setJoinedUserNumber }: { setJoinedUserNumber: React.Disp
               <SideWalks />
               <StreetLamps />
               <Trees />
+              {/* </Debug> */}
             </Suspense>
           </Physics>
           <Keyboard />
-          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setUserId={setUserId} setChatInfos={setChatInfos} userData={userData} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>

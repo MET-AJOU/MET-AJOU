@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ChannelItemBox = styled.div`
   width: 200px;
@@ -15,11 +15,6 @@ export const ChannelItemImgContainer = styled.div`
   border-radius: 12px 12px 0px 0px;
   position: relative;
 
-  img {
-    width: 100%;
-    height: 100%;
-  }
-
   div {
     position: absolute;
     bottom: 0px;
@@ -35,6 +30,21 @@ export const ChannelItemImgContainer = styled.div`
 
     color: #ffffff;
   }
+`;
+
+interface ImgType {
+  select: boolean;
+}
+
+const SelectStyle = css`
+  background-color: #070707;
+  opacity: 0.1;
+`;
+
+export const ChannelItemImg = styled.img<ImgType>`
+  width: 100%;
+  height: 100%;
+  ${({ select }) => !select && SelectStyle}
 `;
 
 export const ChannelItemTitleContainer = styled.div`

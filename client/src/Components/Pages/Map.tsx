@@ -5,11 +5,11 @@ import { CHANNEL_INFO } from "@Constant/.";
 
 const MapPage = () => {
   const [joinedUserNumber, setJoinedUserNumber] = useState(0);
-
+  const [loading, setLoading] = useState(false);
   return (
     <>
-      <MapContainer setJoinedUserNumber={setJoinedUserNumber} />
-      <MapOptionTemplate channelInfo={CHANNEL_INFO[0]} now={joinedUserNumber} />
+      <MapContainer setJoinedUserNumber={setJoinedUserNumber} setLoading={setLoading} />
+      <MapOptionTemplate channelInfo={CHANNEL_INFO[0]} now={joinedUserNumber} loading={loading} />
     </>
   );
 };

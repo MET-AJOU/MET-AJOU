@@ -3,9 +3,9 @@ import { LoginButtonContainer } from "./style";
 
 const LoginButton = ({ fn, title }: { fn: (() => string) | undefined; title: string }) => {
   return (
-    <LoginButtonContainer>
+    <LoginButtonContainer onClick={fn}>
       <img src={getSrc(title)} alt={getAlt(title)} />
-      <div onClick={fn}>{title}</div>
+      <div>{title}</div>
     </LoginButtonContainer>
   );
 };
