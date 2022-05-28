@@ -6,6 +6,8 @@ export const getUrl = (id: number): string => {
       return "/talk";
     case 3:
       return "/debate";
+    case 4:
+      return "/gym";
     default:
       return "/";
   }

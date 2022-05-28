@@ -7,8 +7,9 @@ import MapPage from "@Pages/Map";
 import AboutPage from "@Pages/About";
 import SelectModePage from "@Pages/SelectMode";
 import DebatePage from "@Pages/Debate";
+import GymPage from "@Pages/Gym";
 import CheckUserRoute from "@Route/CheckUserRoute";
-import { ABOUT, CHANNEL, CHARACTER, DEBATE, LOGIN, MAP, NICKNAME, PRIVACY, SELECTMODE, VERIFY } from "@Constant/URL";
+import { ABOUT, CHANNEL, CHARACTER, DEBATE, GYM, LOGIN, MAP, NICKNAME, PRIVACY, SELECTMODE, VERIFY } from "@Constant/URL";
 
 const App = () => {
   // if (window.innerWidth < 768) return <MobileView />;
@@ -26,6 +27,7 @@ const App = () => {
         <Route path={CHANNEL} element={<CheckUserRoute />} />
         <Route path={MAP} element={<PublicRoute component={MapPage} />} />
         <Route path={DEBATE} element={<PublicRoute component={DebatePage} />} />
+        <Route path={GYM} element={<PublicRoute component={GymPage} />} />
       </Routes>
     </Suspense>
   );

@@ -11,5 +11,8 @@ export const Container = styled.div<Props>`
   height: 100vh;
   background-color: black;
   background-image: url(${({ url }) => url});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   z-index: 10;
 `;
