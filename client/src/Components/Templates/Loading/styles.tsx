@@ -13,6 +13,6 @@ export const Container = styled.div<Props>`
   background-image: url(${({ url }) => url});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   z-index: 10;
 `;
