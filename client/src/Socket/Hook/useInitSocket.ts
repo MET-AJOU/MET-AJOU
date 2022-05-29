@@ -17,12 +17,7 @@ const useInitSocket = ({ setJoinedUserNumber, roomId, setOutUser, setChatInfos, 
   const setMyUserId = useSetRecoilState(myUserIdAtom);
 
   useEffect(() => {
-    // 게스트라면 없음
-    if (!userData?.userName) return;
-    setMyUserId(userData.userName);
-    return () => {
-      Socket.instance?.disconnect();
-    };
+    if (userData?.userName) setMyUserId(userData.userName);
   }, []);
 
   useEffect(() => {
@@ -30,6 +25,13 @@ const useInitSocket = ({ setJoinedUserNumber, roomId, setOutUser, setChatInfos, 
     initSocketEvents({ socket, setCharacters, setMyUserId, setJoinedUserNumber, setOutUser, setChatInfos });
     joinRoom({ socket, roomId, userId: userData?.userName ?? null });
     Socket.instance = socket;
+  }, []);
+
+  useEffect(() => {
+    if (!userData) return;
+    return () => {
+      Socket.instance?.disconnect();
+    };
   }, [userData]);
 };
 
