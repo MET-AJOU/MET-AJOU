@@ -2,7 +2,6 @@ const getEventHandlers = ({ setClick, setHover }: { setClick: React.Dispatch<Rea
   const getIdx = (element: HTMLElement): number => Number(element.dataset.idx);
 
   const handleClick = (e: React.MouseEvent) => {
-    console.log(e.target);
     if (!(e.target as HTMLElement).closest(".pin")) {
       setClick(-1);
       return;

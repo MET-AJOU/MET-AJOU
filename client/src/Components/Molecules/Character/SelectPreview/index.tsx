@@ -5,7 +5,7 @@ const SelectPreview = ({ renderCharacter }: { renderCharacter: string }) => {
   return (
     <SelectPreviewContainer>
       <SelectPreviewBg src="/asset/Character/bg.png" alt="highlight" />
-      <ModalCharacter src={renderCharacter} />
+      <ModalCharacter src={`${renderCharacter}?${performance.now()}}`} />
       <SelectPreviewFloor src="/asset/Character/floor.png" alt="바닥" />
     </SelectPreviewContainer>
   );

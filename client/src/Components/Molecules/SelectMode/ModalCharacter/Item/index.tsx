@@ -5,7 +5,6 @@ import { Group, Vector3 } from "three";
 const cache: CharacterCacheType = {};
 
 const ModalCharacterItem = ({ src }: { src: string }) => {
-  console.log(src);
   const object = cache[src] ?? useFBX(src);
   cache[src] = object;
   const { camera } = useThree();

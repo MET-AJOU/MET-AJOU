@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 
 const useSelectEquip = () => {
   const [select, setSelect] = useState<number>(0);
-  console.log(select);
+
   const handleSelect = useCallback((idx: number) => () => setSelect(idx), []);
 
   return { select, handleSelect };
