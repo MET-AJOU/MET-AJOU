@@ -5,7 +5,7 @@ export const Request = async ({ url, body, method }: API_TYPE): Promise<any> => 
   try {
     const request = method === "GET" ? axios.get : axios.post;
     const { data }: API_RES_TYPE = await request(url, body);
-    console.log(data);
+
     if (!data?.state) {
       alert(data.message);
       return false;
