@@ -42,7 +42,7 @@ export const GardenBoxAssetSize = 8;
 
 export const ObjectAssetSize = 35;
 
-export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital", "dormitory1", "dormitory2", "dormitory3", "sanhak"];
+export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital", "domitory1", "domitory2", "domitory3", "sanhak"];
 
 /* debate */
 
