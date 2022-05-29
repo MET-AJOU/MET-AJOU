@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect } from "react";
@@ -19,17 +20,16 @@ const useInitSocket = ({ setJoinedUserNumber, roomId, setOutUser, setChatInfos, 
     // 게스트라면 없음
     if (!userData?.userName) return;
     setMyUserId(userData.userName);
+    return () => {
+      Socket.instance?.disconnect();
+    };
   }, []);
 
   useEffect(() => {
-    // const socket = SocketIo(SOCKET_SERVER, { transports: ["websocket"] });
     const socket = SocketIo(SOCKET_SERVER, { transports: ["websocket"] });
     initSocketEvents({ socket, setCharacters, setMyUserId, setJoinedUserNumber, setOutUser, setChatInfos });
     joinRoom({ socket, roomId, userId: userData?.userName ?? null });
     Socket.instance = socket;
-    return () => {
-      Socket.instance?.disconnect();
-    };
   }, [userData]);
 };
 
