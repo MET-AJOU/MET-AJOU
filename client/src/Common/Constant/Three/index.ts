@@ -34,15 +34,15 @@ export const GroundAssetSize = 54;
 
 export const SideWalkAssetSize = 46;
 
-export const StreetLampAssetSize = 30;
+export const StreetLampAssetSize = 32;
 
-export const TreeAssetSize = 89;
+export const TreeAssetSize = 96;
 
 export const GardenBoxAssetSize = 8;
 
 export const ObjectAssetSize = 35;
 
-export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital"];
+export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital", "dormitory1", "dormitory2", "dormitory3", "sanhak"];
 
 /* debate */
 
