@@ -10,7 +10,7 @@ export const myPositionAtom = atom<PositionType>({
   key: "myPositionAtom",
   default: { x: 1, y: 7, z: 1 },
 });
-export const CharactersAtom = atom<null | CharacterType[]>({
+export const CharactersAtom = atom<CharacterType[]>({
   key: "CharactersAtom",
   default: [],
 });
