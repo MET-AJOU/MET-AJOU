@@ -32,3 +32,4 @@ export const ABOUT = "/about";
 export const MAP = "/map";
 export const DEBATE = "/debate";
 export const GYM = "/gym";
+export const TALK = "/talk";

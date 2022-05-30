@@ -9,7 +9,8 @@ import SelectModePage from "@Pages/SelectMode";
 import DebatePage from "@Pages/Debate";
 import GymPage from "@Pages/Gym";
 import CheckUserRoute from "@Route/CheckUserRoute";
-import { ABOUT, CHANNEL, CHARACTER, DEBATE, GYM, LOGIN, MAP, NICKNAME, PRIVACY, SELECTMODE, VERIFY } from "@Constant/URL";
+import { ABOUT, CHANNEL, CHARACTER, DEBATE, GYM, LOGIN, MAP, NICKNAME, PRIVACY, SELECTMODE, TALK, VERIFY } from "@Constant/URL";
+import TalkPage from "@Pages/Talk";
 
 const App = () => {
   // if (window.innerWidth < 768) return <MobileView />;
@@ -28,6 +29,7 @@ const App = () => {
         <Route path={MAP} element={<PublicRoute component={MapPage} />} />
         <Route path={DEBATE} element={<PublicRoute component={DebatePage} />} />
         <Route path={GYM} element={<PublicRoute component={GymPage} />} />
+        <Route path={TALK} element={<PublicRoute component={TalkPage} />} />
       </Routes>
     </Suspense>
   );

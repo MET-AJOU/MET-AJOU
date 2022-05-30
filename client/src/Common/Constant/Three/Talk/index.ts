@@ -1,0 +1,23 @@
+export const BED_ASSET_SIZE = 1;
+export const CEILING_ASSET_SIZE = 1;
+export const CHAIR_ASSET_SIZE = 1;
+export const CLOSET_ASSET_SIZE = 1;
+export const DOOR_ASSET_SIZE = 1;
+export const FLOOR_ASSET_SIZE = 1;
+export const HALLYWAYWALL_ASSET_SIZE = 1;
+export const INNERWALL_ASSET_SIZE = 1;
+export const OUTERWALL_ASSET_SIZE = 1;
+export const TABLE_ASSET_SIZE = 1;
+
+export const TALK_ASSET_URL = "./models/Talk";
+export const TALK_ASSET_SIZE = 0.15;
+export const BED_SRC = `${TALK_ASSET_URL}/Bed.fbx`;
+export const CEILING_SRC = `${TALK_ASSET_URL}/Ceiling.fbx`;
+export const CHAIR_SRC = `${TALK_ASSET_URL}/chair.fbx`;
+export const CLOSET_SRC = `${TALK_ASSET_URL}/Closet.fbx`;
+export const DOOR_SRC = `${TALK_ASSET_URL}/Door.fbx`;
+export const FLOOR_SRC = `${TALK_ASSET_URL}/Floor.fbx`;
+export const HALLYWAYWALL_SRC = `${TALK_ASSET_URL}/HallwayWall.fbx`;
+export const INNERWALL_SRC = `${TALK_ASSET_URL}/InnerWall.fbx`;
+export const OUTERWALL_SRC = `${TALK_ASSET_URL}/OuterWall.fbx`;
+export const TABLE_SRC = `${TALK_ASSET_URL}/Table.fbx`;
