@@ -32,7 +32,7 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
   useEffect(() => {
     characterRefs.current[idx] = ref;
     apis.current[idx] = api;
-  }, [api, ref]);
+  }, [api, ref, src]);
 
   return (
     <group ref={ref} scale={0.0015}>
