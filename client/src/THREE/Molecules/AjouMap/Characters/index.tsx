@@ -8,9 +8,9 @@ import { getRenderUserCharacter } from "@Organisms/Character/util";
 
 const Characters = () => {
   const characters = useRecoilValue(CharactersAtom);
-  const [characterRefs, setCharacterRefs] = useState([]);
-  const [actions, setActions] = useState([]);
-  const [apis, setApis] = useState([]);
+  const [characterRefs, setCharacterRefs] = useState(new Array(characters.length).fill(0));
+  const [actions, setActions] = useState(new Array(characters.length).fill(0));
+  const [apis, setApis] = useState(new Array(characters.length).fill(0));
   useCharacterMovement({ characterRefs, apis, actions, characters });
 
   return (
