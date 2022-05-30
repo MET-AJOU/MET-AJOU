@@ -59,5 +59,5 @@ export const handleCharacterSave =
     // setUserData(changeAvatarCode(characterCode));
     setTimeout(() => {
       Socket.instance?.emit("changeCharacter", { userId: userName });
-    }, 1000);
+    }, 1300);
   };
