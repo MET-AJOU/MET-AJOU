@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useCharacterMovement from "@Hook/Three/useMovement";
 import { CharactersAtom } from "@Recoils/Characters";
 import TestCharacter from "@THREE/Atoms/Character/test";
@@ -12,6 +12,16 @@ const Characters = () => {
   const [actions, setActions] = useState(new Array(characters.length).fill(0));
   const [apis, setApis] = useState(new Array(characters.length).fill(0));
   useCharacterMovement({ characterRefs, apis, actions, characters });
+
+  useEffect(() => {
+    if (characterRefs[0] === 0) return;
+
+    const leaveUser = characterRefs.findIndex((ref) => ref.current === null);
+
+    setCharacterRefs((prev) => prev.filter((ref, idx) => idx !== leaveUser));
+    setApis((prev) => prev.filter((ref, idx) => idx !== leaveUser));
+    setActions((prev) => prev.filter((ref, idx) => idx !== leaveUser));
+  }, [characters.length]);
 
   return (
     <>
