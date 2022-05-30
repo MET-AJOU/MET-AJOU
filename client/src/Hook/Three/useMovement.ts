@@ -15,6 +15,7 @@ import { Vector3 } from "three";
 const SPEED = -1;
 
 const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { apis: any; characterRefs: any; actions: any; characters: CharacterType[] | null }) => {
+  console.log(apis, characterRefs, actions);
   const myUserId = useRecoilValue(myUserIdAtom);
   const myUserIdx = characters?.findIndex(({ userId }) => userId === myUserId);
   const userKeyStates = characters?.map(({ keyState: { forward, backward, left, right, boost, space, dance } }) => ({ forward, backward, left, right, boost, space, dance })) ?? [];
