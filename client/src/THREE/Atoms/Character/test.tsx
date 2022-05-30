@@ -6,7 +6,7 @@
 
 import { useFBX, useGLTF } from "@react-three/drei";
 import { useBox, useSphere } from "@react-three/cannon";
-import React, { Suspense, useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import useGetAnimations from "@Hook/Three/useGetAnimations";
 import { animationSrcs } from "@Constant/Three";
 import { CharacterType } from "@Type/Three";
@@ -19,6 +19,7 @@ const TestCharacter = ({ src, characterState, setCharacterRefs, actions, apis, i
     position: { x, y, z },
   } = characterState;
   const temp = useFBX(src);
+  const [isChange, setChange] = useState<any>();
 
   const [ref, api] = useSphere(() => ({
     mass: 100,
@@ -34,6 +35,16 @@ const TestCharacter = ({ src, characterState, setCharacterRefs, actions, apis, i
     setCharacterRefs((prev: any) => [...prev, ref]);
     apis.current[idx] = api;
   }, [api, ref, temp, src]);
+
+  useEffect(() => {
+    console.log("empty", src, temp);
+    setChange(temp);
+  }, []);
+
+  useEffect(() => {
+    console.log("change", src, temp);
+    console.log("isChange", isChange);
+  }, [isChange]);
 
   return (
     <group ref={ref} scale={0.0015}>
