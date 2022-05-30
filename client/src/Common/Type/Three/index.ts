@@ -25,6 +25,7 @@ export interface CharacterType {
   characterId: string;
   position: PositionType;
   keyState: keyBoardStateType;
+  joinTime?: string;
 }
 
 export interface ChatType {
