@@ -27,12 +27,12 @@ const TestCharacter = ({ src, characterState, setCharacterRefs, setActions, setA
   let animations = useGetAnimations({ animationSrcs, ref });
 
   useEffect(() => {
-    setCharacterRefs((prev: any) => [...prev, ref]);
-    setApis((prev: any) => [...prev, api]);
+    setCharacterRefs((prev: any[]) => prev.map((prevRef: any, refIdx: number) => (refIdx === idx ? ref : prevRef)));
+    setApis((prev: any) => prev.map((prevApi: any, apiIdx: number) => (apiIdx === idx ? api : prevApi)));
   }, [api, ref, temp, src]);
 
   useEffect(() => {
-    setActions((prev: any) => [...prev, animations]);
+    setActions((prev: any[]) => prev.map((prevAction: any, actionIdx: number) => (actionIdx === idx ? animations : prevAction)));
   }, [ref]);
 
   return (

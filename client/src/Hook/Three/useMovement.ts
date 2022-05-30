@@ -15,7 +15,6 @@ import { Vector3 } from "three";
 const SPEED = -1;
 
 const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { apis: any; characterRefs: any; actions: any; characters: CharacterType[] | null }) => {
-  console.log(apis, characterRefs, actions);
   const myUserId = useRecoilValue(myUserIdAtom);
   const myUserIdx = characters?.findIndex(({ userId }) => userId === myUserId);
   const userKeyStates = characters?.map(({ keyState: { forward, backward, left, right, boost, space, dance } }) => ({ forward, backward, left, right, boost, space, dance })) ?? [];
@@ -30,8 +29,8 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
     if (isSafe) {
       userKeyStates?.forEach(({ forward, backward, left, right, boost, space, dance }, idx) => {
         const { direction, upwardSpeed, characterDir } = getDirection({ forward, left, right, backward, space, boost, dance: false });
-        initAnimation({ forward, backward, left, right, boost, space, dance, actions: actions[idx] });
-        if (apis[idx]) {
+        if (actions[idx] !== 0) initAnimation({ forward, backward, left, right, boost, space, dance, actions: actions[idx] });
+        if (apis[idx] !== 0) {
           apis[idx].velocity.set(direction.x, upwardSpeed, direction.z);
           apis[idx].rotation.set(0, characterDir, 0);
         }
