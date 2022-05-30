@@ -14,7 +14,7 @@ import { Vector3 } from "three";
 
 const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx }: { src: string; characterState: CharacterType; characterRefs: any; idx: number; actions: any; apis: any }) => {
   if (!characterState) return null;
-
+  console.log(src);
   const {
     position: { x, y, z },
   } = characterState;
