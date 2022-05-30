@@ -2,6 +2,7 @@ import { GET_SELECT_CHARACTER_URL, GET_USER_CHARACTER_URL, POST_CHARACTER } from
 import { changeAvatarCode } from "@Recoils/UserData";
 import { routingType } from "@Route/util";
 import { Request } from "@Util/Request";
+import Socket from "@Socket/.";
 
 export const handleSelectFn = (setter: React.Dispatch<React.SetStateAction<number>>) => (idx: number) => () => {
   setter(idx);
@@ -49,10 +50,11 @@ export const setHandleMoveNext =
   };
 
 export const handleCharacterSave =
-  ({ setUserData, characterCode }: { setUserData: (valOrUpdater: routingType | ((currVal: routingType | null) => routingType | null) | null) => void; characterCode: string }) =>
+  ({ userName, setUserData, characterCode }: { userName: string; setUserData: (valOrUpdater: routingType | ((currVal: routingType | null) => routingType | null) | null) => void; characterCode: string }) =>
   async () => {
     const res = await postUserCharacter(characterCode);
     if (!res) return;
-    console.log(res);
+    console.log(userName);
     setUserData(changeAvatarCode(characterCode));
+    Socket.instance?.emit("changeCharacter", { userId: userName });
   };
