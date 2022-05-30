@@ -12,7 +12,7 @@ import { animationSrcs } from "@Constant/Three";
 import { CharacterType } from "@Type/Three";
 import { Vector3 } from "three";
 
-const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx }: { src: string; characterState: CharacterType; characterRefs: any; idx: number; actions: any; apis: any }) => {
+const TestCharacter = ({ src, characterState, setCharacterRefs, actions, apis, idx }: { src: string; characterState: CharacterType; setCharacterRefs: any; idx: number; actions: any; apis: any }) => {
   if (!characterState) return null;
   console.log(src);
   const {
@@ -30,7 +30,7 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
   actions.current[idx] = useGetAnimations({ animationSrcs, ref });
 
   useEffect(() => {
-    characterRefs.current[idx] = ref;
+    setCharacterRefs((prev: any) => [...prev, ref]);
     apis.current[idx] = api;
   }, [api, ref, temp]);
 
