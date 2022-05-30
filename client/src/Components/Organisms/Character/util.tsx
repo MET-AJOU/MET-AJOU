@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { GET_SELECT_CHARACTER_URL, GET_USER_CHARACTER_URL, POST_CHARACTER } from "@Constant/URL";
 import { changeAvatarCode } from "@Recoils/UserData";
 import { routingType } from "@Route/util";
@@ -56,6 +57,6 @@ export const handleCharacterSave =
     const res = await postUserCharacter(characterCode);
     if (!res) return;
     console.log(userName);
-    setUserData(changeAvatarCode(characterCode));
+    // setUserData(changeAvatarCode(characterCode));
     Socket.instance?.emit("changeCharacter", { userId: userName });
   };
