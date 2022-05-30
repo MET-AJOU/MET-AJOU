@@ -26,11 +26,12 @@ const useSelectCharacter = () => {
   const handleCostumeSelect = useCallback(handleSelectFn(setCostumeSelect), []);
 
   const characterCode = [select, ".", hairColor, ".", costumeSelect, ".", costumeColor].join("");
-  const renderCharacter = getRenderCharacter({ characterCode: myAvatarCode || characterCode });
+  const renderCharacter = getRenderCharacter({ characterCode });
+  const defaultRenderCharacter = getRenderCharacter({ characterCode: myAvatarCode || characterCode });
   const handleMoveNext = setHandleMoveNext({ setUserData, nextPage, characterCode });
   const handleSave = handleCharacterSave({ userName: String(userName), setUserData, characterCode });
 
-  return { select, handleSelect, hairColor, handleHairColor, costumeColor, handleCostumeColor, costumeSelect, handleCostumeSelect, renderCharacter, handleMoveNext, handleSave };
+  return { select, defaultRenderCharacter, handleSelect, hairColor, handleHairColor, costumeColor, handleCostumeColor, costumeSelect, handleCostumeSelect, renderCharacter, handleMoveNext, handleSave };
 };
 
 export default useSelectCharacter;
