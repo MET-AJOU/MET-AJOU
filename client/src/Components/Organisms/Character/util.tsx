@@ -47,3 +47,12 @@ export const setHandleMoveNext =
     setUserData(changeAvatarCode(characterCode));
     nextPage();
   };
+
+export const handleCharacterSave =
+  ({ setUserData, characterCode }: { setUserData: (valOrUpdater: routingType | ((currVal: routingType | null) => routingType | null) | null) => void; characterCode: string }) =>
+  async () => {
+    const res = await postUserCharacter(characterCode);
+    if (!res) return;
+    console.log(res);
+    setUserData(changeAvatarCode(characterCode));
+  };

@@ -3,7 +3,7 @@ import useMovePage from "@Hook/useMovePage";
 import { userDataAtom } from "@Recoils/UserData";
 import { useCallback, useState } from "react";
 import { useSetRecoilState } from "recoil";
-import { getDefaultHairColor, getRenderCharacter, handleSelectFn, setHandleMoveNext } from "./util";
+import { getDefaultHairColor, getRenderCharacter, handleCharacterSave, handleSelectFn, setHandleMoveNext } from "./util";
 
 const useSelectCharacter = () => {
   const [select, setSelect] = useState<number>(0);
@@ -26,8 +26,9 @@ const useSelectCharacter = () => {
   const characterCode = [select, ".", hairColor, ".", costumeSelect, ".", costumeColor].join("");
   const renderCharacter = getRenderCharacter({ characterCode });
   const handleMoveNext = setHandleMoveNext({ setUserData, nextPage, characterCode });
+  const handleSave = handleCharacterSave({ setUserData, characterCode });
 
-  return { select, handleSelect, hairColor, handleHairColor, costumeColor, handleCostumeColor, costumeSelect, handleCostumeSelect, renderCharacter, handleMoveNext };
+  return { select, handleSelect, hairColor, handleHairColor, costumeColor, handleCostumeColor, costumeSelect, handleCostumeSelect, renderCharacter, handleMoveNext, handleSave };
 };
 
 export default useSelectCharacter;

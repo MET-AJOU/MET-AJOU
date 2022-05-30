@@ -4,12 +4,11 @@ import SelectEquip from "@Molecules/Character/SelectEquip";
 import SelectPreview from "@Molecules/Character/SelectPreview";
 import RegisterNextButtonComponent from "@Molecules/Register/RegisterNextButtonComponent";
 import { checkSrc } from "@Organisms/Register/Email";
-// import { useNavigate } from "react-router-dom";
 import { CharacterFormContainer, CharacterFormTitle, CharacterSelectContainer, SelectPreviewContainer } from "./styles";
 import useSelectCharacter from "./useSelectCharacter";
 
 const CharacterForm = ({ type }: { type: string }) => {
-  const { select, handleSelect, hairColor, handleHairColor, costumeColor, handleCostumeColor, costumeSelect, handleCostumeSelect, renderCharacter, handleMoveNext } = useSelectCharacter();
+  const { select, handleSelect, hairColor, handleHairColor, costumeColor, handleCostumeColor, costumeSelect, handleCostumeSelect, renderCharacter, handleMoveNext, handleSave } = useSelectCharacter();
   return (
     <CharacterFormContainer>
       <CharacterFormTitle>원하는 캐릭터를 만들어보세요</CharacterFormTitle>
@@ -21,7 +20,7 @@ const CharacterForm = ({ type }: { type: string }) => {
         <SelectEquip character={select} hairColor={hairColor} handleHairColor={handleHairColor} costumeColor={costumeColor} handleCostumeColor={handleCostumeColor} costumeSelect={costumeSelect} handleCostumeSelect={handleCostumeSelect} />
       </CharacterSelectContainer>
       {type === NEW && <RegisterNextButtonComponent handleMoveNext={handleMoveNext} src={checkSrc(" ")} />}
-      {type === UPDATE && <MyPageSelectButton>저장</MyPageSelectButton>}
+      {type === UPDATE && <MyPageSelectButton onClick={handleSave}>저장</MyPageSelectButton>}
     </CharacterFormContainer>
   );
 };
