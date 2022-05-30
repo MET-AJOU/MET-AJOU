@@ -30,7 +30,7 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
       userKeyStates?.forEach(({ forward, backward, left, right, boost, space, dance }, idx) => {
         const { direction, upwardSpeed, characterDir } = getDirection({ forward, left, right, backward, space, boost, dance: false });
         if (actions[idx] !== 0) initAnimation({ forward, backward, left, right, boost, space, dance, actions: actions[idx] });
-        if (apis[idx] !== 0) {
+        if (apis[idx] && apis[idx] !== 0) {
           apis[idx].velocity.set(direction.x, upwardSpeed, direction.z);
           apis[idx].rotation.set(0, characterDir, 0);
         }
@@ -42,7 +42,7 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
 
       if (time > 3) {
         userPositions?.forEach(({ position }, idx) => {
-          apis[idx].position.set(position.x, position.y, position.z);
+          if (apis[idx] && apis[idx] !== 0) apis[idx].position.set(position.x, position.y, position.z);
         });
         setTime(0);
       }
