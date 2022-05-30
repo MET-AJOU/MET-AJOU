@@ -47,7 +47,12 @@ const initSocketEvents = ({ setOutUser, socket, setCharacters, setMyUserId, setJ
   });
   socket.on("changeCharacter", ({ joinTime, userId }: { joinTime: string; userId: string }) => {
     console.log("changeChacracter", joinTime, userId);
-    setCharacters((prev) => prev.map((character) => (character.userId === userId ? { ...character, joinTime } : character)));
+    setCharacters((prev) =>
+      prev.map((character) => {
+        console.log(character.userId === userId);
+        return character.userId === userId ? { ...character, joinTime } : character;
+      })
+    );
   });
 };
 

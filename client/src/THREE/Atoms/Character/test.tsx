@@ -14,7 +14,7 @@ import { Vector3 } from "three";
 
 const TestCharacter = ({ src, characterState, setCharacterRefs, actions, apis, idx }: { src: string; characterState: CharacterType; setCharacterRefs: any; idx: number; actions: any; apis: any }) => {
   if (!characterState) return null;
-  console.log(src);
+
   const {
     position: { x, y, z },
   } = characterState;
@@ -30,6 +30,7 @@ const TestCharacter = ({ src, characterState, setCharacterRefs, actions, apis, i
   actions.current[idx] = useGetAnimations({ animationSrcs, ref });
 
   useEffect(() => {
+    console.log(idx, temp, ref);
     setCharacterRefs((prev: any) => [...prev, ref]);
     apis.current[idx] = api;
   }, [api, ref, temp]);
