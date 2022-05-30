@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Suspense } from "react";
-import { Physics } from "@react-three/cannon";
+import { Debug, Physics } from "@react-three/cannon";
 import { Canvas } from "@react-three/fiber";
 import { Html, OrbitControls } from "@react-three/drei";
 import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
@@ -20,6 +21,7 @@ import Floors from "@THREE/Molecules/Gym/Floor";
 import Stairs from "@THREE/Molecules/Gym/Stair";
 import Walls from "@THREE/Molecules/Gym/Walls";
 
+import HeightMap from "@THREE/Molecules/Gym/HeightMap/Gym";
 import { MapContainer } from "./styles";
 
 const GymMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
@@ -40,16 +42,19 @@ const GymMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: Reac
                 </Html>
               }
             >
+              {/* <Debug scale={1} color="black"> */}
+              <HeightMap elementSize={0.0117} position={[-7.1, 0.02, 8.1]} rotation={[3.14 / 2, 3.14, 3.14]} />
               <Characters />
               <Ceilings />
               <Curtains />
               <Floors />
               <Stairs />
               <Walls />
+              {/* </Debug> */}
             </Suspense>
           </Physics>
           <Keyboard />
-          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[2].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[3].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
         </RecoilRoot>
       </Canvas>
     </MapContainer>
