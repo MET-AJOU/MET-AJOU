@@ -23,7 +23,7 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
   const { camera } = useThree();
   const [time, setTime] = useState(0);
   let isSafe = false;
-  if (characterRefs.current.length > 0 && apis.current.length > 0) isSafe = true;
+  if (characterRefs.length > 0 && apis.current.length > 0) isSafe = true;
 
   useFrame((state, delta) => {
     if (isSafe) {
@@ -55,7 +55,7 @@ const setCameraPosition = ({ characterRefs, myUserIdx, setMyPosition, camera, de
   const characterPosition = new Vector3();
   const cameraPosition = new Vector3();
 
-  characterRefs.current[Number(myUserIdx)]!.current.getWorldPosition(characterPosition);
+  characterRefs[Number(myUserIdx)]!.current.getWorldPosition(characterPosition);
   const { x, y, z } = characterPosition;
   setMyPosition({ x, y, z });
   camera.lookAt(characterPosition);
