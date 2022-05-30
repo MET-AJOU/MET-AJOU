@@ -14,15 +14,12 @@ import { Vector3 } from "three";
 import { CharactersAtom } from "@Recoils/Characters";
 import { useRecoilValue } from "recoil";
 
-const TestCharacter = ({ src, characterState, setCharacterRefs, actions, apis, idx }: { src: string; characterState: CharacterType; setCharacterRefs: any; idx: number; actions: any; apis: any }) => {
+const TestCharacter = ({ src, characterState, setCharacterRefs, setActions, setApis, idx }: { src: string; characterState: CharacterType; setCharacterRefs: any; idx: number; setActions: any; setApis: any }) => {
   if (!characterState) return null;
-  console.log(src);
-  const characters = useRecoilValue(CharactersAtom);
   const {
     position: { x, y, z },
   } = characterState;
   const temp = useFBX(src);
-  const [isChange, setChange] = useState<any>();
 
   const [ref, api] = useSphere(() => ({
     mass: 100,
@@ -30,24 +27,16 @@ const TestCharacter = ({ src, characterState, setCharacterRefs, actions, apis, i
     position: [x, y, z],
     type: "Dynamic",
   }));
-
-  actions.current[idx] = useGetAnimations({ animationSrcs, ref });
+  let animations = useGetAnimations({ animationSrcs, ref });
 
   useEffect(() => {
-    console.log(idx, temp, ref);
     setCharacterRefs((prev: any) => [...prev, ref]);
-    apis.current[idx] = api;
+    setApis((prev: any) => [...prev, api]);
   }, [api, ref, temp, src]);
 
   useEffect(() => {
-    console.log("empty", src, temp);
-    setChange(temp);
-  }, [src]);
-
-  useEffect(() => {
-    console.log("change", src, temp);
-    console.log("isChange", isChange);
-  }, [isChange]);
+    setActions((prev: any) => [...prev, animations]);
+  }, [ref]);
 
   return (
     <group ref={ref} scale={0.0015}>
