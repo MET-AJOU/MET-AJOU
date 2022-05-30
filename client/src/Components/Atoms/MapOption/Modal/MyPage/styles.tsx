@@ -63,6 +63,7 @@ export const MyPageSelectButton = styled.div`
   padding: 10px;
   text-align: center;
   color: #ffffff;
+  z-index: 1;
 `;
 export const MyPageUserInfoContainer = styled.div``;
 
