@@ -52,6 +52,7 @@ export const setHandleMoveNext =
 export const handleCharacterSave =
   ({ userName, setUserData, characterCode }: { userName: string; setUserData: (valOrUpdater: routingType | ((currVal: routingType | null) => routingType | null) | null) => void; characterCode: string }) =>
   async () => {
+    console.log(characterCode);
     const res = await postUserCharacter(characterCode);
     if (!res) return;
     console.log(userName);
