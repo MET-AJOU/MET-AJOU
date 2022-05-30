@@ -23,16 +23,16 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
   const { camera } = useThree();
   const [time, setTime] = useState(0);
   let isSafe = false;
-  if (characterRefs.length > 0 && apis.current.length > 0) isSafe = true;
+  if (characterRefs.length > 0 && apis.length > 0) isSafe = true;
 
   useFrame((state, delta) => {
     if (isSafe) {
       userKeyStates?.forEach(({ forward, backward, left, right, boost, space, dance }, idx) => {
         const { direction, upwardSpeed, characterDir } = getDirection({ forward, left, right, backward, space, boost, dance: false });
-        initAnimation({ forward, backward, left, right, boost, space, dance, actions: actions.current[idx] });
-        if (apis.current[idx]) {
-          apis.current[idx].velocity.set(direction.x, upwardSpeed, direction.z);
-          apis.current[idx].rotation.set(0, characterDir, 0);
+        initAnimation({ forward, backward, left, right, boost, space, dance, actions: actions[idx] });
+        if (apis[idx]) {
+          apis[idx].velocity.set(direction.x, upwardSpeed, direction.z);
+          apis[idx].rotation.set(0, characterDir, 0);
         }
       });
 
@@ -42,7 +42,7 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: { ap
 
       if (time > 3) {
         userPositions?.forEach(({ position }, idx) => {
-          apis.current[idx].position.set(position.x, position.y, position.z);
+          apis[idx].position.set(position.x, position.y, position.z);
         });
         setTime(0);
       }
