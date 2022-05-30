@@ -24,7 +24,7 @@ import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 import { chatAtom } from "@Recoils/MapOption/Chat";
 import LoadingPage from "@Pages/Loding";
 import { userDataAtom } from "@Recoils/UserData";
-import HeightMap from "@THREE/Molecules/Gym/HeightMap/Debate";
+import HeightMap from "@THREE/Molecules/Debate/HeightMap/Debate";
 import { MapContainer } from "./styles";
 
 const DebateMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
