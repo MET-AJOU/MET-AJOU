@@ -11,10 +11,13 @@ import useGetAnimations from "@Hook/Three/useGetAnimations";
 import { animationSrcs } from "@Constant/Three";
 import { CharacterType } from "@Type/Three";
 import { Vector3 } from "three";
+import { CharactersAtom } from "@Recoils/Characters";
+import { useRecoilValue } from "recoil";
 
 const TestCharacter = ({ src, characterState, setCharacterRefs, actions, apis, idx }: { src: string; characterState: CharacterType; setCharacterRefs: any; idx: number; actions: any; apis: any }) => {
   if (!characterState) return null;
-
+  console.log(src);
+  const characters = useRecoilValue(CharactersAtom);
   const {
     position: { x, y, z },
   } = characterState;
@@ -39,7 +42,7 @@ const TestCharacter = ({ src, characterState, setCharacterRefs, actions, apis, i
   useEffect(() => {
     console.log("empty", src, temp);
     setChange(temp);
-  }, []);
+  }, [src]);
 
   useEffect(() => {
     console.log("change", src, temp);
