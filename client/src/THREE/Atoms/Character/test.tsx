@@ -33,7 +33,7 @@ const TestCharacter = ({ src, characterState, setCharacterRefs, actions, apis, i
     console.log(idx, temp, ref);
     setCharacterRefs((prev: any) => [...prev, ref]);
     apis.current[idx] = api;
-  }, [api, ref, temp]);
+  }, [api, ref, temp, src]);
 
   return (
     <group ref={ref} scale={0.0015}>
