@@ -10,7 +10,7 @@ export const handleSelectFn = (setter: React.Dispatch<React.SetStateAction<numbe
 };
 
 export const getRenderCharacter = ({ characterCode }: { characterCode: string }): string => `${GET_SELECT_CHARACTER_URL}${characterCode}.fbx`;
-export const getRenderUserCharacter = ({ characterCode }: { characterCode: string }): string => `${GET_USER_CHARACTER_URL}${characterCode}.fbx`;
+export const getRenderUserCharacter = ({ characterCode, joinTime }: { characterCode: string; joinTime?: string }): string => `${GET_USER_CHARACTER_URL}${characterCode}.fbx?${joinTime}`;
 
 export const getDefaultHairColor = (character: number): number => {
   switch (character) {
@@ -53,10 +53,8 @@ export const setHandleMoveNext =
 export const handleCharacterSave =
   ({ userName, setUserData, characterCode }: { userName: string; setUserData: (valOrUpdater: routingType | ((currVal: routingType | null) => routingType | null) | null) => void; characterCode: string }) =>
   async () => {
-    console.log(characterCode);
     const res = await postUserCharacter(characterCode);
     if (!res) return;
-    console.log(userName);
     // setUserData(changeAvatarCode(characterCode));
     Socket.instance?.emit("changeCharacter", { userId: userName });
   };
