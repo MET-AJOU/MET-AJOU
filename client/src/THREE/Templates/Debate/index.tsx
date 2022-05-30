@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Suspense } from "react";
-import { Physics } from "@react-three/cannon";
+import { Debug, Physics } from "@react-three/cannon";
 import { Canvas } from "@react-three/fiber";
 import { Html, OrbitControls } from "@react-three/drei";
 import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
@@ -23,6 +24,7 @@ import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 import { chatAtom } from "@Recoils/MapOption/Chat";
 import LoadingPage from "@Pages/Loding";
 import { userDataAtom } from "@Recoils/UserData";
+import HeightMap from "@THREE/Molecules/Gym/HeightMap/Debate";
 import { MapContainer } from "./styles";
 
 const DebateMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
@@ -43,6 +45,8 @@ const DebateMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: R
                 </Html>
               }
             >
+              {/* <Debug scale={1} color="black"> */}
+              <HeightMap elementSize={0.0027} position={[-1.72, -0.056, 1.65]} rotation={[3.14 / 2, 3.14, 3.14]} />
               <Ceilings />
               <Chairs />
               <Floors />
@@ -53,6 +57,7 @@ const DebateMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: R
               <Walls />
               <Windows />
               <Characters />
+              {/* </Debug> */}
             </Suspense>
           </Physics>
           <Keyboard />
