@@ -57,5 +57,7 @@ export const handleCharacterSave =
     const res = await postUserCharacter(characterCode);
     if (!res) return;
     // setUserData(changeAvatarCode(characterCode));
-    Socket.instance?.emit("changeCharacter", { userId: userName });
+    setTimeout(() => {
+      Socket.instance?.emit("changeCharacter", { userId: userName });
+    }, 1000);
   };
