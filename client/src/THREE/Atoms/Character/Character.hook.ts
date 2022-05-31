@@ -26,6 +26,7 @@ export const useGetCharacterStates = ({ characterState, src, setCharacterRefs, s
 
   const animations = useGetAnimations({ animationSrcs, ref });
   useEffect(() => {
+    if (!characters.length) return;
     setCharacterRefs((prev: any[]) => {
       if (prev.length === characters.length) return prev.map((prevRef: any, refIdx: number) => (refIdx === idx ? ref : prevRef));
       if (prev.length < characters.length && characters.length - 1 === idx) return [...prev, ref];
@@ -34,10 +35,14 @@ export const useGetCharacterStates = ({ characterState, src, setCharacterRefs, s
       if (prev.length === characters.length) return prev.map((prevApi: any, apiIdx: number) => (apiIdx === idx ? api : prevApi));
       if (prev.length < characters.length && characters.length - 1 === idx) return [...prev, api];
     });
+  }, [src, temp]);
+
+  useEffect(() => {
     setActions((prev: any[]) => {
       if (prev.length === characters.length) return prev.map((prevAction: any, actionIdx: number) => (actionIdx === idx ? animations : prevAction));
       if (prev.length < characters.length && characters.length - 1 === idx) return [...prev, animations];
     });
-  }, [temp]);
+  }, [ref.current]);
+
   return [temp, ref];
 };
