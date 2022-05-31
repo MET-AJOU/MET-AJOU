@@ -7,7 +7,11 @@ export const DefaultKeyboardState: keyBoardStateType = {
   right: false,
   boost: false,
   space: false,
+  hello: false,
   dance: false,
+  happy: false,
+  question: false,
+  lose: false,
 };
 
 export const BuildingsSrc = "models/AjouMap/Building";
