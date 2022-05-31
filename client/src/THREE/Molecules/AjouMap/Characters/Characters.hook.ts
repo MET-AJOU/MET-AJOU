@@ -10,7 +10,7 @@ const useGetCharacterStates = <T extends CharacterType>(characters: T[]) => {
 
   useEffect(() => {
     if (characterRefs[0] === 0) return;
-
+    if (!characters.length) return;
     const leaveUser = characterRefs.findIndex((ref) => ref.current === null);
 
     setCharacterRefs((prev) => prev.filter((ref, idx) => idx !== leaveUser));

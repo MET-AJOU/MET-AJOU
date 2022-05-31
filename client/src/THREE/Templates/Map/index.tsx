@@ -60,7 +60,6 @@ const MapContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber
               <HeightMap elementSize={0.0742} position={[-52.9, -0.5, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
               <Fog />
               <Sky sunPosition={[100, 10, 100]} distance={500} />
-              <Characters />
               <Benches />
               <Buildings />
               <GardenBoxs />
@@ -71,6 +70,9 @@ const MapContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber
               <StreetLamps />
               <Trees />
               {/* </Debug> */}
+            </Suspense>
+            <Suspense fallback={null}>
+              <Characters />
             </Suspense>
           </Physics>
           <Keyboard />
