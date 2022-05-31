@@ -78,8 +78,12 @@ export const TabelAssetSize = 1;
 export const BenchAssetSize = 9;
 
 export const animationSrcs = {
-  walkingSrc: "Character/common_people@walk.FBX",
-  runningSrc: "Character/common_people@run.FBX",
-  dancingSrc: "Character/common_people@dance.FBX",
-  jumpingSrc: "Character/common_people@jump-up.FBX",
+  walking: "AnimationModels/common_people@walk.FBX",
+  running: "AnimationModels/common_people@run.FBX",
+  dancing: "AnimationModels/common_people@dance.FBX",
+  hello: "AnimationModels/common_people@wave.FBX",
+  jumping: "AnimationModels/common_people@jump-up.FBX",
+  happy: "AnimationModels/common_people@victory.FBX",
+  question: "AnimationModels/common_people@shrug.FBX",
+  lose: "AnimationModels/common_people@lose.FBX",
 };
