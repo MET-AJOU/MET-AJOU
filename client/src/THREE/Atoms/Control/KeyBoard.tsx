@@ -80,7 +80,11 @@ const Keyboard = () => {
     { keys: ["ArrowRight", "d", "D"], fn: (right) => ({ right }) },
     { keys: ["Shift"], fn: (boost) => ({ boost }) },
     { keys: ["Space", " "], fn: (space) => ({ space }) },
-    { keys: ["z", "Z"], fn: (dance) => ({ dance }) },
+    { keys: ["1"], fn: (hello) => ({ hello }) },
+    { keys: ["2"], fn: (dance) => ({ dance }) },
+    { keys: ["3"], fn: (happy) => ({ happy }) },
+    { keys: ["4"], fn: (question) => ({ question }) },
+    { keys: ["5"], fn: (lose) => ({ lose }) },
   ]);
   return null;
 };

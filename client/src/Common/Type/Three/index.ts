@@ -7,7 +7,11 @@ export interface keyBoardStateType {
   right: boolean;
   boost: boolean;
   space: boolean;
+  hello: boolean;
   dance: boolean;
+  happy: boolean;
+  question: boolean;
+  lose: boolean;
 }
 
 export interface PositionType {
