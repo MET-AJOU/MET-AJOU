@@ -42,6 +42,20 @@ const TestCharacter = ({ src, characterState, setCharacterRefs, setActions, setA
   }, [api, ref, temp, src]);
 
   useEffect(() => {
+    console.log("in empty deps");
+  }, []);
+  useEffect(() => {
+    console.log("in src deps");
+  }, [src]);
+  useEffect(() => {
+    console.log("in temp deps");
+  }, [temp]);
+  useEffect(() => {
+    console.log("in api deps");
+  }, [api]);
+
+  useEffect(() => {
+    console.log("in ref deps");
     setActions((prev: any[]) => {
       if (prev.length === characters.length) return prev.map((prevAction: any, actionIdx: number) => (actionIdx === idx ? animations : prevAction));
       if (prev.length < characters.length && characters.length - 1 === idx) return [...prev, animations];
