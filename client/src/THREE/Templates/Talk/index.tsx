@@ -35,7 +35,7 @@ import MetaContainer from "./styles";
 
 const TalkContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const setChatInfos = useSetRecoilState(chatAtom);
-  const [userData, setUserData] = useRecoilState(userDataAtom);
+  const setUserData = useSetRecoilState(userDataAtom);
 
   return (
     <MetaContainer>
@@ -71,7 +71,7 @@ const TalkContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumbe
             </Suspense>
           </Physics>
           <Keyboard />
-          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[1].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[1].id} setOutUser={setUserData} setChatInfos={setChatInfos} />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>
