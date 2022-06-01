@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // import { Suspense } from "react";
 import { OrbitControls, Sky, Html } from "@react-three/drei";
@@ -34,12 +35,13 @@ import Objects from "@THREE/Molecules/AjouMap/Objects";
 // import LoadingPage from "@Pages/Loding";
 import { userDataAtom } from "@Recoils/UserData";
 import LoadingPage from "@Pages/Loding";
-import { Suspense } from "react";
+import React, { Suspense } from "react";
+import StaticComponents from "@THREE/Organism/AjouMap/StaticComponents";
 import MetaContainer from "./styles";
 
 const MapContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const setChatInfos = useSetRecoilState(chatAtom);
-  const setUserData = useSetRecoilState(userDataAtom);
+  const [userData, setUserData] = useRecoilState(userDataAtom);
 
   return (
     <MetaContainer>
@@ -57,18 +59,9 @@ const MapContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber
               }
             >
               {/* <Debug scale={1} color="black"> */}
-              <HeightMap elementSize={0.0742} position={[-52.9, -0.5, 30.0998]} rotation={[3.14 / 2, 3.14, 3.14]} />
-              <Fog />
-              <Sky sunPosition={[100, 10, 100]} distance={500} />
-              <Benches />
-              <Buildings />
-              <GardenBoxs />
-              <Grounds />
-              <Objects />
-              <Roads />
-              <SideWalks />
-              <StreetLamps />
-              <Trees />
+
+              <StaticComponents />
+
               {/* </Debug> */}
             </Suspense>
             <Suspense fallback={null}>
@@ -76,7 +69,7 @@ const MapContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber
             </Suspense>
           </Physics>
           <Keyboard />
-          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setOutUser={setUserData} setChatInfos={setChatInfos} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
         </RecoilRoot>
       </Canvas>
     </MetaContainer>

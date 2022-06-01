@@ -26,7 +26,7 @@ import { MapContainer } from "./styles";
 
 const GymMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const setChatInfos = useSetRecoilState(chatAtom);
-  const setUserData = useSetRecoilState(userDataAtom);
+  const [userData, setUserData] = useRecoilState(userDataAtom);
   return (
     <MapContainer>
       <Canvas>
@@ -54,7 +54,7 @@ const GymMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: Reac
             </Suspense>
           </Physics>
           <Keyboard />
-          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[3].id} setOutUser={setUserData} setChatInfos={setChatInfos} />
+          <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[3].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
         </RecoilRoot>
       </Canvas>
     </MapContainer>
