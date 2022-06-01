@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 
 import { OUTERWALL_ASSET_SIZE, TALK_ASSET_SIZE, OUTERWALL_SRC } from "@Constant/Three/Talk";
-import FBXs from "@THREE/Atoms/Fbxs";
+import { FBXs } from "@THREE/Atoms/Fbxs";
 
 const OuterWall = () => {
   return (

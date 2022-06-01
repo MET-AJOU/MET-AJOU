@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { SideWalkAssetSize, SideWalkSrc } from "@Constant/Three";
-import FBXs from "@THREE/Atoms/Fbxs";
+import { FBXs } from "@THREE/Atoms/Fbxs";
 
 const SideWalks = () => {
   return (

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 
 import { HALLYWAYWALL_ASSET_SIZE, TALK_ASSET_SIZE, HALLYWAYWALL_SRC } from "@Constant/Three/Talk";
-import FBXs from "@THREE/Atoms/Fbxs";
+import { FBXs } from "@THREE/Atoms/Fbxs";
 
 const HallywayWall = () => {
   return (

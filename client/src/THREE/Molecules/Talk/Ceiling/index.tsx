@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { CEILING_ASSET_SIZE, TALK_ASSET_SIZE, CEILING_SRC } from "@Constant/Three/Talk";
-import FBXs from "@THREE/Atoms/Fbxs";
+import { FBXs } from "@THREE/Atoms/Fbxs";
 
 const Ceiling = () => {
   return (
