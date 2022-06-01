@@ -17,6 +17,7 @@ export const updateUserData = async ({ postData, setUserData }: { postData: obje
 
 const setUserTokenData = (arr: any[]) =>
   arr.reduce((acc, cur) => {
+    console.log(cur);
     if ("role" in cur) acc.role = cur.role;
     if ("verifiedEmail" in cur) acc.verifiedEmail = cur.verifiedEmail;
     if ("useable" in cur) acc.useable = cur.useable;
