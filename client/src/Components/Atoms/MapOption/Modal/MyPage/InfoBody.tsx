@@ -2,18 +2,18 @@
 import { userDataAtom } from "@Recoils/UserData";
 import { routingType, updateUserData } from "@Route/util";
 import { useRef, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { Button } from "@Atoms/StartButton/styles";
 import { ButtonCont, InfoInput, InfoLabel, InfoRow, MessageCont, MessageInput, MyPageUserInfoBody } from "./styles";
 
 const InfoBody = () => {
-  const userData = useRecoilValue(userDataAtom) as routingType;
-  const { userName, userNickName, userDepartment, userStudentCode, userEmail, userMessage } = userData;
+  const [userData, setUserData] = useRecoilState(userDataAtom);
+  const { userName, userNickName, userDepartment, userStudentCode, userEmail, userMessage } = userData as routingType;
   const [change, isChange] = useState(false);
   const inputRefs = new Array(6).fill(0).map(() => useRef(null));
   const handlePost = () => {
     const postData = getPostUserInfoData({ inputRefs, defaultValues: { userName, userNickName, userDepartment, userStudentCode, userMessage } });
-    updateUserData({ postData });
+    updateUserData({ postData, setUserData });
   };
 
   return (

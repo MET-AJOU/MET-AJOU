@@ -10,9 +10,13 @@ import { SetterOrUpdater } from "recoil";
 
 const getUserTokenURL = [GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER];
 
-export const updateUserData = async ({ postData }: { postData: object }) => {
-  const res = await Request({ url: GET_PROFILE, body: postData, method: "POST" });
-  console.log(res);
+export const updateUserData = async ({ postData, setUserData }: { postData: object; setUserData: SetterOrUpdater<routingType | null> }) => {
+  try {
+    await Request({ url: GET_PROFILE, body: postData, method: "POST" });
+    setUserData(await getUserToken());
+  } catch (e) {
+    alert(e);
+  }
 };
 
 const setUserTokenData = (arr: any[]) =>
