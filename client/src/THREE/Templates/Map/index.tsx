@@ -42,7 +42,6 @@ import MetaContainer from "./styles";
 const MapContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const setChatInfos = useSetRecoilState(chatAtom);
   const [userData, setUserData] = useRecoilState(userDataAtom);
-  console.log(userData);
 
   return (
     <MetaContainer>

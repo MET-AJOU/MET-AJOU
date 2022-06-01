@@ -20,7 +20,7 @@ const InfoBody = () => {
     <MyPageUserInfoBody onChange={() => isChange(true)}>
       <InfoRow>
         <InfoLabel>닉네임</InfoLabel>
-        <InfoInput ref={inputRefs[0]} placeholder={userName || ""} />
+        <InfoInput disabled ref={inputRefs[0]} placeholder={userName || ""} />
       </InfoRow>
       <InfoRow>
         <InfoLabel>이름</InfoLabel>
