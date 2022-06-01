@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { CEILING_ASSET_SIZE, CEILING_SRC, GYM_ASSET_SIZE } from "@Constant/Three/Gym";
-import FBXs from "@THREE/Atoms/Fbxs";
+import { FBXs } from "@THREE/Atoms/Fbxs";
 
 const Ceilings = () => {
   return (

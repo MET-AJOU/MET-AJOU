@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { ChairAssetSize, ChairSrc, DEBATE_ASSET_SIZE } from "@Constant/Three";
-import FBXs from "@THREE/Atoms/Fbxs";
+import { FBXs } from "@THREE/Atoms/Fbxs";
 
 const Chairs = () => {
   return (

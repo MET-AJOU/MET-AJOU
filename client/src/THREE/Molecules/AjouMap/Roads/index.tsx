@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { RoadsAssetSize, RoadsSrc } from "@Constant/Three";
-import FBXs from "@THREE/Atoms/Fbxs";
+import { FBXs } from "@THREE/Atoms/Fbxs";
 
 const Roads = () => {
   return (

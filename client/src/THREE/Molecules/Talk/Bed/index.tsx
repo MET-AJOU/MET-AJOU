@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 
 import { BED_ASSET_SIZE, TALK_ASSET_SIZE, BED_SRC } from "@Constant/Three/Talk";
-import FBXs from "@THREE/Atoms/Fbxs";
+import { FBXs } from "@THREE/Atoms/Fbxs";
 
 const Bed = () => {
   return (
