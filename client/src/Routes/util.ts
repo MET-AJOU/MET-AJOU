@@ -20,7 +20,7 @@ const setUserTokenData = (arr: any[]) =>
     if ("role" in cur) acc.role = cur.role;
     if ("verifiedEmail" in cur) acc.verifiedEmail = cur.verifiedEmail;
     if ("useable" in cur) acc.useable = cur.useable;
-    if ("nickName" in cur) acc.userName = cur.nickName;
+    if ("nickname" in cur) acc.userName = cur.nickname;
     if ("avatarCustomCode" in cur) acc.avatarCustomCode = cur.avatarCustomCode;
     if ("userName" in cur) acc.userNickName = cur.userName;
     if ("department" in cur) acc.userDepartment = cur.department;
