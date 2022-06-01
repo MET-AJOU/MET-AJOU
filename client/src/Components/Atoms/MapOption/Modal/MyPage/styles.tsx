@@ -84,10 +84,54 @@ export const MyPageUserInfoBody = styled.div`
   border-radius: 0px 0px 12px 12px;
   width: 300px;
   height: 350px;
+  padding-top: 3vh;
 `;
 
 export const InfoRow = styled.div`
+  margin-top: 1vh;
   display: flex;
-  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 80%;
   height: 10%;
+`;
+
+export const InfoLabel = styled.p`
+  font-size: 14px;
+  font-weight: 600;
+`;
+
+export const InfoInput = styled.input`
+  width: 70%;
+  height: 80%;
+  background-color: #ebf1ff;
+  border-radius: 5px;
+  padding-left: 10px;
+`;
+
+export const MessageCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  width: 80%;
+  margin: auto;
+  margin-top: 1vh;
+  justify-content: space-around;
+`;
+
+export const MessageInput = styled.textarea`
+  width: 100%;
+  height: 60%;
+  background-color: #ebf1ff;
+  border-radius: 5px;
+  padding: 3px 10px;
+`;
+
+export const ButtonCont = styled.div`
+  width: 80%;
+  margin: auto;
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: row-reverse;
 `;

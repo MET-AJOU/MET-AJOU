@@ -4,7 +4,8 @@ import { MODALCONTAINER } from "@Organisms/MapOption/Modal/useGetModal";
 import { CloseModal } from "../styles";
 
 import useCloseModal from "../useCloseModal";
-import { MyPageModalContainer, MyPageModalTitle, MyPageBodyContainer, MyPageSelectPreviewContainer, MyPageUserInfoHeader, MyPageUserInfoBody, MyPageCharacterChangeButton } from "./styles";
+import InfoBody from "./InfoBody";
+import { MyPageModalContainer, MyPageModalTitle, MyPageBodyContainer, MyPageSelectPreviewContainer, MyPageUserInfoHeader, MyPageCharacterChangeButton } from "./styles";
 import useChangeModal from "./useChangeModal";
 
 const MyPageModal = ({ targetRef }: { targetRef: any }) => {
@@ -21,7 +22,7 @@ const MyPageModal = ({ targetRef }: { targetRef: any }) => {
         </MyPageSelectPreviewContainer>
         <div>
           <MyPageUserInfoHeader>사용자 정보</MyPageUserInfoHeader>
-          <MyPageUserInfoBody />
+          <InfoBody />
         </div>
       </MyPageBodyContainer>
       <CloseModal size="15" src="./asset/MapOption/Modal/closeModal.png" alt="close" onClick={handleCloseModal} />

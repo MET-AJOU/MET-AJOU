@@ -10,13 +10,23 @@ import { SetterOrUpdater } from "recoil";
 
 const getUserTokenURL = [GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER];
 
+export const updateUserData = async ({ postData }: { postData: object }) => {
+  const res = await Request({ url: GET_PROFILE, body: postData, method: "POST" });
+  console.log(res);
+};
+
 const setUserTokenData = (arr: any[]) =>
   arr.reduce((acc, cur) => {
     if ("role" in cur) acc.role = cur.role;
     if ("verifiedEmail" in cur) acc.verifiedEmail = cur.verifiedEmail;
     if ("useable" in cur) acc.useable = cur.useable;
-    if ("userName" in cur) acc.userName = cur.userName;
+    if ("nickName" in cur) acc.userName = cur.nickName;
     if ("avatarCustomCode" in cur) acc.avatarCustomCode = cur.avatarCustomCode;
+    if ("userName" in cur) acc.userNickName = cur.userName;
+    if ("department" in cur) acc.userDepartment = cur.department;
+    if ("schoolCode" in cur) acc.userStudentCode = cur.schoolCode;
+    if ("userEmail" in cur) acc.userEmail = cur.userEmail;
+    if ("description" in cur) acc.userMessage = cur.description;
     return acc;
   }, {});
 
@@ -39,6 +49,11 @@ export interface routingType {
   verifiedEmail: string | null;
   useable: boolean | null;
   userName: string | null;
+  userNickName: string | null;
+  userDepartment: string | null;
+  userStudentCode: string | null;
+  userEmail: string | null;
+  userMessage: string | null;
   avatarCustomCode: string | null;
 }
 
