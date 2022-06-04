@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { BenchAssetSize, BenchSrc } from "@Constant/Three";
 import { BlockFbx } from "@THREE/Atoms/Fbxs";
-// import { FBXs } from "@THREE/Atoms/Fbxs";
 
 const Benches = () => {
   return (
