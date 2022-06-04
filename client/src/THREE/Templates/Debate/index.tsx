@@ -25,6 +25,7 @@ import { chatAtom } from "@Recoils/MapOption/Chat";
 import LoadingPage from "@Pages/Loding";
 import { userDataAtom } from "@Recoils/UserData";
 import HeightMap from "@THREE/Molecules/Debate/HeightMap/Debate";
+import StaticComponents from "@THREE/Organism/Debate/StaticComponents";
 import { MapContainer } from "./styles";
 
 const DebateMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
@@ -41,23 +42,14 @@ const DebateMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: R
             <Suspense
               fallback={
                 <Html>
-                  <LoadingPage setLoading={setLoading} />
+                  <LoadingPage />
                 </Html>
               }
             >
-              {/* <Debug scale={1} color="black"> */}
-              <HeightMap elementSize={0.0027} position={[-1.72, -0.056, 1.65]} rotation={[3.14 / 2, 3.14, 3.14]} />
-              <Ceilings />
-              <Chairs />
-              <Floors />
-              <OutWalls />
-              <Props />
-              <Room />
-              <Tables />
-              <Walls />
-              <Windows />
+              <StaticComponents setLoading={setLoading} />
+            </Suspense>
+            <Suspense fallback={null}>
               <Characters />
-              {/* </Debug> */}
             </Suspense>
           </Physics>
           <Keyboard />

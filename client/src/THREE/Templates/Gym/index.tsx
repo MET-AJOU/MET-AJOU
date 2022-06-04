@@ -8,20 +8,13 @@ import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
 import { CHANNEL_INFO } from "@Constant/.";
 
 import SocketComponent from "@THREE/Atoms/Socket";
-import Characters from "@THREE/Molecules/AjouMap/Characters";
 import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 
 import { chatAtom } from "@Recoils/MapOption/Chat";
 import LoadingPage from "@Pages/Loding";
 import { userDataAtom } from "@Recoils/UserData";
-
-import Ceilings from "@THREE/Molecules/Gym/Ceiling";
-import Curtains from "@THREE/Molecules/Gym/Curtain";
-import Floors from "@THREE/Molecules/Gym/Floor";
-import Stairs from "@THREE/Molecules/Gym/Stair";
-import Walls from "@THREE/Molecules/Gym/Walls";
-
-import HeightMap from "@THREE/Molecules/Gym/HeightMap/Gym";
+import StaticComponents from "@THREE/Organism/Gym/StaticComponents";
+import Characters from "@THREE/Molecules/AjouMap/Characters";
 import { MapContainer } from "./styles";
 
 const GymMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
@@ -38,19 +31,14 @@ const GymMap = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: Reac
             <Suspense
               fallback={
                 <Html>
-                  <LoadingPage setLoading={setLoading} />
+                  <LoadingPage />
                 </Html>
               }
             >
-              {/* <Debug scale={1} color="black"> */}
-              <HeightMap elementSize={0.0117} position={[-7.1, 0.02, 8.1]} rotation={[3.14 / 2, 3.14, 3.14]} />
+              <StaticComponents setLoading={setLoading} />
+            </Suspense>
+            <Suspense fallback={null}>
               <Characters />
-              <Ceilings />
-              <Curtains />
-              <Floors />
-              <Stairs />
-              <Walls />
-              {/* </Debug> */}
             </Suspense>
           </Physics>
           <Keyboard />

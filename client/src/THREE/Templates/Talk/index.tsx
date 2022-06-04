@@ -29,6 +29,7 @@ import Table from "@THREE/Molecules/Talk/Table";
 import Floor from "@THREE/Molecules/Gym/Floor";
 import Door from "@THREE/Molecules/Talk/Door";
 import HeightMap from "@THREE/Molecules/Talk/HeightMap/Talk";
+import StaticComponents from "@THREE/Organism/Talk/StaticComponents";
 import MetaContainer from "./styles";
 
 const TalkContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
@@ -46,26 +47,14 @@ const TalkContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumbe
             <Suspense
               fallback={
                 <Html>
-                  <LoadingPage setLoading={setLoading} />
+                  <LoadingPage />
                 </Html>
               }
             >
-              {/* <Debug scale={1} color="black"> */}
-              <HeightMap elementSize={0.0112} position={[-5.7, 0, 8.645]} rotation={[3.14 / 2, 3.14, 3.14]} />
-              <Fog />
-              <Sky sunPosition={[100, 10, 100]} distance={500} />
+              <StaticComponents setLoading={setLoading} />
+            </Suspense>
+            <Suspense fallback={null}>
               <Characters />
-              <Bed />
-              <Ceiling />
-              <Chair />
-              <Closet />
-              <Door />
-              {/* <Floor /> */}
-              <HallywayWall />
-              <InnerWall />
-              <OuterWall />
-              <Table />
-              {/* </Debug> */}
             </Suspense>
           </Physics>
           <Keyboard />

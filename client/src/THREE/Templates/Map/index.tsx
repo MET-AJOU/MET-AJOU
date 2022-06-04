@@ -54,15 +54,11 @@ const MapContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber
             <Suspense
               fallback={
                 <Html>
-                  <LoadingPage setLoading={setLoading} />
+                  <LoadingPage />
                 </Html>
               }
             >
-              {/* <Debug scale={1} color="black"> */}
-
-              <StaticComponents />
-
-              {/* </Debug> */}
+              <StaticComponents setLoading={setLoading} />
             </Suspense>
             <Suspense fallback={null}>
               <Characters />

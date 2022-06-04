@@ -5,7 +5,10 @@ import MapOptionHeader from "@Organisms/MapOption/Header";
 import MapOptionModal from "@Organisms/MapOption/Modal";
 
 const MapOptionTemplate = ({ channelInfo, now, loading }: { channelInfo: ChanelInfoType; now: number; loading: boolean }) => {
-  if (!loading) return null;
+  if (!loading) {
+    return null;
+  }
+
   return (
     <>
       <MapOptionHeader channelInfo={channelInfo} now={now} />

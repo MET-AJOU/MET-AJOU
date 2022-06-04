@@ -6,7 +6,7 @@ import useHandleExit from "./useHandleExit";
 
 const ExitModal = ({ targetRef }: { targetRef: any }) => {
   const handleCloseModal = useCloseModal();
-  const handleExit = useHandleExit();
+  const handleExit = useHandleExit(handleCloseModal);
 
   return (
     <ExitModalContainer ref={targetRef} id={MODALCONTAINER}>
