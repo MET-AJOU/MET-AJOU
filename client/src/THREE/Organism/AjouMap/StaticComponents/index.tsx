@@ -11,9 +11,12 @@ import Roads from "@THREE/Molecules/AjouMap/Roads";
 import SideWalks from "@THREE/Molecules/AjouMap/SideWalks";
 import StreetLamps from "@THREE/Molecules/AjouMap/StreetLamps";
 import Trees from "@THREE/Molecules/AjouMap/Trees";
-import React from "react";
+import React, { useEffect } from "react";
 
-const StaticComponents = () => {
+const StaticComponents = ({ setLoading }: { setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
+  useEffect(() => {
+    setLoading(true);
+  }, []);
   return (
     <>
       {/* <Debug scale={1} color="black"> */}
