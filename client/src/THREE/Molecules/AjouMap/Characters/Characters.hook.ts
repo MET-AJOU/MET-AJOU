@@ -55,7 +55,7 @@ const setCameraPosition = ({ characterRefs, myUserIdx, setMyPosition, camera, de
   const characterPosition = new Vector3();
   const cameraPosition = new Vector3();
 
-  if (!characterRefs.current[Number(myUserIdx)].current) return;
+  if (!characterRefs.current[Number(myUserIdx)]?.current) return;
   characterRefs.current[Number(myUserIdx)]!.current.getWorldPosition(characterPosition);
   const { x, y, z } = characterPosition;
   setMyPosition({ x, y, z });
