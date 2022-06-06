@@ -29,11 +29,8 @@ const TestCharacter = ({ src, characterState, characterRefs, actions, apis, idx 
   }));
 
   actions.current[idx] = useGetAnimations({ animationSrcs, ref });
-
-  useFrame(() => {
-    characterRefs.current[idx] = ref;
-    apis.current[idx] = api;
-  });
+  characterRefs.current[idx] = ref;
+  apis.current[idx] = api;
 
   return (
     <group ref={ref} scale={0.0015}>

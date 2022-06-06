@@ -1,7 +1,3 @@
-/* eslint-disable no-debugger */
-/* eslint-disable prefer-const */
-/* eslint-disable no-useless-return */
-/* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-nested-ternary */
 import { useThree, useFrame } from "@react-three/fiber";
