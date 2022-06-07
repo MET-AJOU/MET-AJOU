@@ -1,12 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import { GardenBoxAssetSize, GardenBoxSrc } from "@Constant/Three";
-import { BlockFbx } from "@THREE/Atoms/Fbxs";
+import { FBXs } from "@THREE/Atoms/Fbxs";
 
 const GardenBoxs = () => {
   return (
     <>
       {new Array(GardenBoxAssetSize).fill(1).map((_, idx) => (
-        <BlockFbx key={`GardenBox${idx}`} src={`${GardenBoxSrc}/gardenbox_${idx + 1}.fbx`} />
+        <FBXs key={`GardenBox${idx}`} src={`${GardenBoxSrc}/gardenbox_${idx + 1}.fbx`} />
+        // <BlockFbx key={`GardenBox${idx}`} src={`${GardenBoxSrc}/gardenbox_${idx + 1}.fbx`} />
       ))}
     </>
   );
