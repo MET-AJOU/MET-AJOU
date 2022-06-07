@@ -32,6 +32,10 @@ export const ObjectSrc = "models/AjouMap/Objects";
 
 export const BenchSrc = "models/AjouMap/Benches";
 
+export const AjouMeoSrc = "models/AjouMap/AjouMeo";
+
+export const EventSrc = "models/AjouMap/Event";
+
 export const RoadsAssetSize = 14;
 
 export const GroundAssetSize = 54;
@@ -46,7 +50,12 @@ export const GardenBoxAssetSize = 8;
 
 export const ObjectAssetSize = 35;
 
-export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital", "domitory1", "domitory2", "domitory3", "sanhak"];
+export const AjouMeoAssetSize = 11;
+
+export const EventAssetSize = 9;
+
+// export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital", "domitory1", "domitory2", "domitory3", "sanhak", "international"];
+export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital", "domitory1", "domitory2", "domitory3", "sanhak", "international", "rotc"];
 
 /* debate */
 
