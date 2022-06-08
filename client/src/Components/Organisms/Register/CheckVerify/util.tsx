@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-restricted-syntax */
 import { CHECK_VERIFY_EMAIL } from "@Constant/URL";
 import { CHANGE_IDX } from "@Molecules/Register/CheckEmailVerifyInput";
@@ -60,9 +61,27 @@ export const setHandleCode =
   ({ inputRefs, setCode }: { inputRefs: React.MutableRefObject<never[]>; setCode: React.Dispatch<React.SetStateAction<codeType>> }) =>
   (id: number) =>
   ({ target: { value } }: { target: { value: string } }) => {
-    const idx = CHANGE_IDX[id];
-    (inputRefs.current[id + 1] as HTMLInputElement)?.focus();
-    setCode(setCodeFn(idx, value));
+    if (value.length + id <= 6) (inputRefs.current[id + value.length] as HTMLInputElement)?.focus();
+    setCode(setCodeFn(id, value));
   };
 
-const setCodeFn = (idx: string, value: string) => (prev: codeType) => prev[idx] !== "" ? prev : { ...prev, [idx]: value };
+const setCodeFn = (id: number, value: string) => (prev: codeType) => {
+  const idx = CHANGE_IDX[id];
+  if (value.length === 0) return { ...prev, [idx]: value };
+  return Array.from(makeValue(value, id)).reduce(
+    (acc, cur, i) => {
+      return { ...acc, [CHANGE_IDX[i + id]]: cur };
+    },
+    { ...prev }
+  );
+};
+
+const MAX_INPUT_LENGTH = 6;
+
+const makeValue = (value: string, id: number) => {
+  let answer = "";
+  const l = value.length + id;
+  if (l <= MAX_INPUT_LENGTH) return value;
+  for (let i = 0; i < MAX_INPUT_LENGTH - id; i++) answer += value[i];
+  return answer;
+};
