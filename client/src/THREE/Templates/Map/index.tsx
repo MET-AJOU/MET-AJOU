@@ -4,35 +4,15 @@
 import { OrbitControls, Sky, Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics, Debug } from "@react-three/cannon";
-import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
 
 import { CHANNEL_INFO } from "@Constant/.";
-
-import FakePlanes from "@THREE/Atoms/FakePlanes";
-
-import Buildings from "@THREE/Molecules/AjouMap/Buildings";
-import Roads from "@THREE/Molecules/AjouMap/Roads";
-import Grounds from "@THREE/Molecules/AjouMap/Grounds";
 
 import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 import SocketComponent from "@THREE/Atoms/Socket";
 import Characters from "@THREE/Molecules/AjouMap/Characters";
 
-import Fog from "@THREE/Atoms/Fog";
-
-import HeightMap from "@THREE/Atoms/HeightMap";
-
-import SideWalks from "@THREE/Molecules/AjouMap/SideWalks";
-import StreetLamps from "@THREE/Molecules/AjouMap/StreetLamps";
-import Trees from "@THREE/Molecules/AjouMap/Trees";
-
 import { chatAtom } from "@Recoils/MapOption/Chat";
-import Benches from "@THREE/Molecules/AjouMap/Benches";
-
-import GardenBoxs from "@THREE/Molecules/AjouMap/GardenBoxs";
-import Objects from "@THREE/Molecules/AjouMap/Objects";
-
-// import LoadingPage from "@Pages/Loding";
 import { userDataAtom } from "@Recoils/UserData";
 import LoadingPage from "@Pages/Loding";
 import React, { Suspense } from "react";

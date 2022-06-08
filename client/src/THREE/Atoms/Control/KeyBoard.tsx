@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-expressions */
 import { myPositionAtom, myUserIdAtom } from "@Recoils/Characters";
 import { useEffect, useState } from "react";
@@ -26,7 +26,6 @@ function useKeys(keyConfig: KeyConfig[]) {
     keyMap = keyConfig.reduce<{ [key: string]: KeyMap }>((out, { keys, fn, up = true }) => {
       keys &&
         keys.forEach((key) => {
-          // eslint-disable-next-line no-param-reassign
           out[key] = { fn, pressed: false, up };
         });
       return out;
@@ -42,7 +41,7 @@ function useKeys(keyConfig: KeyConfig[]) {
   useEffect(() => {
     const downHandler = ({ key, target }: KeyboardEvent) => {
       if (!keyMap[key] || (target as HTMLElement).nodeName === "INPUT") return;
-      const { fn, pressed, up } = keyMap[key];
+      const { pressed, up } = keyMap[key];
       keyMap[key].pressed = true;
       setPressed(true);
       const keyState = Object.values(keyMap).reduce((state, { fn: _fn, pressed: _pressed }) => {
