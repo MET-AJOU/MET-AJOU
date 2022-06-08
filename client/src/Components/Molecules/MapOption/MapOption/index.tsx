@@ -5,7 +5,9 @@ import useOpenModal from "@Atoms/MapOption/useOpenModal";
 import { MapOptionContainer } from "./styles";
 
 const MapOption = () => {
+  if (window.innerWidth < 768) return null;
   const { handleControllerOpen, handleMyPageOpen, handleExitOpen } = useOpenModal();
+
   return (
     <MapOptionContainer>
       <MyPage handleMyPageOpen={handleMyPageOpen} />
