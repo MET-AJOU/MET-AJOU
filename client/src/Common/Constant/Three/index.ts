@@ -54,7 +54,6 @@ export const AjouMeoAssetSize = 11;
 
 export const EventAssetSize = 9;
 
-// export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital", "domitory1", "domitory2", "domitory3", "sanhak", "international"];
 export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital", "domitory1", "domitory2", "domitory3", "sanhak", "international", "rotc"];
 
 /* debate */
