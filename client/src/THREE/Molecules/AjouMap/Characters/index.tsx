@@ -15,7 +15,6 @@ const Characters = () => {
   return (
     <>
       {characters?.map((characterState, idx) => (
-        // <Test2Character temps={temps} characterRefs={characterRefs} idx={idx} key={characterState.userId} />
         <Character apis={apis} actions={actions} characterRefs={characterRefs} idx={idx} src={getRenderUserCharacter({ characterCode: characterState.userId, joinTime: characterState.joinTime })} characterState={characterState} key={characterState.userId} />
       ))}
     </>

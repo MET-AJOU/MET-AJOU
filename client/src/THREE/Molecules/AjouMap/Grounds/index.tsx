@@ -1,15 +1,4 @@
-/* eslint-disable react/no-array-index-key */
 import { GroundAssetSize, GroundsSrc } from "@Constant/Three";
-import { FBXs } from "@THREE/Atoms/Fbxs";
+import FBX from "@THREE/Atoms/ModelComponent/FBX";
 
-const Grounds = () => {
-  return (
-    <>
-      {new Array(GroundAssetSize).fill(1).map((_, idx) => (
-        <FBXs key={`grounds${idx}`} src={`${GroundsSrc}/ground_${String(idx + 1).padStart(2, "0")}.fbx`} />
-      ))}
-    </>
-  );
-};
-
-export default Grounds;
+export const Grounds = () => <FBX assetSize={GroundAssetSize} keyName="grounds" srcName={`${GroundsSrc}/ground_`} />;

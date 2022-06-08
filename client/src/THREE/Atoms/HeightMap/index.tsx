@@ -1,6 +1,4 @@
-/* eslint-disable no-nested-ternary */
 /* eslint-disable no-plusplus */
-/* eslint-disable prefer-destructuring */
 import { useTexture } from "@react-three/drei";
 import { useHeightfield } from "@react-three/cannon";
 import { useAsset } from "use-asset";
@@ -21,8 +19,7 @@ function createHeightfieldMatrix(image: HTMLImageElement): number[][] {
   if (!context) {
     throw new Error("Heightfield could not be created");
   }
-  const width = image.width;
-  const height = image.height;
+  const { width, height } = image;
   const matrix: number[][] = Array(width);
   const row: number[] = Array(height);
   const scale = 20; // determines the vertical scale of the heightmap

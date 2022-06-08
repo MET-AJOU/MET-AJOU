@@ -5,7 +5,7 @@ import { MainFooterContainer, LogoContainer } from "./styles";
 
 const MainFooter = () => {
   const handleInstaClick = () => window.open("https://www.instagram.com/met_ajou/");
-  const handleFacebookClick = () => window.open("https://www.facebook.com/profile.php?id=100080959173615");
+  const handleFacebookClick = () => window.open("https://www.facebook.com/Metajou-109118235141463/");
 
   return (
     <MainFooterContainer>

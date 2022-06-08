@@ -2,17 +2,7 @@ import { Sky } from "@react-three/drei";
 
 import Fog from "@THREE/Atoms/Fog";
 import HeightMap from "@THREE/Atoms/HeightMap";
-import AjouMeo from "@THREE/Molecules/AjouMap/AjouMeo";
-import Benches from "@THREE/Molecules/AjouMap/Benches";
-import Buildings from "@THREE/Molecules/AjouMap/Buildings";
-import Event from "@THREE/Molecules/AjouMap/Event";
-import GardenBoxs from "@THREE/Molecules/AjouMap/GardenBoxs";
-import Grounds from "@THREE/Molecules/AjouMap/Grounds";
-import Objects from "@THREE/Molecules/AjouMap/Objects";
-import Roads from "@THREE/Molecules/AjouMap/Roads";
-import SideWalks from "@THREE/Molecules/AjouMap/SideWalks";
-import StreetLamps from "@THREE/Molecules/AjouMap/StreetLamps";
-import Trees from "@THREE/Molecules/AjouMap/Trees";
+import { Benches, Buildings, GardenBoxs, AjouMeo, Grounds, Objects, Roads, SideWalks, StreetLamps, Trees, Event } from "@THREE/Molecules/AjouMap";
 import React, { useEffect } from "react";
 
 const StaticComponents = ({ setLoading }: { setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {

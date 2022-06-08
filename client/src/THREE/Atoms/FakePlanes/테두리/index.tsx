@@ -1,17 +1,4 @@
-import Box from "@THREE/Atoms/Building/test";
-
-// [z축 x축 y축]
-
-// position [0] : - 왼쪽 + 오른쪽
-// position [1] : 높이
-// position [2] : + 아래 , - 위
-
-// args [0] : 좌우 중심에서 길어지고 짧아짐
-// args [1] : 높이 위아래
-// args [2] : 위아래 중심에서 길어지고 짧아짐
-
-// rotation [0] : 수직으로 세워짐
-// rotation [1] : 회전
+import Box from "@THREE/Atoms/FakePlanes/테두리/test";
 
 const 외벽높이 = 20;
 const 사이드길이 = 70;
@@ -35,3 +22,16 @@ const BorderFakePlane = () => {
 };
 
 export default BorderFakePlane;
+
+// [z축 x축 y축]
+
+// position [0] : - 왼쪽 + 오른쪽
+// position [1] : 높이
+// position [2] : + 아래 , - 위
+
+// args [0] : 좌우 중심에서 길어지고 짧아짐
+// args [1] : 높이 위아래
+// args [2] : 위아래 중심에서 길어지고 짧아짐
+
+// rotation [0] : 수직으로 세워짐
+// rotation [1] : 회전

@@ -1,13 +1,5 @@
-import Ceilings from "@THREE/Molecules/Debate/Ceilings";
-import Chairs from "@THREE/Molecules/Debate/Chairs";
-import Floors from "@THREE/Molecules/Debate/Floors";
+import { Props, Ceilings, Chairs, Floors, OutWalls, Room, Tables, Walls, Windows } from "@THREE/Molecules/Debate";
 import HeightMap from "@THREE/Molecules/Debate/HeightMap/Debate";
-import OutWalls from "@THREE/Molecules/Debate/OutWalls";
-import Props from "@THREE/Molecules/Debate/Props";
-import Room from "@THREE/Molecules/Debate/Room";
-import Tables from "@THREE/Molecules/Debate/Tables";
-import Walls from "@THREE/Molecules/Debate/Walls";
-import Windows from "@THREE/Molecules/Debate/Windows";
 import React, { useEffect } from "react";
 
 const StaticComponents = ({ setLoading }: { setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {

@@ -29,37 +29,5 @@ const Fog = () => {
 export default Fog;
 
 interface TrackGLTF extends GLTF {
-  nodes: {
-    // track_2: Mesh;
-    // tube: Mesh;
-    // strip: Mesh;
-    // track_1: Mesh;
-    // mountains: Mesh;
-    // terrain: Mesh;
-    // water: Mesh;
-    // bird001: Mesh;
-    // bird002: Mesh;
-    // bird003: Mesh;
-    // bird: Mesh;
-    // blade001: Mesh;
-    // blade002: Mesh;
-    // blade003: Mesh;
-    // blade004: Mesh;
-    // blade005: Mesh;
-    // blade006: Mesh;
-    // blade: Mesh;
-    cloud001: Mesh;
-    cloud002: Mesh;
-    cloud003: Mesh;
-    cloud004: Mesh;
-    cloud005: Mesh;
-    cloud006: Mesh;
-    cloud007: Mesh;
-    cloud008: Mesh;
-    cloud009: Mesh;
-    cloud010: Mesh;
-    cloud011: Mesh;
-    cloud012: Mesh;
-    cloud: Mesh;
-  };
+  nodes: { cloud001: Mesh; cloud002: Mesh; cloud003: Mesh; cloud004: Mesh; cloud005: Mesh; cloud006: Mesh; cloud007: Mesh; cloud008: Mesh; cloud009: Mesh; cloud010: Mesh; cloud011: Mesh; cloud012: Mesh; cloud: Mesh };
 }

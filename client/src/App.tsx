@@ -13,7 +13,7 @@ import { ABOUT, CHANNEL, CHARACTER, DEBATE, GYM, LOGIN, MAP, NICKNAME, PRIVACY, 
 import TalkPage from "@Pages/Talk";
 
 const App = () => {
-  // if (window.innerWidth < 768) return <MobileView />;
+  if (window.innerWidth < 768) return <MapPage />;
   return (
     <Suspense fallback={<div>1</div>}>
       <Routes>

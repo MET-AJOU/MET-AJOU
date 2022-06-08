@@ -3,8 +3,6 @@
 import { Info1, Info2, Info3, Info4, Info5, Info6 } from "@Atoms/Svgs";
 import { ChanelInfoType, ValueDataType } from "@Type/.";
 
-export const hello = () => "hello";
-
 export const MAIN_INFO_DATA = [
   {
     Element: Info1,
@@ -54,8 +52,6 @@ export const CARD_LIST_DATA: ValueDataType[] = [
     text: ["문자 채팅,감정표현 등", "다양한 방식으로 여러분의", "마음을 전해보세요"],
   },
 ];
-
-export const TEAM_INFO_SIZE = 3;
 
 export const CHANNEL_INFO: ChanelInfoType[] = [
   {
