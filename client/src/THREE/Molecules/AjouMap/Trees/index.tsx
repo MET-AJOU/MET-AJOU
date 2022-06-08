@@ -1,16 +1,4 @@
-/* eslint-disable react/no-array-index-key */
 import { TreeAssetSize, TreeSrc } from "@Constant/Three";
-import { FBXs } from "@THREE/Atoms/Fbxs";
+import FBX from "@THREE/Atoms/ModelComponent/FBX";
 
-const Trees = () => {
-  return (
-    <>
-      {new Array(TreeAssetSize).fill(1).map((_, idx) => (
-        // <BlockFbx key={`${idx}TreeSrc`} src={`${TreeSrc}/tree_${String(idx + 1).padStart(3, "0")}.fbx`} />
-        <FBXs key={`${idx}TreeSrc`} src={`${TreeSrc}/tree_${String(idx + 1).padStart(3, "0")}.fbx`} />
-      ))}
-    </>
-  );
-};
-
-export default Trees;
+export const Trees = () => <FBX assetSize={TreeAssetSize} keyName="TreeSrc" srcName={`${TreeSrc}/tree_`} />;

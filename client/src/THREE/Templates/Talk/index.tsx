@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// import { Suspense } from "react";
-import { OrbitControls, Sky, Html } from "@react-three/drei";
+import { OrbitControls, Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Physics, Debug } from "@react-three/cannon";
+import { Physics } from "@react-three/cannon";
 import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
 
 import { CHANNEL_INFO } from "@Constant/.";
@@ -11,24 +9,11 @@ import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 import SocketComponent from "@THREE/Atoms/Socket";
 import Characters from "@THREE/Molecules/AjouMap/Characters";
 
-import Fog from "@THREE/Atoms/Fog";
-
 import { chatAtom } from "@Recoils/MapOption/Chat";
 
 import { userDataAtom } from "@Recoils/UserData";
 import LoadingPage from "@Pages/Loding";
 import { Suspense } from "react";
-import Bed from "@THREE/Molecules/Talk/Bed";
-import Ceiling from "@THREE/Molecules/Talk/Ceiling";
-import Chair from "@THREE/Molecules/Talk/Chair";
-import Closet from "@THREE/Molecules/Talk/Closet";
-import HallywayWall from "@THREE/Molecules/Talk/HallywayWall";
-import InnerWall from "@THREE/Molecules/Talk/InnerWall";
-import OuterWall from "@THREE/Molecules/Talk/OuterWall";
-import Table from "@THREE/Molecules/Talk/Table";
-import Floor from "@THREE/Molecules/Gym/Floor";
-import Door from "@THREE/Molecules/Talk/Door";
-import HeightMap from "@THREE/Molecules/Talk/HeightMap/Talk";
 import StaticComponents from "@THREE/Organism/Talk/StaticComponents";
 import MetaContainer from "./styles";
 

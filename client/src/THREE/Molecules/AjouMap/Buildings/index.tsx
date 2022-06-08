@@ -1,8 +1,7 @@
 import { BuildingNames, BuildingsSrc } from "@Constant/Three";
 import { BlockFbx } from "@THREE/Atoms/Fbxs";
 
-const Buildings = () => {
-  // 가로 x 높이 y 세로 z
+export const Buildings = () => {
   return (
     <>
       {BuildingNames.map((src: string) => (
@@ -11,5 +10,3 @@ const Buildings = () => {
     </>
   );
 };
-
-export default Buildings;

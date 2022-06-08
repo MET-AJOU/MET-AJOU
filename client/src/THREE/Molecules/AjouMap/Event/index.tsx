@@ -1,16 +1,4 @@
-/* eslint-disable react/no-array-index-key */
 import { EventAssetSize, EventSrc } from "@Constant/Three";
-import { FBXs } from "@THREE/Atoms/Fbxs";
+import FBX from "@THREE/Atoms/ModelComponent/FBX";
 
-const Event = () => {
-  return (
-    <>
-      {new Array(EventAssetSize).fill(1).map((_, idx) => (
-        <FBXs key={`Event${idx}`} src={`${EventSrc}/event_${idx + 1}.fbx`} />
-        // <BlockFbx key={`GardenBox${idx}`} src={`${GardenBoxSrc}/gardenbox_${idx + 1}.fbx`} />
-      ))}
-    </>
-  );
-};
-
-export default Event;
+export const Event = () => <FBX assetSize={EventAssetSize} keyName="Event" srcName={`${EventSrc}/event_`} />;

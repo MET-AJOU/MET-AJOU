@@ -1,15 +1,4 @@
-/* eslint-disable react/no-array-index-key */
 import { FloorAssetSize, FloorSrc, DEBATE_ASSET_SIZE } from "@Constant/Three";
-import { FBXs } from "@THREE/Atoms/Fbxs";
+import FBX from "@THREE/Atoms/ModelComponent/FBX";
 
-const Floors = () => {
-  return (
-    <>
-      {new Array(FloorAssetSize).fill(1).map((_, idx) => (
-        <FBXs size={DEBATE_ASSET_SIZE} key={`floors${idx}`} src={`${FloorSrc}/Floor_${idx + 1}.fbx`} />
-      ))}
-    </>
-  );
-};
-
-export default Floors;
+export const Floors = () => <FBX assetSize={FloorAssetSize} keyName="floors" srcName={`${FloorSrc}/Floor_`} size={DEBATE_ASSET_SIZE} />;

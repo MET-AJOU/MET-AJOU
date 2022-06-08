@@ -1,9 +1,7 @@
-import Ceilings from "@THREE/Molecules/Debate/Ceilings";
-import Floors from "@THREE/Molecules/Debate/Floors";
-import Walls from "@THREE/Molecules/Debate/Walls";
-import Curtains from "@THREE/Molecules/Gym/Curtain";
+import { Ceilings, Curtains, Floors, Stairs, Walls } from "@THREE/Molecules/Gym";
+
 import HeightMap from "@THREE/Molecules/Gym/HeightMap/Gym";
-import Stairs from "@THREE/Molecules/Gym/Stair";
+
 import React, { useEffect } from "react";
 
 const StaticComponents = ({ setLoading }: { setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {

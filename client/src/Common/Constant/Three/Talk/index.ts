@@ -1,14 +1,3 @@
-export const BED_ASSET_SIZE = 1;
-export const CEILING_ASSET_SIZE = 1;
-export const CHAIR_ASSET_SIZE = 1;
-export const CLOSET_ASSET_SIZE = 1;
-export const DOOR_ASSET_SIZE = 1;
-export const FLOOR_ASSET_SIZE = 1;
-export const HALLYWAYWALL_ASSET_SIZE = 1;
-export const INNERWALL_ASSET_SIZE = 1;
-export const OUTERWALL_ASSET_SIZE = 1;
-export const TABLE_ASSET_SIZE = 1;
-
 export const TALK_ASSET_URL = "./models/Talk";
 export const TALK_ASSET_SIZE = 0.15;
 export const BED_SRC = `${TALK_ASSET_URL}/Bed.fbx`;
