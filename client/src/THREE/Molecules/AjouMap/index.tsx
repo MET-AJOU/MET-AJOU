@@ -9,3 +9,6 @@ export * from "./Roads";
 export * from "./SideWalks";
 export * from "./StreetLamps";
 export * from "./Trees";
+export * from "./Table";
+export * from "./Artisan";
+export * from "./Mat";

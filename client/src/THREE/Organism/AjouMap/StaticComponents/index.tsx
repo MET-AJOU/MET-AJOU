@@ -2,10 +2,7 @@ import { Sky } from "@react-three/drei";
 
 import Fog from "@THREE/Atoms/Fog";
 import HeightMap from "@THREE/Atoms/HeightMap";
-import { Benches, Buildings, GardenBoxs, AjouMeo, Grounds, Objects, Roads, SideWalks, StreetLamps, Trees, Event } from "@THREE/Molecules/AjouMap";
-import { Artisan } from "@THREE/Molecules/AjouMap/Artisan";
-import { Mat } from "@THREE/Molecules/AjouMap/Mat";
-import { Table } from "@THREE/Molecules/AjouMap/Table";
+import { Table, Mat, Artisan, Benches, Buildings, GardenBoxs, AjouMeo, Grounds, Objects, Roads, SideWalks, StreetLamps, Trees, Event } from "@THREE/Molecules/AjouMap";
 import React, { useEffect } from "react";
 
 const StaticComponents = ({ setLoading }: { setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
