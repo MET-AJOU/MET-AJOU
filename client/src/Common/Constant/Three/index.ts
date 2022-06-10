@@ -24,7 +24,11 @@ export const SideWalkSrc = "models/AjouMap/SideWalks";
 
 export const StreetLampSrc = "models/AjouMap/StreetLamp";
 
+export const TableSrc = "models/AjouMap/Table";
+
 export const TreeSrc = "models/AjouMap/Tree";
+
+export const MatSrc = "models/AjouMap/Mat";
 
 export const GardenBoxSrc = "models/AjouMap/GardenBoxs";
 
@@ -36,6 +40,8 @@ export const AjouMeoSrc = "models/AjouMap/AjouMeo";
 
 export const EventSrc = "models/AjouMap/Event";
 
+export const ArtisanSrc = "models/AjouMap/Artisan";
+
 export const RoadsAssetSize = 14;
 
 export const GroundAssetSize = 54;
@@ -44,7 +50,11 @@ export const SideWalkAssetSize = 46;
 
 export const StreetLampAssetSize = 32;
 
+export const TableAssetSize = 9;
+
 export const TreeAssetSize = 96;
+
+export const MatAssetSize = 5;
 
 export const GardenBoxAssetSize = 8;
 

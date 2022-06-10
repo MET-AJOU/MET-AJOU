@@ -6,6 +6,7 @@ import { CHANNEL_INFO } from "@Constant/.";
 const MapPage = () => {
   const [joinedUserNumber, setJoinedUserNumber] = useState(0);
   const [loading, setLoading] = useState(false);
+  if (window.innerWidth < 768) return <DebateMap setJoinedUserNumber={setJoinedUserNumber} setLoading={setLoading} />;
   return (
     <Suspense fallback={null}>
       <DebateMap setJoinedUserNumber={setJoinedUserNumber} setLoading={setLoading} />
