@@ -7,6 +7,7 @@ import TalkContainer from "@THREE/Templates/Talk";
 const TalkPage = () => {
   const [joinedUserNumber, setJoinedUserNumber] = useState(0);
   const [loading, setLoading] = useState(false);
+  if (window.innerWidth < 768) return <TalkContainer setJoinedUserNumber={setJoinedUserNumber} setLoading={setLoading} />;
   return (
     <Suspense fallback={null}>
       <TalkContainer setJoinedUserNumber={setJoinedUserNumber} setLoading={setLoading} />

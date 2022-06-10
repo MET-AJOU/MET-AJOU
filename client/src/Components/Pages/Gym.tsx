@@ -7,6 +7,7 @@ import GymMap from "@THREE/Templates/Gym";
 const GymPage = () => {
   const [joinedUserNumber, setJoinedUserNumber] = useState(0);
   const [loading, setLoading] = useState(false);
+  if (window.innerWidth < 768) return <GymMap setJoinedUserNumber={setJoinedUserNumber} setLoading={setLoading} />;
   return (
     <Suspense fallback={null}>
       <GymMap setJoinedUserNumber={setJoinedUserNumber} setLoading={setLoading} />
