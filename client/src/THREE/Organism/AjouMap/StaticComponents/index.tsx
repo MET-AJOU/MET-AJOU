@@ -2,7 +2,7 @@ import { Sky } from "@react-three/drei";
 
 import Fog from "@THREE/Atoms/Fog";
 import HeightMap from "@THREE/Atoms/HeightMap";
-import { Table, Mat, Artisan, Benches, Buildings, GardenBoxs, AjouMeo, Grounds, Objects, Roads, SideWalks, StreetLamps, Trees, Event } from "@THREE/Molecules/AjouMap";
+import { Table, Mat, Artisan, Benches, Buildings, GardenBoxs, AjouMeo, Grounds, Objects, Roads, SideWalks, StreetLamps, Trees, Event, Sungoos, Flowers, NoticeBoard, Cats, EventObject } from "@THREE/Molecules/AjouMap";
 import React, { useEffect } from "react";
 
 const StaticComponents = ({ setLoading }: { setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
@@ -29,6 +29,11 @@ const StaticComponents = ({ setLoading }: { setLoading: React.Dispatch<React.Set
       <Table />
       <Mat />
       <Artisan />
+      <Sungoos />
+      <Flowers />
+      <NoticeBoard />
+      <Cats />
+      <EventObject />
       {/* </Debug> */}
     </>
   );

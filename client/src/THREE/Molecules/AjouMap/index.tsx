@@ -12,3 +12,8 @@ export * from "./Trees";
 export * from "./Table";
 export * from "./Artisan";
 export * from "./Mat";
+export * from "./Cat";
+export * from "./EventObject";
+export * from "./Flower";
+export * from "./NoticeBoard";
+export * from "./Sungoo";

@@ -42,6 +42,16 @@ export const EventSrc = "models/AjouMap/Event";
 
 export const ArtisanSrc = "models/AjouMap/Artisan";
 
+export const CatSrc = "models/AjouMap/Cat";
+
+export const EventObjectSrc = "models/AjouMap/EventObject";
+
+export const FlowerSrc = "models/AjouMap/Flower";
+
+export const NoticeBoardSrc = "models/AjouMap/NoticeBoard";
+
+export const SungooSrc = "models/AjouMap/Sungoo";
+
 export const RoadsAssetSize = 14;
 
 export const GroundAssetSize = 54;
@@ -64,6 +74,16 @@ export const AjouMeoAssetSize = 11;
 
 export const EventAssetSize = 9;
 
+export const CatAssetSize = 6;
+
+export const FlowerAssetSize = 7;
+
+export const NoticeBoardAssetSize = 3;
+
+export const SungooAssetSize = 2;
+
+export const EventObjectAssetName = ["booth", "photozone", "swing"];
+
 export const BuildingNames = ["centrallibrary", "dasan", "east", "gym", "hongjae", "namjae", "paldal", "pharmacy", "seongho", "songjae", "studentunion1", "studentunion2", "west", "woncheon", "yeonam", "yulgok", "hospital", "domitory1", "domitory2", "domitory3", "sanhak", "international", "rotc"];
 
 /* debate */
@@ -85,6 +105,7 @@ export const PropsSrc = "models/Debate/Props";
 export const RoomSrc = "models/Debate/Room";
 
 export const TablesSrc = "models/Debate/Tables";
+
 export const WindowSrc = "models/Debate/Windows";
 
 export const CeilingAssetSize = 1;
