@@ -27,7 +27,6 @@ export const NICKNAME = "/nickName";
 export const PRIVACY = "/privacy";
 export const VERIFY = "/verify";
 export const LOGIN = "/login";
-export const SELECTMODE = "/selectMode";
 export const ABOUT = "/about";
 export const MAP = "/map";
 export const DEBATE = "/debate";

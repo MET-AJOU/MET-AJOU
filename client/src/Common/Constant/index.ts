@@ -32,3 +32,7 @@ export const CHANNEL_INFO: ChanelInfoType[] = [
 export const LoadingImageSrc = "./asset/Loading/";
 
 export const LoadingImageSize = 2;
+
+export const GUEST_TITLE = "게스트";
+
+export const AJOU_TITLE = "아주대생";
