@@ -1,12 +1,11 @@
 import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import PublicRoute from "@Route/PublicRoute";
-import LoginPage from "@Pages/Login";
 import MapPage from "@Pages/Map";
 import DebatePage from "@Pages/Debate";
 import GymPage from "@Pages/Gym";
 import CheckUserRoute from "@Route/CheckUserRoute";
-import { CHANNEL, CHARACTER, DEBATE, GYM, LOGIN, MAP, NICKNAME, PRIVACY, TALK, VERIFY } from "@Constant/URL";
+import { CHANNEL, CHARACTER, DEBATE, GYM, MAP, NICKNAME, PRIVACY, TALK, VERIFY } from "@Constant/URL";
 import TalkPage from "@Pages/Talk";
 
 const App = () => {
@@ -14,7 +13,6 @@ const App = () => {
   return (
     <Suspense fallback={<div>1</div>}>
       <Routes>
-        <Route path={LOGIN} element={<PublicRoute component={LoginPage} />} />
         <Route path={VERIFY} element={<CheckUserRoute />} />
         <Route path={PRIVACY} element={<CheckUserRoute />} />
         <Route path={NICKNAME} element={<CheckUserRoute />} />

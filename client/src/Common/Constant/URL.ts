@@ -3,8 +3,7 @@ export const AUTH_SERVER = `${GOOGLE_SERVER}${process.env.REACT_APP_GET_AUTH_SER
 export const DATA_SERVER = `${process.env.REACT_APP_GET_SERVER_DOMAIN}${process.env.REACT_APP_GET_DATA_SERVER_PORT}${process.env.REACT_APP_GET_DATA_SERVER_URL}`;
 // export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${process.env.REACT_APP_SOCKET_SERVER_PORT}`;
 export const SOCKET_SERVER = `${process.env.REACT_APP_SOCKET_SERVER_URL}:${process.env.REACT_APP_SOCKET_SERVER_PORT}`;
-export const GOOGLE_URL = `${GOOGLE_SERVER}${process.env.REACT_APP_GET_GOOGLE_URL}`;
-export const KAKAO_URL = `${GOOGLE_SERVER}${process.env.REACT_APP_GET_KAKAO_URL}`;
+
 export const GET_SELECT_CHARACTER_URL = `${process.env.REACT_APP_CHARACTER_URL}`;
 export const GET_USER_CHARACTER_URL = `${process.env.REACT_APP_USER_CHARACTER_URL}`;
 export const GET_VIDEO_URL = `${process.env.REACT_APP_CHARACTER_URL}`;
@@ -26,7 +25,7 @@ export const CHARACTER = "/character";
 export const NICKNAME = "/nickName";
 export const PRIVACY = "/privacy";
 export const VERIFY = "/verify";
-export const LOGIN = "/login";
+
 export const ABOUT = "/about";
 export const MAP = "/map";
 export const DEBATE = "/debate";
