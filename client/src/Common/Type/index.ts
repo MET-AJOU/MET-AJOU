@@ -8,24 +8,8 @@ export interface PositionType {
   z: number;
 }
 
-export interface BaseImageProps {
-  url?: string;
-  transform?: string;
-  boxShadow?: string;
-  width: string;
-  height: string;
-  left: string;
-  top: string;
-}
-
 export interface InlineStyleType {
   [key: string]: string;
-}
-
-export interface ValueDataType {
-  src: string;
-  title: string;
-  text: string[];
 }
 
 export interface ChanelInfoType {

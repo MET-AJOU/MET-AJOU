@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-import { animationStyles } from "./animations";
-
 const GlobalStyle = createGlobalStyle`
   @font-face {
   font-family: 'NanumBarunGothic';
@@ -45,8 +43,6 @@ const GlobalStyle = createGlobalStyle`
     overflow-x:hidden;
     font-family: 'NanumBarunGothic';
   }
-
-  ${animationStyles}
 `;
 
 export default GlobalStyle;
