@@ -1,11 +1,10 @@
-import { GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER, CHARACTER, NICKNAME, PRIVACY, VERIFY, CHANNEL } from "@Constant/URL";
+import { GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER } from "@Constant/URL";
 import ChannelPage from "@Pages/Channel";
 import CharacterPage from "@Pages/Character";
 import NickNamePage from "@Pages/NickName";
 import PrivacyPage from "@Pages/Privacy";
 import RegisterPage from "@Pages/Register";
 import { Request } from "@Util/Request";
-import { NavigateFunction } from "react-router-dom";
 import { SetterOrUpdater } from "recoil";
 
 const getUserTokenURL = [GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER];
@@ -17,7 +16,6 @@ export const updateUserData = async ({ postData, setUserData }: { postData: obje
 
 const setUserTokenData = (arr: any[]) =>
   arr.reduce((acc, cur) => {
-    console.log(cur);
     if ("role" in cur) acc.role = cur.role;
     if ("verifiedEmail" in cur) acc.verifiedEmail = cur.verifiedEmail;
     if ("useable" in cur) acc.useable = cur.useable;
@@ -63,29 +61,7 @@ export const setHandleUserData = (setter: SetterOrUpdater<routingType | null>) =
   setter(data);
 };
 
-const getComponentName = ({ role, verifiedEmail, useable, userName, avatarCustomCode }: routingType): string => {
-  if (role === "ROLE_USER") return CHANNEL;
-  if (avatarCustomCode) return CHANNEL;
-  if (userName) return CHARACTER;
-  if (useable) return NICKNAME;
-  if (verifiedEmail) return PRIVACY;
-  return VERIFY;
-};
-
 export const handlePage = ({ userData }: { userData: routingType | null }) => {
   if (!userData) return null;
   return getComponent(userData);
-};
-
-const checkLocation = ({ userData }: { userData: routingType | null }) => {
-  if (!userData) return null;
-  return getComponentName(userData);
-};
-
-export const setHandleLocation = ({ userData, pathname, navigator }: { userData: routingType | null; pathname: string; navigator: NavigateFunction }) => {
-  const location = checkLocation({ userData });
-  if (!location) return false;
-  if (pathname === location) return false;
-  navigator(location);
-  return true;
 };
