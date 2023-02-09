@@ -3,7 +3,7 @@ import SelectCharacter from "@Molecules/Character/SelectCharacter";
 import SelectEquip from "@Molecules/Character/SelectEquip";
 import SelectPreview from "@Molecules/Character/SelectPreview";
 import RegisterNextButtonComponent from "@Molecules/Register/RegisterNextButtonComponent";
-import { checkSrc } from "@Organisms/Register/Email";
+
 import { CharacterFormContainer, CharacterFormTitle, CharacterSelectContainer, SelectPreviewContainer } from "./styles";
 import useSelectCharacter from "./useSelectCharacter";
 
@@ -27,6 +27,8 @@ const CharacterForm = ({ type }: { type: string }) => {
 };
 
 export default CharacterForm;
+
+const checkSrc = (data: string) => (data.length > 0 ? "/asset/Register/SelectButton.png" : "/asset/Register/unSelectButton.svg");
 
 export const NEW = "NEW";
 export const UPDATE = "UPDATE";

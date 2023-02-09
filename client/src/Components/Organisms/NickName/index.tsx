@@ -1,7 +1,6 @@
 import NickNameInput, { NickNameInputType } from "@Molecules/NickName/Input";
 import NickNameTitle from "@Molecules/NickName/Title";
 import RegisterNextButtonComponent from "@Molecules/Register/RegisterNextButtonComponent";
-import { checkSrc } from "@Organisms/Register/Email";
 import { Br, RegisterDescript } from "@Organisms/Register/Email/styles";
 import { NickNameFormContainer } from "./styles";
 import useNickName from "./useNickName";
@@ -19,6 +18,8 @@ const NickNameForm = () => {
 };
 
 export default NickNameForm;
+
+const checkSrc = (data: string) => (data.length > 0 ? "/asset/Register/SelectButton.png" : "/asset/Register/unSelectButton.svg");
 
 interface NickNameFormType extends NickNameInputType {
   next: boolean;
