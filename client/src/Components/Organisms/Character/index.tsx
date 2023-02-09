@@ -9,7 +9,7 @@ import useSelectCharacter from "./useSelectCharacter";
 
 const CharacterForm = ({ type }: { type: string }) => {
   const { select, handleSelect, hairColor, handleHairColor, costumeColor, handleCostumeColor, costumeSelect, handleCostumeSelect, renderCharacter, handleMoveNext, handleSave } = useSelectCharacter();
-  console.log(renderCharacter);
+
   return (
     <CharacterFormContainer>
       <CharacterFormTitle>원하는 캐릭터를 만들어보세요</CharacterFormTitle>
