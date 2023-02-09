@@ -3,7 +3,7 @@ import DebateMap from "@THREE/Templates/Debate/";
 import MapOptionTemplate from "@Templates/MapOption";
 import { CHANNEL_INFO } from "@Constant/.";
 
-const MapPage = () => {
+const DebatePage = () => {
   const [joinedUserNumber, setJoinedUserNumber] = useState(0);
   const [loading, setLoading] = useState(false);
   if (window.innerWidth < 768) return <DebateMap setJoinedUserNumber={setJoinedUserNumber} setLoading={setLoading} />;
@@ -15,4 +15,4 @@ const MapPage = () => {
   );
 };
 
-export default MapPage;
+export default DebatePage;
