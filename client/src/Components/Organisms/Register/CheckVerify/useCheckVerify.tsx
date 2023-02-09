@@ -1,4 +1,3 @@
-import { PRIVACY } from "@Constant/URL";
 import useMovePage from "@Hook/useMovePage";
 import { userDataAtom } from "@Recoils/UserData";
 import { useCallback, useRef, useState } from "react";
@@ -10,7 +9,7 @@ const useCheckVerify = () => {
   const [next, setNext] = useState(true);
   const [code, setCode] = useState<codeType>(INIT_CODE);
   const inputRefs = useRef([]);
-  const nextPage = useMovePage(PRIVACY);
+  const nextPage = useMovePage("PRIVACY");
 
   const handleMoveNext = useCallback(setHandleMoveNext({ setNext, code, setUserData, nextPage }), [code]);
   const handleCode = useCallback(setHandleCode({ inputRefs, setCode }), []);

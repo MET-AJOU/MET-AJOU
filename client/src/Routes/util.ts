@@ -1,9 +1,4 @@
 import { GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER } from "@Constant/URL";
-import ChannelPage from "@Pages/Channel";
-import CharacterPage from "@Pages/Character";
-import NickNamePage from "@Pages/NickName";
-import PrivacyPage from "@Pages/Privacy";
-import RegisterPage from "@Pages/Register";
 import { Request } from "@Util/Request";
 import { SetterOrUpdater } from "recoil";
 
@@ -34,15 +29,6 @@ const getUserToken = async () => {
   return setUserTokenData(res);
 };
 
-const getComponent = ({ role, verifiedEmail, useable, userName, avatarCustomCode }: routingType): (() => JSX.Element) => {
-  if (role === "ROLE_USER") return ChannelPage;
-  if (avatarCustomCode) return ChannelPage;
-  if (userName) return CharacterPage;
-  if (useable) return NickNamePage;
-  if (verifiedEmail) return PrivacyPage;
-  return RegisterPage;
-};
-
 export interface routingType {
   role: "ROLE_USER" | "ROLE_GUEST";
   verifiedEmail: string | null;
@@ -59,9 +45,4 @@ export interface routingType {
 export const setHandleUserData = (setter: SetterOrUpdater<routingType | null>) => async () => {
   const data: routingType = await getUserToken();
   setter(data);
-};
-
-export const handlePage = ({ userData }: { userData: routingType | null }) => {
-  if (!userData) return null;
-  return getComponent(userData);
 };
