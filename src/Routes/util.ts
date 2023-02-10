@@ -1,8 +1,8 @@
-import { GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER } from "@Constant/URL";
+import { GET_PROFILE, GET_CHARACTER } from "@Constant/URL";
 import { Request } from "@Util/Request";
 import { SetterOrUpdater } from "recoil";
 
-const getUserTokenURL = [GET_API_TOKEN_MINE, GET_PROFILE, GET_CHARACTER];
+const getUserTokenURL = [GET_PROFILE, GET_CHARACTER];
 
 export const updateUserData = async ({ postData, setUserData }: { postData: object; setUserData: SetterOrUpdater<routingType | null> }) => {
   await Request({ url: GET_PROFILE, body: postData, method: "POST" });
