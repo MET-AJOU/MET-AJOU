@@ -6,7 +6,6 @@ const resolve = (src) => path.resolve(__dirname, src);
 module.exports = override(
   useBabelRc(),
   addWebpackAlias({
-    "@": resolve("src"),
     "@Pages": resolve("src/Components/Pages/"),
     "@Atoms": resolve("src/Components/Atoms/"),
     "@Molecules": resolve("src/Components/Molecules/"),
@@ -16,13 +15,10 @@ module.exports = override(
     "@Style": resolve("src/Common/Style/"),
     "@Util": resolve("src/Common/Util/"),
     "@Type": resolve("src/Common/Type/"),
-    "@API": resolve("src/API/"),
     "@Route": resolve("src/Routes/"),
     "@Recoils": resolve("src/Recoils/"),
-    "@src": resolve("./"),
     "@THREE": resolve("src/THREE/"),
     "@Hook": resolve("src/Hook/"),
     "@Socket": resolve("src/Socket/"),
-    "@Asset": resolve("src/Assets/"),
   })
 );

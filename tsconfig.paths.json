@@ -12,13 +12,10 @@
             "@Style/*": ["./Common/Style/*"],
             "@Util/*": ["./Common/Util/*"],
             "@Type/*": ["./Common/Type/*"],
-            "@API/*": ["./API/*"],
             "@Route/*": ["./Routes/*"],
             "@Recoils/*": ["./Recoils/*"],
             "@Hook/*":["./Hook/*"],
             "@Socket/*":["./Socket/*"],
-            "@src/*": ["./*"],
-            "@Asset/*":["./Assets/*"],
         }
     }
 }
