@@ -1,4 +1,5 @@
-import { OrbitControls, Html } from "@react-three/drei";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { OrbitControls, Html, PointerLockControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/cannon";
 import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
@@ -23,8 +24,8 @@ const MapContainer = ({ setJoinedUserNumber, children }: { setJoinedUserNumber: 
     <MetaContainer>
       <Canvas>
         <RecoilRoot>
-          <OrbitControls />
           <ambientLight />
+          <PointerLockControls />
           <pointLight position={[100, 100, 100]} intensity={1} />
           <Physics gravity={[0, 0, 0]}>
             <Suspense
@@ -49,16 +50,3 @@ const MapContainer = ({ setJoinedUserNumber, children }: { setJoinedUserNumber: 
 };
 
 export default MapContainer;
-
-// [z축 x축 y축]
-
-// position [0] : - 왼쪽 + 오른쪽
-// position [1] : 높이
-// position [2] : + 아래 , - 위
-
-// args [0] : 좌우 중심에서 길어지고 짧아짐
-// args [1] : 높이 위아래
-// args [2] : 위아래 중심에서 길어지고 짧아짐
-
-// rotation [0] : 수직으로 세워짐
-// rotation [1] : 회전
