@@ -12,11 +12,10 @@ import Characters from "@THREE/Molecules/AjouMap/Characters";
 import { chatAtom } from "@Recoils/MapOption/Chat";
 import { userDataAtom } from "@Recoils/UserData";
 import LoadingPage from "@Pages/Loding";
-import React, { Suspense } from "react";
-import StaticComponents from "@THREE/Organism/AjouMap/StaticComponents";
+import React, { ReactNode, Suspense } from "react";
 import MetaContainer from "./styles";
 
-const MapContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const MapContainer = ({ setJoinedUserNumber, children }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; children: ReactNode }) => {
   const setChatInfos = useSetRecoilState(chatAtom);
   const [userData, setUserData] = useRecoilState(userDataAtom);
 
@@ -35,7 +34,7 @@ const MapContainer = ({ setJoinedUserNumber, setLoading }: { setJoinedUserNumber
                 </Html>
               }
             >
-              <StaticComponents setLoading={setLoading} />
+              {children}
             </Suspense>
             <Suspense fallback={null}>
               <Characters />

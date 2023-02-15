@@ -5,7 +5,7 @@ import HeightMap from "@THREE/Atoms/HeightMap";
 import { Table, Mat, Artisan, Benches, Buildings, GardenBoxs, AjouMeo, Grounds, Objects, Roads, SideWalks, StreetLamps, Trees, Event, Sungoos, Flowers, NoticeBoard, Cats, EventObject } from "@THREE/Molecules/AjouMap";
 import React, { useEffect } from "react";
 
-const StaticComponents = ({ setLoading }: { setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const AjouMapStaticComponents = ({ setLoading }: { setLoading: React.Dispatch<React.SetStateAction<boolean>> }) => {
   useEffect(() => {
     setLoading(true);
   }, []);
@@ -39,4 +39,4 @@ const StaticComponents = ({ setLoading }: { setLoading: React.Dispatch<React.Set
   );
 };
 
-export default React.memo(StaticComponents);
+export default React.memo(AjouMapStaticComponents);
