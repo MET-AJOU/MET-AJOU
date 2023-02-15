@@ -1,5 +1,4 @@
 import type { CharacterAPIRefsType, CharacterRefsType, CharacterType, PositionType } from "@Type/Three";
-import type { SetterOrUpdater } from "recoil";
 import type { Camera, Vector3 } from "three";
 
 export interface UseCharacterMovementProps {
@@ -22,7 +21,6 @@ interface MoveDir {
 export interface SetCameraPositionProps {
   characterRefs: CharacterRefsType;
   myUserIdx?: number;
-  setMyPosition: SetterOrUpdater<PositionType>;
   camera: ThreeCamera;
 }
 

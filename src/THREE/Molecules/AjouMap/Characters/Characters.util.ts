@@ -13,15 +13,12 @@ const zVector = new Vector3(0, 0, 1);
 const cameraDirectionToXZ = new Vector3();
 const moveDirection = new Vector3();
 
-export const setCameraPosition = ({ characterRefs, myUserIdx, setMyPosition, camera }: SetCameraPositionProps) => {
+export const setCameraPosition = ({ characterRefs, myUserIdx, camera }: SetCameraPositionProps) => {
   if (!characterRefs.current[Number(myUserIdx)]?.current) return;
 
   characterRefs.current[Number(myUserIdx)]!.current.getWorldPosition(characterPosition);
   camera.getWorldDirection(cameraDirection);
   cameraDirection.normalize().multiplyScalar(CAMERA_DISTANCE);
-  const { x, y, z } = characterPosition;
-
-  setMyPosition({ x, y, z }); // 없애야 함
   camera.position.set(characterPosition.x + cameraDirection.x, characterPosition.y + cameraDirection.y + CAMERA_HEIGHT, characterPosition.z + cameraDirection.z);
 };
 

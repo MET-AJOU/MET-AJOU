@@ -5,6 +5,7 @@ import { Physics } from "@react-three/cannon";
 import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
 
 import { CHANNEL_INFO } from "@Constant/.";
+import { DEFAULT_CHARACTER_POSITION } from "@Constant/Three";
 
 import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 import SocketComponent from "@THREE/Atoms/Socket";
@@ -13,12 +14,15 @@ import Characters from "@THREE/Molecules/AjouMap/Characters";
 import { chatAtom } from "@Recoils/MapOption/Chat";
 import { userDataAtom } from "@Recoils/UserData";
 import LoadingPage from "@Pages/Loding";
-import React, { ReactNode, Suspense } from "react";
+import React, { ReactNode, Suspense, useRef } from "react";
+import type { PositionType } from "@Type/.";
+
 import MetaContainer from "./styles";
 
 const MapContainer = ({ setJoinedUserNumber, children }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; children: ReactNode }) => {
   const setChatInfos = useSetRecoilState(chatAtom);
   const [userData, setUserData] = useRecoilState(userDataAtom);
+  const myPosition = useRef<PositionType>(DEFAULT_CHARACTER_POSITION);
 
   return (
     <MetaContainer>
@@ -38,10 +42,10 @@ const MapContainer = ({ setJoinedUserNumber, children }: { setJoinedUserNumber: 
               {children}
             </Suspense>
             <Suspense fallback={null}>
-              <Characters />
+              <Characters myPosition={myPosition} />
             </Suspense>
           </Physics>
-          <Keyboard />
+          <Keyboard myPosition={myPosition} />
           <SocketComponent setJoinedUserNumber={setJoinedUserNumber} roomId={CHANNEL_INFO[0].id} setOutUser={setUserData} setChatInfos={setChatInfos} userData={userData} />
         </RecoilRoot>
       </Canvas>

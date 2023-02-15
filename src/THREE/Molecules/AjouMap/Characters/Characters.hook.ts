@@ -1,9 +1,9 @@
 /* eslint-disable no-nested-ternary */
 import { useThree, useFrame } from "@react-three/fiber";
-import { myPositionAtom, myUserIdAtom } from "@Recoils/Characters";
+import { myUserIdAtom } from "@Recoils/Characters";
 import { initAnimation } from "@Util/animation";
 import { useRef } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 
 import type { UseCharacterMovementProps } from "./Characters.type";
 import { getDirections, isCharacterLoaded, setCameraPosition, syncPositionWithServer } from "./Characters.util";
@@ -13,7 +13,6 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: UseC
   const myUserIdx = characters?.findIndex(({ userId }) => userId === myUserId);
   const userKeyStates = characters?.map(({ keyState: { forward, backward, left, right, boost, space, hello, dance, happy, question, lose } }) => ({ forward, backward, left, right, boost, space, hello, dance, happy, question, lose })) ?? [];
   const userPositions = characters?.map(({ position }) => ({ position }));
-  const setMyPosition = useSetRecoilState(myPositionAtom);
   const time = useRef<number>(0);
   const { camera } = useThree();
   let isSafe = false;
@@ -30,7 +29,7 @@ const useCharacterMovement = ({ apis, characterRefs, actions, characters }: UseC
         apis.current[idx].rotation.set(0, characterDirection, 0);
       });
 
-      setCameraPosition({ characterRefs, myUserIdx, setMyPosition, camera });
+      setCameraPosition({ characterRefs, myUserIdx, camera });
       syncPositionWithServer({ time, userPositions, apis, delta });
     }
   });

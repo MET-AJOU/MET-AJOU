@@ -1,10 +1,12 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-expressions */
-import { myPositionAtom, myUserIdAtom } from "@Recoils/Characters";
+
+import { myUserIdAtom } from "@Recoils/Characters";
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import Socket from "@Socket/.";
 import { DefaultKeyboardState } from "@Constant/Three";
+import type { MyPositionType } from "@Type/Three";
 
 interface KeyConfig extends KeyMap {
   keys?: string[];
@@ -18,10 +20,10 @@ interface KeyMap {
 
 let keyMap: { [key: string]: KeyMap };
 
-function useKeys(keyConfig: KeyConfig[]) {
+function useKeys(keyConfig: KeyConfig[], myPosition: MyPositionType) {
   const userId = useRecoilValue(myUserIdAtom);
-  const position = useRecoilValue(myPositionAtom);
   const [isPressed, setPressed] = useState(false);
+
   useEffect(() => {
     keyMap = keyConfig.reduce<{ [key: string]: KeyMap }>((out, { keys, fn, up = true }) => {
       keys &&
@@ -35,8 +37,8 @@ function useKeys(keyConfig: KeyConfig[]) {
   useEffect(() => {
     if (isPressed) return;
     if (!userId) return;
-    Socket.instance?.emit("keyDown", { userId, keyState: DefaultKeyboardState, position });
-  }, [position]);
+    Socket.instance?.emit("keyDown", { userId, keyState: DefaultKeyboardState, position: myPosition.current });
+  }, []);
 
   useEffect(() => {
     const downHandler = ({ key, target }: KeyboardEvent) => {
@@ -49,7 +51,7 @@ function useKeys(keyConfig: KeyConfig[]) {
         return state;
       }, DefaultKeyboardState);
 
-      if (up || !pressed) Socket.instance?.emit("keyDown", { userId, keyState, position });
+      if (up || !pressed) Socket.instance?.emit("keyDown", { userId, keyState, position: myPosition.current });
     };
 
     const upHandler = ({ key, target }: KeyboardEvent) => {
@@ -58,7 +60,7 @@ function useKeys(keyConfig: KeyConfig[]) {
       keyMap[key].pressed = false;
       Object.values(keyMap).every(({ pressed }) => !pressed) && setPressed(false);
 
-      if (up) Socket.instance?.emit("keyUp", { userId, keyState: fn(false), position });
+      if (up) Socket.instance?.emit("keyUp", { userId, keyState: fn(false), position: myPosition.current });
     };
 
     window.addEventListener("keydown", downHandler);
@@ -71,20 +73,23 @@ function useKeys(keyConfig: KeyConfig[]) {
   }, [keyConfig]);
 }
 
-const Keyboard = () => {
-  useKeys([
-    { keys: ["ArrowUp", "w", "W"], fn: (forward) => ({ forward }) },
-    { keys: ["ArrowDown", "s", "S"], fn: (backward) => ({ backward }) },
-    { keys: ["ArrowLeft", "a", "A"], fn: (left) => ({ left }) },
-    { keys: ["ArrowRight", "d", "D"], fn: (right) => ({ right }) },
-    { keys: ["Shift"], fn: (boost) => ({ boost }) },
-    { keys: ["Space", " "], fn: (space) => ({ space }) },
-    { keys: ["1"], fn: (hello) => ({ hello }) },
-    { keys: ["2"], fn: (dance) => ({ dance }) },
-    { keys: ["3"], fn: (happy) => ({ happy }) },
-    { keys: ["4"], fn: (question) => ({ question }) },
-    { keys: ["5"], fn: (lose) => ({ lose }) },
-  ]);
+const Keyboard = ({ myPosition }: { myPosition: MyPositionType }) => {
+  useKeys(
+    [
+      { keys: ["ArrowUp", "w", "W"], fn: (forward) => ({ forward }) },
+      { keys: ["ArrowDown", "s", "S"], fn: (backward) => ({ backward }) },
+      { keys: ["ArrowLeft", "a", "A"], fn: (left) => ({ left }) },
+      { keys: ["ArrowRight", "d", "D"], fn: (right) => ({ right }) },
+      { keys: ["Shift"], fn: (boost) => ({ boost }) },
+      { keys: ["Space", " "], fn: (space) => ({ space }) },
+      { keys: ["1"], fn: (hello) => ({ hello }) },
+      { keys: ["2"], fn: (dance) => ({ dance }) },
+      { keys: ["3"], fn: (happy) => ({ happy }) },
+      { keys: ["4"], fn: (question) => ({ question }) },
+      { keys: ["5"], fn: (lose) => ({ lose }) },
+    ],
+    myPosition
+  );
   return null;
 };
 

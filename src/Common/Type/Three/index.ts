@@ -46,3 +46,5 @@ export type CharacterRefType = React.MutableRefObject<Object3D<Event>>;
 export type CharacterRefsType = React.MutableRefObject<CharacterRefType[]>;
 
 export type CharacterAPIRefsType = React.MutableRefObject<PublicApi[]>;
+
+export type MyPositionType = React.MutableRefObject<PositionType>;
