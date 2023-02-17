@@ -33,3 +33,10 @@ export interface GetMoveDirectionProps extends MoveDir {
 export interface GetCharacterDirectionProps extends MoveDir {
   cameraDirection2D: Vector3;
 }
+
+export interface SyncPositionWithServerProps {
+  time: React.MutableRefObject<number>;
+  userPositions?: { position: PositionType }[];
+  apis: CharacterAPIRefsType;
+  delta: number;
+}

@@ -3,7 +3,7 @@
 /* eslint-disable no-nested-ternary */
 import { Vector3 } from "three";
 
-import type { keyBoardStateType } from "@Type/Three";
+import type { CharacterAPIRefsType, CharacterRefsType, keyBoardStateType } from "@Type/Three";
 import type { GetCharacterDirectionProps, GetMoveDirectionProps, SetCameraPositionProps, SyncPositionWithServerProps, ThreeCamera } from "./Characters.type";
 import { CAMERA_DISTANCE, CAMERA_HEIGHT, MOVE_ROTATE } from "./Characters.const";
 
@@ -42,6 +42,18 @@ export const getDirections = ({ forward, left, right, backward, space, boost, ca
     characterDirection,
   };
 };
+
+export const syncPositionWithServer = ({ time, userPositions, apis, delta }: SyncPositionWithServerProps) => {
+  time.current += delta;
+  if (time.current < 3) return;
+
+  userPositions?.forEach(({ position }, idx) => {
+    apis.current[idx].position.set(position.x, position.y, position.z);
+  });
+  time.current = 0;
+};
+
+export const isCharacterLoaded = (characterRefs: CharacterRefsType, apis: CharacterAPIRefsType) => characterRefs.current.length > 0 && apis.current.length > 0;
 
 const getCharacterDirection = ({ forward, backward, left, right, cameraDirection2D }: GetCharacterDirectionProps) => {
   const moveRotate = forward || left || right ? (forward ? (left || right ? (left ? (Math.PI * 1) / 4 : (Math.PI * 7) / 4) : 0) : backward ? (left || right ? (left ? (3 * Math.PI) / 4 : (5 * Math.PI) / 4) : Math.PI) : left ? Math.PI / 2 : (3 * Math.PI) / 2) : Math.PI;
