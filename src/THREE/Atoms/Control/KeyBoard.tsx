@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-expressions */
 
 import { myUserIdAtom } from "@Recoils/Characters";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import Socket from "@Socket/.";
 import { DefaultKeyboardState } from "@Constant/Three";
@@ -21,8 +21,7 @@ interface KeyMap {
 let keyMap: { [key: string]: KeyMap };
 
 function useKeys(keyConfig: KeyConfig[], myPosition: MyPositionType) {
-  const userId = useRecoilValue(myUserIdAtom);
-  const [isPressed, setPressed] = useState(false);
+  const myUserId = useRecoilValue(myUserIdAtom);
 
   useEffect(() => {
     keyMap = keyConfig.reduce<{ [key: string]: KeyMap }>((out, { keys, fn, up = true }) => {
@@ -35,32 +34,25 @@ function useKeys(keyConfig: KeyConfig[], myPosition: MyPositionType) {
   }, []);
 
   useEffect(() => {
-    if (isPressed) return;
-    if (!userId) return;
-    Socket.instance?.emit("keyDown", { userId, keyState: DefaultKeyboardState, position: myPosition.current });
-  }, []);
-
-  useEffect(() => {
     const downHandler = ({ key, target }: KeyboardEvent) => {
       if (!keyMap[key] || (target as HTMLElement).nodeName === "INPUT") return;
-      const { pressed, up } = keyMap[key];
-      keyMap[key].pressed = true;
-      setPressed(true);
-      const keyState = Object.values(keyMap).reduce((state, { fn: _fn, pressed: _pressed }) => {
-        if (_pressed) return { ...state, ..._fn(true) };
-        return state;
-      }, DefaultKeyboardState);
 
-      if (up || !pressed) Socket.instance?.emit("keyDown", { userId, keyState, position: myPosition.current });
+      keyMap[key].pressed = true;
+      const keyState = getKeyState();
+
+      if (!keyMap[key].up) return;
+      keyMap[key].up = false;
+      Socket.instance?.emit("keyDown", { userId: myUserId, keyState, position: myPosition.current });
     };
 
     const upHandler = ({ key, target }: KeyboardEvent) => {
       if (!keyMap[key] || (target as HTMLElement).nodeName === "INPUT") return;
-      const { fn, up } = keyMap[key];
+      keyMap[key].up = true;
       keyMap[key].pressed = false;
-      Object.values(keyMap).every(({ pressed }) => !pressed) && setPressed(false);
 
-      if (up) Socket.instance?.emit("keyUp", { userId, keyState: fn(false), position: myPosition.current });
+      const keyState = getKeyState();
+
+      Socket.instance?.emit("keyUp", { userId: myUserId, keyState, position: myPosition.current });
     };
 
     window.addEventListener("keydown", downHandler);
@@ -72,6 +64,14 @@ function useKeys(keyConfig: KeyConfig[], myPosition: MyPositionType) {
     };
   }, [keyConfig]);
 }
+
+const getKeyState = () => {
+  const keyState = Object.values(keyMap).reduce((state, { fn: _fn, pressed: _pressed }) => {
+    if (_pressed) return { ...state, ..._fn(true) };
+    return state;
+  }, DefaultKeyboardState);
+  return keyState;
+};
 
 const Keyboard = ({ myPosition }: { myPosition: MyPositionType }) => {
   useKeys(
