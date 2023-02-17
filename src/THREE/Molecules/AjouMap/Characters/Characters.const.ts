@@ -3,6 +3,7 @@ export const CAMERA_DISTANCE = -0.5;
 export const CAMERA_HEIGHT = 0.1;
 
 export const MOVE_ROTATE = {
+  FOWARD: 0,
   LEFT: (3 * Math.PI) / 2,
   BACK: Math.PI,
   RIGHT: Math.PI / 2,
