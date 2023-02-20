@@ -2,7 +2,7 @@ import type { PublicApi } from "@react-three/cannon";
 import type { Socket } from "socket.io-client";
 import type { Object3D } from "three";
 
-export interface keyBoardStateType {
+export type keyBoardStateType = {
   backward: boolean;
   forward: boolean;
   left: boolean;
@@ -14,33 +14,33 @@ export interface keyBoardStateType {
   happy: boolean;
   question: boolean;
   lose: boolean;
-}
+};
 
-export interface PositionType {
+export type PositionType = {
   x: number;
   y: number;
   z: number;
-}
+};
 
-export interface SocketObjectType {
+export type SocketObjectType = {
   instance: null | Socket;
-}
+};
 
-export interface CharacterType {
+export type CharacterType = {
   userId: string;
   characterId: string;
   position: PositionType;
   keyState: keyBoardStateType;
   joinTime?: string;
   cameraDirection: PositionType;
-}
+};
 
-export interface ChatType {
+export type ChatType = {
   userId: string;
   message: string;
   position: PositionType | undefined;
   type: string;
-}
+};
 
 export type CharacterRefType = React.MutableRefObject<Object3D<Event>>;
 
