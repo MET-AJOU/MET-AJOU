@@ -14,6 +14,8 @@ export const DefaultKeyboardState: keyBoardStateType = {
   lose: false,
 };
 
+export const START_CHARACTER_POSITION = { x: -11.4, y: 3, z: 9.5 };
+
 export const BuildingsSrc = "models/AjouMap/Building";
 
 export const RoadsSrc = "models/AjouMap/Roads";

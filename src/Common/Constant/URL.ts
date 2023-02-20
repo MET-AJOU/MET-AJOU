@@ -11,7 +11,7 @@ export const GET_CHARACTER = `${DATA_SERVER}/character`;
 export const POST_CHARACTER = `${DATA_SERVER}/character`;
 
 export const CHANNEL = "/Channel";
-export const MAP = "/map";
+export const MAP = "/";
 export const DEBATE = "/debate";
 export const GYM = "/gym";
 export const TALK = "/talk";
