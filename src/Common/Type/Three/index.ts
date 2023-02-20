@@ -32,6 +32,7 @@ export interface CharacterType {
   position: PositionType;
   keyState: keyBoardStateType;
   joinTime?: string;
+  cameraDirection: PositionType;
 }
 
 export interface ChatType {

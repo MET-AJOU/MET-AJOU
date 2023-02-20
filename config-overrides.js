@@ -15,6 +15,7 @@ module.exports = override(
     "@Style": resolve("src/Common/Style/"),
     "@Util": resolve("src/Common/Util/"),
     "@Type": resolve("src/Common/Type/"),
+    "@Store": resolve("src/Common/Store/"),
     "@Route": resolve("src/Routes/"),
     "@Recoils": resolve("src/Recoils/"),
     "@THREE": resolve("src/THREE/"),

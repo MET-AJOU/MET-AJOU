@@ -3,8 +3,9 @@
 /* eslint-disable no-nested-ternary */
 import { Vector3 } from "three";
 
-import type { CharacterAPIRefsType, CharacterRefsType, keyBoardStateType } from "@Type/Three";
-import type { GetCharacterDirectionProps, GetMoveDirectionProps, SetCameraPositionProps, SyncPositionWithServerProps, ThreeCamera } from "./Characters.type";
+import { CharacterStates } from "@Store/CharacterStates";
+import type { CharacterAPIRefsType, CharacterRefsType, keyBoardStateType, PositionType } from "@Type/Three";
+import type { GetCharacterDirectionProps, GetMoveDirectionProps, SetCameraPositionProps, SyncPositionWithServerProps } from "./Characters.type";
 import { CAMERA_DISTANCE, CAMERA_HEIGHT, MOVE_ROTATE } from "./Characters.const";
 
 const characterPosition = new Vector3();
@@ -22,9 +23,8 @@ export const setCameraPosition = ({ characterRefs, myUserIdx, camera }: SetCamer
   camera.position.set(characterPosition.x + cameraDirection.x, characterPosition.y + cameraDirection.y + CAMERA_HEIGHT, characterPosition.z + cameraDirection.z);
 };
 
-export const getDirections = ({ forward, left, right, backward, space, boost, camera }: keyBoardStateType & { camera: ThreeCamera }) => {
-  camera.getWorldDirection(cameraDirection);
-  cameraDirectionToXZ.set(cameraDirection.x, 0, cameraDirection.z).normalize();
+export const getDirections = ({ forward, left, right, backward, space, boost, userCameraDirection }: keyBoardStateType & { userCameraDirection: PositionType }) => {
+  cameraDirectionToXZ.set(userCameraDirection.x, 0, userCameraDirection.z).normalize();
 
   const characterDirection = getCharacterDirection({ forward, left, right, backward, cameraDirection2D: cameraDirectionToXZ });
   setMoveDirection({ cameraDirection2D: cameraDirectionToXZ, forward, left, backward, right });
@@ -40,17 +40,27 @@ export const getDirections = ({ forward, left, right, backward, space, boost, ca
   };
 };
 
-export const syncPositionWithServer = ({ time, userPositions, apis, delta }: SyncPositionWithServerProps) => {
+export const syncPositionWithServer = ({ time, characterStates, apis, delta }: SyncPositionWithServerProps) => {
   time.current += delta;
   if (time.current < 3) return;
-
-  userPositions?.forEach(({ position }, idx) => {
+  characterStates.instance.forEach(({ position }, idx) => {
     apis.current[idx].position.set(position.x, position.y, position.z);
   });
+
   time.current = 0;
 };
 
 export const isCharacterLoaded = (characterRefs: CharacterRefsType, apis: CharacterAPIRefsType) => characterRefs.current.length > 0 && apis.current.length > 0;
+
+export const setMyPosition = ({ characterRefs, myUserIdx }: { characterRefs: CharacterRefsType; myUserIdx?: number }) => {
+  if (!characterRefs.current[Number(myUserIdx)]?.current) return;
+  characterRefs.current[Number(myUserIdx)]!.current.getWorldPosition(characterPosition);
+  const { x, y, z } = characterPosition;
+  CharacterStates.instance = CharacterStates.instance.map((characterState, index) => {
+    if (index === myUserIdx) return { ...characterState, position: { x, y, z } };
+    return characterState;
+  });
+};
 
 const getCharacterDirection = ({ forward, backward, left, right, cameraDirection2D }: GetCharacterDirectionProps) => {
   const moveRotate = forward || left || right ? (forward ? (left || right ? (left ? (Math.PI * 1) / 4 : (Math.PI * 7) / 4) : 0) : backward ? (left || right ? (left ? (3 * Math.PI) / 4 : (5 * Math.PI) / 4) : Math.PI) : left ? Math.PI / 2 : (3 * Math.PI) / 2) : Math.PI;

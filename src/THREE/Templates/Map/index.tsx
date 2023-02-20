@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { OrbitControls, Html, PointerLockControls } from "@react-three/drei";
+import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/cannon";
 import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
 
 import { CHANNEL_INFO } from "@Constant/.";
-import { DEFAULT_CHARACTER_POSITION } from "@Constant/Three";
-
+import Camera from "@THREE/Atoms/Camera";
 import Keyboard from "@THREE/Atoms/Control/KeyBoard";
 import SocketComponent from "@THREE/Atoms/Socket";
 import Characters from "@THREE/Molecules/AjouMap/Characters";
@@ -17,6 +15,7 @@ import LoadingPage from "@Pages/Loding";
 import React, { ReactNode, Suspense, useRef } from "react";
 import type { PositionType } from "@Type/.";
 
+import { DEFAULT_CHARACTER_POSITION } from "@Constant/Three";
 import MetaContainer from "./styles";
 
 const MapContainer = ({ setJoinedUserNumber, children }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; children: ReactNode }) => {
@@ -29,7 +28,7 @@ const MapContainer = ({ setJoinedUserNumber, children }: { setJoinedUserNumber: 
       <Canvas>
         <RecoilRoot>
           <ambientLight />
-          <PointerLockControls />
+          <Camera myPosition={myPosition} />
           <pointLight position={[100, 100, 100]} intensity={1} />
           <Physics gravity={[0, 0, 0]}>
             <Suspense

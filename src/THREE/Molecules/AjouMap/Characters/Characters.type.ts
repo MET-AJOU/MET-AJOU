@@ -1,4 +1,4 @@
-import type { CharacterAPIRefsType, CharacterRefsType, CharacterType, PositionType } from "@Type/Three";
+import type { CharacterAPIRefsType, CharacterRefsType, CharacterType } from "@Type/Three";
 import type { Camera, Vector3 } from "three";
 
 export interface UseCharacterMovementProps {
@@ -34,7 +34,7 @@ export interface GetCharacterDirectionProps extends MoveDir {
 
 export interface SyncPositionWithServerProps {
   time: React.MutableRefObject<number>;
-  userPositions?: { position: PositionType }[];
+  characterStates: { instance: CharacterType[] };
   apis: CharacterAPIRefsType;
   delta: number;
 }
