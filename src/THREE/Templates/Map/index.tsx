@@ -15,13 +15,13 @@ import LoadingPage from "@Pages/Loding";
 import React, { ReactNode, Suspense, useRef } from "react";
 import type { PositionType } from "@Type/.";
 
-import { DEFAULT_CHARACTER_POSITION } from "@Constant/Three";
+import { START_CHARACTER_POSITION } from "@Constant/Three";
 import MetaContainer from "./styles";
 
 const MapContainer = ({ setJoinedUserNumber, children }: { setJoinedUserNumber: React.Dispatch<React.SetStateAction<number>>; children: ReactNode }) => {
   const setChatInfos = useSetRecoilState(chatAtom);
   const [userData, setUserData] = useRecoilState(userDataAtom);
-  const myPosition = useRef<PositionType>(DEFAULT_CHARACTER_POSITION);
+  const myPosition = useRef<PositionType>(START_CHARACTER_POSITION);
 
   return (
     <MetaContainer>
