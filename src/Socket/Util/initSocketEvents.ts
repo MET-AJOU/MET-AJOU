@@ -1,3 +1,4 @@
+import { CharacterStates } from "@Store/CharacterStates";
 import { changeUserName } from "@Recoils/UserData";
 import { routingType } from "@Route/util";
 import { CharacterType, ChatType } from "@Type/Three";
@@ -8,10 +9,13 @@ const initSocketEvents = ({ setOutUser, socket, setCharacters, setMyUserId, setJ
   socket.on("joinRoom", (joinUsers: CharacterType[]) => {
     setJoinedUserNumber(joinUsers.length);
     setCharacters(joinUsers);
+    CharacterStates.instance = joinUsers;
   });
+
   socket.on("joinNewUser", (joinUser: CharacterType) => {
     setJoinedUserNumber((prev) => prev + 1);
     setCharacters((joinUsers) => [...(joinUsers as CharacterType[]), joinUser]);
+    CharacterStates.instance = [...CharacterStates.instance, joinUser];
     setChatInfos((prev) => [
       ...prev,
       {
@@ -22,16 +26,23 @@ const initSocketEvents = ({ setOutUser, socket, setCharacters, setMyUserId, setJ
       },
     ]);
   });
-  socket.on("keyDown", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
-  socket.on("keyUp", (joinUsers: CharacterType[]) => setCharacters(joinUsers));
+  socket.on("keyDown", (joinUsers: CharacterType[]) => {
+    CharacterStates.instance = joinUsers;
+  });
+
+  socket.on("keyUp", (joinUsers: CharacterType[]) => {
+    CharacterStates.instance = joinUsers;
+  });
+
   socket.on("getUserId", (userId: string) => {
-    // 게스트일때만 받자
     setMyUserId(userId);
     setOutUser(changeUserName(userId));
   });
+
   socket.on("leaveUser", ({ joinUsers, leaveUserId }: { joinUsers: CharacterType[]; leaveUserId: string }) => {
     setJoinedUserNumber(joinUsers.length);
     setCharacters(joinUsers);
+    CharacterStates.instance = joinUsers;
     setChatInfos((prev) => [
       ...prev,
       {
@@ -42,17 +53,21 @@ const initSocketEvents = ({ setOutUser, socket, setCharacters, setMyUserId, setJ
       },
     ]);
   });
+
   socket.on("chat", (chatInfo: ChatType) => {
     setChatInfos((prev) => [...prev, chatInfo]);
   });
+
   socket.on("changeCharacter", ({ joinTime, userId }: { joinTime: string; userId: string }) => {
-    console.log("changeChacracter", joinTime, userId);
     setCharacters((prev) =>
       prev.map((character) => {
-        console.log(character.userId === userId);
         return character.userId === userId ? { ...character, joinTime } : character;
       })
     );
+  });
+
+  socket.on("changeCameraDirection", (joinUsers: CharacterType[]) => {
+    CharacterStates.instance = joinUsers;
   });
 };
 
