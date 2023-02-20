@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths": {
+            "@THREE/*": ["./THREE/*"],
+            "@Atoms/*": ["./Components/Atoms/*"],
+            "@Molecules/*": ["./Components/Molecules/*"],
+            "@Organisms/*": ["./Components/Organisms/*"],
+            "@Templates/*": ["./Components/Templates/*"],
+            "@Pages/*": ["./Components/Pages/*"],
+            "@Constant/*": ["./Common/Constant/*"],
+            "@Style/*": ["./Common/Style/*"],
+            "@Util/*": ["./Common/Util/*"],
+            "@Type/*": ["./Common/Type/*"],
+            "@Store/*":["./Common/Store/*"],
+            "@Route/*": ["./Routes/*"],
+            "@Recoils/*": ["./Recoils/*"],
+            "@Hook/*":["./Hook/*"],
+            "@Socket/*":["./Socket/*"],
+            
+        }
+    }
+}
