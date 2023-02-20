@@ -7,6 +7,7 @@ import { useRecoilValue } from "recoil";
 import Socket from "@Socket/.";
 import { DefaultKeyboardState } from "@Constant/Three";
 import type { MyPositionType } from "@Type/Three";
+import { KEYS } from "./KeyBoard.const";
 
 interface KeyConfig extends KeyMap {
   keys?: string[];
@@ -74,22 +75,8 @@ const getKeyState = () => {
 };
 
 const Keyboard = ({ myPosition }: { myPosition: MyPositionType }) => {
-  useKeys(
-    [
-      { keys: ["ArrowUp", "w", "W"], fn: (forward) => ({ forward }) },
-      { keys: ["ArrowDown", "s", "S"], fn: (backward) => ({ backward }) },
-      { keys: ["ArrowLeft", "a", "A"], fn: (left) => ({ left }) },
-      { keys: ["ArrowRight", "d", "D"], fn: (right) => ({ right }) },
-      { keys: ["Shift"], fn: (boost) => ({ boost }) },
-      { keys: ["Space", " "], fn: (space) => ({ space }) },
-      { keys: ["1"], fn: (hello) => ({ hello }) },
-      { keys: ["2"], fn: (dance) => ({ dance }) },
-      { keys: ["3"], fn: (happy) => ({ happy }) },
-      { keys: ["4"], fn: (question) => ({ question }) },
-      { keys: ["5"], fn: (lose) => ({ lose }) },
-    ],
-    myPosition
-  );
+  const keyConfig = Object.entries(KEYS).map(([order, keys]) => ({ keys, fn: (v: boolean) => ({ [order]: v }) }));
+  useKeys(keyConfig, myPosition);
   return null;
 };
 
