@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+protected_branch="^(main|production)"
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [[ $protected_branch =~ $current_branch ]];
+then
+    echo "${current_branch} is a protected branch, create PR to merge"
+    exit 1 # push will not execute
+else
+    echo "${current_branch}"
+    npm run build
+    exit 0 # push will execute
+fi
+
+
